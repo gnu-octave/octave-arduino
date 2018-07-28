@@ -1,0 +1,12 @@
+Name: arduino
+Version: 0.1.0
+Date: 2018-07-15
+Author: John Donoghue <john.donoghue@ieee.org>
+Maintainer: John Donoghue <john.donoghue@ieee.org>
+Title: Arduino Toolkit
+Description: Basic lookalike to the matlab arduino extension.
+Categories: Arduino Toolkit
+Depends: octave (>= 4.0.0), instrument-control (>= 0.3.0)
+SystemRequirements: arduino-ide (>= 1.5)
+License: GPLv3+
+Url: https://octave.sourceforge.io/arduino/
