@@ -24,21 +24,21 @@
 
 function dataOut = writeRead (obj, dataIn)
   dataOut = [];
-  ARDUINO_SPI_WRITE = 0;
+  persistent ARDUINO_SPI_WRITE = 0;
 
   if nargin < 2
     error ("@spidev.writeRead: expected dataIn");
   endif
 
-  writeDigitalPin(obj.arduinoobj, obj.chipselectpin, 0);
-  pause(.1);
-  for i=1:numel(dataIn)
+  writeDigitalPin (obj.arduinoobj, obj.chipselectpin, 0);
+  pause (.1);
+  for i=1:numel (dataIn)
     # TOOO: need send which port num of spi are using ?
-    [tmp, sz] = sendCommand(obj.arduinoobj, "spi", ARDUINO_SPI_WRITE, [0 dataIn(i)]);
+    [tmp, sz] = sendCommand (obj.arduinoobj, "spi", ARDUINO_SPI_WRITE, [0 dataIn(i)]);
     dataOut(i) = tmp(2);
   endfor
-  pause(.1);
-  writeDigitalPin(obj.arduinoobj, obj.chipselectpin, 1);
+  pause (.1);
+  writeDigitalPin (obj.arduinoobj, obj.chipselectpin, 1);
   
 endfunction
 

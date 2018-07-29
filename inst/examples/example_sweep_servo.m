@@ -16,22 +16,21 @@
 
 % example control servo on D9
 % scans servo between min - max position
-pkg load instrument-control
 
 a = arduino();
 
 unwind_protect
   # hobby servo with puslses between 1ms - 2 ms 
-  s = servo(a, 'd9', 'MinPulseDuration', 1e-3, 'MaxPulseDuration', 2e-3)
+  s = servo (a, 'd9', 'MinPulseDuration', 1e-3, 'MaxPulseDuration', 2e-3)
   # go mid position
-  writePosition(s, .5);
+  writePosition (s, .5);
 
   # loop, slowly going between min - max pos
   speed = 0.02;
   pauseval = .05;
-  printf("scanning ...\n");
-  while(true)
-    pos = readPosition(s);
+  printf ("scanning ...\n");
+  while (true)
+    pos = readPosition (s);
     pos = pos + speed;
     if(pos > 1)
       pos = 1;
@@ -42,8 +41,8 @@ unwind_protect
       speed = -speed;
     endif
 
-    writePosition(s, pos); 
-    pause(pauseval);
+    writePosition (s, pos); 
+    pause (pauseval);
 
   endwhile
 unwind_protect_cleanup

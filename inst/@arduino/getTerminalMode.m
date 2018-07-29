@@ -20,13 +20,13 @@
 ## @seealso{configurePinResource, getResourceOwner}
 ## @end deftypefn
 
-function retval = getTerminalMode(obj, terminal)
+function retval = getTerminalMode (obj, terminal)
 
   if nargin != 2
-    print_usage()
+    print_usage ()
   endif
 
-  pininfo = obj.get_pin(terminal);
+  pininfo = obj.get_pin (terminal);
 
   retval = pininfo.mode;
 endfunction

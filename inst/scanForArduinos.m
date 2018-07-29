@@ -53,16 +53,16 @@ function arduinos = scanForArduinos (maxCount, typestr)
   if ! isnumeric (maxCount)
     error ("scanForArduinos expected maxCount to be a number");
   endif
-  if ! ischar (typestr) && !isempty(typestr)
+  if ! ischar (typestr) && !isempty (typestr)
     error ("scanForArduinos expected typestr to be a board type");
-  elseif ischar(typestr)
-    typestr = tolower(typestr);
+  elseif ischar (typestr)
+    typestr = tolower (typestr);
   else
     typestr = "";
   endif
 
   # get list of serial ports to try
-  ports = instrhwinfo('serial');
+  ports = instrhwinfo ('serial');
 
   for i = 1:numel (ports)
     try
@@ -73,11 +73,11 @@ function arduinos = scanForArduinos (maxCount, typestr)
         else
           portname = ports{i};
         endif
-        s = serial(portname, 9600, 1);
+        s = serial (portname, 9600, 1);
         pause(2);
      
-        hdr = uint8([ hex2dec("A5") 0 ARDUINO_INIT_COMMAND 0]);
-        len = srl_write(s, hdr);
+        hdr = uint8 ([ hex2dec("A5") 0 ARDUINO_INIT_COMMAND 0]);
+        len = srl_write (s, hdr);
         [tmpdataOut, tmpdataSize] = srl_read (s, 4);
         
         if tmpdataSize == 4 && tmpdataOut(1) == hex2dec("A5") && tmpdataOut(3) == ARDUINO_INIT_COMMAND
@@ -86,13 +86,13 @@ function arduinos = scanForArduinos (maxCount, typestr)
           [dataout, datasize] = srl_read (s, expectlen);
 
           # init returns the following info
-          sig = (uint32(dataout(1))*256*256) + (uint32(dataout(2))*256) + uint32(dataout(3));
+          sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
           board = dataout(4);
-          voltref = double(dataout(5))/10.0;
-          if isempty(typestr) || (__boardTypeString__(board) == typestr)
+          voltref = double (dataout(5))/10.0;
+          if isempty (typestr) || (__boardTypeString__ (board) == typestr)
             info = {};
             info.port = portname;
-            info.board = __boardTypeString__(board);
+            info.board = __boardTypeString__ (board);
             arduinos{end+1} = info;
           
             if numel (arduinos) == maxCount
@@ -102,8 +102,8 @@ function arduinos = scanForArduinos (maxCount, typestr)
         endif
 
       unwind_protect_cleanup
-        if !isempty(s)
-          srl_close(s);
+        if !isempty (s)
+          srl_close (s);
         endif
       end_unwind_protect
 

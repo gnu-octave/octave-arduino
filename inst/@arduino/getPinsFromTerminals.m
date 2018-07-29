@@ -21,28 +21,28 @@
 ## @seealso{arduino, getTerminalsFromPins}
 ## @end deftypefn
 
-function retval = getPinsFromTerminals(obj, terminals)
+function retval = getPinsFromTerminals (obj, terminals)
 
   if nargin != 2
-    print_usage()
+    print_usage ()
   endif
 
   if iscell (terminals)
     retval = {};
-    for i=1:numel(terminals)
-      retval{end+1} = obj.get_pin(terminals{i}).name;
+    for i=1:numel (terminals)
+      retval{end+1} = obj.get_pin (terminals{i}).name;
     endfor
   elseif isvector (terminals) && numel (terminals) == 1
-    retval = obj.get_pin(terminals).name;
+    retval = obj.get_pin (terminals).name;
   elseif isvector (terminals)
     retval = {};
-    for i=1:numel(terminals)
-      retval{end+1} = obj.get_pin(terminals(i)).name;
+    for i=1:numel (terminals)
+      retval{end+1} = obj.get_pin (terminals(i)).name;
     endfor
-  elseif isnumeric(terminals)
-      retval = obj.get_pin(terminals).name;
+  elseif isnumeric (terminals)
+      retval = obj.get_pin (terminals).name;
   else
-    error ("getPinsFromTerminals: expected terminals as vector");
+    error ("@arduino.getPinsFromTerminals: expected terminals as vector");
   endif
 endfunction
 

@@ -28,8 +28,6 @@
 function p = i2cdev(varargin)
   ARDUINO_I2C_CONFIG = 1;
 
-  % Bus X (for where more than 1 i2c port)
-
   if nargin < 2
     error("expects arduino object and address");
   endif
@@ -94,7 +92,7 @@ function p = i2cdev(varargin)
      error("expected 2 I2C pins but only have %d", numel(p.pins) )
   endif
 
-  # TODO: save old modes and set them via force if we fail trying to alloc the whole group
+  # set pins
   try
     for i=1:2
       configurePin(ar, p.pins{i}.name, "i2c")

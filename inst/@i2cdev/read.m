@@ -24,7 +24,7 @@
 ## @seealso{arduino, i2cdev}
 ## @end deftypefn
 
-function out = read(dev, numbytes, precision)
+function out = read (dev, numbytes, precision)
   persistent ARDUINO_I2C_READ = 3;
   persistent endian;
   if isempty(endian)
@@ -34,40 +34,40 @@ function out = read(dev, numbytes, precision)
   if nargin < 2 || nargin > 3
     print_usage ();
   endif
-  if ~isnumeric(numbytes)
-    error("expected numbytes to be a number");
+  if ~isnumeric (numbytes)
+    error("@i2c.read: expected numbytes to be a number");
   endif
 
   if nargin == 3
-    if  !ischar(precision)
-      error("expected presision to be a string");
+    if  !ischar (precision)
+      error("@i2c.read: expected presision to be a string");
     endif
-    precision = tolower(precision);
-    if !strcmp(precision, "uint8") && !strcmp(precision, "int8") && !strcmp(precision, "uint16") && !strcmp(precision, "int16")
-      error("expected pression to be (u)int8 or (u)int16 string");
+    precision = tolower (precision);
+    if !strcmp (precision, "uint8") && !strcmp (precision, "int8") && !strcmp (precision, "uint16") && !strcmp(precision, "int16")
+      error ("@i2c.read: expected pression to be (u)int8 or (u)int16 string");
     endif
   else
     precision = 'uint8';
   endif
 
   datasize = 1;
-  if (strcmp(precision,'uint16') || strcmp(precision,'int16'))
+  if (strcmp (precision,'uint16') || strcmp (precision,'int16'))
     datasize = 2;
   endif
 
   % read request
-  [tmp, sz] = sendCommand(dev.arduinoobj, "i2c", ARDUINO_I2C_READ, [dev.address numbytes*datasize]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READ, [dev.address numbytes*datasize]);
   # skip address and return the data
 
-  out = typecast(uint8(tmp(2:end)), precision);
+  out = typecast (uint8(tmp(2:end)), precision);
 
-  if (strcmp(precision,'uint16') || strcmp(precision,'int16'))
+  if (strcmp (precision,'uint16') || strcmp (precision,'int16'))
     sz = sz/2;
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       out = swapbytes (out); 
     endif
   else
-    if (strcmp(precision, 'int8'))
+    if (strcmp (precision, 'int8'))
       out = int8(tmp(2:end))
     else
       out = tmp(2:end);

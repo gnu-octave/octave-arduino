@@ -27,17 +27,17 @@ function retval = decrementResourceCount (ar, resource)
     print_usage ();
   endif
 
-  if !ischar(resource)
-    error ("getResourceCount: expects resource name");
+  if !ischar (resource)
+    error ("@arduino.decrementResourceCount: expects resource name");
   endif
 
-  resinfo = ar.get_resource(resource);
+  resinfo = ar.get_resource (resource);
   if resinfo.count == 0
-    error ("decrementResourceCount: resource count is 0");
+    error ("@arduino.decrementResourceCount: resource count is 0");
   endif
 
   resinfo.count --;
-  ar.set_resource(resource, resinfo);
+  ar.set_resource (resource, resinfo);
   retval = resinfo.count;
 endfunction
 

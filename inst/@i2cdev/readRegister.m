@@ -30,67 +30,67 @@ function out = readRegister(dev, reg, numbytes, precision)
   if isempty(endian)
     [~, ~, endian] = computer ();
   endif
-  ARDUINO_I2C_READREG = 5;
+  persistent ARDUINO_I2C_READREG = 5;
 
   if nargin < 3 || nargin > 4
     print_usage ();
   endif
 
-  if ~isnumeric(reg)
-    error("expected reg to be a number");
+  if ~isnumeric (reg)
+    error ("@i2c.readRegister: expected reg to be a number");
   endif
-  if ~isnumeric(numbytes)
-    error("expected numbytes to be a number");
+  if ~isnumeric (numbytes)
+    error ("@i2c.readRegister: expected numbytes to be a number");
   endif
 
   if nargin == 4
-    if  !ischar(precision)
-      error("expected presision to be a string");
+    if  !ischar (precision)
+      error ("@i2c.readRegister: expected presision to be a string");
     endif
-    precision = tolower(precision);
-    if !strcmp(precision, "uint8") && !strcmp(precision, "int8") && !strcmp(precision, "uint16") && !strcmp(precision, "int16")
-      error("expected pression to be (u)int8 or (u)int16 string");
+    precision = tolower (precision);
+    if !strcmp (precision, "uint8") && !strcmp (precision, "int8") && !strcmp (precision, "uint16") && !strcmp(precision, "int16")
+      error ("@i2c.readRegister: expected pression to be (u)int8 or (u)int16 string");
     endif
   else
     precision = 'uint8';
   endif
 
-  if (strcmp(precision,'uint16'))
+  if (strcmp (precision,'uint16'))
     reg = uint16(reg);
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       reg = swapbytes (reg); 
     endif
-    reg = typecast(reg, 'uint8');
+    reg = typecast (reg, 'uint8');
     regsz = 2;
-  elseif (strcmp(precision,'int16'))
+  elseif (strcmp (precision,'int16'))
     reg = int16(reg);
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       reg = swabytes (reg); 
     endif
-    reg = typecast(reg, 'uint8');
+    reg = typecast (reg, 'uint8');
     regsz = 2;
   else
-    if (strcmp(precision, 'int8'))
-      reg = typecast(int8(reg), 'uint8');
+    if (strcmp (precision, 'int8'))
+      reg = typecast (int8(reg), 'uint8');
     else
-      reg = typecast(uint8(reg), 'uint8');
+      reg = typecast (uint8(reg), 'uint8');
     endif
     regsz = 1;
   endif
   % read  reg
-  [tmp, sz] = sendCommand(dev.arduinoobj, "i2c", ARDUINO_I2C_READREG, [dev.address regsz reg numbytes*regsz]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READREG, [dev.address regsz reg numbytes*regsz]);
   # skip address and and regsz and return the data
   out = tmp(3:end);
 
   % convert the outputs
-  if (strcmp(precision,'uint16') || strcmp(precision,'int16'))
+  if (strcmp (precision,'uint16') || strcmp (precision,'int16'))
     sz = sz/2;
-    out = typecast(out, precision);
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    out = typecast (out, precision);
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       out = swapbytes (out); 
     endif
   else
-    if (strcmp(precision, 'int8'))
+    if (strcmp (precision, 'int8'))
       out = int8(tmp(2:end));
     else
       out = tmp(2:end);

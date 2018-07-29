@@ -32,48 +32,51 @@
 ## @seealso{arduino, arduinosetup, listArduinoLibraries}
 ## @end deftypefn
 
-function retval = addon(ar, addonname, varargin)
+function retval = addon (ar, addonname, varargin)
+  
   if (! isa (ar, "arduino"))
     error("addon: expected first arguiment to be a arduino object");
   endif
 
   # verify arduino has the plugin name
-  p = ar.get_lib(addonname);
+  p = ar.get_lib (addonname);
   if p == -1
-    error("addon: arduino has not been programmed with a plugin named '%s'\n", addonname);
+    error ("addon: arduino has not been programmed with a plugin named '%s'\n", addonname);
   endif
 
-  availlibs = listArduinoLibraries();
+  availlibs = listArduinoLibraries ();
   addonlibs = __addons__ ();
 
-  # verify can find the lib in available one
-  idx = find( cellfun(@(x) strcmpi(x.libraryname, addonname), addonlibs), 1);
-  if isempty(idx)
-    idx = find( cellfun(@(x) strcmpi(x, addonname), availlibs), 1);
-    if isempty(idx)
+  # get addonin for the requested library
+  idx = find (cellfun(@(x) strcmpi(x.libraryname, addonname), addonlibs), 1);
+  if isempty (idx)
+    #if not found, was an inbuilt one ?
+    # verify can find the lib and get/make constructor of it
+    idx = find (cellfun(@(x) strcmpi(x, addonname), availlibs), 1);
+    if isempty (idx)
       error ("addon: unknown library '%s'", addonname);
     endif
 
     # a known normal addon like spi   
-    if strcmpi(addonname, "spi")
+    if strcmpi (addonname, "spi")
       lib = "spidev";  
-    elseif strcmpi(addonname, "i2c")
+    elseif strcmpi (addonname, "i2c")
       lib = "i2cdev"; 
-    elseif strcmpi(addonname, "servo")
+    elseif strcmpi (addonname, "servo")
       lib = "servo"; 
     else
       error ("addon: unknown builtin library '%s'", addonname);
     endif
   else
-    # user addon 
+    # user addon constructor
     lib = addonlibs{idx}.classname;
   endif
 
   # get constructor function handle
-  m = str2func(lib);
+  constructor = str2func (lib);
 
-   # create object
-   retval = m(ar, varargin{:});
+  # create object
+  retval = constructor (ar, varargin{:});
 
 endfunction
 

@@ -48,16 +48,16 @@ function arduino_binary = find_arduino_binary ()
 
   n = 0;
   while (n < numel (binaries) && isempty (arduino_binary))
-      arduino_binary = file_in_path (getenv ("PATH"), binaries{++n});
+    arduino_binary = file_in_path (getenv ("PATH"), binaries{++n});
   endwhile
   
   % if a pc, and have the winqueryreg function, try find the path
   if isempty(arduino_binary) && ispc ()
-     if exist('winqueryreg') == 5
-       try
-         arduino_binary = winqueryreg("HKLM", 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\arduino.exe');
-       end_try_catch 
-     endif
+    if exist('winqueryreg') == 5
+      try
+        arduino_binary = winqueryreg("HKLM", 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\arduino.exe');
+      end_try_catch 
+    endif
   endif
   if isempty(arduino_binary)
     error ("__arduino_binary__: can not find the arduino binary");

@@ -21,13 +21,13 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function retval = getLEDTerminals(obj)
+function retval = getLEDTerminals (obj)
 
   if nargin != 1
-    print_usage()
+    print_usage ()
   endif
 
-  retval = getTypeTerminals(obj, "led");
+  retval = getTypeTerminals (obj, "led");
 
 endfunction
 

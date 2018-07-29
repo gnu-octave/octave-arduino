@@ -26,51 +26,51 @@
 ## @seealso{arduino, i2cdev, read}
 ## @end deftypefn
 
-function write(dev, datain, precision)
+function write (dev, datain, precision)
   persistent endian;
   if isempty(endian)
     [~, ~, endian] = computer ();
   endif
 
-  ARDUINO_I2C_WRITE = 2;
+  persistent ARDUINO_I2C_WRITE = 2;
  
   if nargin < 2 || nargin > 3
     print_usage ();
   endif
 
   if nargin == 3
-    if  !ischar(precision)
-      error("expected presision to be a atring");
+    if  !ischar (precision)
+      error ("@i2c.write: expected presision to be a atring");
     endif
-    precision = tolower(precision);
-    if !strcmp(precision, "uint8") && !strcmp(precision, "int8") && !strcmp(precision, "uint16") && !strcmp(precision, "int16")
-      error("expected pression to be (u)int8 or (u)int16 string");
+    precision = tolower (precision);
+    if !strcmp (precision, "uint8") && !strcmp (precision, "int8") && !strcmp (precision, "uint16") && !strcmp(precision, "int16")
+      error ("@i2c.write: expected pression to be (u)int8 or (u)int16 string");
     endif
   else
     precision = 'uint8';
   endif
 
-  if (strcmp(precision,'uint16'))
+  if (strcmp (precision,'uint16'))
     datain = uint16(datain);
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       datain = swapbytes (datain); 
     endif
-    datain = typecast(datain, 'uint8');
-  elseif (strcmp(precision,'int16'))
+    datain = typecast (datain, 'uint8');
+  elseif (strcmp (precision,'int16'))
     datain = int16(datain);
-    if (endian == 'L' && strcmp(dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp(dev.bitorder, 'lsbfirst'))
+    if (endian == 'L' && strcmp (dev.bitorder,'msbfirst')) || (endian == 'B' && strcmp (dev.bitorder, 'lsbfirst'))
       datain = swapbytes (datain); 
     endif
-    datain = typecast(datain, 'uint8');
+    datain = typecast (datain, 'uint8');
   else
-    if (strcmp(precision, 'int8'))
-      datain = typecast(int8(datain), 'uint8');
+    if (strcmp (precision, 'int8'))
+      datain = typecast (int8(datain), 'uint8');
     else
-      datain = typecast(uint8(datain), 'uint8');
+      datain = typecast (uint8(datain), 'uint8');
     endif
   endif
 
   % write request
-  [tmp, sz] = sendCommand(dev.arduinoobj, "i2c", ARDUINO_I2C_WRITE, [dev.address datain]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_WRITE, [dev.address datain]);
 
 endfunction

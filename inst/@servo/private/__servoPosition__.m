@@ -17,19 +17,18 @@
 ## @end deftypefn
 
 function out = __servoPosition__ (obj, value)
-  ARDUINO_SERVO_POSITION = 0;
+  persistent ARDUINO_SERVO_POSITION = 0;
   out = 0;
 
   ar = obj.arduinoobj;
-  %pins = obj.pins
-  %pininfo = ar.get_pin(pins{1});
+
   pininfo = obj.pins{1};
 
   diff = obj.maxpulseduration - obj.minpulseduration;
-  assert(diff >= 0);
+  assert (diff >= 0);
 
   if nargin == 2
-    if !isnumeric(value) || value < 0 || value > 1.0
+    if !isnumeric (value) || value < 0 || value > 1.0
       error("@servo.writePosition: value must be between 0 and 1");
     endif
 
@@ -38,9 +37,9 @@ function out = __servoPosition__ (obj, value)
     intval = uint16(value*1e6);
 
     datain = [ bitshift(intval,-8) bitand(intval, 255)];
-    [tmp, sz] = sendCommand(ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id datain]);
+    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id datain]);
   else
-    [tmp, sz] = sendCommand(ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id]);
+    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id]);
     value = uint16(tmp(2))*256 + uint16(tmp(3));
     value = double(value)/1e6;
     value = value - obj.minpulseduration;

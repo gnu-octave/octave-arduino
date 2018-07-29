@@ -43,31 +43,31 @@
 ## @seealso{arduino, i2cdev}
 ## @end deftypefn
 
-function addr = scanI2Cbus(ar, bus)
+function addr = scanI2Cbus (ar, bus)
 
-  ARDUINO_I2C_SCAN = 0;
+  persistent ARDUINO_I2C_SCAN = 0;
 
   addr = {};
 
   if nargin < 1 || nargin > 2
-    print_usage();
+    print_usage ();
   endif
 
   if nargin == 1
     bus = 0;
-  elseif !isnumeric(bus) || bus < 0 || bus > 1
+  elseif !isnumeric (bus) || bus < 0 || bus > 1
     error ('scanI2Cbus: expected bus to be numeric and 0 or 1');
   endif
 
   if (!isa (ar, "arduino"))
-    error("scanI2Cbus: expects arduino object as 1st argument");
+    error ("scanI2Cbus: expects arduino object as 1st argument");
   endif
   
   # TODO: configure SPI pins if not already done??
 
   # scan each address, and add any found to cell array
   for i = 1:127
-     [tmp, sz] = sendCommand(ar, "i2c", ARDUINO_I2C_SCAN, [bus i]);
+     [tmp, sz] = sendCommand (ar, "i2c", ARDUINO_I2C_SCAN, [bus i]);
      if tmp(3) == 1
        addr{end+1} = [ "0x" dec2hex(i, 2) ];
      endif

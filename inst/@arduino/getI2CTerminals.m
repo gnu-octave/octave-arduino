@@ -21,7 +21,7 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function retval = getI2CTerminals(obj)
+function retval = getI2CTerminals (obj)
 
   if nargin != 1
     print_usage()

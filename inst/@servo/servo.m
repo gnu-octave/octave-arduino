@@ -46,7 +46,7 @@
 
 
 function this = servo(varargin)
-  ARDUINO_SERVO_CONFIG = 1;
+  persistent ARDUINO_SERVO_CONFIG = 1;
   
   if nargin < 2
     error("expects arduino object and servo pin");
@@ -60,26 +60,26 @@ function this = servo(varargin)
   this.maxpulseduration = 2.40e-03;
   this.pins = {};
   
-  if mod(nargin, 2) != 0
-    error ("arduino: expected property name, value pairs");
+  if mod (nargin, 2) != 0
+    error ("servo: expected property name, value pairs");
   endif
   if !iscellstr (varargin(3:2:nargin))
-    error ("arduino: expected property names to be strings");
+    error ("servo: expected property names to be strings");
   endif
   
   for i = 3:2:nargin
-    propname = tolower(varargin{i});
+    propname = tolower (varargin{i});
     propvalue = varargin{i+1};
     
     #printf("%s = %s\n", propname, propvalue);
     if propname == "minpulseduration"
-      if !isnumeric(propvalue)
-        error("minpulseduration should be a number");
+      if !isnumeric (propvalue)
+        error ("servo: minpulseduration should be a number");
       endif
       this.minpulseduration = propvalue;
     elseif propname == "maxpulseduration"
-      if !isnumeric(propvalue)
-        error("maxpulseduration should be a number");
+      if !isnumeric (propvalue)
+        error ("servo: maxpulseduration should be a number");
       endif
       this.maxpulseduration = propvalue;
     endif
@@ -87,20 +87,20 @@ function this = servo(varargin)
   endfor
     
   if (!isa (ar, "arduino"))
-    error("expects arduino object");
+    error ("servo: expects arduino object");
   endif
     
   this.arduinoobj = ar;
     
-  validatePin(ar, pin,'pwm');
+  validatePin (ar, pin,'pwm');
     
-  configurePin(ar, pin, "pwm");
+  configurePin (ar, pin, "pwm");
     
-  pininfo = ar.get_pin(pin);
+  pininfo = ar.get_pin (pin);
     
   this.pins{end+1} = pininfo;
     
-  sendCommand(ar, "servo", ARDUINO_SERVO_CONFIG, [pininfo.id]);
+  sendCommand (ar, "servo", ARDUINO_SERVO_CONFIG, [pininfo.id]);
     
   this = class (this, "servo");
 endfunction

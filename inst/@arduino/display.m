@@ -25,23 +25,23 @@ function retval = display (ar)
   printf ("%s = \n", inputname (1));
   printf ("  arduino object with fields of: \n");
   printf ("    port = ")
-  disp(ar.port);
+  disp (ar.port);
   
   printf ("    board = ")
-  disp(ar.board);
+  disp (ar.board);
   printf ("    libraries = {\n")
-  libs = ar.libraries();
-  for i=1:numel(libs)
+  libs = ar.libraries ();
+  for i=1:numel (libs)
     printf ("      %s\n", libs{i});
   endfor
   printf("    }\n");
   printf ("    availablepins = {\n")
-  for i=1:numel(ar.config.pins)
+  for i=1:numel (ar.config.pins)
     printf ("      %s\n", ar.config.pins{i}.name);
   endfor
   printf("    }\n");
   if ar.debug
     printf ("   config = \n");
-    disp(ar.config);
+    disp (ar.config);
   endif
 endfunction

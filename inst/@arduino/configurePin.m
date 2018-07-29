@@ -55,49 +55,49 @@
 
 function retval = configurePin (obj, pin, mode)
 
-  ARDUINO_CONFIGPIN = 2;
+  persistent ARDUINO_CONFIGPIN = 2;
 
   if nargin != 2 && nargin != 3 
     error ("@arduino.configurePin: expected pin name and value");
   endif
 
-  if !ischar(pin) && !isnumeric(pin)
+  if !ischar (pin) && !isnumeric (pin)
     error ("@arduino.configurePin: expected pin name as string");
   endif
   
-  pininfo = obj.get_pin(pin);
+  pininfo = obj.get_pin (pin);
   
   if nargin == 3
     % set mode
 
-    if !ischar(mode)
+    if !ischar (mode)
       error ("@arduino.configurePin: expected pin mode as string");
     endif
 
-    mode = tolower(mode);
+    mode = tolower (mode);
   
-    [pinstate, pinmode] = pinStateMode(mode);
+    [pinstate, pinmode] = pinStateMode (mode);
 
-    if strcmp(pinmode,"spi")
+    if strcmp (pinmode,"spi")
       # check special case of when pin is miso, make it an input
-      idx = find( cellfun(@(x) ~isempty(strfind(x, "_miso")), pininfo.modes), 1);
-      if !isempty(idx)
+      idx = find (cellfun(@(x) ~isempty (strfind (x, "_miso")), pininfo.modes), 1);
+      if !isempty (idx)
         pinstate = 2;
       endif
     endif
 
     % valid setting for this pin ?
-    if !strcmpi(mode, "unset")
+    if !strcmpi (mode, "unset")
       validatePin (obj, pin, pinmode);
     else
-      pinmode = getResourceOwner(obj, pin);
+      pinmode = getResourceOwner (obj, pin);
     endif
 
     % own this pin
     configurePinResource (obj, pin, pinmode, mode);
 
     # send config command to arduino
-    datain = uint8([pininfo.id pinstate]);
+    datain = uint8 ([pininfo.id pinstate]);
   
     [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_CONFIGPIN, datain);
     
@@ -107,14 +107,14 @@ function retval = configurePin (obj, pin, mode)
   else
     % get mode ?
     
-    datain = uint8([pininfo.id]);
+    datain = uint8 ([pininfo.id]);
     [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_CONFIGPIN, datain);
     
     if status != 0
       error ("@arduino.configurePin: failed to set pin state err=%d", status);
     endif
    
-    retval = pinStateMode(dataout(2));
+    retval = pinStateMode (dataout(2));
   endif
   
 endfunction

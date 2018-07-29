@@ -27,13 +27,13 @@ function retval = incrementResourceCount (ar, resource)
     print_usage ();
   endif
 
-  if !ischar(resource)
-    error ("getResourceCount: expects resource name");
+  if !ischar (resource)
+    error ("@arduino.getResourceCount: expects resource name");
   endif
 
-  resinfo = ar.get_resource(resource);
+  resinfo = ar.get_resource (resource);
   resinfo.count ++;
-  ar.set_resource(resource, resinfo);
+  ar.set_resource (resource, resinfo);
   retval = resinfo.count;
 endfunction
 

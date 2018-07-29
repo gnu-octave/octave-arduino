@@ -50,7 +50,7 @@ classdef arduino < handle
   
   methods (Access = public)
  
-    function p = arduino (varargin)
+    function this = arduino (varargin)
 
       if (nargin == 0)
         arduinos = scanForArduinos (1);
@@ -58,29 +58,29 @@ classdef arduino < handle
           error ("arduino: No arduinos found on serial scan");
         endif
 
-        p.board = arduinos{1}.board;
-        p.config = eval (sprintf("config_%s", arduinos{1}.board));
-        p.name = "arduino";
-        p.port = arduinos{1}.port;
-        p = __initArduino__(p);
+        this.board = arduinos{1}.board;
+        this.config = eval (sprintf ("config_%s", arduinos{1}.board));
+        this.name = "arduino";
+        this.port = arduinos{1}.port;
+        this = __initArduino__ (this);
       elseif (nargin == 1)
         arg0 = varargin{1};
         if (isa (arg0, "arduino"))
           # copy
-          p.config = arg0.config;
-          p.resources = arg0.resources;
-          p.name = arg0.name;
-          p.port = arg0.port;
-          p.connected = arg0.connected;
-          p.board = arg0.board;
+          this.config = arg0.config;
+          this.resources = arg0.resources;
+          this.name = arg0.name;
+          this.port = arg0.port;
+          this.connected = arg0.connected;
+          this.board = arg0.board;
         elseif ischar(arg0)
           # port given
-          p.config = config_uno;
-          p.board = "uno";
-          p.name = "arduino";
-          p.port = arg0;
-          p.connected = false;
-          p = __initArduino__(p);
+          this.config = config_uno;
+          this.board = "uno";
+          this.name = "arduino";
+          this.port = arg0;
+          this.connected = false;
+          this = __initArduino__ (this);
         else
           error ("arduino: port must be a string");         
         endif
@@ -88,66 +88,64 @@ classdef arduino < handle
         # at least port, board [optional property pairs]
         port = varargin{1};
         board = varargin{2};
-        if isempty(port)
+        if isempty (port)
           arduinos = scanForArduinos (1, board);
           if isempty (arduinos)
             error ("arduino: No matching arduinos found on serial scan");
           endif
           port = arduinos{1}.port;
           board = arduinos{1}.board;
-        elseif !ischar(port)
+        elseif !ischar (port)
           error ("arduino: port must be a string");         
         endif
         
-        if !ischar(port)
+        if !ischar (port)
           error ("arduino: board must be a string");         
         endif
 
-        if mod(nargin, 2) != 0
+        if mod (nargin, 2) != 0
           error ("arduino: expected property name, value pairs");
         endif
-        if !iscellstr (varargin(3:2:nargin))
+        if !iscellstr (varargin (3:2:nargin))
           error ("arduino: expected property names to be strings");
         endif
-        p.port = port;
-        p.name = ["arduino " board];
-        p.board = board;
-        #p.config = eval(sprintf("config_%s", board));
+        this.port = port;
+        this.name = ["arduino " board];
+        this.board = board;
 
-        # TODO propertys to set - currently do nothing with them
         requiredlibs = {};
         for i = 3:2:nargin
-          propname = tolower(varargin{i});
+          propname = tolower (varargin{i});
           propvalue = varargin{i+1};
 
           #printf("%s = %s\n", propname, propvalue);
-          if strcmp(propname,"debug")
+          if strcmp (propname,"debug")
             if propvalue
-              p.debug = 1;
+              this.debug = 1;
             endif
           endif
-          if strcmp(propname,"libraries")
-             if ischar(propvalue)
-               requiredlibs{end+1} = propvalue;
-             elseif iscellstr(propvalue)
-               requiredlibs = propvalue;
-             else
-               error ("arduino: expect libraries value to be a libraryname or cellarray of library names");
-             endif
+          if strcmp (propname,"libraries")
+            if ischar (propvalue)
+              requiredlibs{end+1} = propvalue;
+            elseif iscellstr (propvalue)
+              requiredlibs = propvalue;
+            else
+              error ("arduino: expect libraries value to be a libraryname or cellarray of library names");
+            endif
           endif
         endfor
 
-        p = __initArduino__(p);
+        this = __initArduino__ (this);
 
         # check have requested libs
-        for i = 1:numel(requiredlibs)
+        for i = 1:numel (requiredlibs)
           lib = requiredlibs{i};
-          id = p.get_lib(lib);
+          id = this.get_lib (lib);
           if id < 0
-            availablelibs = listArduinoLibraries();
+            availablelibs = listArduinoLibraries ();
             idx = find( cellfun(@(x) strcmpi(x, lib), availablelibs), 1);
-            if isempty(idx)
-               error ('arduino: unknown library "%s"', lib);
+            if isempty (idx)
+              error ('arduino: unknown library "%s"', lib);
             else
               error ('arduino: not configured with library "%s" - please rerun arduinosetup with library', lib);
             endif
@@ -157,60 +155,60 @@ classdef arduino < handle
     endfunction
 
     # helper functions
-    function set_debug(p, d)
-      p.debug = d;
+    function set_debug (this, d)
+      this.debug = d;
     endfunction
 
-    function d = get_debug(p)
-      d = p.debug;
+    function d = get_debug (this)
+      this = this.debug;
     endfunction
 
-    function id = get_lib (p, name)
-      idx = find( cellfun(@(x) strcmpi(x.name, name), p.config.libs), 1);
+    function id = get_lib (this, name)
+      idx = find( cellfun(@(x) strcmpi(x.name, name), this.config.libs), 1);
 
       if isempty (idx)
         id = -1;
       else
-        id = p.config.libs{idx}.id;
+        id = this.config.libs{idx}.id;
       endif
     endfunction
 
-    function set_pin (p, pin, info)
+    function set_pin (this, pin, info)
       if ischar(pin)
-        idx = find( cellfun(@(x) strcmpi(x.name, pin), p.config.pins), 1);
+        idx = find (cellfun(@(x) strcmpi (x.name, pin), this.config.pins), 1);
       else
-        idx = find( cellfun(@(x) (x.d == pin), p.config.pins), 1);
+        idx = find (cellfun(@(x) (x.d == pin), this.config.pins), 1);
       endif
 
       if isempty (idx)
         error ("arduino: unknown pin");
       endif
  
-      p.config.pins{idx} = info;
+      this.config.pins{idx} = info;
     endfunction
       
-    function info = get_pin (p, pin)
+    function info = get_pin (this, pin)
       if ischar(pin)
-        idx = find( cellfun(@(x) strcmpi(x.name, pin), p.config.pins), 1);
+        idx = find (cellfun(@(x) strcmpi (x.name, pin), this.config.pins), 1);
       else
-        idx = find( cellfun(@(x) (x.id == pin), p.config.pins), 1);
+        idx = find (cellfun(@(x) (x.id == pin), this.config.pins), 1);
       endif
 
       if isempty (idx)
         error (["arduino: unknown pin " pin]);
       endif
      
-      info = p.config.pins{idx};
+      info = this.config.pins{idx};
     endfunction
 
-    function retval = get_group(p,type)
+    function retval = get_group(this,type)
       retval = {};
 
-      for i = 1:numel(p.config.pins)
-        pininfo = p.config.pins{i};
-        idx = find( cellfun(@(x) strncmpi(x, type, length(type)), pininfo.modes), 1);
+      for i = 1:numel (this.config.pins)
+        pininfo = this.config.pins{i};
+        idx = find (cellfun(@(x) strncmpi (x, type, length (type)), pininfo.modes), 1);
         if !isempty(idx)
-          values = strsplit(pininfo.modes{idx}, "_");
+          values = strsplit (pininfo.modes{idx}, "_");
           info = {};
           info.name = pininfo.name;
           info.func = values{2};
@@ -221,20 +219,20 @@ classdef arduino < handle
       endfor
     endfunction
 
-    function retval = get_pingroup(p,pin,type)
+    function retval = get_pingroup(this, pin, type)
       retval = {};
-      pininfo = p.get_pin(pin);
-      idx = find( cellfun(@(x) strncmpi(x, type, length(type)), pininfo.modes), 1);
-      if !isempty(idx)
+      pininfo = this.get_pin(pin);
+      idx = find (cellfun(@(x) strncmpi(x, type, length(type)), pininfo.modes), 1);
+      if !isempty (idx)
         # possibly this will be in format of
         # type[XX]_YY where XX is a number ir: spi0, spi1 etc, 
         ##  _YY will be the pinfunction ie: scl, miso etc
-        values = strsplit(pininfo.modes{idx}, "_");
+        values = strsplit (pininfo.modes{idx}, "_");
         type = values{1};
 
-        for i = 1:numel(p.config.pins)
-           pininfo = p.config.pins{i};
-           idx = find( cellfun(@(x) strncmpi(x, type, length(type)), pininfo.modes), 1);
+        for i = 1:numel (this.config.pins)
+           pininfo = this.config.pins{i};
+           idx = find (cellfun(@(x) strncmpi(x, type, length (type)), pininfo.modes), 1);
            if !isempty(idx)
              values = strsplit(pininfo.modes{idx}, "_");
              info = {};
@@ -250,37 +248,37 @@ classdef arduino < handle
     
     function pins = availablepins(this)
       pins = {};
-      for i=1:numel(this.config.pins)
+      for i=1:numel (this.config.pins)
         pins{end+1} = this.config.pins{i}.name;
       endfor
     endfunction
 
     function libs = libraries(this)
       libs = {};
-      for i=1:numel(this.config.libs)
+      for i=1:numel (this.config.libs)
         libs{end+1} = this.config.libs{i}.name;
       endfor
     endfunction
 
-    function set_resource (p, resource, res)
-      resource = tolower(resource);
+    function set_resource (this, resource, res)
+      resource = tolower (resource);
 
       # make sure noone tries to change the name used for searching
       res.name = resource;
 
-      idx = find( cellfun(@(x) strcmp(x.name, resource), p.resources), 1);
+      idx = find (cellfun(@(x) strcmp(x.name, resource), this.resources), 1);
 
       if isempty (idx)
-        p.resources{end+1} = res;
+        this.resources{end+1} = res;
       else
-        p.resources{idx} = res;
+        this.resources{idx} = res;
       endif
  
     endfunction
       
-    function res = get_resource (p, resource)
+    function res = get_resource (this, resource)
       resource = tolower(resource);
-      idx = find( cellfun(@(x) strcmp(x.name, resource), p.resources), 1);
+      idx = find (cellfun(@(x) strcmp(x.name, resource), this.resources), 1);
 
       if isempty (idx)
         # none currently
@@ -289,7 +287,7 @@ classdef arduino < handle
         res.count = 0;
         res.owner = "";
       else
-        res = p.resources{idx};
+        res = this.resources{idx};
       endif
      
     endfunction

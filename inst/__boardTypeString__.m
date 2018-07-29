@@ -25,7 +25,7 @@ function retval = __boardTypeString__ (id)
     error ('expected id as a number');
   endif
   if ischar (id)
-    id = int(id);
+    id = int (id);
   endif
 
   # TODO: instead of hard coded here, could we scan the conf_ boards ?

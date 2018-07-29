@@ -21,14 +21,14 @@
 
 function retvalue = isTerminalDigital (obj, terminal)
   if nargin != 2
-    show_usage();
+    show_usage ();
   endif
 
-  pininfo = obj.get_pin(terminal);
+  pininfo = obj.get_pin (terminal);
   
-  idx = find( cellfun(@(x) strcmpi(x, "digital"), pininfo.modes), 1);
+  idx = find (cellfun(@(x) strcmpi (x, "digital"), pininfo.modes), 1);
   
-  if isempty(idx)
+  if isempty (idx)
     retvalue = false;
   else
    retvalue = true;

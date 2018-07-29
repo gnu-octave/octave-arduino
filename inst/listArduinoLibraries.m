@@ -33,7 +33,7 @@ function retval = listArduinoLibraries ()
 
   # add ons
   addonfiles = __addons__ ();
-  for i = 1:numel(addonfiles)
+  for i = 1:numel (addonfiles)
     retval{end+1} = addonfiles{i}.libraryname;
   endfor
 endfunction
