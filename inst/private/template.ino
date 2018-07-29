@@ -50,6 +50,8 @@ OctaveSPILibrary lib2(octavearduino);
 OctaveServoLibrary lib3(octavearduino);
 #endif
 
+// additional addons
+#include "addons.h"
 
 // include all the requested addon libs
 

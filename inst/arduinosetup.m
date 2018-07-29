@@ -22,9 +22,47 @@
 ## @seealso{arduino, __arduino_binary__}
 ## @end deftypefn
 
-function retval = arduinosetup ()
+function retval = arduinosetup (varargin)
   retval = 0;
-  
+
+  if mod(nargin, 2) != 0
+    error ("arduinosetup: expected property name, value pairs");
+  endif
+  if !iscellstr (varargin(1:2:nargin))
+    error ("arduinosetup: expected property names to be strings");
+  endif
+  libs = {};
+  for i = 1:2:nargin
+     propname = tolower(varargin{i});
+     propvalue = varargin{i+1};
+     if strcmp(propname, "libraries")
+       if iscell(propvalue)
+	 libs = propvalue;
+       elseif ischar(propvalue)
+	 libs{end+1} = propvalue;
+       else
+	       error("arduinosetup Expected libraries to be a cellarray or string");
+       endif
+     endif
+  endfor
+
+  # we have the libs ?
+  availlibs = listArduinoLibraries();
+  addonlibs = __addons__ ();
+
+  for i = 1:numel(libs)
+    idx = find( cellfun(@(x) strcmpi(x.libraryname, libs{i}), addonlibs), 1);
+    if isempty(idx)
+       idx = find( cellfun(@(x) strcmpi(x, libs{i}), availlibs), 1);
+       if isempty(idx)
+	  error ("unknown library '%s'", libs{i});
+       endif
+       libs{i} = [];
+    else
+       libs{i} = addonlibs{idx};
+    endif
+  endfor
+
   template = file_in_loadpath(fullfile("private", "template.ino"));
   if isempty(template)
     error ("arduinosetup: couldn't find private/template.ino");
@@ -49,6 +87,27 @@ function retval = arduinosetup ()
     fprintf(fd, "#define USE_I2C\n");   
     fprintf(fd, "#define USE_SERVO\n");   
     fprintf(fd, "#define USE_SHIFTREG\n");
+    fclose(fd);
+
+    # requested additional libs
+    fd = fopen (fullfile(tmpdir, "octave", "addons.h"), "w+t");
+    fprintf(fd, "// generated from arduinosetup\n");
+    for i = 1:numel(libs)
+       l = libs{i};
+       if !isempty(l)
+	 if !isempty(l.cppheaderfile)
+           copyfile(l.cppheaderfile, fullfile(tmpdir, "octave"));
+	   [d,f,e] = fileparts(l.cppheaderfile);
+           fprintf(fd, '#include "%s%s"\n', f,e);   
+	   if !isempty(l.cppclassname)
+	     fprintf (fd, "%s addon%d(octavearduino);\n", l.cppclassname, i);
+           endif
+	 endif
+	 if !isempty(l.cppsourcefile)
+           copyfile(l.cppsourcefile, fullfile(tmpdir, "octave"));
+	 endif
+       endif
+    endfor
     fclose(fd);
     
     # start the arduino ide
