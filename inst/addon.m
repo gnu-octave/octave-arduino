@@ -64,6 +64,8 @@ function retval = addon (ar, addonname, varargin)
       lib = "i2cdev"; 
     elseif strcmpi (addonname, "servo")
       lib = "servo"; 
+    elseif strcmpi (addonname, "shiftregister")
+      lib = "shiftRegister"; 
     else
       error ("addon: unknown builtin library '%s'", addonname);
     endif

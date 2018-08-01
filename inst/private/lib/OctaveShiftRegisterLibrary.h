@@ -1,5 +1,5 @@
 /*
- * Octave arduino core interface
+ * Octave arduino shift register interface
  * Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -17,11 +17,10 @@
 */
 #include "LibraryBase.h"
 
-class OctaveCoreLibrary : public LibraryBase
+class OctaveShiftRegisterLibrary : public LibraryBase
 {
-  OctaveArduinoClass &occlass;
 public:
-   OctaveCoreLibrary(OctaveArduinoClass &oc);
+   OctaveShiftRegisterLibrary(OctaveArduinoClass &oc);
    void commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t payload_size);
 };
 

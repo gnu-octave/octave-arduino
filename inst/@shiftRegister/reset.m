@@ -15,32 +15,16 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} listArduinoLibraries ()
-## show all known arduino library modules are available.
+## @deftypefn {} reset (@var{register})
+## clear the shift register value.
 ##
-## @var{retval} is an cell array of string library names. 
+## @var{register} - shift register created from shiftRegister call.
 ##
-## @seealso{arduino, arduinosetup}
+## @seealso{shiftRegister, read, write}
 ## @end deftypefn
 
-function retval = listArduinoLibraries ()
-  retval = {};
-
-  # hardcoded libraries
-  retval{end+1} = 'I2C';
-  retval{end+1} = 'Servo';
-  retval{end+1} = 'SPI';
-  retval{end+1} = 'ShiftRegister';
-
-  # add ons
-  addonfiles = __addons__ ();
-  for i = 1:numel (addonfiles)
-    retval{end+1} = addonfiles{i}.libraryname;
-  endfor
+function reset(register)
+  persistent ARDUINO_SHIFTREG_RESET = 0;
+  # TODO: see if we have a reset pin ?
+  [tmp, sz] = sendCommand(register.parent, "shiftregister", ARDUINO_SHIFTREG_RESET, [register.id]);
 endfunction
-
-%!test
-%! libs = listArduinoLibraries ();
-%! assert (!isempty (libs))
-%! assert (! isempty (find(strcmp(libs, 'SPI'))));
-%! assert (isempty (find(strcmp(libs, 'unknown'))));

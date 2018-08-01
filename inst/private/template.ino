@@ -16,26 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-// TODO:    need query on connect any required /used addons
-// on 1st talk to a device, if dont have the libid yet, try get it
-// or set to -1 if not there and error ?
-// OR
-// on start up, just query each index till is none for each library to store
-// and use that idx
-
 #include "settings.h"
 
 
 #include "LibraryBase.h"
 
-// TODO should be a singleton instance
+// lib manager / processing
 static OctaveArduinoClass octavearduino;
 
-// include the base librart
+// include the base library
 #include "OctaveCoreLibrary.h"
 OctaveCoreLibrary lib0(octavearduino);
 
-#ifdef USE_SPI
+#ifdef USE_I2C
 #include "OctaveI2CLibrary.h"
 OctaveI2CLibrary lib1(octavearduino);
 #endif
@@ -50,10 +43,15 @@ OctaveSPILibrary lib2(octavearduino);
 OctaveServoLibrary lib3(octavearduino);
 #endif
 
-// additional addons
+#ifdef USE_SHIFTREG
+#include "OctaveShiftRegisterLibrary.h"
+OctaveShiftRegisterLibrary lib4(octavearduino);
+#endif
+
+
+// additional addons included from generated addons.h file
 #include "addons.h"
 
-// include all the requested addon libs
 
 void setup() {
   // clear watchdog
