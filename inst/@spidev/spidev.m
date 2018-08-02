@@ -16,12 +16,20 @@
 ## Create an spidev object to communicate to the spi port on a connected arduino.
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{cspin} - chip select pin of selected spi port.
+##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
+##
 ## Currently known properties:
-## * bitrate - bit rate speed in Mbs
-## * bitorder - 'msbfirst' or 'lsbfirst'
-## * mode - SPI mode 0 - 3.
+## @table @asis
+## @item bitrate
+## bit rate speed in Mbs
+## @item bitorder
+## 'msbfirst' or 'lsbfirst'
+## @item mode
+## SPI mode 0 - 3.
+## @end table
 ##
 ## @seealso{arduino, readWrite}
 ## @end deftypefn

@@ -21,15 +21,19 @@
 ## @deftypefnx {} {@var{register} =} shiftRegister(@var{ar},'74hc595', @var{dataPin}, @var{clockPin}, @var{latchPin} , @var{resetPin})
 ## Create shift register of type @var{shifttype}, controlled by the input pin types.
 ##
-## Common function definition:
+## Common function parameter definition:
 ##
 ## @var{ar} - connected arduino object.
+##
 ## @var{shifttype} - string name of the shift register type.
+##
 ## @var{dataPin} - pin used for data in/out of the device.
+##
 ## @var{clockPin} - pin used for clocking data on the shiftRegister.
+##
 ## @var{register} - register object
 ##
-## Other variabled are depant on the shift register type:
+## Other variables are dependant on the shift register type:
 ## @table @asis
 ## @item '74hc164'
 ## Additional inputs:

@@ -98,8 +98,8 @@ $(RELEASE_DIR): .hg/dirstate
 	hg archive --exclude ".hg*" --type files "$@"
 	cd "$@" && rm -rf "devel/" && rm -rf "deprecated/"
 #	cd "$@/src" && aclocal -Im4 && autoconf && $(RM) -r "src/autom4te.cache"
-	cd "$@/src" && ./bootstrap
-	cd "$@" && $(MAKE) test_files
+#	cd "$@/src" && ./bootstrap
+#	cd "$@" && $(MAKE) test_files
 	cd "$@" && $(RM) Makefile
 	chmod -R a+rX,u+w,go-w "$@"
 

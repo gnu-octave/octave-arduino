@@ -12,11 +12,13 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dataOut} =} readWrite (@var{spi}, @var{dataIn})
-## write @var{datain} uint8 data to spi device @var{spi} and return 
+## Write @var{datain} uint8 data to spi device @var{spi} and return 
 ## back clocked out response data of same size.
 ##
 ## @var{spi} - connected spi device on arduin
+##
 ## @var{dataIn} - uint8 sized data to send to spi device framed between SS frame.
+##
 ## @var{dataOut} - uint8 data clocked out during send to dataIn.
 ##
 ## @seealso{arduino, spidev}

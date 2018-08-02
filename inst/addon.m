@@ -17,13 +17,13 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} addon (@var{ar}, @var{addonname})
 ## @deftypefnx {} {@var{retval} =} addon (@var{ar}, @var{addonname}, varargs)
-## Create an addon object using the addon named class of @{addonname}.
+## Create an addon object using the addon named class of @var{addonname}.
 ##
 ##
 ## @var{retval} is an cell array of string library names. 
 ##
-## @{addonname} is the name of the addon to create. The addon name can be a user 
-## addon or an inbuilt addon, however must appeart in the listArduinoLibraries 
+## @var{addonname} is the name of the addon to create. The addon name can be a user 
+## addon or an inbuilt addon, however must appear in the listArduinoLibraries 
 ## output and have been programmed onto the arduino.
 ##
 ## @var{varargs} are optional values that will be provided verbatim to the

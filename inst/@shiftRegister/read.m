@@ -20,9 +20,11 @@
 ## read a value from the shift register.
 ##
 ## @var{register} - shift register created from shiftRegister call.
+##
 ## @var{precision} - optional precision of the data, where precision can be a 
 ## number in a multipe of 8 (ie: 8,16,32) or can be a named integer type:     8
-# of 'uint8', 'uint16', 'uint32'.  The default  precision is 8.
+## of 'uint8', 'uint16', 'uint32'.  The default  precision is 8.
+##
 ## @var{retval} - returned data rea from the register.
 ##
 ## @seealso{shiftRegister, write}

@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@{val} = } subsref (@var{dev}, @{sub})
+## @deftypefn {} {@var{val} = } subsref (@var{dev}, @var{sub})
 ## subref for i2cdev
 ##
 ## @seealso{i2cdev}

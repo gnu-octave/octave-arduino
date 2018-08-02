@@ -17,7 +17,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} arduino ()
 ## @deftypefnx {} {@var{retval} =} arduino (@var{port})
-## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @{board})
+## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board})
 ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board}[, [@var{propname}, @var{propvalue}]*)
 ## Create a arduino object with a connection to an arduino board.
 ## 
