@@ -96,7 +96,7 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
            sendResponseMsg(cmdID,data, 4);
          }
          else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
          }
          break;
        }
@@ -106,13 +106,13 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
           data[1] = SPI.transfer(data[1]);
           sendResponseMsg(cmdID,data, 2);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;  
 #endif
 
       default:
-        sendResponseMsg(ARDUINO_ERROR,data, 0);
+        sendUnknownCmdIDMsg();
         break;
     }
 }

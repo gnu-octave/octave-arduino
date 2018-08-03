@@ -29,8 +29,8 @@
 ## @end deftypefn
 
 function [dataOut,payloadSize] = sendCommand (obj, libname, commandid, data, timeout)
-  if nargin < 4
-    show_usage();
+  if nargin < 3
+    error ('sendCommand: missing expected arguments of libname, commandid');
   endif
 
   if (isempty(libname))
@@ -43,6 +43,14 @@ function [dataOut,payloadSize] = sendCommand (obj, libname, commandid, data, tim
     endif
   endif
 
+  if ! isnumeric (commandid)
+    error ('sendCommand: command id should be a number');
+  endif
+
+  if (nargin < 4)
+     data = [];
+  endif
+
   if (nargin < 5)
      timeout = 5;
   endif
@@ -50,8 +58,29 @@ function [dataOut,payloadSize] = sendCommand (obj, libname, commandid, data, tim
   [dataOut, status] = __sendCommand__ (obj, libid, commandid, data, timeout);
  
   if status != 0
-    error ("sendCommand: failed valid response err=%d", status);
+    error ("sendCommand: failed err=%d: msg=%s", status, char(dataOut));
   endif 
   
   payloadSize = numel(dataOut);
 endfunction
+
+%!shared ar
+%! ar = arduino();
+
+%!error <undefined> sendCommand();
+
+%!error <missing expected arguments> sendCommand(ar);
+
+%!error <missing expected arguments> sendCommand(ar, "");
+
+%!error <command id should be a number> sendCommand(ar, "", "str");
+
+%!test
+%! % valid config pin msg
+%! assert(numel(sendCommand(ar, "", 2,  [2])) > 0);
+
+# valid packet, but unknown id
+%!error <Unknown cmdID> sendCommand(ar, "", 255, [2 2]);
+
+# query config pin without the data
+%!error <Invalid number of args> sendCommand(ar, "", 2);

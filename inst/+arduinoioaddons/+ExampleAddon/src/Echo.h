@@ -17,6 +17,8 @@
  */
 #include "LibraryBase.h"
 
+const char MSG_NEEDS_VALUE[] PROGMEM = "Needs a value to echo";
+
 class Echo : public LibraryBase
 {
 public:
@@ -31,12 +33,16 @@ public:
       {
       case 0x01:
         {
-          sendResponseMsg(cmdID, data, datasz);
+	  if(datasz == 0)
+	    sendErrorMsg_P(MSG_NEEDS_VALUE);
+	  else
+            sendResponseMsg(cmdID, data, datasz);
           break;
         }
       default:
         {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          // notify of invalid cmd
+          sendUnknownCmdIDMsg();
         }
       }
   }

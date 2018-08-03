@@ -54,7 +54,7 @@ void OctaveServoLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t da
           servo[data[0]].writeMicroseconds(ms);
           sendResponseMsg(cmdID,data, 1);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;
       case ARDUINO_CONFIG_SERVO:
@@ -65,12 +65,12 @@ void OctaveServoLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t da
         servo[data[0]].attach(data[0]);
           sendResponseMsg(cmdID,data, 1);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;
 #endif
       default:
-        sendResponseMsg(ARDUINO_ERROR,data, 0);
+        sendUnknownCmdIDMsg();
         break;
     }
 }

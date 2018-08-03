@@ -41,7 +41,8 @@
 // board voltage = actualV*10
 #define BOARD_VOLTAGE 50
 
-static uint8_t map_config_mode[] = {
+
+static const uint8_t map_config_mode[] PROGMEM = {
   INPUT, // unset
   INPUT, // analoginput
   INPUT, // dig in
@@ -100,7 +101,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
     case ARDUINO_GETLIB:
       {
         if(datasz != 1)
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
 	else
 	{
 	  // lib idx
@@ -127,7 +128,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           pinMode(data[0], mode);
           sendResponseMsg(cmdID,data, 0);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break; 
         
@@ -144,7 +145,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           digitalWrite(data[0], data[1]); 
           sendResponseMsg(cmdID,data, 0);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;  
 
@@ -156,7 +157,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           data[2] = (val)&0xff;
           sendResponseMsg(cmdID,data, 3);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;  
 
@@ -166,11 +167,11 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           analogWrite(data[0], data[1]);
           sendResponseMsg(cmdID,data, 0);
         } else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+          sendInvalidNumArgsMsg();
         }
         break;  
       default:
-        sendResponseMsg(ARDUINO_ERROR,data, 0);
+        sendUnknownCmdIDMsg();
         break;
     }
 }

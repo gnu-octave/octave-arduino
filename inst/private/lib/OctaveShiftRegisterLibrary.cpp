@@ -44,7 +44,9 @@
 #define SER_74HC164_CLK    1
 #define SER_74HC164_RESET  2
 
-
+static const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
+static const char ERRORMSG_CANT_READ[] PROGMEM = "This register cant not read";
+static const char ERRORMSG_CANT_WRITE[] PROGMEM = "This register can not write";
 
 #ifdef USE_SHIFTREG
 
@@ -318,23 +320,26 @@ void OctaveShiftRegisterLibrary::commandHandler(uint8_t cmdID, uint8_t* data, ui
               reg->pins[c+1] = data[3+c];
             }
             reg->init();
+        
+	    sendResponseMsg(cmdID,data, 2);
           }
           // free
           else if(data[1] == 0 && reg->used > 0 && datasz == 2)
           {
             reg->used = 0;
             reg->free();
+
+	    sendResponseMsg(cmdID,data, 2);
           }
           else
           {
-            cmdID = ARDUINO_ERROR;
+            sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
           }
         }
         else 
         {
-          cmdID = ARDUINO_ERROR;
+          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
         }
-        sendResponseMsg(cmdID,data, 2);
         break;
       }
       case ARDUINO_RESET_SHIFTREG:
@@ -344,13 +349,12 @@ void OctaveShiftRegisterLibrary::commandHandler(uint8_t cmdID, uint8_t* data, ui
         if(reg && reg->used > 0)
         {
           data[1] = reg->reset();
+          sendResponseMsg(cmdID,data, 2);
         }
         else 
         {
-          cmdID = ARDUINO_ERROR;
-          data[1] = 0;
+          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
         }
-        sendResponseMsg(cmdID,data, 2);
         break;
       }
       case ARDUINO_WRITE_SHIFTREG:
@@ -375,22 +379,18 @@ void OctaveShiftRegisterLibrary::commandHandler(uint8_t cmdID, uint8_t* data, ui
             reg->latch();
             reg->csenable(false);
 
+            sendResponseMsg(cmdID,data, datasz);
           }
           else 
           { 
             // chip cant do write
-            cmdID = ARDUINO_ERROR;
-            datasz = 2;
-            data[1] = 0;
+            sendErrorMsg_P(ERRORMSG_CANT_WRITE);
           }
         }
         else 
         {
-          cmdID = ARDUINO_ERROR;
-          datasz = 2;
-          data[1] = 0;
+          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
         }
-        sendResponseMsg(cmdID,data, datasz);
         break;
       }
       case ARDUINO_READ_SHIFTREG:
@@ -411,28 +411,25 @@ void OctaveShiftRegisterLibrary::commandHandler(uint8_t cmdID, uint8_t* data, ui
               data[c] = reg->read();
             }
             reg->csenable(false);
+        
+	    sendResponseMsg(cmdID, data, datasz);
           }
           else
           {
             // cant read
-            cmdID = ARDUINO_ERROR;
-            data[1] = 0;
-            datasz = 2;
+            sendErrorMsg_P(ERRORMSG_CANT_READ);
           }
         }
         else 
         {
-          cmdID = ARDUINO_ERROR;
-          data[1] = 0;
-          datasz = 2;
+          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
         }
  
-        sendResponseMsg(cmdID, data, datasz);
         break;
       }
 #endif
       default:
-        sendResponseMsg(ARDUINO_ERROR,data, 0);
+        sendUnknownCmdIDMsg();
         break;
     }
 }

@@ -27,7 +27,10 @@
 #define STATE_DATA 4
 #define STATE_EOM  5
 
-void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, uint8_t *data, uint8_t sz)
+static const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
+static const char ERRORMSG_UNKNOWN_CMDID[] PROGMEM = "Unknown cmdID";
+
+void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz)
 {
   Serial.write((uint8_t)ARDUINO_SOH);
   Serial.write((uint8_t)id);
@@ -37,6 +40,56 @@ void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, uint8_t *data, uint8_t sz
     Serial.write(data, sz);
   }
   Serial.flush();
+}
+
+void OctaveLibraryBase::sendErrorMsg(const char *err)
+{
+  // work out len to max 200
+  int len = 0;
+  while(err[len] != '\0' && len < 200) len++;
+
+  sendResponseMsg(ARDUINO_ERROR, (uint8_t *)err, len);
+}
+
+void OctaveLibraryBase::sendResponseMsg_P(uint8_t cmdID, const uint8_t *data PROGMEM, uint8_t sz)
+{
+  char tmp[256];
+
+  for(int i=0;i<sz;i++) 
+  {
+    tmp[i] = pgm_read_byte_near(data+i);
+  }
+
+  sendResponseMsg(cmdID, (uint8_t *)tmp, sz);
+}
+
+
+void OctaveLibraryBase::sendErrorMsg_P(const char *err PROGMEM)
+{
+  // work out len to max 200
+  char tmp[200];
+  int ch;
+  int len = 0;
+
+  ch = pgm_read_byte_near(err);
+  while(ch != '\0' && len < 200) 
+  {
+    tmp[len] = ch;
+    len ++;
+    ch = pgm_read_byte_near(err+len);
+  }
+
+  sendResponseMsg(ARDUINO_ERROR, (uint8_t *)tmp, len);
+}
+
+void OctaveLibraryBase::sendUnknownCmdIDMsg()
+{
+  sendErrorMsg_P(ERRORMSG_UNKNOWN_CMDID);
+}
+
+void OctaveLibraryBase::sendInvalidNumArgsMsg()
+{
+  sendErrorMsg_P(ERRORMSG_INVALID_NUMBER_OF_ARGS);
 }
 
 OctaveArduinoClass::OctaveArduinoClass()

@@ -50,7 +50,7 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
         {
           // address
           // data
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
         }
         else {
           Wire.beginTransmission(data[0]); // should be i2c_address
@@ -70,8 +70,7 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
         {
           // address
           // numbytes
-          
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
         }
         else {
           Wire.requestFrom(data[0], data[1]);
@@ -97,10 +96,10 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
           // regsz
           // reg
           // numbytes
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
         }
         else if (datasz != data[1]+3) {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
         }
         else {
           Wire.beginTransmission(data[0]);
@@ -129,7 +128,7 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
        {
         if(datasz != 2)
         {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
         }
         else {
           byte error;
@@ -186,13 +185,13 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
            sendResponseMsg(cmdID,data, 3);
          }
          else {
-          sendResponseMsg(ARDUINO_ERROR,0,0);
+	  sendInvalidNumArgsMsg();
          }
          break;
        }
 #endif
       default:
-        sendResponseMsg(ARDUINO_ERROR,data, 0);
+        sendUnknownCmdIDMsg();
         break;
     }
 }

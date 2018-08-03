@@ -66,8 +66,10 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    endif
    if tmpdataSize < 4
      errcode = 1;
-   elseif tmpdataOut(1) != hex2dec("A5") || tmpdataOut(3) != cmd
+     dataOut = "Undersized packet header";
+   elseif tmpdataOut(1) != hex2dec("A5") || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255)
      errocode = 2;
+     dataOut = "Malformed packet header";
    else
      expectlen =  tmpdataOut(4);
      if expectlen > 0
@@ -80,8 +82,18 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
      endif
      if tmpdataSize != expectlen
          errcode = 3;
+         dataOut = "Malformed packet body";
+     elseif tmpdataOut(3) == 255
+	 # valid packet, but was coz we got an error
+         errcode = 10;
+	 if expectlen == 0
+           dataOut = "Recieved error status";;
+	 else
+           dataOut = char(dataOut);
+	 endif
      else
 	 errcode = 0;
+	 # all is good
      endif
 
    endif
