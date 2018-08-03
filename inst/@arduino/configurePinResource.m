@@ -66,7 +66,7 @@
 
 function retval = configurePinResource (obj, pin, owner, mode, forceconfig)
   if nargin != 2 && nargin != 4 && nargin != 5 
-    show_usage ();
+    error ('@arduino.configurePinResource: invalid number of arduments supplied');
   endif
   
   if !ischar(pin)

@@ -21,7 +21,7 @@
 
 function retvalue = isTerminalAnalog (obj, terminal)
   if nargin != 2
-    show_usage ();
+    error ('@arduino.isTerminalAnalog: expected single terminal value');
   endif
 
   pininfo = obj.get_pin (terminal);
@@ -47,8 +47,8 @@ endfunction
 
 %!error <undefined> isTerminalAnalog()
 
-%!error <undefined> isTerminalAnalog(ar)
+%!error <expected single terminal value> isTerminalAnalog(ar)
 
-%!error <undefined> isTerminalAnalog(ar, "d1", 1)
+%!error <expected single terminal value> isTerminalAnalog(ar, "d1", 1)
 
 

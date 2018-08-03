@@ -21,7 +21,7 @@
 
 function retvalue = isTerminalDigital (obj, terminal)
   if nargin != 2
-    show_usage ();
+    error ('@arduino.isTerminalDigital: expected single terminal value');
   endif
 
   pininfo = obj.get_pin (terminal);
@@ -47,9 +47,9 @@ endfunction
 
 %!error <undefined> isTerminalDigital()
 
-%!error <undefined> isTerminalDigital(ar)
+%!error <expected single terminal value> isTerminalDigital(ar)
 
-%!error <undefined> isTerminalDigital(ar, "d1", 1)
+%!error <expected single terminal value> isTerminalDigital(ar, "d1", 1)
 
 %!error <unknown pin> isTerminalDigital(ar, -1)
 

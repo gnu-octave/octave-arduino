@@ -62,7 +62,7 @@ function register = shiftRegister(ar,type,dataPin,clockPin, varargin)
   if (nargin == 1 && isa (ar, "shiftRegister"))
     register = ar;   # Copy constructor
   elseif nargin < 4
-    show_usage();
+    error ('Expected type, dataPin and clockPin');
   else
     p.parent = ar;
     p.model = toupper(type);
