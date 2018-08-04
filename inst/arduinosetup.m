@@ -48,10 +48,18 @@ function retval = arduinosetup (varargin)
     endif
   endfor
 
+  if isempty(libs)
+    # default libs if not are provided
+    libs{end+1} = "SPI";
+    libs{end+1} = "I2C";
+    libs{end+1} = "Servo";
+  endif
+
   # we have the libs ?
   availlibs = listArduinoLibraries ();
   addonlibs = __addons__ ();
 
+  builtinlibs = {};
   for i = 1:numel(libs)
     idx = find (cellfun(@(x) strcmpi(x.libraryname, libs{i}), addonlibs), 1);
     if isempty(idx)
@@ -59,15 +67,16 @@ function retval = arduinosetup (varargin)
        if isempty (idx)
          error ("arduinosetup: unknown library '%s'", libs{i});
        endif
+       builtinlibs{end+1} = libs{i};
        libs{i} = [];
     else
        libs{i} = addonlibs{idx};
     endif
   endfor
 
-  template = file_in_loadpath (fullfile("private", "template.ino"));
-  if isempty (template)
-    error ("arduinosetup: couldn't find private/template.ino");
+  libfiles = arduinoio.LibFiles();
+  if isempty (libfiles)
+    error ("arduinosetup: couldn't find library files");
   endif
 
   # make a temp folder and create a arduino project in it
@@ -76,24 +85,37 @@ function retval = arduinosetup (varargin)
   
   unwind_protect
     mkdir (fullfile (tmpdir, "octave"));
-    filename = fullfile (tmpdir, "octave", "octave.ino");
-    copyfile (template, filename, 'f');
-
-    # copy over any lib sources in the lib dir in same folder as template.ino
-    dirname = fileparts (template);
-    copyfile (fullfile (dirname, "lib", "*.[ch]*"), fullfile (tmpdir, "octave"))
+    
+    # copy all the libfiles
+    copyfile (libfiles, fullfile (tmpdir, "octave"))
 
     fd = fopen (fullfile (tmpdir, "octave", "settings.h"), "w+t");
-    fprintf (fd, "// generated from arduinosetup - comment to remiove inbuild functionality\n");
-    fprintf (fd, "#define USE_SPI\n");   
-    fprintf (fd, "#define USE_I2C\n");   
-    fprintf (fd, "#define USE_SERVO\n");   
-    fprintf (fd, "#define USE_SHIFTREG\n");
+    fprintf (fd, "// generated from arduinosetup for buildin library configuration\n");
+
+    idx = find (cellfun(@(x) strcmpi(x, "SPI"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_SPI\n");   
+    endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "I2C"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_I2C\n");   
+    endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "Servo"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_SERVO\n");   
+    endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "ShiftRegister"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_SHIFTREG\n");
+    endif
     fclose (fd);
 
     # requested additional libs
     fd = fopen (fullfile (tmpdir, "octave", "addons.h"), "w+t");
-    fprintf(fd, "// generated from arduinosetup\n");
+    fprintf(fd, "// generated from arduinosetup for addon library addidtions\n");
     for i = 1:numel (libs)
        l = libs{i};
        if !isempty (l)
@@ -113,6 +135,7 @@ function retval = arduinosetup (varargin)
     fclose(fd);
     
     # start the arduino ide
+    filename = fullfile (tmpdir, "octave", "octave.ino");
     cmdline = sprintf ("\"%s\" \"%s\"", __arduino_binary__ (), filename);
     printf ("Running %s\n", cmdline);
     system (cmdline);
