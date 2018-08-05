@@ -44,11 +44,6 @@ classdef arduino < handle
     connected = false;
   endproperties
 
-  properties (SetAccess = private, GetAccess = public)
-    port = "<not set>";
-    board = 'uno';
-  endproperties
-
   properties (Access = public)
     name = ""
     debug = false;
@@ -64,11 +59,8 @@ classdef arduino < handle
           error ("arduino: No arduinos found on serial scan");
         endif
 
-        this.board = arduinos{1}.board;
-        this.config = eval (sprintf ("config_%s", arduinos{1}.board));
         this.name = "arduino";
-        this.port = arduinos{1}.port;
-        this = __initArduino__ (this);
+        this = __initArduino__ (this, arduinos{1}.port, arduinos{1}.board);
       elseif (nargin == 1)
         arg0 = varargin{1};
         if (isa (arg0, "arduino"))
@@ -76,17 +68,12 @@ classdef arduino < handle
           this.config = arg0.config;
           this.resources = arg0.resources;
           this.name = arg0.name;
-          this.port = arg0.port;
           this.connected = arg0.connected;
-          this.board = arg0.board;
         elseif ischar(arg0)
           # port given
-          this.config = config_uno;
-          this.board = "uno";
           this.name = "arduino";
-          this.port = arg0;
           this.connected = false;
-          this = __initArduino__ (this);
+          this = __initArduino__ (this, arg0, "");
         else
           error ("arduino: port must be a string");         
         endif
@@ -115,9 +102,7 @@ classdef arduino < handle
         if !iscellstr (varargin (3:2:nargin))
           error ("arduino: expected property names to be strings");
         endif
-        this.port = port;
         this.name = ["arduino " board];
-        this.board = board;
 
         requiredlibs = {};
         for i = 3:2:nargin
@@ -141,7 +126,7 @@ classdef arduino < handle
           endif
         endfor
 
-        this = __initArduino__ (this);
+        this = __initArduino__ (this, port, board);
 
         # check have requested libs
         for i = 1:numel (requiredlibs)
@@ -175,10 +160,6 @@ classdef arduino < handle
     # helper functions that get/set values in the private config
     function m = get_mcu (this)
       m = this.config.mcu;
-    endfunction
-
-    function d = get_board (this)
-      this = this.config.board;
     endfunction
 
     function id = get_lib (this, name)
@@ -276,6 +257,14 @@ classdef arduino < handle
       for i=1:numel (this.config.libs)
         libs{end+1} = this.config.libs{i}.name;
       endfor
+    endfunction
+
+    function p = port(this)
+      p = this.config.port;
+    endfunction
+
+    function b = board(this)
+      b = this.config.board;
     endfunction
 
     function set_resource (this, resource, res)

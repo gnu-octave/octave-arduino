@@ -25,10 +25,10 @@ function retval = display (ar)
   printf ("%s = \n", inputname (1));
   printf ("  arduino object with fields of: \n");
   printf ("    port = ")
-  disp (ar.port);
+  disp (ar.config.port);
   
   printf ("    board = ")
-  disp (ar.board);
+  disp (ar.config.board);
   printf ("    libraries = {\n")
   libs = ar.libraries ();
   for i=1:numel (libs)

@@ -12,11 +12,11 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} __initArduino__ (@var{obj})
+## @deftypefn {} {@var{retval} =} __initArduino__ (@var{obj}, @var{port}, @var{board})
 ## Private function
 ## @end deftypefn
 
-function retval = __initArduino__ (obj)
+function retval = __initArduino__ (obj, port, board)
  
    % send command and get back reponse
    ARDUINO_INIT = 1;
@@ -24,8 +24,8 @@ function retval = __initArduino__ (obj)
    
    ok = false;
    
-   if obj.port
-     obj.connected = serial (obj.port, 9600, 2);
+   if !isempty(port) || !ischar(port)
+     obj.connected = serial (port, 9600, 2);
      # need wait for aduino to potentially startup
      pause(2);
      
@@ -52,14 +52,16 @@ function retval = __initArduino__ (obj)
      numlib = uint8(dataout(6));
 
      % check board against config info
-     if ~isempty(obj.board) && (obj.board != boardtype)
+     if ~isempty(board) && (board != boardtype)
        warning("connected %s arduino does not match requested board type %s", boardtype, obj.board)
      endif
 
-     obj.board = boardtype;
+     #obj.board = boardtype;
 
      obj.config = eval(sprintf("config_%s", boardtype));
 
+     obj.config.port = port;
+     obj.config.board = boardtype;
      obj.config.voltref = voltref;
      obj.config.mcu = mcu;
      obj.config.libs = {};
@@ -76,6 +78,8 @@ function retval = __initArduino__ (obj)
 	 obj.config.libs{end+1} = lib;
        endif 
      endfor
+   else
+     error ("__initArduino__: expected a valid port");
    endif
    
    retval = obj;
