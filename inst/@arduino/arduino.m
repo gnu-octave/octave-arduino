@@ -38,14 +38,20 @@
 ## @end deftypefn 
 
 classdef arduino < handle
-  properties
-    name = ""
-    port = "<not set>";
-    board = 'uno';
-    debug = false;
+  properties (Access = private)
     config = {};
     resources = {}
     connected = false;
+  endproperties
+
+  properties (SetAccess = private, GetAccess = public)
+    port = "<not set>";
+    board = 'uno';
+  endproperties
+
+  properties (Access = public)
+    name = ""
+    debug = false;
   endproperties
   
   methods (Access = public)
@@ -153,6 +159,9 @@ classdef arduino < handle
         endfor
       endif
     endfunction
+  endmethods
+
+  methods (Hidden = true)
 
     # helper functions
     function set_debug (this, d)
@@ -161,6 +170,15 @@ classdef arduino < handle
 
     function d = get_debug (this)
       this = this.debug;
+    endfunction
+
+    # helper functions that get/set values in the private config
+    function m = get_mcu (this)
+      m = this.config.mcu;
+    endfunction
+
+    function d = get_board (this)
+      this = this.config.board;
     endfunction
 
     function id = get_lib (this, name)

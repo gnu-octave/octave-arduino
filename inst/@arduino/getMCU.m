@@ -21,12 +21,12 @@
 ## @end deftypefn
 
 function retval = getMCU (obj)
-  retval = obj.config.mcu;  
+  retval = obj.get_mcu ();  
 endfunction
 
 %!test
-%! ar = arduino();
-%! assert(!isempty(ar));
-%! mcu = getMCU(ar);
-%! assert(ischar(mcu))
-%! assert(mcu, ar.config.mcu)
+%! ar = arduino ();
+%! assert (!isempty (ar));
+%! mcu = getMCU (ar);
+%! assert (ischar (mcu))
+%! assert (mcu, ar.get_mcu ())
