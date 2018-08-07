@@ -15,7 +15,7 @@
 ## Write @var{datain} uint8 data to spi device @var{spi} and return 
 ## back clocked out response data of same size.
 ##
-## @var{spi} - connected spi device on arduin
+## @var{spi} - connected spi device on arduino
 ##
 ## @var{dataIn} - uint8 sized data to send to spi device framed between SS frame.
 ##

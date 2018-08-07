@@ -26,7 +26,7 @@
 ## @item bus
 ## bus number (when arduino board supports multiple i2c buses)
 ## with value of 0 or 1.
-## @endtable
+## @end table
 ##
 ## @seealso{arduino}
 ## @end deftypefn

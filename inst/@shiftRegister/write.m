@@ -17,7 +17,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} write (@var{register}, @var{dataIn})
 ## @deftypefnx {} write (@var{register}, @var{dataIn}, @var{precision})
-## Write a value {dataIn} to the shift register.
+## Write a value @{dataIn} to the shift register.
 ##
 ## @var{register} - shift register created from shiftRegister call.
 ##
