@@ -13,12 +13,15 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes})
 ## @deftypefnx {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes}, @var{precision})
-## Read @var{numbytes} from regiter @var{reg} of i2cdev object @var{dev} 
+## Read @var{numbytes} from register @var{reg} of i2cdev object @var{dev} 
 ## using optional precision for bytesize.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev
-## @var{reg} - registry value
+##
+## @var{reg} - registry value number
+##
 ## @var{numbytes} - number of bytes to read.
+##
 ## @var{precision} - Optional precision for the output data read data.
 ## Currently known precision values are uint8 (defualt), int8, uint16, int16
 ##

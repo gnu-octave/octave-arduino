@@ -17,9 +17,11 @@
 ## using option precision for bytesize.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev
+##
 ## @var{numbytes} - number of bytes to read.
+##
 ## @var{precision} - Optional precision for the output data read data.
-## Currently known precision values are uint8 (defualt), int8, uint16, int16
+## Currently known precision values are uint8 (default), int8, uint16, int16
 ##
 ## @seealso{arduino, i2cdev}
 ## @end deftypefn

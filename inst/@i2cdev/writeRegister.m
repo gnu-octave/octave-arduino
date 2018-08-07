@@ -17,7 +17,9 @@
 ## using optional precision for the data byte used for the data.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev
+##
 ## @var{reg} - registry position to write to.
+##
 ## @var{datain} - data to write to device. Datasize should not exceed the contraints 
 ## of the data type specified for the precison.
 ##

@@ -15,12 +15,18 @@
 ## @deftypefnx {} {@var{dev} =} i2cdev (@var{ar}, @var{address}, @var{propname}, @var{propvalue})
 ## Create an i2cdev object to communicate to the i2c port on a connected arduino.
 ##
-## @var{ar} - connected rduino object
+## @var{ar} - connected arduino object
+##
 ## @var{address} - address to use for device on i2c bus.
+##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
+##
 ## Currently known properties:
-## bus - bus number (when arduino board supports multiple i2c buses)
+## @table @asis
+## @item bus
+## bus number (when arduino board supports multiple i2c buses)
 ## with value of 0 or 1.
+## @endtable
 ##
 ## @seealso{arduino}
 ## @end deftypefn
