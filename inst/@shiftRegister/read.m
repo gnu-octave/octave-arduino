@@ -25,7 +25,7 @@
 ## number in a multipe of 8 (ie: 8,16,32) or can be a named integer type:     8
 ## of 'uint8', 'uint16', 'uint32'.  The default  precision is 8.
 ##
-## @var{retval} - returned data rea from the register.
+## @var{retval} - returned data read from the register.
 ##
 ## @seealso{shiftRegister, write}
 ## @end deftypefn
