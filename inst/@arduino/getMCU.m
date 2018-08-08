@@ -15,6 +15,7 @@
 ## Get the MCU used by the connected arduino.
 ##
 ## @var{ar} - arduino object connected to a arduino board.
+##
 ## @var{mcu} - string representing the mcu used by the arduino board.
 ##
 ## @seealso{arduino}

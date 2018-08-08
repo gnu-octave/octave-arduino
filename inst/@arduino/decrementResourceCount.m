@@ -16,8 +16,11 @@
 ## new count
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{resource} - name of resource to decrement count.
+##
 ## @var{count} = count of uses registered to resource.
+##
 ## @seealso{getResourceCount. incrementResourceCount}
 ## @end deftypefn
 

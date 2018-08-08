@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{pinlist} =} getLEDTerminals (@var{ar})
-## Get a cell list of pin Ids available are connected nativly to LEDs.
+## Get a cell list of pin Ids available are connected natively to LEDs.
 ##
 ## @var{ar} - the arduino object.
 ##

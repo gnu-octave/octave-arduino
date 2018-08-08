@@ -12,20 +12,22 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{voltage} =} readVoltage (@var{ar}, @var{pin})
-## Read analog voltage of  @var{pin}.
+## Read analog voltage of @var{pin}.
 ##
 ## @var{ar} - connected arduino.
+##
 ## @var{pin} - pin name or number to query for voltage
+##
 ## @var{voltage} - scaled pin value as a voltage
 ##
-## Exmaple usage:
+## Example usage:
 ## @example
-## @code
+## @code{
 ## ar = arduino ();
 ## readVoltage(ar, "A4");
-## @end code
 ## ans = 
 ##     1.401
+## }
 ## @end example
 ## @seealso{arduino, readAnalogPin}
 ## @end deftypefn

@@ -11,19 +11,28 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid}, @var{data}, @var{timeout})
+## @deftypefn {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid})
+## @deftypefnx {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid}, @var{data})
+## @deftypefnx {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid}, @var{data}, @var{timeout})
 ## Send a command @var{commandid} @var{data} to the connected aduino @var{ar}, waiting up to @var{timeout} seconds
 ## for a response.
 ##
 ## @var{ar} - connected arduino object.
-## @var{libname} - library sending the command. Note: currently this value being ignored.
+##
+## @var{libname} - library sending the command. The name should match a programmed 
+## library of the arduino, or an error will be displayed.
+##
 ## @var{commandid} - integer value for the command being sent to the arduino.
+##
 ## @var{data} - optional data sent with the command.
-## @var{timeout} - timeout to wait for data
+##
+## @var{timeout} - optional timeout to wait for data
+##
 ## @var{outdata} - data returned back from the arduino in response to command
+##
 ## @var{outsize} - size of data recieved out
 ##
-## If the arduino fails to repond with a valid reply, sendCommand will error.
+## If the arduino fails to respond with a valid reply, sendCommand will error.
 ##
 ## @seealso{arduino}
 ## @end deftypefn

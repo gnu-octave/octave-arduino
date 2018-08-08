@@ -15,9 +15,12 @@
 ## Get the pin names from the input terminal values.
 ## 
 ## @var{ar} - the connected arduino object.
+##
 ## @var{terminals} - the numeric pin number, or array of pin numbers to get pin names.
-## @var{pinnames} - the string names of each input pin. If terminals was a signle value, the return
+##
+## @var{pinnames} - the string names of each input pin. If terminals was a single value, the return
 ## will be a single string, otherwise it will return a cell array of each pin name.
+##
 ## @seealso{arduino, getTerminalsFromPins}
 ## @end deftypefn
 

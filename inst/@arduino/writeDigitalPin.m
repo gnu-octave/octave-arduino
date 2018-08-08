@@ -15,7 +15,9 @@
 ## Write digital value @var{value} to digital I/O @var{pin}.
 ##
 ## @var{ar} - connected arduino object.
+##
 ## @var{pin} - string name of the pin to write to.
+##
 ## @var{value} - the logical value (0, 1, true false) to write to the pin.
 ##
 ## If pin was unconfigured beore using, pin is set into digital mode.
@@ -25,6 +27,7 @@
 ## a = arduino();
 ## writeDigitalPin(a,'D5',1);
 ## @end example
+##
 ## @seealso{arduino, readDigitalPin}
 ## @end deftypefn
 

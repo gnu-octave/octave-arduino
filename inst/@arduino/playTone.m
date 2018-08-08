@@ -17,9 +17,6 @@
 ## Currently function does nothing.
 ## @end deftypefn
 
-## Author: jdonoghue <jdonoghue@JYRW4S1>
-## Created: 2018-05-15
-
 function playTone (obj, pin, freq, duration)
   warning('playTone: currently does nothing');
 endfunction

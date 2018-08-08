@@ -15,8 +15,11 @@
 ## Get the owner of pin allocated previously by configurePinResource.
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{terminal} - terminal number to get owner of.
+##
 ## @var{owner} = owner of the terminal pin, or "" if not owned.
+##
 ## @seealso{configurePinResource}
 ## @end deftypefn
 

@@ -25,8 +25,11 @@
 ## mode if the mode is unset.
 ##
 ## @var{ar} - the ardiuno object of the connection to an arduino board.
+##
 ## @var{pin} - string name of the pin to set/get the mode of.
+##
 ## @var{mode} - string mode to set the pin to or is currently set to.
+##
 ## Modes can be:
 ## @itemize @bullet
 ## @item AnalogInput
@@ -50,7 +53,8 @@
 ## set at the next operation.
 ## @end itemize
 ##
-## @seealso{arduino, validatePin}
+## @seealso{arduino}
+##
 ## @end deftypefn
 
 function retval = configurePin (obj, pin, mode)

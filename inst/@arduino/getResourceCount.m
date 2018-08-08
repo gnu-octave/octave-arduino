@@ -15,8 +15,11 @@
 ## Get the @var{count} of uses of @var{resource}.
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{resource} - name of resource to get count for.
+##
 ## @var{count} = count of uses registered to resource.
+##
 ## @seealso{incrementResourceCount. decrementResourceCount}
 ## @end deftypefn
 

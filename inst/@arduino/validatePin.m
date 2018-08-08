@@ -12,21 +12,26 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} validatePin (@var{ar}, @var{pin}, @var{type})
-## validate that the mode is allowed for specified pin
+## Validate that the mode is allowed for specified pin
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{pin} -  name of pin to query mode validity of
+##
 ## @var{mode} - mode to query
 ## 
 ## Known modes are:
-## 'I2C'
-## 'SPI'
-## 'PWM'
-## 'Servo'
-## 'analog'
-## 'digital'
+## @itemize @bullet
+## @item 'I2C'
+## @item 'SPI'
+## @item 'PWM'
+## @item 'Servo'
+## @item 'analog'
+## @item 'digital'
 ##
-## @seealso(arduino}
+## @end itemize
+##
+## @seealso{arduino, configurePin}
 ## @end deftypefn
 
 function validatePin (obj, pin, type)

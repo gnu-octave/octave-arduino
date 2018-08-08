@@ -12,11 +12,14 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{ret} = } isTerminalAnalog (@var{obj}, @var{terminal})
-## Return true if pin is capanle of analog input
+## Return true if pin is capable of analog input
 ##
 ## @var{ar} - the connected arduino object
+##
 ## @var{terminal} is a terminal number ot check
+##
 ## @var{ret} return 1 of is a analog pin, 0 otherwise
+##
 ## @end deftypefn
 
 function retvalue = isTerminalAnalog (obj, terminal)

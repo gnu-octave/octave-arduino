@@ -9,13 +9,14 @@
 ## WITHOUT ANY WARRANTY; without even the implied warranty of
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
+
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} display (@var{ar})
 ## Display the arduino ovject in a verbose way, showing the board, board and available pins.
 ##
 ## @var{ar} - the arduino object.
 ##
-## if the arduino has debig mode set, additional information will be displayed.
+## If the arduino object has debug mode set, additional information will be displayed.
 ##
 ## @seealso{arduino}
 ## @end deftypefn

@@ -15,7 +15,9 @@
 ## Return true if pin is capable of digital functions
 ##
 ## @var{ar} - the connected arduino object
+##
 ## @var{terminal} is a terminal number ot check
+##
 ## @var{ret} return 1 of is a digital pin, 0 otherwise
 ## @end deftypefn
 

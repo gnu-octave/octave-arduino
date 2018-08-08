@@ -15,7 +15,9 @@
 ## Read digital value @var{value} from digital I/O @var{pin}.
 ##
 ## @var{ar} - connected arduino object.
+##
 ## @var{pin} - string name of the pin to read.
+##
 ## @var{value} - the logical value (0, 1, true false) of the current pin state.
 ##
 ## Example usage

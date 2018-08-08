@@ -15,8 +15,11 @@
 ## Get the mode of a pin allocated previously by configurePinResource.
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{terminal} - terminal number to get owner of.
+##
 ## @var{mode} = mode of the terminal pin, or "not_set" if not owned.
+##
 ## @seealso{configurePinResource, getResourceOwner}
 ## @end deftypefn
 

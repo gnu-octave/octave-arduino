@@ -15,7 +15,9 @@
 ## Emulate an approximate voltage out of pin @var{pin} using PWM.
 ##
 ## @var{ar} - connected arduino object
+##
 ## @var{pin} - pin to write to.
+##
 ## @var{voltage} - voltage to emulate with PWM, between 0 - 5.0
 ##
 ## Example usage:
