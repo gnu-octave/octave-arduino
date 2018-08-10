@@ -20,10 +20,10 @@
 ##
 ## Exmaple usage:
 ## @example
-## @code
+## @code{
 ## ar = arduino ();
 ## readAnalogPin(ar, "A4");
-## @end code
+## }
 ## ans = 
 ##     87
 ## @end example

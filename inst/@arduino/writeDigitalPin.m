@@ -24,11 +24,14 @@
 ##
 ## Example usage
 ## @example
+## @code{
 ## a = arduino();
 ## writeDigitalPin(a,'D5',1);
+## }
 ## @end example
 ##
 ## @seealso{arduino, readDigitalPin}
+##
 ## @end deftypefn
 
 function writeDigitalPin (obj, pin, value)

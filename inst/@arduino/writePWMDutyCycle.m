@@ -18,15 +18,18 @@
 ##
 ## @var{pin} - pin to write to.
 ##
-## @var{value} - duty cycle value where 0 = off, 0.5 = 50@% on, 1 = always on.
+## @var{value} - duty cycle value where 0 = off, 0.5 = 50% on, 1 = always on.
 ##
 ## example usage
 ## @example
+## @code{
 ## a = arduino();
 ## writePWMDutyCycle(a,'D5',0.5);
+## }
 ## @end example
 ##
 ## @seealso{arduino, writePWMVoltage}
+##
 ## @end deftypefn
 
 function writePWMDutyCycle (obj, pin, value)
