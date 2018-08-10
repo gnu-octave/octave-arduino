@@ -13,10 +13,10 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =}  __boardTypeString__ (@var{type})
-## Private function to set convert board id to a (lowercase) string
+## Helper function to set convert board id to a (lowercase) string
 ## @end deftypefn
 
-function retval = __boardTypeString__ (id)
+function retval = boardTypeString (id)
 
   if nargin != 1
     error ('expected id');
@@ -28,8 +28,6 @@ function retval = __boardTypeString__ (id)
     id = int (id);
   endif
 
-  # TODO: instead of hard coded here, could we scan the conf_ boards ?
-
   switch (id)
     case 0
       retval = "uno";
@@ -40,5 +38,5 @@ function retval = __boardTypeString__ (id)
 endfunction
 
 %!test
-%! assert(__boardTypeString__ (0), "uno")
-%! assert(__boardTypeString__ (-1), "unknown")
+%! assert(arduinoio.boardTypeString (0), "uno")
+%! assert(arduinoio.boardTypeString (-1), "unknown")

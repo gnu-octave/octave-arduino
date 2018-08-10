@@ -89,10 +89,10 @@ function arduinos = scanForArduinos (maxCount, typestr)
           sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
           board = dataout(4);
           voltref = double (dataout(5))/10.0;
-          if isempty (typestr) || (__boardTypeString__ (board) == typestr)
+          if isempty (typestr) || (aruinoio.boardTypeString (board) == typestr)
             info = {};
             info.port = portname;
-            info.board = __boardTypeString__ (board);
+            info.board = arduinoio.boardTypeString (board);
             arduinos{end+1} = info;
           
             if numel (arduinos) == maxCount

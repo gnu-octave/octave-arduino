@@ -47,7 +47,7 @@ function retval = __initArduino__ (obj, port, board)
 	   mcu = "unknown";
      endswitch
 
-     boardtype = __boardTypeString__(dataout(4));
+     boardtype = arduinoio.boardTypeString(dataout(4));
      voltref = double(dataout(5))/10.0;
      numlib = uint8(dataout(6));
 
