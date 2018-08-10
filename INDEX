@@ -1,0 +1,68 @@
+arduino >> Arduino Toolkit
+General Functions
+  arduinosetup
+  listArduinoLibraries
+  scanForArduinos
+Arduino Functions
+  @arduino/configurePin
+  @arduino/configurePinResource
+  @arduino/decrementResourceCount
+  @arduino/display
+  @arduino/getI2CTerminals
+  @arduino/getLEDTerminals
+  @arduino/getMCU
+  @arduino/getPWMTerminals
+  @arduino/getPinsFromTerminals
+  @arduino/getResourceCount
+  @arduino/getResourceOwner
+  @arduino/getSPITerminals
+  @arduino/getServoTerminals
+  @arduino/getTerminalMode
+  @arduino/getTerminalsFromPins
+  @arduino/incrementResourceCount
+  @arduino/isTerminalAnalog
+  @arduino/isTerminalDigital
+  @arduino/playTone
+  @arduino/readAnalogPin
+  @arduino/readDigitalPin
+  @arduino/readVoltage
+  @arduino/reset
+  @arduino/sendCommand
+  @arduino/validatePin
+  @arduino/writeDigitalPin
+  @arduino/writePWMDutyCycle
+  @arduino/writePWMVoltage
+  @arduino/arduino
+Arduino I2C Functions
+  scanI2Cbus
+  @i2cdev/display
+  @i2cdev/i2cdev
+  @i2cdev/read
+  @i2cdev/readRegister
+  @i2cdev/subsref
+  @i2cdev/write
+  @i2cdev/writeRegister
+Arduino Servo Functions
+  @servo/display
+  @servo/readPosition
+  @servo/servo
+  @servo/subsref
+  @servo/writePosition
+Arduino Shiftregister Functions
+  @shiftRegister/display
+  @shiftRegister/read
+  @shiftRegister/reset
+  @shiftRegister/shiftRegister
+  @shiftRegister/write
+Arduino SPI Functions
+  @spidev/display
+  @spidev/spidev
+  @spidev/subsref
+  @spidev/writeRead
+Arduino Addons
+  addon
+  arduinoioaddons.ExampleAddon.Echo
+Arduino I/O package
+  arduinoio.FilePath
+  arduinoio.LibFiles
+  arduinoio.LibraryBase
