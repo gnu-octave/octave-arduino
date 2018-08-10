@@ -22,7 +22,7 @@
 ##
 ## If pin was unconfigured beore using, pin is set into digital mode.
 ##
-## Example usage
+## Example usage:
 ## @example
 ## @code{
 ## a = arduino();

@@ -12,13 +12,13 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{pinlist} =} getServoTerminals (@var{ar})
-## Get a cell list of pin Ids available are used for servo mode.
+## Get a cell list of pin Ids available for servo use.
 ##
 ## @var{ar} - the arduino object.
 ##
 ## @var{pinlist} - cell list of pin numbers available for servo use.
 ##
-## @seealso{arduino}
+## @seealso{arduino, getPWMTerminals}
 ## @end deftypefn
 
 function retval = getServoTerminals(obj)

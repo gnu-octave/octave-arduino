@@ -16,8 +16,22 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} arduinosetup ()
+## @deftypefn {} {@var{retval} =} arduinosetup (@var{propertyname}, @var{propertyvalue})
 ## Open the arduino config / programming tool to program the arduino hardware for usage with
 ## the Octave arduino functions.
+##
+## A sequence of property name/value pairs can be given to the function to set defaults while
+## programming.
+##
+## Currently the following properties can be set:
+## @table @asis
+## @item libraries
+## The value should be the name of a library, or string array of libraries to program on the
+## arduino board.
+## @end table
+##
+## arduinosetup will create a temporary project  using the arduino IDE and allow 
+## compiling aand programning of the code to an arduino. 
 ##
 ## @seealso{arduino, __arduino_binary__}
 ## @end deftypefn

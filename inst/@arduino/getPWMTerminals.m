@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{pinlist} =} getPWMTerminals (@var{ar})
-## Get a cell list of pin Ids available are used for PWM mode.
+## Get a cell list of pin Ids available for PWM use.
 ##
 ## @var{ar} - the arduino object.
 ##

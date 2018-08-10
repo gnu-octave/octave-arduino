@@ -22,8 +22,10 @@
 ##
 ## Example usage:
 ## @example
+## @code{
 ## a = arduino();
 ## writePWMVoltage(a,'D5',1.0);
+## }
 ## @end example
 ##
 ## @seealso{arduino, writePWMDutyCycle}

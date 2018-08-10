@@ -41,23 +41,23 @@
 ## Modes can be:
 ## @itemize @bullet
 ## @item AnalogInput
-## Acquire analog signals from pin
+## - Acquire analog signals from pin
 ## @item DigitalInput
-## acquire digital signals from pin
+## - Acquire digital signals from pin
 ## @item DigitalOutput
-## generate digital signals from pin
+## - Generate digital signals from pin
 ## @item I2C
-## specify a pin to use with I2C protocol
+## - Specify a pin to use with I2C protocol
 ## @item Pullup
-## specify pin to use a pullup switch
+## - Specify pin to use a pullup switch
 ## @item PWM
-## Specify pin to use a pulse width modulator
+## - Specify pin to use a pulse width modulator
 ## @item Servo 
-## Specify pin to use a servo
+## - Specify pin to use a servo
 ## @item SPI
-## Specify a pin to use with SPI protocol
+## - Specify a pin to use with SPI protocol
 ## @item Unset
-## Clears pin designation. The pin is no longer reserved and can be automatically
+## - Clears pin designation. The pin is no longer reserved and can be automatically
 ## set at the next operation.
 ## @end itemize
 ##

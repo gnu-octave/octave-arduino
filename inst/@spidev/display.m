@@ -19,15 +19,15 @@
 
 function display (this)
   printf ("%s = \n", inputname (1));
-      printf ("  arduino spidev object with fields of: \n\n");
-      printf ("   chipselectpin = %s\n", this.chipselectpin);
-      printf ("            mode = %d\n", this.mode);
-      printf ("        bitorder = %s\n", this.bitorder);
-      printf ("         bitrate = %d\n", this.bitrate);
-      printf ("            pins = ");
-      for i=1:numel(this.pins)
-	      printf("%s(%s) ", this.pins{i}.name, this.pins{i}.func)
-      endfor
-      printf("\n");
-      printf("\n");
+  printf ("  arduino spidev object with fields of: \n\n");
+  printf ("   chipselectpin = %s\n", this.chipselectpin);
+  printf ("            mode = %d\n", this.mode);
+  printf ("        bitorder = %s\n", this.bitorder);
+  printf ("         bitrate = %d\n", this.bitrate);
+  printf ("            pins = ");
+  for i=1:numel(this.pins)
+    printf("%s(%s) ", this.pins{i}.name, this.pins{i}.func)
+  endfor
+  printf("\n");
+  printf("\n");
 endfunction

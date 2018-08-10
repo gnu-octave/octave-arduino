@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{count} =} decrementResourceCount (@var{ar}, @var{resource})
 ## Decrement the @var{count} value of a a named resource by 1 and return the
-## new count
+## new count.
 ##
 ## @var{ar} - connected arduino object
 ##

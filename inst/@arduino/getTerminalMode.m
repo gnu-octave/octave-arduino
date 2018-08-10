@@ -18,7 +18,7 @@
 ##
 ## @var{terminal} - terminal number to get owner of.
 ##
-## @var{mode} = mode of the terminal pin, or "not_set" if not owned.
+## @var{mode} - mode of the terminal pin, or "not_set" if not owned.
 ##
 ## @seealso{configurePinResource, getResourceOwner}
 ## @end deftypefn

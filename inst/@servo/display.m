@@ -19,8 +19,8 @@
 
 function display (this)
   printf ("%s = \n", inputname (1));
-      printf ("  arduino servo object with fields of: \n\n");
-      printf ("                pins = %s\n", this.pins{1}.name );
-      printf ("    minpulseduration = %f\n", this.minpulseduration);
-      printf ("    maxpulseduration = %f\n", this.maxpulseduration);
+  printf ("  arduino servo object with fields of: \n\n");
+  printf ("                pins = %s\n", this.pins{1}.name );
+  printf ("    minpulseduration = %f\n", this.minpulseduration);
+  printf ("    maxpulseduration = %f\n", this.maxpulseduration);
 endfunction

@@ -29,8 +29,4 @@ function retval = display (register)
     pin = register.pins{i};
     printf ("    %s = %s\n", pin.func, pin.name)
   endfor
-  #printf ("    clockpin = ")
-  #disp(register.clockpin);
-  #printf ("    resetpin = ")
-  #disp(register.resetpin);
 endfunction

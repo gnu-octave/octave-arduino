@@ -20,7 +20,7 @@
 ##
 ## @var{value} - duty cycle value where 0 = off, 0.5 = 50% on, 1 = always on.
 ##
-## example usage
+## Example usage:
 ## @example
 ## @code{
 ## a = arduino();

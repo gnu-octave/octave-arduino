@@ -16,9 +16,10 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} listArduinoLibraries ()
-## Show a list of all known arduino library modules are available.
+## Retrieve list of all known arduino library modules that are available.
 ##
-## @var{retval} is an cell array of string library names. 
+## @var{retval} is an cell array of string library names that are
+## available for programming to the arduino.
 ##
 ## @seealso{arduino, arduinosetup}
 ## @end deftypefn

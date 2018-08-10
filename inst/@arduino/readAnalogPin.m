@@ -15,17 +15,19 @@
 ## Read analog voltage of  @var{pin}.
 ##
 ## @var{ar} - connected arduino object.
+##
 ## @var{pin} - string name of the pin to read.
+##
 ## @var{value} - analog value of the pin 
 ##
-## Exmaple usage:
+## Example usage:
 ## @example
 ## @code{
 ## ar = arduino ();
 ## readAnalogPin(ar, "A4");
-## }
 ## ans = 
 ##     87
+## }
 ## @end example
 ## @seealso{arduino, readVoltage}
 ## @end deftypefn

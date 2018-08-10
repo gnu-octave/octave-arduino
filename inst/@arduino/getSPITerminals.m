@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{pinlist} =} getSPITerminals (@var{ar})
-## Get a cell list of pin Ids available are used for SPI mode.
+## Get a cell list of pin Ids available for SPI mode.
 ##
 ## @var{ar} - the arduino object.
 ##

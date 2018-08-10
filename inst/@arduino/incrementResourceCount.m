@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{count} =} incrementResourceCount (@var{ar}, @var{resource})
-## Increment the @var{count} value of a a named resource by 1 and return the
+## Increment the @var{count} value of a named resource by 1 and return the
 ## new count
 ##
 ## @var{ar} - connected arduino object

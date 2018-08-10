@@ -29,6 +29,7 @@
 ##
 ## Example usage:
 ## @example
+## @code {
 ## # create arduino connection.
 ## ar = arduino();
 ## # get the pins that will be used for I2C
@@ -38,6 +39,7 @@
 ## @{
 ##  [1,1] = 0x50
 ## @}
+## }
 ## @end example
 ##
 ## @seealso{arduino, i2cdev}

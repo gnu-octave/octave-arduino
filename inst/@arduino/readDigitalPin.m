@@ -22,8 +22,10 @@
 ##
 ## Example usage
 ## @example
-## a = arduino();
-## pinvalue = readDigitalPin(a,'D5');
+## @code{
+## a = arduino ();
+## pinvalue = readDigitalPin (a, 'D5');
+## }
 ## @end example
 ##
 ## @seealso{arduino, writeDigitalPin}

@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} display (@var{ar})
+## @deftypefn {} {} display (@var{ar})
 ## Display the arduino ovject in a verbose way, showing the board, board and available pins.
 ##
 ## @var{ar} - the arduino object.
@@ -21,7 +21,7 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function retval = display (ar)
+function display (ar)
 
   printf ("%s = \n", inputname (1));
   printf ("  arduino object with fields of: \n");
