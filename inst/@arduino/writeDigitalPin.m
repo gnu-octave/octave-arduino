@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} writeDigitalPin (@var{ar}, @var{pin}, @var{value})
-## Write digital value @var{value} to digital I/O @var{pin}.
+## Write digital value to a digital I/O pin.
 ##
 ## @var{ar} - connected arduino object.
 ##

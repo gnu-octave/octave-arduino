@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes})
 ## @deftypefnx {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes}, @var{precision})
-## Read @var{numbytes} from register @var{reg} of i2cdev object @var{dev} 
+## Read a specified numer of bytes from a register of an i2cdev object 
 ## using optional precision for bytesize.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev

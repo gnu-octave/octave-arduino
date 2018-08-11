@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} writePosition (@var{servo}, @var{position})
-## Write the @var{position} to servo @var{servo}
+## Write the position to a servo.
 ##
 ## @var{servo} - servo object created from arduino.servo.
 ##

@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} writePWMDutyCyle (@var{ar}, @var{pin}, @var{value})
-## Set pin to output a square wave with a duty cycle of @var{value}
+## Set pin to output a square wave with a specified duty cycle.
 ##
 ## @var{ar} - connected arduino object
 ##

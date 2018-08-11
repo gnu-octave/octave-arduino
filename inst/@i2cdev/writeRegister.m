@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} writeRegister (@var{dev}, @var{reg}, @var{datain})
 ## @deftypefnx {} {@var{dev} =} writeRegister (@var{dev}, @var{dev}, @var{datain}, @var{precision})
-## Write @var{datain} to i2cdev object @var{dev} at registry position @var{reg}
+## Write data to i2cdev object at a given registry position
 ## using optional precision for the data byte used for the data.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev

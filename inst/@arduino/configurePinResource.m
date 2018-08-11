@@ -18,7 +18,7 @@
 ## @deftypefn {} {@var{mode} =} configurePinResource (@var{ar}, @var{pin})
 ## @deftypefnx {} {} configurePinResource (@var{ar}, @var{pin}, @var{owner}, @var{mode})
 ## @deftypefnx {} {} configurePinResource (@var{ar}, @var{pin}, @var{owner}, @var{mode}, @var{force})
-## Set/Get pin @var{mode} for a specified @var{pin} on arduino connection @var{ar}.
+## Set/Get pin mode for a specified pin on arduino connection.
 ##
 ## configurePinResource (@var{ar}, @var{pin}) will get the current mode of the specified pin.
 ##

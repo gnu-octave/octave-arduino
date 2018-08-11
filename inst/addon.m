@@ -17,7 +17,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} addon (@var{ar}, @var{addonname})
 ## @deftypefnx {} {@var{retval} =} addon (@var{ar}, @var{addonname}, varargs)
-## Create an addon object using the addon named class of @var{addonname}.
+## Create an addon object using the addon named class.
 ##
 ##
 ## @var{retval} is an cell array of string library names. 

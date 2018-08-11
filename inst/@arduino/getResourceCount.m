@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{count} =} getResourceCount (@var{ar}, @var{resource})
-## Get the @var{count} of uses of @var{resource}.
+## Get the count of uses of  a given resource.
 ##
 ## @var{ar} - connected arduino object
 ##

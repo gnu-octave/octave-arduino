@@ -13,8 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{obj} = } servo (@var{arduinoobj}, @var{pin})
 ## @deftypefnx {} {@var{obj} = } servo (@var{arduinoobj}, @var{pin}, @var{propertyname}, @var{propertyvalue})
-## Create a servo object @var{obj} on arduino board @var{arduinoobj} controlling
-## pin @var{pin}.
+## Create a servo object using a specified oin on a arduino board.
 ##
 ## @var{obj} - servo object
 ##

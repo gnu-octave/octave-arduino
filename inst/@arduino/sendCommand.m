@@ -14,7 +14,7 @@
 ## @deftypefn {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid})
 ## @deftypefnx {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid}, @var{data})
 ## @deftypefnx {} {@var{outdata, outsize} =} sendCommand (@var{ar}, @var{libname}, @var{commandid}, @var{data}, @var{timeout})
-## Send a command @var{commandid} and @var{data} to the connected arduino @var{ar}, waiting up to @var{timeout} seconds
+## Send a command with option data to the connected arduino, waiting up to a specified number of seconds
 ## for a response.
 ##
 ## @var{ar} - connected arduino object.

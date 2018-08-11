@@ -13,8 +13,8 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} read (@var{dev}, @var{numbytes})
 ## @deftypefnx {} {@var{dev} =} read (@var{dev}, @var{numbytes}, @var{precision})
-## Read @var{numbytes} from i2cdev object @var{dev} 
-## using option precision for bytesize.
+## Read a specified number of bytes from a i2cdev object
+## using optional precision for bytesize.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev
 ##

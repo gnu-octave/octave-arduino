@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{position} = } readPosition (@var{servo})
-## Read the position of servo @var{servo}
+## Read the position of a servo
 ##
 ## @var{servo} - servo object created from arduino.servo.
 ##

@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} display (@var{ar})
-## Display the arduino ovject in a verbose way, showing the board, board and available pins.
+## Display the arduino object in a verbose way, showing the board and available pins.
 ##
 ## @var{ar} - the arduino object.
 ##

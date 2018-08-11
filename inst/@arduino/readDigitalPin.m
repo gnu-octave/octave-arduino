@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{value} =} readDigitalPin (@var{obj}, @var{pin})
-## Read digital value @var{value} from digital I/O @var{pin}.
+## Read digital value from a digital I/O pin.
 ##
 ## @var{ar} - connected arduino object.
 ##

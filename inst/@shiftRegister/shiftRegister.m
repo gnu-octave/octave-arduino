@@ -19,7 +19,7 @@
 ## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc164', @var{dataPin}, @var{clockPin}, @var{resetPin})
 ## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc165', @var{dataPin}, @var{clockPin}, @var{loadPin}, @var{clockEnablePin})
 ## @deftypefnx {} {@var{register} =} shiftRegister(@var{ar},'74hc595', @var{dataPin}, @var{clockPin}, @var{latchPin} , @var{resetPin})
-## Create shift register of type @var{shifttype}, controlled by the input pin types.
+## Create shift register of a given type, controlled by the input pins.
 ##
 ## Common function parameter definition:
 ##

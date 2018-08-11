@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} writePWMVoltage (@var{ar}, @var{pin}, @var{voltage})
-## Emulate an approximate voltage out of pin @var{pin} using PWM.
+## Emulate an approximate voltage out of a pin using PWM.
 ##
 ## @var{ar} - connected arduino object
 ##

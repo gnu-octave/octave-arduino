@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} playTone (@var{obj}, @var{pin}, @var{freq}, @var{duration})
-## Play a tone of frequency @var{frequency} specified pin @var{pin}.
+## Play a tone of a given frequency on a specified pin.
 ##
 ## Currently function does nothing.
 ##

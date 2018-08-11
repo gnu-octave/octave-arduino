@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} write (@var{dev}, @var{datain})
 ## @deftypefnx {} {@var{dev} =} write (@var{dev}, @var{datain}, @var{precision})
-## Write @var{datain} data to i2cdev object @var{dev} 
+## Write data to a i2cdev object
 ## using optional precision for the data byte used for the data.
 ##
 ## @var{dev} - connected i2c device opened using i2cdev

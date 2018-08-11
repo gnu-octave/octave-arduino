@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{voltage} =} readVoltage (@var{ar}, @var{pin})
-## Read analog voltage of @var{pin}.
+## Read analog voltage of a pin.
 ##
 ## @var{ar} - connected arduino.
 ##

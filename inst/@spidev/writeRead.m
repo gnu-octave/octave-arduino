@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dataOut} =} readWrite (@var{spi}, @var{dataIn})
-## Write @var{datain} uint8 data to spi device @var{spi} and return 
+## Write uint8 data to spi device and return 
 ## back clocked out response data of same size.
 ##
 ## @var{spi} - connected spi device on arduino
