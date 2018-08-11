@@ -67,6 +67,7 @@ function retval = arduinosetup (varargin)
     libs{end+1} = "SPI";
     libs{end+1} = "I2C";
     libs{end+1} = "Servo";
+    libs{end+1} = "ShiftRegister";
   endif
 
   # we have the libs ?
