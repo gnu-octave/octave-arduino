@@ -43,8 +43,14 @@ function retval = __initArduino__ (obj, port, board)
 	   mcu = "atmega328p";
          case { hex2dec("1E9514"),  hex2dec("009514") }
 	   mcu = "atmega328pu";
+         case hex2dec("1E9801")
+	   mcu= "atmega2560";
+         case hex2dec("1E9703")
+	   mcu = "atmega1280";
+         case hex2dec("1E9702")
+	   mcu = "atmega128";
 	 otherwise
-	   mcu = "unknown";
+	   mcu = sprintf("unknown_mcu(%X)", sig);
      endswitch
 
      boardtype = arduinoio.boardTypeString(dataout(4));
