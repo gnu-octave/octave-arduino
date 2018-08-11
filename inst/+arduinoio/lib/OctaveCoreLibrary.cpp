@@ -34,8 +34,10 @@
 //  freq              ide ver         board             arch
 #if defined(ARDUINO_AVR_UNO)
   #define BOARD_ID  0
+#elif defined(ARDUINO_AVR_MEGA2560)
+  #define BOARD_ID  1
 #else
-  #define "Unknown board type"
+  #error "Unknown board type"
 #endif
 
 // board voltage = actualV*10

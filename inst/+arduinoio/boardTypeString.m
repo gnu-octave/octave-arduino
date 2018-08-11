@@ -31,6 +31,8 @@ function retval = boardTypeString (id)
   switch (id)
     case 0
       retval = "uno";
+    case 1
+      retval = "mega";
     otherwise
       retval = "unknown";
   endswitch
@@ -39,4 +41,5 @@ endfunction
 
 %!test
 %! assert(arduinoio.boardTypeString (0), "uno")
+%! assert(arduinoio.boardTypeString (1), "mega")
 %! assert(arduinoio.boardTypeString (-1), "unknown")
