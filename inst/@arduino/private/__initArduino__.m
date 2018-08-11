@@ -58,8 +58,8 @@ function retval = __initArduino__ (obj, port, board)
 
      #obj.board = boardtype;
 
-     obj.config = eval(sprintf("config_%s", boardtype));
-
+     obj.config = arduinoio.getBoardConfig(boardtype);
+     # update values that could change
      obj.config.port = port;
      obj.config.board = boardtype;
      obj.config.voltref = voltref;
