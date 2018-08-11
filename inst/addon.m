@@ -84,6 +84,6 @@ endfunction
 
 %!test
 %! a = arduino();
-%! # do equivalent of s = spidev(a, "d10");
-%! s = addon(a, "spi", "d10");
-%! assert(class(s), "spidev");
+%! # do equivalent of s = i2cdev(a, 10);
+%! s = addon(a, "i2c", 10);
+%! assert(class(s), "i2cdev");
