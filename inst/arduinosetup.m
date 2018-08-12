@@ -16,7 +16,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} arduinosetup ()
-## @deftypefn {} {@var{retval} =} arduinosetup (@var{propertyname}, @var{propertyvalue})
+## @deftypefnx {} {@var{retval} =} arduinosetup (@var{propertyname}, @var{propertyvalue})
 ## Open the arduino config / programming tool to program the arduino hardware for usage with
 ## the Octave arduino functions.
 ##
