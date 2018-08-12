@@ -17,10 +17,10 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} scanForArduinos (@var{maxCount})
 ## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{maxCount}, @var{type})
-## Scan system for arduino boards.
+## Scan system for programmed arduino boards.
 ##
-## scanForArduinos will scan the system for arduino boards and return at most @var{maxCount} of them as a
-## cell array in @var{retval}.
+## scanForArduinos will scan the system for programmed arduino boards and return at 
+## most @var{maxCount} of them as a cell array in @var{retval}.
 ##
 ## Each cell value of the cell array will contain a structure with values of:
 ## @table @asis
