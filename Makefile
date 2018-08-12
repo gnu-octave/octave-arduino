@@ -105,13 +105,17 @@ $(RELEASE_DIR): .hg/dirstate
 
 # install is a prerequesite to the html directory (note that the html
 # tarball will use the implicit rule for ".tar.gz" files).
+#html_options = --eval 'options = get_html_options ("octave-forge");' \
+#               --eval 'options.package_doc = "$(PACKAGE).texi";'
+html_options = --eval 'options = get_html_options ("octave-forge");'
 $(HTML_DIR): install
 	@echo "Generating HTML documentation. This may take a while ..."
 	$(RM) -r "$@"
 	$(OCTAVE) --no-window-system --silent \
 	  --eval "pkg load generate_html; " \
 	  --eval "pkg load $(PACKAGE);" \
-	  --eval 'generate_package_html ("${PACKAGE}", "$@", "octave-forge");'
+	  $(html_options) \
+	  --eval 'generate_package_html ("${PACKAGE}", "$@", options);'
 	chmod -R a+rX,u+w,go-w $@
 
 # To make a release, build the distribution and html tarballs.
