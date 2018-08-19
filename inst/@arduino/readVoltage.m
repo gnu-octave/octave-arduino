@@ -39,8 +39,8 @@ function voltage = readVoltage (ar, pin)
   if !ischar(pin)
     error ("@arduino.readVoltage: expected pin name as string");
   endif
-
-  voltage = double(readAnalogPin(ar,pin)) * (5.0 / 1023.0);
+  
+  voltage = double(readAnalogPin(ar,pin)) * (ar.board_voltage() / 1023.0);
 endfunction
 
 %!shared ar

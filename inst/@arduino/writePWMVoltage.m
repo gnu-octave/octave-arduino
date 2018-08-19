@@ -38,12 +38,13 @@ function writePWMVoltage (obj, pin, value)
 
   # TODO: need look at board type for what voltage range is allowed
   # and convert
-  if !isnumeric(value) || value < 0 || value > 5.0
-    error('writePWMVoltage: value must be between 0 and 5');
+  maxvolts = obj.board_voltage();
+  if !isnumeric(value) || value < 0 || value > maxvolts
+    error('writePWMVoltage: value must be between 0 and %f', maxvolts);
   endif
 
   # assuming here for now 0 .. 5V is linear to 0 - 100% pwm
-  val = value/5.0;
+  val = value/maxvolts;
   writePWMDutyCycle(obj, pin, val);
   
 endfunction

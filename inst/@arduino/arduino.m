@@ -298,6 +298,10 @@ classdef arduino < handle
       endif
      
     endfunction
+
+    function v = board_voltage (this)
+      v = this.config.voltref;
+    endfunction
   endmethods 
 endclassdef
 
