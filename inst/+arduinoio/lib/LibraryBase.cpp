@@ -32,14 +32,14 @@ static const char ERRORMSG_UNKNOWN_CMDID[] PROGMEM = "Unknown cmdID";
 
 void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz)
 {
-  Serial.write((uint8_t)ARDUINO_SOH);
-  Serial.write((uint8_t)id);
-  Serial.write(cmdID);
-  Serial.write(sz);
+  OCTAVE_COMMS_PORT.write((uint8_t)ARDUINO_SOH);
+  OCTAVE_COMMS_PORT.write((uint8_t)id);
+  OCTAVE_COMMS_PORT.write(cmdID);
+  OCTAVE_COMMS_PORT.write(sz);
   if(sz) {
-    Serial.write(data, sz);
+    OCTAVE_COMMS_PORT.write(data, sz);
   }
-  Serial.flush();
+  OCTAVE_COMMS_PORT.flush();
 }
 
 void OctaveLibraryBase::sendErrorMsg(const char *err)
@@ -143,13 +143,18 @@ uint8_t OctaveArduinoClass::processMessage(uint8_t libid, uint8_t cmd, uint8_t *
   return 0; 
 }
 
+void OctaveArduinoClass::init() 
+{
+  OCTAVE_COMMS_PORT.begin(9600);
+}
+
 void OctaveArduinoClass::runLoop()
 {
   int ch;
 
-  if(Serial.available()) {
+  if(OCTAVE_COMMS_PORT.available()) {
     
-    ch = Serial.read();
+    ch = OCTAVE_COMMS_PORT.read();
 
     switch (msg_state) {
       case STATE_SOH: 

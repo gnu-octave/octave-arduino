@@ -37,6 +37,8 @@ function retval = __initArduino__ (obj, port, board)
      sig = (uint32(dataout(1))*256*256) + (uint32(dataout(2))*256) + uint32(dataout(3));
      % work out mcu
      switch sig
+	 case 0
+	   mcu = "";
          case { hex2dec("1E9502"),  hex2dec("009502") }
 	   mcu = "atmega32";
          case { hex2dec("1E950F"),  hex2dec("00950F") }
@@ -62,14 +64,16 @@ function retval = __initArduino__ (obj, port, board)
        warning("connected %s arduino does not match requested board type %s", boardtype, obj.board)
      endif
 
-     #obj.board = boardtype;
-
      obj.config = arduinoio.getBoardConfig(boardtype);
      # update values that could change
      obj.config.port = port;
      obj.config.board = boardtype;
      obj.config.voltref = voltref;
-     obj.config.mcu = mcu;
+     if ! isempty(mcu)
+       obj.config.mcu = mcu;
+     elseif isempty(obj.config.mcu)
+       obj.config.mcu = "unknown";
+     endif
      obj.config.libs = {};
 
      # query libs

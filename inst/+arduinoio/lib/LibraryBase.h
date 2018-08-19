@@ -21,6 +21,13 @@
 
 #include <Arduino.h>
 
+// sparkfun samed21 dev/mini
+#if defined(SERIAL_PORT_USBVIRTUAL)
+# define OCTAVE_COMMS_PORT SERIAL_PORT_USBVIRTUAL
+#else
+# define OCTAVE_COMMS_PORT SERIAL_PORT_MONITOR
+#endif
+
 class OctaveLibraryBase
 {
 public:
@@ -57,6 +64,7 @@ public:
   int getLibCount() const { return libcount; }
   const char * getLibName(uint8_t idx) const;
 
+  void init();
   void runLoop();
 private:
   uint8_t processMessage(uint8_t libid, uint8_t cmd, uint8_t *data, uint8_t sz);

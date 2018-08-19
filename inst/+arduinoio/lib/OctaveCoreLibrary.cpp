@@ -36,13 +36,24 @@
   #define BOARD_ID  0
 #elif defined(ARDUINO_AVR_MEGA2560)
   #define BOARD_ID  1
+#elif defined(ARDUINO_SAMD_ZERO)
+  // sparkfun samed21 dev/mini
+  #if USB_VID == 0x1B4F && USB_PID == 0x8D21
+    #define BOARD_ID 41
+  #else
+    // Arduino Zero
+    #define BOARD_ID 20
+  #endif
 #else
   #error "Unknown board type"
 #endif
 
 // board voltage = actualV*10
-#define BOARD_VOLTAGE 50
-
+#if defined(ARDUINO_ARCH_SAMD)
+  #define BOARD_VOLTAGE 33
+#else
+  #define BOARD_VOLTAGE 50
+#endif
 
 static const uint8_t map_config_mode[] PROGMEM = {
   INPUT, // unset
@@ -60,6 +71,7 @@ static const uint8_t map_config_mode[] PROGMEM = {
    
 static uint8_t pinconfig[NUM_DIGITAL_PINS];
 
+#if defined (ARDUINO_ARCH_AVR)
 //void (*reset)(void) = 0;
 #include <avr/wdt.h>
 void  reset()
@@ -67,6 +79,13 @@ void  reset()
   wdt_enable(WDTO_1S);
   while(1) {}
 }
+#elif defined (ARDUINO_ARCH_SAMD)
+void reset()
+{
+  // processor software reset 
+  NVIC_SystemReset();
+}
+#endif
 
 OctaveCoreLibrary::OctaveCoreLibrary(OctaveArduinoClass &oc) 
   : occlass(oc)
@@ -92,9 +111,16 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
         break;
         
     case ARDUINO_INIT:
+#if defined(ARDUINO_ARCH_AVR)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;
         data[2] =  SIGNATURE_2;
+#elif defined (ARDUINO_ARCH_SAMD)
+#warning "TODOO"
+        data[0] =  0;
+        data[1] =  0;
+        data[2] =  0;
+#endif
         data[3] = BOARD_ID;
         data[4] = BOARD_VOLTAGE;
 	data[5] = occlass.getLibCount();

@@ -24,6 +24,7 @@ function retval = make_conf (header_file)
 
   pins = {};
   ispwm = {};
+  isalong = {};
   num_digital_pins = 0;
   num_analog_pins = 0;
 
@@ -36,52 +37,61 @@ function retval = make_conf (header_file)
 
       if numel(toks) == 2
         if strcmpi(toks{1}, "NUM_DIGITAL_PINS")
-          num_digital_pins = str2num(toks{2});
+	  cnt = strrep(toks{2}, "u", "");
+          num_digital_pins = str2num(cnt);
         elseif strcmpi(toks{1}, "NUM_ANALOG_INPUTS")
-          num_analog_pins = str2num(toks{2});
+	  cnt = strrep(toks{2}, "u", "");
+          num_analog_pins = str2num(cnt);
         else 
           idx = index(toks{1}, "PIN_");
           if idx > 0
             name = tolower(strtrim(toks{1}(idx+4:end)));
-            id = str2num(toks{2});
-    
-            # we have pin already ? 
-            idx = find (cellfun(@(x) (x.id == id), pins), 1);
-            if isempty(idx)
-              p = {};
-              p.id = id;
-              p.name = sprintf("D%d", id);
-              p.modes = { 'digital' };
+	    # id have other crap in it ?
+	    id = strrep(toks{2}, "u", "");
+            id = str2num(id);
 
-              pins{end+1} = p;
-              idx = numel(pins);
-            endif
+	    if !isempty(id)
 
-            if name(1) == 'a'
-              pins{idx}.name = toupper(name);
-              pins{idx}.modes{end+1} = "analog";
-            elseif strncmp(name, "wire_", 5)
-              pins{idx}.modes{end+1} = ["i2c" name(5:end)];
-            else
-              pins{idx}.modes{end+1} = name;
-            endif
-            
+              # we have pin already ? 
+              idx = find (cellfun(@(x) (x.id == id), pins), 1);
+              if isempty(idx)
+                p = [];
+                p.id = id;
+                p.name = sprintf("D%d", id);
+                p.modes = { 'digital' };
+
+                pins{end+1} = p;
+                idx = numel(pins);
+              endif
+
+              if name(1) == 'a'
+                pins{idx}.name = toupper(name);
+                pins{idx}.modes{end+1} = "analog";
+              elseif strncmp(name, "wire_", 5)
+                pins{idx}.modes{end+1} = ["i2c" name(5:end)];
+              elseif strncmp(name, "pin_led_", 8)
+                pins{idx}.modes{end+1} = ["led"];
+              else
+                pins{idx}.modes{end+1} = name;
+              endif
+            endif  
           elseif strcmp(toks{1}, "LED_BUILTIN")
             id = str2num(toks{2});
+	    if !isempty(id)
 
-            idx = find (cellfun(@(x) (x.id == id), pins), 1);
-            if isempty(idx)
-              p = {};
-              p.id = id;
-              p.name = sprintf("D%d", id);
-              p.modes = { 'digital' };
+              idx = find (cellfun(@(x) (x.id == id), pins), 1);
+              if isempty(idx)
+                p = {};
+                p.id = id;
+                p.name = sprintf("D%d", id);
+                p.modes = { 'digital' };
 
-              pins{end+1} = p;
-              idx = numel(pins);
-            endif
+                pins{end+1} = p;
+                idx = numel(pins);
+              endif
             
-            pins{idx}.modes{end+1} = "led";
-
+              pins{idx}.modes{end+1} = "led";
+            endif
           endif  
         endif
       endif
@@ -92,12 +102,49 @@ function retval = make_conf (header_file)
       toks = t(1){1};
       if numel(toks) == 2
          ispwm.var = toks{1};
-         ispwm.test = toks{2};
+	 testv = strrep(toks{2}, "u", "");
+         ispwm.test = testv;
+	 ispwm = {};
       endif
     endif
+ 
+    [t, m] = regexp(l, '#define\s+analogInputToDigitalPin\((\w+)\)\s+(.*)$', 'tokens', 'match');
+    if ! isempty(t)
+      toks = t(1){1};
+      if numel(toks) == 2
+         isanalog.var = toks{1};
+	 testv = strrep(toks{2}, "u", "");
+	 # simple expect analog after digital
+	 testv = sprintf("(p + %d)", num_digital_pins);
+         isanalog.test = testv;
+	 #isanalog={};
+      endif
+    endif
+
   endwhile
 
   fclose(fd);
+
+  #num_digital_pins
+  #num_analog_pins
+
+  # fill in any missing digitals
+  for i=0:num_analog_pins-1
+    name = sprintf("A%d", i);
+    idx = find (cellfun(@(x) (strcmpi(x.name,name)), pins), 1);
+    if isempty(idx)
+      t = sprintf("%s=%i; id=(%s);", isanalog.var, i, isanalog.test);
+      eval(t);
+      if id >= 0
+        p = {};
+        p.id = id;
+        p.name = sprintf("A%d", i);
+        p.modes = { 'digital', 'analog' };
+        pins{end+1} = p;
+        idx = numel(pins);
+      endif
+    endif
+  endfor
 
   # fill in any missing digitals
   for i=0:num_digital_pins-1
@@ -131,10 +178,14 @@ function retval = make_conf (header_file)
   printf("  # default board info - must be provided\n");
   printf("  # will be filled in on connection.\n");
   printf("  retval.board = '';\n");
+  printf("  retval.board = '';\n");
   printf("  retval.mcu = '';\n");
   printf("  retval.voltref = 0;\n");
   printf("  retval.libs = {};\n");
   printf("  retval.port = '';\n");
+  printf("\n");
+  printf("  # info expected to be provided by config.\n");
+  printf("  retval.description = 'a board description';\n");
   printf("\n");
 
   printf("  # pin config\n");

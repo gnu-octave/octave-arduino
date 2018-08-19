@@ -28,6 +28,9 @@ function retval = config_uno (initdata)
   retval.voltref = 0;
   retval.libs = {};
   retval.port = "";
+
+  # info expected to be provided by config.
+  retval.description = 'Arduino Uno R3 Board';
   
   # pin config
   retval.pins = {};

@@ -30,6 +30,9 @@ function retval = config_mega (initdata)
   retval.libs = {};
   retval.port = '';
 
+  # info expected to be provided by config.
+  retval.description = 'Arduino Mega2560/1260 Board';
+
   # pin config
   retval.pins = {};
   retval.pins{end+1} = arduinoio.config.pin_info('D0', 0, { 'digital', 'uart' });

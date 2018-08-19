@@ -54,6 +54,8 @@ OctaveShiftRegisterLibrary lib4(octavearduino);
 
 
 void setup() {
+
+#if defined(ARDUINO_ARCH_AVR)
   // clear watchdog
   //clear all flags
   MCUSR = 0;
@@ -62,8 +64,9 @@ void setup() {
   /* Keep old prescaler setting to prevent unintentional time-out */
   WDTCSR |= _BV(WDCE) | _BV(WDE);
   WDTCSR = 0;
+#endif
 
-  Serial.begin(9600); //set up serial library baud rate to 9600
+  octavearduino.init();
 }
 
 void loop() {

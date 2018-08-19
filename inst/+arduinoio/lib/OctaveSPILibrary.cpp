@@ -55,8 +55,8 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
              spi_mode = data[2];
              spi_bitorder = data[3];
              spi_enabled = 1;
-             if(spi_bitorder == 0) spi_bitorder = MSBFIRST;
-             else spi_bitorder = LSBFIRST;
+             //if(spi_bitorder == 0) spi_bitorder = MSBFIRST;
+             //else spi_bitorder = LSBFIRST;
 
              if(spi_mode == 0) spi_mode = SPI_MODE0;
              else if(spi_mode == 1) spi_mode = SPI_MODE1;
@@ -65,7 +65,7 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
              else spi_mode = SPI_MODE0;
 
              SPI.begin();
-             SPI.beginTransaction(SPISettings(14000000, spi_bitorder, spi_mode));
+             SPI.beginTransaction(SPISettings(14000000, spi_bitorder==0 ? MSBFIRST : LSBFIRST , spi_mode));
            } else {
              SPI.endTransaction();
              SPI.end();
@@ -77,7 +77,7 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
            if(data[1] == 1) {
              spi_enabled = 1;
              SPI.begin();
-             SPI.beginTransaction(SPISettings(14000000, spi_bitorder, spi_mode));
+             SPI.beginTransaction(SPISettings(14000000, spi_bitorder==0 ? MSBFIRST : LSBFIRST, spi_mode));
            } else {
              SPI.endTransaction();
              SPI.end();
