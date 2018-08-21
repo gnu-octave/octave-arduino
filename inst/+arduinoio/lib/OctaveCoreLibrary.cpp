@@ -67,7 +67,7 @@ static const uint8_t map_config_mode[] PROGMEM = {
   OUTPUT, // spi TODO ?
 };
 
-#define pinToAnalog(a) (a < PIN_A0 ? 0 : a-PIN_A0)
+#define pinToAnalog(a) (a < A0 ? 0 : a-A0)
    
 static uint8_t pinconfig[NUM_DIGITAL_PINS];
 
