@@ -57,6 +57,18 @@ function arduino_binary = find_arduino_binary ()
       try
         arduino_binary = winqueryreg("HKLM", 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\arduino.exe');
       end_try_catch 
+      if isempty(arduino_binary)
+        # try win32 registry
+        try
+          arduino_binary = fullfile(winqueryreg("HKLM", 'SOFTWARE\WOW6432Node\Arduino', 'install_dir'), 'arduino.exe');
+        end_try_catch
+      endif
+    endif
+    if isempty(arduino_binary)
+      trypath = "C:\\Program Files (x86)\\Arduino\\arduino.exe"
+      if exist (trypath, "file")
+        arduino_binary = trypath;
+      endif
     endif
   endif
   if isempty(arduino_binary)
