@@ -41,13 +41,14 @@ function addonfiles = __addons__ ()
     files = dir (addondirs{i});
     for j = 1:numel (files)
       if files(j).isdir && files(j).name(1) != '.'
-        searchname = fullfile (files(j).folder, files(j).name, "*.m");
+        searchname = fullfile (addondirs{i}, files(j).name, "*.m");
         f1 = files (j).name;
         if f1(1) == "+"
           f1 = f1(2:end);
         endif
 
         files2 = dir (searchname);
+        folder = fileparts(searchname);
         for k = 1:numel (files2)
           finfo = {};
           [d2,f2,e2] = fileparts (files2(k).name);
@@ -55,7 +56,7 @@ function addonfiles = __addons__ ()
           m = str2func (x);
           cl = m([]);
           z = AddonInfo(cl);
-          z.scriptfile = fullfile (files2(k).folder, files2(k).name);
+          z.scriptfile = fullfile (folder, files2(k).name);
           
           # paths are wrong, as mfilename isnt giving use a path from within the class
           # so for now, fixing here

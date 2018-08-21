@@ -25,6 +25,6 @@ function files = LibFiles()
   [path,~] = fileparts(script);
   filelist = dir(fullfile(path, "lib", "*.*"));
   for i=1:numel(filelist)
-    files{end+1} = fullfile(filelist(i).folder, filelist(i).name);
+    files{end+1} = fullfile(fullfile(path, "lib"), filelist(i).name);
   endfor
 endfunction
