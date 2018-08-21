@@ -102,7 +102,7 @@ function retval = arduinosetup (varargin)
     mkdir (fullfile (tmpdir, "octave"));
     
     # copy all the libfiles
-    copyfile (libfiles, fullfile (tmpdir, "octave"))
+    copyfile (libfiles, fullfile (tmpdir, "octave"));
 
     fd = fopen (fullfile (tmpdir, "octave", "settings.h"), "w+t");
     fprintf (fd, "// generated from arduinosetup for buildin library configuration\n");
@@ -153,9 +153,9 @@ function retval = arduinosetup (varargin)
     filename = fullfile (tmpdir, "octave", "octave.ino");
     cmdline = sprintf ("\"%s\" \"%s\"", __arduino_binary__ (), filename);
     printf ("Running %s\n", cmdline);
-    system (cmdline);
+    [status, ~] = system (cmdline);
 
-    retval = 1;
+    retval = (status == 0);
   unwind_protect_cleanup
     confirm_recursive_rmdir (false, "local");
     rmdir(tmpdir, "s");
