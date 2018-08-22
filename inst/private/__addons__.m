@@ -60,8 +60,8 @@ function addonfiles = __addons__ ()
           
           # paths are wrong, as mfilename isnt giving use a path from within the class
           # so for now, fixing here
-          z.cppheaderfile = strrep (z.cppheaderfile, addonpathfix, files2(k).folder);
-          z.cppsourcefile = strrep (z.cppsourcefile, addonpathfix, files2(k).folder);
+          z.cppheaderfile = strrep (z.cppheaderfile, addonpathfix, folder);
+          z.cppsourcefile = strrep (z.cppsourcefile, addonpathfix, folder);
   
           addonfiles{end+1} = z;
         endfor
