@@ -28,6 +28,9 @@
 ## @item libraries
 ## The value should be the name of a library, or string array of libraries to program on the
 ## arduino board.
+## @item arduinobinary
+## The value should be the name/path of the arduino ide binary for programming. If not specified,
+## the function will attempt to find the binary itself.
 ## @end table
 ##
 ## arduinosetup will create a temporary project  using the arduino IDE and allow 
@@ -47,6 +50,7 @@ function retval = arduinosetup (varargin)
   endif
   
   libs = {};
+  arduinobinary = {};
   for i = 1:2:nargin
     propname = tolower (varargin{i});
     propvalue = varargin{i+1};
@@ -59,6 +63,8 @@ function retval = arduinosetup (varargin)
       else
         error ("arduinosetup Expected libraries to be a cellarray or string");
       endif
+    elseif strcmp (propname, "arduinobinary")
+      arduinobinary = propvalue;
     endif
   endfor
 
@@ -150,8 +156,12 @@ function retval = arduinosetup (varargin)
     fclose(fd);
     
     # start the arduino ide
+    if isempty (arduinobinary)
+      arduinobinary = __arduino_binary__ ();
+    endif
+
     filename = fullfile (tmpdir, "octave", "octave.ino");
-    cmdline = sprintf ("\"%s\" \"%s\"", __arduino_binary__ (), filename);
+    cmdline = sprintf ("\"%s\" \"%s\"", arduinobinary, filename);
     printf ("Running %s\n", cmdline);
     [status, ~] = system (cmdline);
 
