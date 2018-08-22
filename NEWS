@@ -3,7 +3,7 @@ Summary of important user-visible changes for arduino 0.1.0+:
 
  ** update arduinosetup for windows arduino ide changes
 
- ** modified addon path for use with older versions of octave
+ ** bug fixes for use with older versions of octave
 
  ** added initial support for additional board types:
     - ARM sparkfun SAMD21 dev board
