@@ -352,11 +352,11 @@ This example shows blinking the inbuilt LED on the Arduino board. Code is availa
 edit examples/example_blink
 @end example
 
-@heading{Hardware setup}
+@heading Hardware setup
 This example uses in the builtin LEDS, so requires only a connection of the Arduino board to
 computer for communication.
 
-@heading{Create an Arduino object}
+@heading Create an Arduino object
 
 @example
 ar = arduino ();
@@ -365,7 +365,7 @@ ar = arduino ();
 If you have more than one Arduino board connected, you may need to specify the port in order to
 connect to the correct device.
 
-@heading{Query Device for pins connected to builtin LEDS}
+@heading Query Device for pins connected to builtin LEDS
 
 The pin connected to the Arduino UNO built in led if D13.
 
@@ -388,7 +388,7 @@ led_pin = getPinsFromTerminals (ar, pins@{1@});
 @end example
 
 
-@heading{Turn the LED off}
+@heading Turn the LED off
 
 Write a 0 value to the pin to turn it off.
 
@@ -396,7 +396,7 @@ Write a 0 value to the pin to turn it off.
 writeDigitalPin (ar, led_pin, 0);
 @end example
 
-@heading{Turn the LED on}
+@heading Turn the LED on
 
 Write a 1 value to the pin to turn it on
 
@@ -404,7 +404,7 @@ Write a 1 value to the pin to turn it on
 writeDigitalPin (ar, led_pin, 1);
 @end example
 
-@heading{Making the LED blink}
+@heading Making the LED blink
 
 Add a while loop with a pause between the changes in the pin state to blink.
 
@@ -425,7 +425,7 @@ This example shows using I2C to communicate with a EEPROM chip. Code is availabl
 edit examples/example_i2c_eeprom
 @end example
 
-@heading{Hardware setup}
+@heading Hardware setup
 Using an Arduino UNO, the board should be configured with the following connections between the board and a 24XX256 EEPROM chip:
 
 @table @asis
@@ -439,7 +439,7 @@ Connected to pin 8 of EEPROM
 Connected to pin 1,2,3,4 of EEPROM
 @end table
 
-@heading{Create an Arduino object}
+@heading Create an Arduino object
 
 @example
 ar = arduino ();
@@ -448,14 +448,14 @@ ar = arduino ();
 If you have more than one Arduino board connected, you may need to specify the port in order to
 connect to the correct device.
 
-@heading{Query I2C pins}
+@heading Query I2C pins
 Display the I2C terminals of the board:
 
 @example
 getI2CTerminals(ar)
 @end example
 
-@heading{Scan the arduino for the connected device}
+@heading Scan the arduino for the connected device
 
 @example
 scanI2Cbus(ar)
@@ -463,12 +463,12 @@ scanI2Cbus(ar)
 
 The devices listed should contain 0x50, the address of the EEPROM chip.
 
-@heading{Create an I2C object to communicate to the EEPROM}
+@heading Create an I2C object to communicate to the EEPROM
 @example
 eeprom = i2cdev(ar, 0x50)
 @end example
 
-@heading{Write data to the EEPROM}
+@heading Write data to the EEPROM
 
 The EEPROM expects the first byte to be the page number, the second the offset, followed by data,
 so to write 1 2 3 4, starting address 0 (page 0, offset 0):
@@ -477,7 +477,7 @@ so to write 1 2 3 4, starting address 0 (page 0, offset 0):
 write(eeprom, [0 0 1 2 3 4])
 @end example
 
-@heading{Reading from the EEPROM}
+@heading Reading from the EEPROM
 
 Reading from the EEPROM requires first writing the address to read from, in this case, if we
 want to read the 3, 4, this would be page 0, offset 2:
@@ -501,7 +501,7 @@ This example shows using SPI to communicate with an mcp3002 10 bit ADC. Code is 
 edit examples/example_spi_mcp3002
 @end example
 
-@heading{Hardware setup}
+@heading Hardware setup
 Using an Arduino UNO, the board should be configured with the following connections between the board and a mcp3002 chip:
 
 @table @asis
@@ -521,7 +521,7 @@ Connected to pin 4 (VSS) MCP3002
 Connected from pin 2 of the MCP3002 to a LOW (< 5V) voltage to measure
 @end table
 
-@heading{Create an Arduino object}
+@heading Create an Arduino object
 
 @example
 ar = arduino ();
@@ -530,14 +530,14 @@ ar = arduino ();
 If you have more than one Arduino board connected, you may need to specify the port in order to
 connect to the correct device.
 
-@heading{Create an SPI object to communicate to the MCP3002}
+@heading Create an SPI object to communicate to the MCP3002
 @example
 adc = spidev(ar, "d10")
 @end example
 
 The d10 is the chip select pin connected from the Arduino to the MCP3002.
 
-@heading{read the ADC}
+@heading Read the ADC
 
 The MCP3002 expects specific commands in order to read a channel.
 
