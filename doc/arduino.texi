@@ -1,0 +1,340 @@
+\input texinfo @c -*-texinfo-*-
+@c Copyright (c) 2018, John Donoghue <john.donoghue@ieee.org>
+@c Octave Arduino - a somewhat Matlab compatable arduino toolkit for GNU octave.
+
+@c For manually generating the documentation use
+@c   LANGUAGE=en makeinfo --html --no-split arduino.texi
+
+@c %*** Start of HEADER
+@setfilename arduino.info
+@settitle Arduino Toolkit - a somewhat Matlab compatable arduino toolkit for GNU octave.
+@afourpaper
+@set VERSION 0.1.0
+@c @afourwide
+@c %*** End of the HEADER
+
+@c The following macro is used for the on-line help system, but we don't
+@c want lots of `See also: foo, bar, and baz' strings cluttering the
+@c printed manual (that information should be in the supporting text for
+@c each group of functions and variables).
+
+@macro seealso {args}
+@iftex
+@vskip 2pt
+@end iftex
+@ifnottex
+@c Texinfo @sp should work but in practice produces ugly results for HTML.
+@c A simple blank line produces the correct behavior.
+@c @sp 1
+
+@end ifnottex
+@noindent
+@strong{See also:} \args\.
+@end macro
+
+@c %*** Start of TITLEPAGE
+@titlepage
+@title Arduino Toolkit @value{VERSION}
+@subtitle  a somewhat MATLAB compatable arduino toolkit for GNU octave.
+@author John Donoghue
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 2018 John Donoghue
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission
+notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the same conditions as for modified versions.
+
+@page
+@heading Distribution
+The @acronym{GNU} Octave arduino package is @dfn{free} software.
+Free software is a matter of the users' freedom to run, copy, distribute,
+study, change and improve the software.
+This means that everyone is free to use it and free to redistribute it
+on certain conditions.  The @acronym{GNU} Octave arduino package
+is not, however, in the public domain.  It is copyrighted and there are
+restrictions on its distribution, but the restrictions are designed to
+ensure that others will have the same freedom to use and redistribute
+Octave that you have.  The precise conditions can be found in the
+@acronym{GNU} General Public License that comes with the @acronym{GNU}
+Octave arduino package and that also appears in @ref{Copying}.
+
+To download a copy of the @acronym{GNU} Octave arduino package, please visit
+@url{http://octave.sourceforge.net/arduino/}.
+
+@end titlepage
+@c %*** End of TITLEPAGE
+
+@c %*** Start of BODY
+@contents
+@ifnottex
+@node Top
+@top Introduction
+The Arduino toolkit is a somewhat Matlab compatable arduino toolkit for GNU octave.
+@end ifnottex
+
+@menu
+* Installing and loading::    Installing and loading the Arduino toolkit
+* Hardware setup::            Setting up the Arduino hardware
+* Connecting to an arduino::  Making a connection to an arduino device
+* Basic Input and Output Overview::    Performing basic I/O
+* Function Reference::        Arduino toolkit functions
+* Copying::                   Copying
+* Index::                     Index
+@end menu
+
+@c -------------------------------------------------------------------------
+@node Installing and loading
+@chapter Installing and loading
+@cindex Installing and loading
+
+The Arduino toolkit must be intalled and the loaded to be used.
+
+It can be installed in Octave directly from octave-forge,
+or can be installed in an off-line mode via a downloaded tarball.
+
+The toolkit must be loaded once per each Octave session.
+
+@section Method 1: Online Direct method
+@cindex Method 1
+With an internet connection available, the Arduino package can be installed from
+octave-forge using the following command within Octave.
+
+@example
+pkg install -forge arduino
+@end example
+
+@section Method 2: Off-line method
+@cindex Method 2
+With the arduino toolkit package already downloaded, and in the current directory when running
+Octave, the package can be installed using the following command within Octave.
+
+@example
+pkg install arduino-@value{VERSION}.tar.gz
+@end example
+
+@section Loading
+@cindex Loading
+Regardless of the method of installing the Arduino toolkit, in order to use its functions,
+the toolkit must be loaded.
+
+@example
+pkg load arduino
+@end example
+
+The toolkit must be loaded on each Octave session.
+
+@c -------------------------------------------------------------------------
+@node Hardware setup
+@chapter Hardware setup
+@cindex Hardware setup
+
+In order to use the arduino hardware with the toolkit, it must be programmed with
+special firmware.
+
+To program the hardware, using a default configuration, run the arduinosetup command.
+
+@example
+arduinosetup
+@end example
+
+A temporary Arduino project will be created, with the Arduino toolkit files copied to it and the Arduino IDE will open.
+
+Set the board type and port correctly for the connected Arduino and press the upload button on the IDE.
+
+The sources will be compiled and and then uploaded to the connected arduino board.
+
+@c -------------------------------------------------------------------------
+@node Connecting to an arduino
+@chapter Connecting to an arduino
+@cindex Connecting to an arduino
+
+To control an arduino device, a connection must be made to it by creating an arduino object.
+
+@section Connecting to a single arduino
+@cindex Connecting to a single arduino
+Assuming a single arduino device is connected to the computer, creating an arduno object with no arguments will
+find the connected arduino and connect to it
+
+@example
+ar = arduino()
+@end example
+
+@section Connecting to a specific arduino
+@cindex Connecting to a specific arduino
+Where multiple arduinos may e connected to a computer, a specific board can be connected by
+specifying the name of the port it is connected to.
+
+@example
+ar = arduino("/dev/ttyACM0")
+@end example
+
+The port name will be operating system dependant.
+
+@section Querying available arduinos
+@cindex Querying available arduinos
+To list the ports of all programmed, available arduinos the scanForArduinos function can be used.
+
+@example
+scanForArduinos
+@end example
+
+It will provide a list all all available boards it can find with the port they are connected to.
+
+@c -------------------------------------------------------------------------
+@node Basic Input and Output Overview
+@chapter Basic Input and Output Overview
+@cindex Basic Input and Output Overview
+
+Basic input and output can be performed on a connected arduino device using by calling the read write functions
+for a specific named pin on the arduino.
+
+A list of available pins can get found from the pins property of the connected arduio object and are also displayed
+as part of the default shown properties.
+
+@example
+ar = arduino();
+% get the pin names
+pins = ar.pins
+@end example
+
+Pin generally follow a naming schmeme of D<number> for digital pins and A<number> for analog pins.
+
+Digital pins can be used to read and write digital data, but can not read analog voltages.
+Analog pins can perform digital I/O as well as reading voltages.
+
+@section Performing Digital I/O
+@cindex Performing Digital I/O
+
+A pin's digital logic value can be true (1) or false (0) and can be set using the writeDigialPin function.
+
+The following example attempts to set the D2 pin of the connected arduini object "ar" to true, waits 5 seconds and
+then sets it to false.
+
+@example
+writeDigitalPin (ar,  "d2", true);
+pause 5
+writeDigitalPin (ar,  "d2", false);
+@end example
+
+
+Using the readDigitalPin will read the currentl logic state of the pin.
+
+@example
+value = readDigitalPin (ar,  "d2");
+@end example
+
+@section Performing Analog Input
+@cindex Performing Analog Input
+
+For analog pins, the voltage level can be read using a analog to digital conversion and will return a voltage level between 0 and the boards voltage (nominally 5V)
+
+@example
+value = readAnalogVoltage (ar,  "a0");
+@end example
+
+
+The raw digital value of the pin can also be read instead of a volatge, giving a value between 0 and 2^x where x is the number of bits used by the analog to digtial converter.
+
+@example
+value = readAnalogValue (ar,  "a0");
+@end example
+
+
+@section SPI communication
+@cindex SPI communication
+
+SPI communication can be performed by creating a SPI dev object and then calling 
+
+@example
+spi = spidev (ar,  "d2");
+@end example
+
+The function call expects a connected arduino object as the first argument, followed by the chip slelect pin of the SPI device.
+
+After a device is created, a write to device followed by read can can be made using the writeRead function.
+
+@example
+spi = spidev (ar,  "d2");
+data = writeRead (spi,  100);
+@end example
+
+
+@section I2C communication
+@cindex I2C communication
+
+I2C communication can be performed by created an I2C dev object for a specific I2C address.
+
+@example
+% create i2c device that will communicate with a I2C device at address 100
+i2c = i2cdev (ar,  100);
+@end example
+
+After creating an I2C device, data can be read and writen using read, write, readRegister and writeRegister. Data to send 
+and recieve will be device dependent.
+
+@section Servo communication
+@cindex Servo communication
+
+Servo communication can be performed after creating a servo device object to operate on a PWM pin.
+
+@example
+servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
+@end example
+
+The servo function expects the connected arduino object and the PWM pin that the servo is connnected to. Optional properties 
+can be specified to control the setup of device.
+
+In the example, the min and max puslse width values are set.
+
+
+Using the servo object the current position and be read or set with values ranging between 0 to 1, with 0 being the minimum 
+pulse width and 1 being the maximum.
+
+The following example sets the servo to its middle position.
+
+@example
+servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
+writePosition (servoobj, 0.5);
+@end example
+
+
+@section Shift Registers
+@cindex Shift Registers
+
+A shift register can be controlled by created a shiftRegister object.
+
+@example
+registerobj = shiftRegister(ar, '74hc164', "d2", "d3");
+@end example
+
+Parameters required are dependant on the type of shift register created.
+
+Once a register object has been created, it can be read and written to using the read and write functions.
+
+@c -------------------------------------------------------------------------
+@node Function Reference
+@chapter Function Reference
+@cindex Function Reference
+
+@include functions.texi
+
+@c -------------------------------------------------------------------------
+
+@include gpl.texi
+
+@c -------------------------------------------------------------------------
+@node Index 
+@unnumbered Index 
+ 
+@printindex cp
+ 
+@bye

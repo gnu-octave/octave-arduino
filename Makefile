@@ -16,6 +16,7 @@ MD5SUM    ?= md5sum
 SED       ?= sed
 GREP      ?= grep
 TAR       ?= tar
+TEXI2PDF  ?= texi2pdf
 
 ## Helper function
 TOLOWER   := $(SED) -e 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'
@@ -96,18 +97,37 @@ $(RELEASE_DIR): .hg/dirstate
 	$(RM) -r "$@"
 #	hg archive --exclude ".hg*" --exclude Makefile --type files "$@"
 	hg archive --exclude ".hg*" --type files "$@"
-	cd "$@" && rm -rf "devel/" && rm -rf "deprecated/"
+	$(MAKE) -C "$@" docs
+	# remove dev stuff
+	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py
 #	cd "$@/src" && aclocal -Im4 && autoconf && $(RM) -r "src/autom4te.cache"
 #	cd "$@/src" && ./bootstrap
 #	cd "$@" && $(MAKE) test_files
 	cd "$@" && $(RM) Makefile
 	chmod -R a+rX,u+w,go-w "$@"
 
+.PHONY: docs
+docs: doc/$(PACKAGE).pdf
+
+cleandocs:
+	$(RM) -f doc/$(PACKAGE).info
+	$(RM) -f doc/$(PACKAGE).pdf
+	$(RM) -f doc/functions.texi
+
+doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
+	cd doc && $(TEXI2PDF) $(PACKAGE).texi
+	# remove temp files
+	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
+
+doc/functions.texi:
+	cd doc && ./mkfuncdocs.py --src-dir=../inst/ ../INDEX > functions.texi
+
+
 # install is a prerequesite to the html directory (note that the html
 # tarball will use the implicit rule for ".tar.gz" files).
-#html_options = --eval 'options = get_html_options ("octave-forge");' \
-#               --eval 'options.package_doc = "$(PACKAGE).texi";'
-html_options = --eval 'options = get_html_options ("octave-forge");'
+html_options = --eval 'options = get_html_options ("octave-forge");' \
+               --eval 'options.package_doc = "$(PACKAGE).texi";'
+#html_options = --eval 'options = get_html_options ("octave-forge");'
 $(HTML_DIR): install
 	@echo "Generating HTML documentation. This may take a while ..."
 	$(RM) -r "$@"
@@ -129,7 +149,7 @@ install: $(RELEASE_TARBALL)
 	@echo "Installing package locally ..."
 	$(OCTAVE) --silent --eval 'pkg ("install", "-verbose", "$(RELEASE_TARBALL)")'
 
-clean:
+clean: cleandocs
 	$(RM) -r $(RELEASE_DIR) $(RELEASE_TARBALL) $(HTML_TARBALL) $(HTML_DIR)
 	#$(MAKE) -C src clean
 	#$(RM) -rf inst/test

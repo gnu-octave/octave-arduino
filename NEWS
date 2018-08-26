@@ -8,6 +8,8 @@ Summary of important user-visible changes for arduino 0.1.0+:
  ** added initial support for additional board types:
     - ARM sparkfun SAMD21 dev board
 
+ ** added manual
+
 
 Summary of important user-visible changes for arduino 0.1.0:
 -------------------------------------------------------------------
