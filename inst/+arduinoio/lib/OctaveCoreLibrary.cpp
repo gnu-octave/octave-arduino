@@ -67,6 +67,15 @@ static const uint8_t map_config_mode[] PROGMEM = {
   OUTPUT, // spi TODO ?
 };
 
+int get_mode(int m)
+{
+  if(m >= 0 && m < sizeof(map_config_mode))
+  {
+    return pgm_read_byte_near(map_config_mode + m);
+  }
+  return INPUT;
+}
+
 #define pinToAnalog(a) (a < A0 ? 0 : a-A0)
    
 static uint8_t pinconfig[NUM_DIGITAL_PINS];
@@ -151,7 +160,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           data[1] = pinconfig[data[0]]; // TODO: get mode somehow ????
           sendResponseMsg(cmdID,data, 2);
         } else if (datasz == 2 && data[0] < NUM_DIGITAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode)) {
-          int mode = map_config_mode[data[1]];
+          int mode = get_mode(data[1]);
           pinconfig[data[0]] = data[1];
           pinMode(data[0], mode);
           sendResponseMsg(cmdID,data, 0);

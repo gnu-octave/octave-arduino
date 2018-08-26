@@ -5,6 +5,8 @@ Summary of important user-visible changes for arduino 0.1.0+:
 
  ** bug fixes for use with older versions of octave
 
+ ** bug fix mode config in flash
+
  ** added initial support for additional board types:
     - ARM sparkfun SAMD21 dev board
 
