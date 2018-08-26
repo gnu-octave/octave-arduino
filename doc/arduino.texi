@@ -1,6 +1,6 @@
 \input texinfo @c -*-texinfo-*-
 @c Copyright (c) 2018, John Donoghue <john.donoghue@ieee.org>
-@c Octave Arduino - a somewhat Matlab compatable arduino toolkit for GNU octave.
+@c Octave Arduino - a somewhat Matlab compatable Arduino toolkit for GNU octave.
 
 @c For manually generating the documentation use
 @c   LANGUAGE=en makeinfo --html --no-split arduino.texi
@@ -9,6 +9,8 @@
 @setfilename arduino.info
 @settitle Arduino Toolkit - a somewhat Matlab compatable arduino toolkit for GNU octave.
 @afourpaper
+@paragraphindent 0
+@finalout
 @set VERSION 0.1.0
 @c @afourwide
 @c %*** End of the HEADER
@@ -35,7 +37,7 @@
 @c %*** Start of TITLEPAGE
 @titlepage
 @title Arduino Toolkit @value{VERSION}
-@subtitle  a somewhat MATLAB compatable arduino toolkit for GNU octave.
+@subtitle  a somewhat MATLAB compatable Arduino toolkit for @acronym{GNU} Octave.
 @author John Donoghue
 @page
 @vskip 0pt plus 1filll
@@ -86,6 +88,7 @@ The Arduino toolkit is a somewhat Matlab compatable arduino toolkit for GNU octa
 * Hardware setup::            Setting up the Arduino hardware
 * Connecting to an arduino::  Making a connection to an arduino device
 * Basic Input and Output Overview::    Performing basic I/O
+* Protocol based I/O Overview::    Performing protocol based I/O
 * Function Reference::        Arduino toolkit functions
 * Copying::                   Copying
 * Index::                     Index
@@ -96,26 +99,28 @@ The Arduino toolkit is a somewhat Matlab compatable arduino toolkit for GNU octa
 @chapter Installing and loading
 @cindex Installing and loading
 
-The Arduino toolkit must be intalled and the loaded to be used.
+The Arduino toolkit must be installed and then loaded to be used.
 
-It can be installed in Octave directly from octave-forge,
+It can be installed in @acronym{GNU} Octave directly from octave-forge,
 or can be installed in an off-line mode via a downloaded tarball.
 
-The toolkit must be loaded once per each Octave session.
+The toolkit must be then be loaded once per each @acronym{GNU} Octave session in order to use its functionalty.
 
-@section Method 1: Online Direct method
-@cindex Method 1
+@section Online Direct install
+@cindex Online install
 With an internet connection available, the Arduino package can be installed from
-octave-forge using the following command within Octave.
+octave-forge using the following command within @acronym{GNU} Octave:
 
 @example
 pkg install -forge arduino
 @end example
 
-@section Method 2: Off-line method
-@cindex Method 2
+The latest released version of the toolkit will be downloaded and installed.
+
+@section Off-line install
+@cindex Off-line install
 With the arduino toolkit package already downloaded, and in the current directory when running
-Octave, the package can be installed using the following command within Octave.
+@acronym{GNU} Octave, the package can be installed using the following command within @acronym{GNU} Octave:
 
 @example
 pkg install arduino-@value{VERSION}.tar.gz
@@ -124,13 +129,13 @@ pkg install arduino-@value{VERSION}.tar.gz
 @section Loading
 @cindex Loading
 Regardless of the method of installing the Arduino toolkit, in order to use its functions,
-the toolkit must be loaded.
+the toolkit must be loaded using the pkg load command:
 
 @example
 pkg load arduino
 @end example
 
-The toolkit must be loaded on each Octave session.
+The toolkit must be loaded on each @acronym{GNU} Octave session.
 
 @c -------------------------------------------------------------------------
 @node Hardware setup
@@ -140,7 +145,9 @@ The toolkit must be loaded on each Octave session.
 In order to use the arduino hardware with the toolkit, it must be programmed with
 special firmware.
 
-To program the hardware, using a default configuration, run the arduinosetup command.
+@section Programming the Arduino
+@cindex Programming the Arduino
+To program the hardware, using a default configuration, run the arduinosetup command:
 
 @example
 arduinosetup
@@ -150,7 +157,9 @@ A temporary Arduino project will be created, with the Arduino toolkit files copi
 
 Set the board type and port correctly for the connected Arduino and press the upload button on the IDE.
 
-The sources will be compiled and and then uploaded to the connected arduino board.
+The sources will be compiled and then uploaded to the connected arduino board.
+
+After successful upload the Arduino IDE should be closed.
 
 @c -------------------------------------------------------------------------
 @node Connecting to an arduino
@@ -162,7 +171,7 @@ To control an arduino device, a connection must be made to it by creating an ard
 @section Connecting to a single arduino
 @cindex Connecting to a single arduino
 Assuming a single arduino device is connected to the computer, creating an arduno object with no arguments will
-find the connected arduino and connect to it
+find the connected arduino and connect to it:
 
 @example
 ar = arduino()
@@ -170,8 +179,8 @@ ar = arduino()
 
 @section Connecting to a specific arduino
 @cindex Connecting to a specific arduino
-Where multiple arduinos may e connected to a computer, a specific board can be connected by
-specifying the name of the port it is connected to.
+Where multiple arduinos may be connected to the computer, a specific board can be connected by
+specifying the name of the port it is connected to:
 
 @example
 ar = arduino("/dev/ttyACM0")
@@ -181,32 +190,32 @@ The port name will be operating system dependant.
 
 @section Querying available arduinos
 @cindex Querying available arduinos
-To list the ports of all programmed, available arduinos the scanForArduinos function can be used.
+To list the ports of all @emph{programmed} available arduinos, the scanForArduinos function can be used:
 
 @example
 scanForArduinos
 @end example
 
-It will provide a list all all available boards it can find with the port they are connected to.
+It will provide a list of all available boards it can find with the port they are connected to.
 
 @c -------------------------------------------------------------------------
 @node Basic Input and Output Overview
 @chapter Basic Input and Output Overview
 @cindex Basic Input and Output Overview
 
-Basic input and output can be performed on a connected arduino device using by calling the read write functions
+Basic input and output can be performed on a connected arduino device using by calling the read and write functions
 for a specific named pin on the arduino.
 
 A list of available pins can get found from the pins property of the connected arduio object and are also displayed
-as part of the default shown properties.
+as part of the default shown properties:
 
 @example
 ar = arduino();
 % get the pin names
-pins = ar.pins
+pins = ar.availablepins
 @end example
 
-Pin generally follow a naming schmeme of D<number> for digital pins and A<number> for analog pins.
+Pin generally follow a naming scheme of D<number> for digital pins and A<number> for analog pins.
 
 Digital pins can be used to read and write digital data, but can not read analog voltages.
 Analog pins can perform digital I/O as well as reading voltages.
@@ -217,7 +226,7 @@ Analog pins can perform digital I/O as well as reading voltages.
 A pin's digital logic value can be true (1) or false (0) and can be set using the writeDigialPin function.
 
 The following example attempts to set the D2 pin of the connected arduini object "ar" to true, waits 5 seconds and
-then sets it to false.
+then sets it to false:
 
 @example
 writeDigitalPin (ar,  "d2", true);
@@ -226,7 +235,7 @@ writeDigitalPin (ar,  "d2", false);
 @end example
 
 
-Using the readDigitalPin will read the currentl logic state of the pin.
+Using the readDigitalPin will read the current logic state of the pin.
 
 @example
 value = readDigitalPin (ar,  "d2");
@@ -235,24 +244,33 @@ value = readDigitalPin (ar,  "d2");
 @section Performing Analog Input
 @cindex Performing Analog Input
 
-For analog pins, the voltage level can be read using a analog to digital conversion and will return a voltage level between 0 and the boards voltage (nominally 5V)
+For analog pins, the voltage level can be read using a analog to digital conversion and will return a voltage level
+between 0 and the boards voltage (nominally 5V):
 
 @example
-value = readAnalogVoltage (ar,  "a0");
+value = readVoltage (ar,  "a0");
 @end example
 
 
-The raw digital value of the pin can also be read instead of a volatge, giving a value between 0 and 2^x where x is the number of bits used by the analog to digtial converter.
+The raw digital value of the pin can also be read instead of a volatge, giving a value between 0 and 2^x where x is
+the number of bits used by the analog to digtial converter.
 
 @example
-value = readAnalogValue (ar,  "a0");
+value = readAnalogPin (ar,  "a0");
 @end example
 
+
+@c -------------------------------------------------------------------------
+@node Protocol based I/O Overview
+@chapter Protocol based I/O Overview
+@cindex Protocol based I/O Overview
+
+The arduino toolkit supports more complex I/O for SPI, I2C, Servo control and more.
 
 @section SPI communication
 @cindex SPI communication
 
-SPI communication can be performed by creating a SPI dev object and then calling 
+SPI communication can be performed by creating a SPI dev object and then calling the writeRead function:
 
 @example
 spi = spidev (ar,  "d2");
@@ -260,7 +278,7 @@ spi = spidev (ar,  "d2");
 
 The function call expects a connected arduino object as the first argument, followed by the chip slelect pin of the SPI device.
 
-After a device is created, a write to device followed by read can can be made using the writeRead function.
+After a device is created, a write to device followed by read can can be made using the writeRead function:
 
 @example
 spi = spidev (ar,  "d2");
@@ -271,20 +289,20 @@ data = writeRead (spi,  100);
 @section I2C communication
 @cindex I2C communication
 
-I2C communication can be performed by created an I2C dev object for a specific I2C address.
+I2C communication can be performed by creating an I2C dev object for a specific I2C address.
 
+The following example creates an i2c device that will communicate with a I2C device at address 100"
 @example
-% create i2c device that will communicate with a I2C device at address 100
 i2c = i2cdev (ar,  100);
 @end example
 
-After creating an I2C device, data can be read and writen using read, write, readRegister and writeRegister. Data to send 
+After creating an I2C device, data can be read and writen using read, write, readRegister and writeRegister. The data to send 
 and recieve will be device dependent.
 
 @section Servo communication
 @cindex Servo communication
 
-Servo communication can be performed after creating a servo device object to operate on a PWM pin.
+Servo communication can be performed after creating a servo device object to operate on a PWM pin:
 
 @example
 servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
@@ -293,7 +311,7 @@ servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3)
 The servo function expects the connected arduino object and the PWM pin that the servo is connnected to. Optional properties 
 can be specified to control the setup of device.
 
-In the example, the min and max puslse width values are set.
+In the example, the min and max pulse width values are set.
 
 
 Using the servo object the current position and be read or set with values ranging between 0 to 1, with 0 being the minimum 
@@ -310,13 +328,13 @@ writePosition (servoobj, 0.5);
 @section Shift Registers
 @cindex Shift Registers
 
-A shift register can be controlled by created a shiftRegister object.
+A shift register can be controlled by creating a shiftRegister object:
 
 @example
 registerobj = shiftRegister(ar, '74hc164', "d2", "d3");
 @end example
 
-Parameters required are dependant on the type of shift register created.
+The parameters required are dependant on the type of shift register created.
 
 Once a register object has been created, it can be read and written to using the read and write functions.
 
@@ -324,6 +342,8 @@ Once a register object has been created, it can be read and written to using the
 @node Function Reference
 @chapter Function Reference
 @cindex Function Reference
+
+The functions currently available in the Arduino toolkit are described below;
 
 @include functions.texi
 
