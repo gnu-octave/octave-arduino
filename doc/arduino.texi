@@ -89,6 +89,7 @@ The Arduino toolkit is a somewhat Matlab compatable arduino toolkit for GNU octa
 * Connecting to an arduino::  Making a connection to an arduino device
 * Basic Input and Output Overview::    Performing basic I/O
 * Protocol based I/O Overview::    Performing protocol based I/O
+* Examples::                  Examples using the Arduino toolkit
 * Function Reference::        Arduino toolkit functions
 * Copying::                   Copying
 * Index::                     Index
@@ -337,6 +338,246 @@ registerobj = shiftRegister(ar, '74hc164', "d2", "d3");
 The parameters required are dependant on the type of shift register created.
 
 Once a register object has been created, it can be read and written to using the read and write functions.
+
+@c -------------------------------------------------------------------------
+@node Examples
+@chapter Examples
+@cindex Examples
+
+@section Blinking an LED
+@cindex Linking an LED
+
+This example shows blinking the inbuilt LED on the Arduino board. Code is available by running:
+@example
+edit examples/example_blink
+@end example
+
+@heading{Hardware setup}
+This example uses in the builtin LEDS, so requires only a connection of the Arduino board to
+computer for communication.
+
+@heading{Create an Arduino object}
+
+@example
+ar = arduino ();
+@end example
+
+If you have more than one Arduino board connected, you may need to specify the port in order to
+connect to the correct device.
+
+@heading{Query Device for pins connected to builtin LEDS}
+
+The pin connected to the Arduino UNO built in led if D13.
+
+@example
+led_pin = "d13";
+@end example
+
+The connected pins can be queried programatically if desired.
+
+@example
+pins = getLEDTerminals (ar);
+@end example
+
+Connected to a Arduino UNO would return a list pins containing only one item '13'.
+
+The terminal number can be converted to a pin using getPinsFromTerminals:
+
+@example
+led_pin = getPinsFromTerminals (ar, pins@{1@});
+@end example
+
+
+@heading{Turn the LED off}
+
+Write a 0 value to the pin to turn it off.
+
+@example
+writeDigitalPin (ar, led_pin, 0);
+@end example
+
+@heading{Turn the LED on}
+
+Write a 1 value to the pin to turn it on
+
+@example
+writeDigitalPin (ar, led_pin, 1);
+@end example
+
+@heading{Making the LED blink}
+
+Add a while loop with a pause between the changes in the pin state to blink.
+
+@example
+while true
+  writeDigitalPin (ar, led_pin, 0);
+  pause (0.5)
+  writeDigitalPin (ar, led_pin, 1);
+  pause (0.5)
+endwhile
+@end example
+
+@section Using I2C to communicate with an EEPROM
+@cindex Using I2C to communicate with an EEPROM
+
+This example shows using I2C to communicate with a EEPROM chip. Code is available by running:
+@example
+edit examples/example_i2c_eeprom
+@end example
+
+@heading{Hardware setup}
+Using an Arduino UNO, the board should be configured with the following connections between the board and a 24XX256 EEPROM chip:
+
+@table @asis
+@item A4
+Connected to pin 5 of EEPROM
+@item A5
+Connected to pin 6 of EEPROM
+@item 5V
+Connected to pin 8 of EEPROM
+@item GND
+Connected to pin 1,2,3,4 of EEPROM
+@end table
+
+@heading{Create an Arduino object}
+
+@example
+ar = arduino ();
+@end example
+
+If you have more than one Arduino board connected, you may need to specify the port in order to
+connect to the correct device.
+
+@heading{Query I2C pins}
+Display the I2C terminals of the board:
+
+@example
+getI2CTerminals(ar)
+@end example
+
+@heading{Scan the arduino for the connected device}
+
+@example
+scanI2Cbus(ar)
+@end example
+
+The devices listed should contain 0x50, the address of the EEPROM chip.
+
+@heading{Create an I2C object to communicate to the EEPROM}
+@example
+eeprom = i2cdev(ar, 0x50)
+@end example
+
+@heading{Write data to the EEPROM}
+
+The EEPROM expects the first byte to be the page number, the second the offset, followed by data,
+so to write 1 2 3 4, starting address 0 (page 0, offset 0):
+
+@example
+write(eeprom, [0 0 1 2 3 4])
+@end example
+
+@heading{Reading from the EEPROM}
+
+Reading from the EEPROM requires first writing the address to read from, in this case, if we
+want to read the 3, 4, this would be page 0, offset 2:
+
+@example
+write(eeprom, [0 2])
+@end example
+
+Next read the 2 bytes:
+
+@example
+data = read(eeprom, 2)
+@end example
+
+@c -------------------------------------------------------------------------
+@section Using SPI to communicate with a mcp3002 10 bit ADC
+@cindex Using SPI to communicate with a mcp3002 10 bit ADC
+
+This example shows using SPI to communicate with an mcp3002 10 bit ADC. Code is available by running:
+@example
+edit examples/example_spi_mcp3002
+@end example
+
+@heading{Hardware setup}
+Using an Arduino UNO, the board should be configured with the following connections between the board and a mcp3002 chip:
+
+@table @asis
+@item D10
+Connected to pin 1 (CS) of MCP3002
+@item D11
+Connected to pin 5 (DI) of MCP3002
+@item D12
+Connected to pin 6 (DO) of MCP3002
+@item D13
+Connected to pin 7 (CLK) MCP3002
+@item VCC
+Connected to pin 8 (VDD) MCP3002
+@item GND
+Connected to pin 4 (VSS) MCP3002
+@item Analog input
+Connected from pin 2 of the MCP3002 to a LOW (< 5V) voltage to measure
+@end table
+
+@heading{Create an Arduino object}
+
+@example
+ar = arduino ();
+@end example
+
+If you have more than one Arduino board connected, you may need to specify the port in order to
+connect to the correct device.
+
+@heading{Create an SPI object to communicate to the MCP3002}
+@example
+adc = spidev(ar, "d10")
+@end example
+
+The d10 is the chip select pin connected from the Arduino to the MCP3002.
+
+@heading{read the ADC}
+
+The MCP3002 expects specific commands in order to read a channel.
+
+For isslustration for the command to read chan 0 in single ended mode:
+@example
+command (bits) in MSB mode to device:
+[START SGL ODN MSBF X X X X] [ X X X X X X X X ] 
+   1    1   0    1   1 1 1 1    1 1 1 1 1 1 1 1 
+      [chan 0 ] MSB    
+data back:
+   X    X  X     X   X 0 D D    D D D D D D D D
+@end example
+
+D is a output data bit
+
+X is a dont care what value is input/output
+
+The first byte contains the command and start of the data read back, the second bytes is written to clock out
+the rest of the ADC data.
+
+In hex, this corresponds to 0xDF 0xFF,
+
+@example
+data = writeRead(adc, [hex2dec("DF") hex2dec("FF")])
+@end example
+
+Of the data returned, the last 10 bits is the actual data, so convert data to a 16 bit value:
+@example
+val = uint16(data(1))*256 + uint16(data(2))
+@end example
+
+Then bitand it to remove the non value parts, to get the ADC value:
+@example
+val = bitand (val, hex2dec('3FF'))
+@end example
+
+To make the vaue correspond to a voltage it needs to be scaled as 0 will be 0Volts, 1023 will be 5Volts.
+@example
+volts = double(val) * 5.0 / 1023.0;
+@end example
 
 @c -------------------------------------------------------------------------
 @node Function Reference

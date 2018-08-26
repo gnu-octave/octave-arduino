@@ -170,7 +170,7 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
             data[1] = 0;
           sendResponseMsg(cmdID,data, 2);
         } else if(datasz == 2) {
-          digitalWrite(data[0], data[1]); 
+          digitalWrite(data[0], data[1] ? HIGH : LOW); 
           sendResponseMsg(cmdID,data, 0);
         } else {
           sendInvalidNumArgsMsg();

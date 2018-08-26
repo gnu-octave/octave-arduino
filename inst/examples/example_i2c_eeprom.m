@@ -17,7 +17,7 @@
 % example using the arduino i2c
 % to communicate to a 24XX256 EEPROM chip connected to an uno
 %
-% COnnection  of arduino to eerpom as follows:
+% Connection  of arduino to EEPROM as follows:
 % Arduino    24XX256 eeprom (pin)
 % A4      -  5
 % A5      -  6
