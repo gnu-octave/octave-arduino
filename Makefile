@@ -16,7 +16,7 @@ MD5SUM    ?= md5sum
 SED       ?= sed
 GREP      ?= grep
 TAR       ?= tar
-TEXI2PDF  ?= texi2pdf
+TEXI2PDF  ?= texi2pdf -q
 
 ## Helper function
 TOLOWER   := $(SED) -e 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'

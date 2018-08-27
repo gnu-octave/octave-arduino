@@ -306,7 +306,8 @@ and recieve will be device dependent.
 Servo communication can be performed after creating a servo device object to operate on a PWM pin:
 
 @example
-servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
+servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, ...
+  "maxpulseduration", 2e-3);
 @end example
 
 The servo function expects the connected arduino object and the PWM pin that the servo is connnected to. Optional properties 
@@ -321,7 +322,9 @@ pulse width and 1 being the maximum.
 The following example sets the servo to its middle position.
 
 @example
-servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
+servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, ...
+  "maxpulseduration", 2e-3);
+
 writePosition (servoobj, 0.5);
 @end example
 
