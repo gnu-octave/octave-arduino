@@ -25,7 +25,7 @@
 classdef Echo < arduinoio.LibraryBase
     # commands
     properties(Access = private, Constant = true)
-        ECHO_COMMAND = hex2dec('01')
+        ECHO_COMMAND = hex2dec('01');
     endproperties   
     properties(Access = protected, Constant = true)
         LibraryName = 'ExampleAddon/Echo'

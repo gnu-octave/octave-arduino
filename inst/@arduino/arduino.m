@@ -40,12 +40,12 @@
 classdef arduino < handle
   properties (Access = private)
     config = {};
-    resources = {}
+    resources = {};
     connected = false;
   endproperties
 
   properties (Access = public)
-    name = ""
+    name = "";
     debug = false;
   endproperties
   
