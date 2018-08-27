@@ -28,11 +28,11 @@ classdef Echo < arduinoio.LibraryBase
         ECHO_COMMAND = hex2dec('01');
     endproperties   
     properties(Access = protected, Constant = true)
-        LibraryName = 'ExampleAddon/Echo'
-        DependentLibraries = {}
-        ArduinoLibraryHeaderFiles = {}
+        LibraryName = 'ExampleAddon/Echo';
+        DependentLibraries = {};
+        ArduinoLibraryHeaderFiles = {};
         CppHeaderFile = fullfile(arduinoio.FilePath(mfilename('fullpath')), 'src', 'Echo.h');
-        CppClassName = 'Echo'
+        CppClassName = 'Echo';
     endproperties
 
     methods
