@@ -10,6 +10,6 @@ Description: Basic Octave implementation of the matlab arduino extension,
 Categories: Arduino Toolkit
 Depends: octave (>= 4.0.0), instrument-control (>= 0.3.0)
 SystemRequirements: arduino-ide (>= 1.5)
-BuildRequirements: texi2pdf
+BuildRequirements: texi2pdf, python
 License: GPLv3+
 Url: https://octave.sourceforge.io/arduino/
