@@ -14,6 +14,7 @@
 ## @deftypefn {} {} display (@var{ar})
 ## Display the arduino object in a verbose way, showing the board and available pins.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
 ## If the arduino object has debug mode set, additional information will be displayed.

@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{pinlist} =} getLEDTerminals (@var{ar})
 ## Get a cell list of pin Ids available are connected natively to LEDs.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
+## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for LED use.
 ##
 ## @seealso{arduino}

@@ -14,6 +14,9 @@
 ## @deftypefn {} {} validatePin (@var{ar}, @var{pin}, @var{type})
 ## Validate that the mode is allowed for specified pin
 ##
+## If the mode is not valid, and error will be thrown.
+##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{pin} -  name of pin to query mode validity of

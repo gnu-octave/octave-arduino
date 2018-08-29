@@ -22,6 +22,17 @@
 ## scanForArduinos will scan the system for programmed arduino boards and return at 
 ## most @var{maxCount} of them as a cell array in @var{retval}.
 ##
+## @subsubheading Inputs
+## @var{maxCount} - max number of arduino baords to detect.
+## if @var{maxCount} is not specified, or is a less than 1, the function will return as many
+## arduino boards as it can detect.
+##
+## @var{type} - optional board type to match. If specified, the board type must match for the arduino to be added to the
+## return list.
+##
+## @subsubheading Outputs
+## @var{retval} structure cell array of matching detected arduino boards.
+##
 ## Each cell value of the cell array will contain a structure with values of:
 ## @table @asis
 ## @item port 
@@ -29,12 +40,6 @@
 ## @item board
 ## the board type of the arduino
 ## @end table
-## 
-## if @var{maxCount} is not specified, or is a less than 1, the function will return as many
-## arduino boards as it can detect.
-##
-## If @var{type} is specified, the board type must match for the arduino to be added to the
-## return list.
 ##
 ## @seealso{arduino}
 ## @end deftypefn

@@ -18,6 +18,7 @@
 ## @deftypefn {} {} reset (@var{ar})
 ## Send reset command to arduino hardware to force a hardware reset.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object.
 ##
 ## @seealso{arduino}

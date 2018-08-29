@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{pinlist} =} getI2CTerminals (@var{ar})
 ## Get a cell list of pin Ids available are used for I2C mode.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
+## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for I2C use.
 ##
 ## @seealso{arduino}

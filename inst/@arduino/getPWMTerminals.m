@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{pinlist} =} getPWMTerminals (@var{ar})
 ## Get a cell list of pin Ids available for PWM use.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
+## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for PWM use.
 ##
 ## @seealso{arduino}

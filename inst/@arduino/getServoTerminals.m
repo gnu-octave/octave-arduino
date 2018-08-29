@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{pinlist} =} getServoTerminals (@var{ar})
 ## Get a cell list of pin Ids available for servo use.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
+## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for servo use.
 ##
 ## @seealso{arduino, getPWMTerminals}

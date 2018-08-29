@@ -14,10 +14,12 @@
 ## @deftypefn {} {@var{pinnums} =} getTerminalsFromPins (@var{ar}, @var{pins})
 ## Get the terminal number for each pin.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{pins} - single pin name orcell or vector array of pin names.
 ##
+## @subsubheading Outputs
 ## @var{pinnums} - pin number of each named pin. If the input was a single string, returns a number.
 ## if the input pins was a vector or cell araay, return a cell array of npin numbers corresponding
 ## to each input pin name.

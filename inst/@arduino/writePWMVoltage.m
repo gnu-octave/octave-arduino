@@ -14,13 +14,14 @@
 ## @deftypefn {} {} writePWMVoltage (@var{ar}, @var{pin}, @var{voltage})
 ## Emulate an approximate voltage out of a pin using PWM.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{pin} - pin to write to.
 ##
 ## @var{voltage} - voltage to emulate with PWM, between 0 - 5.0
 ##
-## Example usage:
+## @subsubheading Example
 ## @example
 ## @code{
 ## a = arduino();

@@ -15,10 +15,12 @@
 ## Increment the count value of a named resource by 1 and return the
 ## new count
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{resource} - name of resource to increment count.
 ##
+## @subsubheading Outputs
 ## @var{count} = count of uses registered to resource.
 ##
 ## @seealso{getResourceCount. decrementResourceCount}

@@ -20,8 +20,13 @@
 ## Open the arduino config / programming tool to program the arduino hardware for usage with
 ## the Octave arduino functions.
 ##
-## A sequence of property name/value pairs can be given to the function to set defaults while
-## programming.
+## arduinosetup will create a temporary project  using the arduino IDE and allow 
+## compiling aand programning of the code to an arduino. 
+##
+## @subsubheading Inputs
+## 
+## @var{propertyname}, @var{propertyvalue} - A sequence of property name/value pairs can be given
+## to set defaults while programming.
 ##
 ## Currently the following properties can be set:
 ## @table @asis
@@ -33,8 +38,8 @@
 ## the function will attempt to find the binary itself.
 ## @end table
 ##
-## arduinosetup will create a temporary project  using the arduino IDE and allow 
-## compiling aand programning of the code to an arduino. 
+## @subsubheading Outputs
+## @var{restval} - return 1 if arduino ide returned without an error
 ##
 ## @seealso{arduino, __arduino_binary__}
 ## @end deftypefn

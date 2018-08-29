@@ -14,13 +14,14 @@
 ## @deftypefn {} {} writePWMDutyCyle (@var{ar}, @var{pin}, @var{value})
 ## Set pin to output a square wave with a specified duty cycle.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{pin} - pin to write to.
 ##
 ## @var{value} - duty cycle value where 0 = off, 0.5 = 50% on, 1 = always on.
 ##
-## Example usage:
+## @subsubheading Example
 ## @example
 ## @code{
 ## a = arduino();

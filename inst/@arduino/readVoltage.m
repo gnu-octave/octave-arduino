@@ -14,13 +14,15 @@
 ## @deftypefn {} {@var{voltage} =} readVoltage (@var{ar}, @var{pin})
 ## Read analog voltage of a pin.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino.
 ##
 ## @var{pin} - pin name or number to query for voltage
 ##
+## @subsubheading Outputs
 ## @var{voltage} - scaled pin value as a voltage
 ##
-## Example usage:
+## @subsubheading Example
 ## @example
 ## @code{
 ## ar = arduino ();

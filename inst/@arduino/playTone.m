@@ -14,6 +14,7 @@
 ## @deftypefn {} {} playTone (@var{ar}, @var{pin}, @var{freq}, @var{duration})
 ## Play a tone of a given frequency on a specified pin.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{pin} - digital pin to play tone on

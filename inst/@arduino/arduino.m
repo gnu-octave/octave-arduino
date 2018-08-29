@@ -21,7 +21,8 @@
 ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board}[, [@var{propname}, @var{propvalue}]*)
 ## Create a arduino object with a connection to an arduino board.
 ## 
-## @var{port} - full patth of serial port to connect to. For linux, usually /dev/ttySXXX, for windows COMXX.
+## @subsubheading Inputs
+## @var{port} - full path of serial port to connect to. For linux, usually /dev/ttySXXX, for windows COMXX.
 ##
 ## @var{board} - name of board to connect (default is 'uno').
 ##
@@ -32,7 +33,8 @@
 ## if the arduino function is called without parameters, it will scan for the first available arduino it can find and
 ## connect to it.
 ##
-## Function returns a arduino object is successfully connected.
+## @subsubheading Outputs
+## @var{retval} - a successfully connected arduino object.
 ##
 ## @seealso{scanForArduinos}
 ## @end deftypefn 

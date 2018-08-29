@@ -15,7 +15,7 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{mode} =} configurePinResource (@var{ar}, @var{pin})
+## @deftypefn {} {@var{currmode} =} configurePinResource (@var{ar}, @var{pin})
 ## @deftypefnx {} {} configurePinResource (@var{ar}, @var{pin}, @var{owner}, @var{mode})
 ## @deftypefnx {} {} configurePinResource (@var{ar}, @var{pin}, @var{owner}, @var{mode}, @var{force})
 ## Set/Get pin mode for a specified pin on arduino connection.
@@ -28,17 +28,21 @@
 ## If the pin is already owned by another owner, the configure will fail unless the force option is used.
 ## If the mode is lready set, configure will fail unless force is used.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the ardiuno object of the connection to an arduino board.
 ##
 ## @var{pin} - string name of the pin to set/get the mode of.
 ##
-## @var{mode} - string mode tto set the pin to or is currently set to.
+## @var{mode} - string mode to set the pin to.
 ##
 ## @var{owner} - string name to use as the pin owner.
 ##
 ## @var{force} - boolean to force mode change. If not set, it will be false.
 ##
-## Modes can be:
+## @subsubheading Outputs
+## @var{currmode} - current string mode of the pin.
+##
+## Valid modes can be:
 ## @itemize @bullet
 ## @item AnalogInput
 ## - Acquire analog signals from pin

@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{mcu} =} getMCU (@var{ar})
 ## Get the MCU used by the connected arduino.
 ##
+## @subsubheading Inputs
 ## @var{ar} - arduino object connected to a arduino board.
 ##
+## @subsubheading Outputs
 ## @var{mcu} - string representing the mcu used by the arduino board.
 ##
 ## @seealso{arduino}

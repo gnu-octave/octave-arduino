@@ -17,6 +17,7 @@
 ## Send a command with option data to the connected arduino, waiting up to a specified number of seconds
 ## for a response.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object.
 ##
 ## @var{libname} - library sending the command. The name should match a programmed 
@@ -28,6 +29,7 @@
 ##
 ## @var{timeout} - optional timeout to wait for data
 ##
+## @subsubheading Outputs
 ## @var{outdata} - data returned back from the arduino in response to command
 ##
 ## @var{outsize} - size of data recieved out

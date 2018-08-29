@@ -15,7 +15,7 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{mode} =} configurePin (@var{ar}, @var{pin})
+## @deftypefn {} {@var{currmode} =} configurePin (@var{ar}, @var{pin})
 ## @deftypefnx {} {} configurePin (@var{ar}, @var{pin}, @var{mode})
 ## Set/Get pin mode for a specified pin on arduino connection.
 ##
@@ -24,13 +24,17 @@
 ## configurePin (@var{ar}, @var{pin}, @var{mode}) will attempt set the pin to the specified
 ## mode if the mode is unset.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the ardiuno object of the connection to an arduino board.
 ##
 ## @var{pin} - string name of the pin to set/get the mode of.
 ##
-## @var{mode} - string mode to set the pin to or is currently set to.
+## @var{mode} - string mode to set the pin to.
 ##
-## Modes can be:
+## @subsubheading Outputs
+## @var{mode} - string current mode of the pin.
+##
+## Valid modes can be:
 ## @itemize @bullet
 ## @item AnalogInput
 ## - Acquire analog signals from pin

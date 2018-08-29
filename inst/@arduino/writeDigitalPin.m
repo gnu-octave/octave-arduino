@@ -14,6 +14,7 @@
 ## @deftypefn {} {} writeDigitalPin (@var{ar}, @var{pin}, @var{value})
 ## Write digital value to a digital I/O pin.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object.
 ##
 ## @var{pin} - string name of the pin to write to.
@@ -22,7 +23,7 @@
 ##
 ## If pin was unconfigured beore using, pin is set into digital mode.
 ##
-## Example usage:
+## @subsubheading Example
 ## @example
 ## @code{
 ## a = arduino();

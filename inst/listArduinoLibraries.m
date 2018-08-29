@@ -18,6 +18,10 @@
 ## @deftypefn {} {@var{retval} =} listArduinoLibraries ()
 ## Retrieve list of all known arduino library modules that are available.
 ##
+## @subsubheading Inputs
+## None
+##
+## @subsubheading Outputs
 ## @var{retval} is an cell array of string library names that are
 ## available for programming to the arduino.
 ##

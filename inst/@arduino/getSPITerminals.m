@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{pinlist} =} getSPITerminals (@var{ar})
 ## Get a cell list of pin Ids available for SPI mode.
 ##
+## @subsubheading Inputs
 ## @var{ar} - the arduino object.
 ##
+## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for SPI use.
 ##
 ## @seealso{arduino}

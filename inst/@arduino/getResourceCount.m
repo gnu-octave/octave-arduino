@@ -14,10 +14,12 @@
 ## @deftypefn {} {@var{count} =} getResourceCount (@var{ar}, @var{resource})
 ## Get the count of uses of  a given resource.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{resource} - name of resource to get count for.
 ##
+## @subsubheading Outputs
 ## @var{count} = count of uses registered to resource.
 ##
 ## @seealso{incrementResourceCount. decrementResourceCount}

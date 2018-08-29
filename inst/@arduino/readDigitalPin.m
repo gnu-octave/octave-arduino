@@ -14,13 +14,15 @@
 ## @deftypefn {} {@var{value} =} readDigitalPin (@var{obj}, @var{pin})
 ## Read digital value from a digital I/O pin.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object.
 ##
 ## @var{pin} - string name of the pin to read.
 ##
+## @subsubheading Outputs
 ## @var{value} - the logical value (0, 1, true false) of the current pin state.
 ##
-## Example usage
+## @subsubheading Example
 ## @example
 ## @code{
 ## a = arduino ();
