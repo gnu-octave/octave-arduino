@@ -30,6 +30,19 @@
 static const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
 static const char ERRORMSG_UNKNOWN_CMDID[] PROGMEM = "Unknown cmdID";
 
+const char * OctaveLibraryBase::getLibraryName () const
+{
+  return libName.c_str();
+}
+
+void OctaveLibraryBase::setup ()
+{
+}
+
+void OctaveLibraryBase::loop ()
+{
+}
+
 void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz)
 {
   OCTAVE_COMMS_PORT.write((uint8_t)ARDUINO_SOH);
@@ -116,19 +129,6 @@ uint8_t OctaveArduinoClass::registerLibrary(LibraryBase *lib)
     libcount ++;
     return libcount-1;
   }
-/*
-  for(int i=0;i<libcount;i++)
-  {
-    if(libs[i] == 0)
-    {
-      libs[i] = lib;
-      lib->id = i+1;
-      // anything else to register/do ??
-      
-      return i;
-    }
-  }
- */
   return 255;
 }
 
@@ -146,6 +146,11 @@ uint8_t OctaveArduinoClass::processMessage(uint8_t libid, uint8_t cmd, uint8_t *
 void OctaveArduinoClass::init() 
 {
   OCTAVE_COMMS_PORT.begin(9600);
+
+  for (int i=0;i<libcount;i++)
+  {
+    libs[i]->setup();
+  }
 }
 
 void OctaveArduinoClass::runLoop()
@@ -194,9 +199,12 @@ void OctaveArduinoClass::runLoop()
        msg_state = STATE_SOH;
        
        processMessage(msg_hdr[STATE_EXT], msg_hdr[STATE_CMD], msg_data, msg_hdr[STATE_SIZE]);
-
     }
+  }
 
+  for (int i=0;i<libcount;i++)
+  {
+    libs[i]->loop();
   }
 
 }

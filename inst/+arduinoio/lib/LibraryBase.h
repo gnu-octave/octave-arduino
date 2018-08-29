@@ -35,10 +35,15 @@ public:
   int id;
 
   virtual void commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t payload_size) = 0;
+  virtual void setup();
+  virtual void loop();
+
+  const char * getLibraryName() const;
 
   #define ARDUINO_ERROR       255
   void sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz);
   void sendResponseMsg_P(uint8_t cmdID, const uint8_t *data PROGMEM, uint8_t sz);
+
   void sendErrorMsg(const char *msg);
   void sendErrorMsg_P(const char *msg PROGMEM);
   void sendUnknownCmdIDMsg();
