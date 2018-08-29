@@ -110,7 +110,7 @@ function retval = configurePin (obj, pin, mode)
     [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_CONFIGPIN, datain);
     
     if status != 0
-      error ("@arduino.configurePin: failed to set pin state err=%d", status);
+      error ("@arduino.configurePin: failed to set pin state err=%d - %s", status, char(dataout));
     endif
   else
     % get mode ?
@@ -119,7 +119,7 @@ function retval = configurePin (obj, pin, mode)
     [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_CONFIGPIN, datain);
     
     if status != 0
-      error ("@arduino.configurePin: failed to set pin state err=%d", status);
+      error ("@arduino.configurePin: failed to set pin state err=%d - %s", status, char(dataout));
     endif
    
     retval = pinStateMode (dataout(2));

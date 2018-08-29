@@ -61,7 +61,7 @@ function value = readAnalogPin (obj, pin)
   [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_ANALOG, datain);
  
   if status != 0
-    error ("readVoltage: failed to set pin state err=%d", status);
+    error ("readVoltage: failed to set pin state err=%d - %s", status, char(dataout));
   endif 
   
   value = (uint16(dataout(2))*256 + uint16(dataout(3)));

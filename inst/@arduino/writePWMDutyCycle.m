@@ -40,10 +40,10 @@ function writePWMDutyCycle (obj, pin, value)
     error ("@arduino.writePWMDutyCycle: expected pin name and value");
   endif
   if !ischar(pin) && !isnumeric(pin)
-    error ("@arduino.writeDigitalPin: expected pin name as string");
+    error ("@arduino.writePWMDutyCycle: expected pin name as string");
   endif
   if (!isnumeric(value) || value > 1.0 || value < 0)
-    error ("@arduino.writeDigitalPin: expected value between 0 .. 1");
+    error ("@arduino.writePWMDutyCycle: expected value between 0 .. 1");
   endif  
   
   pininfo = obj.get_pin(pin);
@@ -54,7 +54,7 @@ function writePWMDutyCycle (obj, pin, value)
   else
     [pinstate, pinmode] = pinStateMode(pininfo.mode);
     if !strcmp(pinmode, "pwm")
-      error ("writeDigitalPin: pin is in incompatable mode");
+      error ("@arduino.PWMDutyCycle: pin is in incompatable mode");
     endif
   endif
 
@@ -65,7 +65,7 @@ function writePWMDutyCycle (obj, pin, value)
   [dataout, status] = __sendCommand__ (obj, 0, ARDUINO_PWM, datain);
   
   if status != 0
-    error ("writePWMDutyCycle: failed to set pin state err=%d", status);
+    error ("@arduino.writePWMDutyCycle: failed to set pin state err=%d - %s", status, char(dataout));
   endif 
   
 endfunction

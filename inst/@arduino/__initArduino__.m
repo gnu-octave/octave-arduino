@@ -31,7 +31,7 @@ function retval = __initArduino__ (obj, port, board)
      
      [dataout, status] = __sendCommand__(obj, 0, ARDUINO_INIT);
      if status != 0
-       error ("__initArduino__: failed valid response err=%d", status);
+       error ("__initArduino__: failed valid response err=%d - %s", status, char(dataout));
      endif 
      % uno r3 - atmega32 1E 95 0F
      sig = (uint32(dataout(1))*256*256) + (uint32(dataout(2))*256) + uint32(dataout(3));
@@ -80,7 +80,7 @@ function retval = __initArduino__ (obj, port, board)
      for libid = 0:numlib-1
        [dataout, status] = __sendCommand__(obj, 0, ARDUINO_GETLIB, [libid]);
        if status != 0
-         error ("__initArduino__: failed get lib 0 err=%d", status);
+         error ("__initArduino__: failed get lib %d err=%d - %s", libid, status, char(dataout));
        else
 	 lib = {};
          lib.id = libid;
