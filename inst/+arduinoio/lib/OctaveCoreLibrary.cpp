@@ -25,6 +25,7 @@
 #define ARDUINO_DIGITAL     3
 #define ARDUINO_ANALOG      4
 #define ARDUINO_PWM         5
+#define ARDUINO_PLAYTONE    6
 
 #define ARDUINO_GETLIB      8
 
@@ -207,6 +208,28 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           sendInvalidNumArgsMsg();
         }
         break;  
+      case ARDUINO_PLAYTONE:
+        if(datasz == 5) {
+	  // 0 = pin
+	  // 1 = freqh
+	  // 2 = freql (hz)
+	  // 3 = durh
+	  // 4 = durl (10ths of second)
+	  unsigned long duration = (((unsigned long)(data[3]))<<8 | data[4]) * 100;
+	  unsigned int freq = (((unsigned int)(data[1]))<<8 | data[2]);
+
+	  if(freq == 0) {
+	    noTone(data[0]);
+	  }
+	  else {
+	    tone(data[0], freq, duration);
+	  }
+
+          sendResponseMsg(cmdID,data, 0);
+        } else {
+          sendInvalidNumArgsMsg();
+        }
+        break;
       default:
         sendUnknownCmdIDMsg();
         break;
