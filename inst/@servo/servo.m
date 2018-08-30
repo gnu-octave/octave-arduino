@@ -15,11 +15,12 @@
 ## @deftypefnx {} {@var{obj} = } servo (@var{arduinoobj}, @var{pin}, @var{propertyname}, @var{propertyvalue})
 ## Create a servo object using a specified oin on a arduino board.
 ##
+## @subsubheading Inputs
 ## @var{obj} - servo object
 ##
 ## @var{arduinoobj} - connected arduino object
 ##
-##  @var{propertyname},  @var{propertyvalue} - name value pairs for properties to pass
+## @var{propertyname},  @var{propertyvalue} - name value pairs for properties to pass
 ## to the created servo object.
 ##
 ## Current properties are:
@@ -30,7 +31,10 @@
 ## max PWM pulse value in seconds.
 ## @end table
 ##
-## Example:
+## @subsubheading Outputs
+## @var{obj} - created servo object.
+##
+## @subsubheading Example
 ## @example
 ## # create arduino connection
 ## ar = ardiuino();

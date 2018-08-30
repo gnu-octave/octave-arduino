@@ -11,17 +11,21 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{dev} =} read (@var{dev}, @var{numbytes})
-## @deftypefnx {} {@var{dev} =} read (@var{dev}, @var{numbytes}, @var{precision})
+## @deftypefn {} {@var{data} =} read (@var{dev}, @var{numbytes})
+## @deftypefnx {} {@var{data} =} read (@var{dev}, @var{numbytes}, @var{precision})
 ## Read a specified number of bytes from a i2cdev object
 ## using optional precision for bytesize.
 ##
+## @subsubheading Inputs
 ## @var{dev} - connected i2c device opened using i2cdev
 ##
 ## @var{numbytes} - number of bytes to read.
 ##
 ## @var{precision} - Optional precision for the output data read data.
 ## Currently known precision values are uint8 (default), int8, uint16, int16
+##
+## @subsubheading Outputs
+## @var{data} - data read from i2cdevice
 ##
 ## @seealso{arduino, i2cdev}
 ## @end deftypefn

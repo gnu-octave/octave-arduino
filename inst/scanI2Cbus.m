@@ -17,17 +17,18 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} scanI2Cbus (@var{ar})
 ## @deftypefnx {} {@var{retval} =} scanI2Cbus (@var{ar}, @var{bus})
-##
 ## Scan arduino for devices on the I2C bus.
 ##
+## @subsubheading Inputs
 ## @var{ar} - arduino object connected to a arduino board.
 ##
 ## @var{bus} - bus number to scan I2C devices, when multiple buses are available.
 ## If the bus is not specified, it will default to 0.
 ## 
+## @subsubheading Outputs
 ## @var{retval} - cell array of addresses as strings in format of "0xXX".
 ##
-## Example usage:
+## @subsubheading Example
 ## @example
 ## @code {
 ## # create arduino connection.

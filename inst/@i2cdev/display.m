@@ -14,6 +14,9 @@
 ## @deftypefn {} {} display (@var{dev})
 ## Display i2cdev object.
 ##
+## @subsubheading Inputs
+## @var{dev} - i2cdev object
+##
 ## @seealso{i2cdev}
 ## @end deftypefn
 

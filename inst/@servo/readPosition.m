@@ -14,8 +14,10 @@
 ## @deftypefn {} {@var{position} = } readPosition (@var{servo})
 ## Read the position of a servo
 ##
+## @subsubheading Inputs
 ## @var{servo} - servo object created from arduino.servo.
 ##
+## @subsubheading Outputs
 ## @var{position} - value between 0 .. 1 for the current servo position,
 ## where 0 is the servo min position, 1 is the servo maximum position.
 ##

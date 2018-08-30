@@ -11,11 +11,12 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes})
-## @deftypefnx {} {@var{dev} =} readRegister (@var{dev}, @var{reg}, @var{numbytes}, @var{precision})
+## @deftypefn {} {@var{data} =} readRegister (@var{dev}, @var{reg}, @var{numbytes})
+## @deftypefnx {} {@var{data} =} readRegister (@var{dev}, @var{reg}, @var{numbytes}, @var{precision})
 ## Read a specified numer of bytes from a register of an i2cdev object 
 ## using optional precision for bytesize.
 ##
+## @subsubheading Inputs
 ## @var{dev} - connected i2c device opened using i2cdev
 ##
 ## @var{reg} - registry value number
@@ -24,6 +25,9 @@
 ##
 ## @var{precision} - Optional precision for the output data read data.
 ## Currently known precision values are uint8 (defualt), int8, uint16, int16
+##
+## @subsubheading Output
+## @var{data} - data read from device.
 ##
 ## @seealso{arduino, i2cdev}
 ## @end deftypefn

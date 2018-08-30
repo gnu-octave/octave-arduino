@@ -18,6 +18,7 @@
 ## @deftypefn {} reset (@var{register})
 ## clear the shift register value.
 ##
+## @subsubheading Inputs
 ## @var{register} - shift register created from shiftRegister call.
 ##
 ## @seealso{shiftRegister, read, write}

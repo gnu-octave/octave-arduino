@@ -17,6 +17,8 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{filelist} =} arduinoio.LibFiles ()
 ## Get the list of files used for the buildin arduino library
+## @subsubheading Outputs
+## @var{filelist} - string cell array of files for the arduino project
 ## @end deftypefn
 
 function files = LibFiles()

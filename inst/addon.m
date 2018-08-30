@@ -19,15 +19,18 @@
 ## @deftypefnx {} {@var{retval} =} addon (@var{ar}, @var{addonname}, varargs)
 ## Create an addon object using the addon named class.
 ##
+## @subsubheading Inputs
+## @var{ar} - connected arduino object
 ##
-## @var{retval} is an cell array of string library names. 
-##
-## @var{addonname} is the name of the addon to create. The addon name can be a user 
+## @var{addonname} - the name of the addon to create. The addon name can be a user 
 ## addon or an inbuilt addon, however must appear in the listArduinoLibraries 
 ## output and have been programmed onto the arduino.
 ##
-## @var{varargs} are optional values that will be provided verbatim to the
+## @var{varargs} - optional values that will be provided verbatim to the
 ## the addon class constructor.
+##
+## @subsubheading Outputs
+## @var{retval} - cell array of string library names. 
 ##
 ## @seealso{arduino, arduinosetup, listArduinoLibraries}
 ## @end deftypefn

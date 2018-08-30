@@ -14,6 +14,9 @@
 ## @deftypefn {} {} display (@var{dev})
 ## Display servo object.
 ##
+## @subsubheading Inputs
+## @var{dev} - device to display
+##
 ## @seealso{servo}
 ## @end deftypefn
 

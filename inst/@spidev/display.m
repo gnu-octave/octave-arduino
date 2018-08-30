@@ -14,6 +14,9 @@
 ## @deftypefn {} {} display (@var{dev})
 ## Display spidev object.
 ##
+## @subsubheading Inputs
+## @var{dev} - spitdev object to display
+##
 ## @seealso{spidev}
 ## @end deftypefn
 

@@ -15,10 +15,12 @@
 ## Write uint8 data to spi device and return 
 ## back clocked out response data of same size.
 ##
+## @subsubheading Inputs
 ## @var{spi} - connected spi device on arduino
 ##
 ## @var{dataIn} - uint8 sized data to send to spi device framed between SS frame.
 ##
+## @subsubheading Outputs
 ## @var{dataOut} - uint8 data clocked out during send to dataIn.
 ##
 ## @seealso{arduino, spidev}

@@ -11,11 +11,12 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{dev} =} write (@var{dev}, @var{datain})
-## @deftypefnx {} {@var{dev} =} write (@var{dev}, @var{datain}, @var{precision})
+## @deftypefn {} {} write (@var{dev}, @var{datain})
+## @deftypefnx {} {} write (@var{dev}, @var{datain}, @var{precision})
 ## Write data to a i2cdev object
 ## using optional precision for the data byte used for the data.
 ##
+## @subsubheading Inputs
 ## @var{dev} - connected i2c device opened using i2cdev
 ##
 ## @var{datain} - data to write to device. Datasize should not exceed the contraints 

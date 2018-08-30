@@ -18,8 +18,10 @@
 ## @deftypefn {} {@var{retval} =} arduinoio.FilePath (@var{fullpathname})
 ## Get the directory component of a pathname.
 ##
+## @subsubheading Inputs
 ## @var{fullpathname} filepath to get directory component of.
 ##
+## @subsubheading Outputs
 ## @var{retval} the directory part of the filename. 
 ## @end deftypefn
 

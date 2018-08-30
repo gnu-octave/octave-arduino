@@ -19,6 +19,7 @@
 ## @deftypefnx {} write (@var{register}, @var{dataIn}, @var{precision})
 ## Write a value to the shift register.
 ##
+## @subsubheading Inputs
 ## @var{register} - shift register created from shiftRegister call.
 ##
 ## @var{dataIn} - data to clock into the shiftRegister.

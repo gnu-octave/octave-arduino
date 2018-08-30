@@ -14,6 +14,7 @@
 ## @deftypefn {} {} writePosition (@var{servo}, @var{position})
 ## Write the position to a servo.
 ##
+## @subsubheading Inputs
 ## @var{servo} - servo object created from arduino.servo.
 ##
 ## @var{position} - value between 0 .. 1 for the current servo position,

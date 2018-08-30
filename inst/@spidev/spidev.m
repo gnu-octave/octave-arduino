@@ -15,6 +15,7 @@
 ## @deftypefnx {} {@var{dev} =} spidev (@var{ar}, @var{cspin}, @var{propname}, @var{propvalue})
 ## Create an spidev object to communicate to the spi port on a connected arduino.
 ##
+## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{cspin} - chip select pin of selected spi port.
@@ -30,6 +31,9 @@
 ## @item mode
 ## SPI mode 0 - 3.
 ## @end table
+##
+## @subsubheading Outputs
+## @var{dev} - created spidev object
 ##
 ## @seealso{arduino, readWrite}
 ## @end deftypefn
