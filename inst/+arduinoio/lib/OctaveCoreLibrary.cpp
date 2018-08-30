@@ -37,6 +37,8 @@
   #define BOARD_ID  0
 #elif defined(ARDUINO_AVR_MEGA2560)
   #define BOARD_ID  1
+#elif defined(ARDUINO_AVR_PRO)
+  #define BOARD_ID  20
 #elif defined(ARDUINO_SAMD_ZERO)
   // sparkfun samed21 dev/mini
   #if USB_VID == 0x1B4F && USB_PID == 0x8D21
@@ -52,6 +54,12 @@
 // board voltage = actualV*10
 #if defined(ARDUINO_ARCH_SAMD)
   #define BOARD_VOLTAGE 33
+#elif defined(ARDUINO_AVR_PRO)
+ #if F_CPU == 8000000L 
+  #define BOARD_VOLTAGE 33
+ #else
+  #define BOARD_VOLTAGE 50
+ #endif
 #else
   #define BOARD_VOLTAGE 50
 #endif

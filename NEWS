@@ -7,6 +7,9 @@ Summary of important user-visible changes for arduino 0.2.0+:
 
  ** minor function documentation updates
 
+ ** New boards:
+    - Arduino Pro/Pro Mini
+
 Summary of important user-visible changes for arduino 0.2.0:
 -------------------------------------------------------------------
 

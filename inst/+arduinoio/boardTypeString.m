@@ -33,6 +33,8 @@ function retval = boardTypeString (id)
       retval = "uno";
     case 1
       retval = "mega";
+    case 20
+      retval = "promini";
     case 41
       retval = "sparkfunsamd21";
     otherwise

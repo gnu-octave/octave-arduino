@@ -162,6 +162,24 @@ The sources will be compiled and then uploaded to the connected arduino board.
 
 After successful upload the Arduino IDE should be closed.
 
+@section Known Arduino Board Types
+@cindex Known Arduino Board Types
+The board type must be known in order to successfully detect and connect to the Arduino board after programming.
+
+Currently, known boards are:
+@itemize @bullet
+@item
+Arduino UNO
+@item
+Arduino Mega
+@item
+Arduino Pro/Pro Mini
+@item
+Sparkfun SAMD21
+@end itemize
+
+Additional boards can be added easily, however require minor code changes.
+
 @c -------------------------------------------------------------------------
 @node Connecting to an arduino
 @chapter Connecting to an arduino
