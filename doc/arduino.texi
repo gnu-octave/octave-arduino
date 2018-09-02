@@ -360,6 +360,17 @@ The parameters required are dependant on the type of shift register created.
 
 Once a register object has been created, it can be read and written to using the read and write functions.
 
+@section Rotary Encoders
+@cindex Rotary Encoder
+
+A rotary encoder can be created by creating a rotaryEncoder object.
+
+@example
+encoder = rotaryEncoder(ar, "d2", "d3", 180);
+@end example
+
+Using the created object, the rotary encoder value and speed can be read.
+
 @c -------------------------------------------------------------------------
 @node Examples
 @chapter Examples

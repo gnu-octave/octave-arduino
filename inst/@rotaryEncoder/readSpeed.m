@@ -15,38 +15,28 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} listArduinoLibraries ()
-## Retrieve list of all known arduino library modules that are available.
+## @deftypefn {} {@var{speed} =} readSpeed (@var{obj})
+## read rotational speed from the rotary encoder.
 ##
 ## @subsubheading Inputs
-## None
+## @var{obj} - rotary encoder object created with rotaryEncoder call.
 ##
 ## @subsubheading Outputs
-## @var{retval} is an cell array of string library names that are
-## available for programming to the arduino.
+## @var{speed} - returned speed in revolutions per minute read from the encoder.
 ##
-## @seealso{arduino, arduinosetup}
+## @seealso{rotaryEncoder, resetCount}
 ## @end deftypefn
 
-function retval = listArduinoLibraries ()
-  retval = {};
+function value = readSpeed(obj, varargin)
+  persistent ARDUINO_ROTARYENCODER_READSPEED = 3;
 
-  # hardcoded libraries
-  retval{end+1} = 'I2C';
-  retval{end+1} = 'Servo';
-  retval{end+1} = 'SPI';
-  retval{end+1} = 'ShiftRegister';
-  retval{end+1} = 'RotaryEncoder';
-
-  # add ons
-  addonfiles = __addons__ ();
-  for i = 1:numel (addonfiles)
-    retval{end+1} = addonfiles{i}.libraryname;
-  endfor
+  # attempt to clock out precision bits
+  [tmp, sz] = sendCommand(obj.parent, "rotaryencoder", ARDUINO_ROTARYENCODER_READSPEED, [obj.id]);
+  value = typecast(uint16(tmp(2))*256 + uint16(tmp(3)), 'int16');
+  value = (double(value)/1000.0)*60; # cnts per min
+  if obj.ppr > 0
+    value = value / obj.ppr;
+  else
+    value = 0;
+  endif
 endfunction
-
-%!test
-%! libs = listArduinoLibraries ();
-%! assert (!isempty (libs))
-%! assert (! isempty (find(strcmp(libs, 'SPI'))));
-%! assert (isempty (find(strcmp(libs, 'unknown'))));

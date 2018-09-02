@@ -42,6 +42,12 @@ Arduino I2C Functions
   @i2cdev/subsref
   @i2cdev/write
   @i2cdev/writeRegister
+Arduino Rotary Encoder Functions
+  @rotaryEncoder/display
+  @rotaryEncoder/readCount
+  @rotaryEncoder/readSpeed
+  @rotaryEncoder/resetCount
+  @rotaryEncoder/rotaryEncoder
 Arduino Servo Functions
   @servo/display
   @servo/readPosition

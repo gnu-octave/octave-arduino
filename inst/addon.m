@@ -69,6 +69,8 @@ function retval = addon (ar, addonname, varargin)
       lib = "servo"; 
     elseif strcmpi (addonname, "shiftregister")
       lib = "shiftRegister"; 
+    elseif strcmpi (addonname, "rotaryencoder")
+      lib = "rotaryEncoder"; 
     else
       error ("addon: unknown builtin library '%s'", addonname);
     endif

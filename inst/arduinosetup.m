@@ -137,6 +137,12 @@ function retval = arduinosetup (varargin)
     if !isempty(idx)
       fprintf (fd, "#define USE_SHIFTREG\n");
     endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "RotaryEncoder"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_ROTARYENCODER\n");
+    endif
+ 
     fclose (fd);
 
     # requested additional libs

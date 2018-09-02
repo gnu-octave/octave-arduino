@@ -48,6 +48,12 @@ OctaveServoLibrary lib3(octavearduino);
 OctaveShiftRegisterLibrary lib4(octavearduino);
 #endif
 
+#ifdef USE_ROTARYENCODER
+#include "OctaveRotaryEncoderLibrary.h"
+OctaveRotaryEncoderLibrary lib5(octavearduino);
+#endif
+
+
 
 // additional addons included from generated addons.h file
 #include "addons.h"
