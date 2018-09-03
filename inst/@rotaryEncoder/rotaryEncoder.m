@@ -17,7 +17,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{obj} =} rotaryEncoder (@var{ar}, @var{chanApin}, @var{chanBpin})
 ## @deftypefnx {} {@var{obj} =} rotaryEncoder (@var{ar}, @var{chanApin}, @var{chanBpin}, @var{ppr})
-## Create a roraryEncoder object controlled by the input pins.
+## Create a rotaryEncoder object controlled by the input pins.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object.
@@ -34,7 +34,7 @@
 ## @subsubheading Example
 ## @example
 ## a = arduino ();
-## enc = rotatyEncoder(a, "d2", "d3", 180);
+## enc = rotaryEncoder(a, "d2", "d3", 180);
 ## @end example
 ##
 ## @seealso{arduino}
@@ -106,12 +106,12 @@ endfunction
 %! ar = arduino();
 
 %!test
-%! obj = rotaryEncoder(ar, "d2", "d3");
-%! assert (isa (register, "rotaryEncoder"))
+%! enc = rotaryEncoder(ar, "d2", "d3");
+%! assert (isa (enc, "rotaryEncoder"))
 
 %!test
-%! obj = rotaryEncoder(ar, "d2", "d3", 100);
-%! assert (isa (register, "rotaryEncoder"))
+%! enc = rotaryEncoder(ar, "d2", "d3", 100);
+%! assert (isa (enc, "rotaryEncoder"))
 
 %!error rotaryEncoder(ar);
 

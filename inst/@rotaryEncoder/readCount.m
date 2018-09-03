@@ -67,5 +67,7 @@ endfunction
 
 %!test
 %! a = arduino ();
-%! e = rotaryEncoder("d2","d3");
+%! e = rotaryEncoder(a, "d2","d3");
 %! readCount(e);
+
+%!error readCount();
