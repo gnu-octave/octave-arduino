@@ -52,10 +52,9 @@ function addonfiles = __addons__ ()
         for k = 1:numel (files2)
           finfo = {};
           [d2,f2,e2] = fileparts (files2(k).name);
-          x = sprintf ("arduinoioaddons.%s.%s", f1, f2);
-          m = str2func (x);
-          cl = m([]);
-          z = AddonInfo(cl);
+	  classname = sprintf ("arduinoioaddons.%s.%s", f1, f2);
+	  z = eval(sprintf ("%s.AddonInfo('%s')", classname, classname));
+
           z.scriptfile = fullfile (folder, files2(k).name);
           
           # paths are wrong, as mfilename isnt giving use a path from within the class

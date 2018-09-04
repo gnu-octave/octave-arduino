@@ -22,7 +22,7 @@ const char MSG_NEEDS_VALUE[] PROGMEM = "Needs a value to echo";
 class Echo : public LibraryBase
 {
 public:
-  Echo(MWArduinoClass& a)
+  Echo(OctaveArduinoClass& a)
   {
     libName = "ExampleAddon/Echo";
     a.registerLibrary(this);

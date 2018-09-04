@@ -37,18 +37,35 @@ classdef LibraryBase < handle
     Pins = [];
   endproperties
 
-  methods (Access=public)
-    # get addonin info
-    function info = AddonInfo(this)
+  methods (Static)
+    function info = AddonInfo(fullclassname)
       info = {};
-      info.libraryname = this.LibraryName;
-      info.dependantlibraries = this.DependentLibraries;
-      info.cppheaderfile = this.CppHeaderFile;
-      info.cppsourcefile = this.CppSourceFile;
-      info.cppclassname = this.CppClassName;
-      info.classname = class(this);
-    endfunction
+      info.libraryname = "";
+      info.dependantlibraries = "";
+      info.cppheaderfile = "";
+      info.cppsourcefile = "";
+      info.cppclassname = "";
+      info.arduinolibraryheaderfiles = "";
+ 
+      data = meta.class.fromName(fullclassname);
 
+      for ic = 1:numel(data.Properties)
+        p = data.Properties{ic};
+        if p.Constant
+          pname = lower(p.Name);
+          pvalue = p.DefaultValue;
+	  if isfield(info, pname)
+            info.(pname) = pvalue;
+	  endif
+        endif
+     endfor
+
+     info.classname = data.Name;
+
+    endfunction
+  endmethods
+
+  methods (Access=public)
     # display the base class  properties
     function display(this)
       printf("%s = \n", inputname(1));
