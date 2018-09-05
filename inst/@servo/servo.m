@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{obj} = } servo (@var{arduinoobj}, @var{pin})
 ## @deftypefnx {} {@var{obj} = } servo (@var{arduinoobj}, @var{pin}, @var{propertyname}, @var{propertyvalue})
-## Create a servo object using a specified oin on a arduino board.
+## Create a servo object using a specified pin on a arduino board.
 ##
 ## @subsubheading Inputs
 ## @var{obj} - servo object
@@ -37,8 +37,8 @@
 ## @subsubheading Example
 ## @example
 ## # create arduino connection
-## ar = ardiuino();
-## # create hobby servo (1 - 2 ms puse range)
+## ar = arduino();
+## # create hobby servo (1 - 2 ms pulse range)
 ## servo = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
 ## # center the servo
 ## writePosition(servo, 0.5);

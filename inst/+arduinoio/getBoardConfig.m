@@ -19,7 +19,7 @@
 ## Return the configuration for a known arduino board type
 ##
 ## Function is used to get the expected pin/board configuration for a named board type
-## which is used to verify and identify the functionaly of the board.
+## which is used to verify and identify the functionality of the board.
 ##
 ## @subsubheading Inputs
 ## @var{boardname} - name of board to get configuration of ie: "uno"

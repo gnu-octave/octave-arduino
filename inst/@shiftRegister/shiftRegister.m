@@ -33,7 +33,7 @@
 ## @var{clockPin} - pin used for clocking data on the shiftRegister.
 ##
 ##
-## Other variables are dependant on the shift register type:
+## Other variables are dependent on the shift register type:
 ## @table @asis
 ## @item '74hc164'
 ## Additional inputs:

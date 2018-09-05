@@ -22,7 +22,7 @@
 ## Create a arduino object with a connection to an arduino board.
 ## 
 ## @subsubheading Inputs
-## @var{port} - full path of serial port to connect to. For linux, usually /dev/ttySXXX, for windows COMXX.
+## @var{port} - full path of serial port to connect to. For Linux, usually /dev/ttySXXX, for windows COMXX.
 ##
 ## @var{board} - name of board to connect (default is 'uno').
 ##

@@ -13,12 +13,12 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} spidev (@var{ar}, @var{cspin})
 ## @deftypefnx {} {@var{dev} =} spidev (@var{ar}, @var{cspin}, @var{propname}, @var{propvalue})
-## Create an spidev object to communicate to the spi port on a connected arduino.
+## Create an spidev object to communicate to the SPI port on a connected arduino.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
-## @var{cspin} - chip select pin of selected spi port.
+## @var{cspin} - chip select pin of selected SPI port.
 ##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
 ##

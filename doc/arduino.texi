@@ -1,13 +1,13 @@
 \input texinfo @c -*-texinfo-*-
 @c Copyright (c) 2018, John Donoghue <john.donoghue@ieee.org>
-@c Octave Arduino - a somewhat Matlab compatable Arduino toolkit for GNU octave.
+@c Octave Arduino - a somewhat Matlab compatible Arduino toolkit for GNU octave.
 
 @c For manually generating the documentation use
 @c   LANGUAGE=en makeinfo --html --no-split arduino.texi
 
 @c %*** Start of HEADER
 @setfilename arduino.info
-@settitle Arduino Toolkit - a somewhat Matlab compatable arduino toolkit for GNU octave.
+@settitle Arduino Toolkit - a somewhat Matlab compatible arduino toolkit for GNU octave.
 @afourpaper
 @paragraphindent 0
 @finalout
@@ -37,7 +37,7 @@
 @c %*** Start of TITLEPAGE
 @titlepage
 @title Arduino Toolkit @value{VERSION}
-@subtitle  a somewhat MATLAB compatable Arduino toolkit for @acronym{GNU} Octave.
+@subtitle  a somewhat MATLAB compatible Arduino toolkit for @acronym{GNU} Octave.
 @author John Donoghue
 @page
 @vskip 0pt plus 1filll
@@ -80,7 +80,7 @@ To download a copy of the @acronym{GNU} Octave arduino package, please visit
 @ifnottex
 @node Top
 @top Introduction
-The Arduino toolkit is a somewhat Matlab compatable arduino toolkit for GNU octave.
+The Arduino toolkit is a somewhat Matlab compatible arduino toolkit for GNU octave.
 @end ifnottex
 
 @menu
@@ -105,7 +105,7 @@ The Arduino toolkit must be installed and then loaded to be used.
 It can be installed in @acronym{GNU} Octave directly from octave-forge,
 or can be installed in an off-line mode via a downloaded tarball.
 
-The toolkit must be then be loaded once per each @acronym{GNU} Octave session in order to use its functionalty.
+The toolkit must be then be loaded once per each @acronym{GNU} Octave session in order to use its functionality.
 
 @section Online Direct install
 @cindex Online install
@@ -189,7 +189,7 @@ To control an arduino device, a connection must be made to it by creating an ard
 
 @section Connecting to a single arduino
 @cindex Connecting to a single arduino
-Assuming a single arduino device is connected to the computer, creating an arduno object with no arguments will
+Assuming a single arduino device is connected to the computer, creating an arduino object with no arguments will
 find the connected arduino and connect to it:
 
 @example
@@ -205,7 +205,7 @@ specifying the name of the port it is connected to:
 ar = arduino("/dev/ttyACM0")
 @end example
 
-The port name will be operating system dependant.
+The port name will be operating system dependent.
 
 @section Querying available arduinos
 @cindex Querying available arduinos
@@ -225,7 +225,7 @@ It will provide a list of all available boards it can find with the port they ar
 Basic input and output can be performed on a connected arduino device using by calling the read and write functions
 for a specific named pin on the arduino.
 
-A list of available pins can get found from the pins property of the connected arduio object and are also displayed
+A list of available pins can get found from the pins property of the connected arduino object and are also displayed
 as part of the default shown properties:
 
 @example
@@ -242,9 +242,9 @@ Analog pins can perform digital I/O as well as reading voltages.
 @section Performing Digital I/O
 @cindex Performing Digital I/O
 
-A pin's digital logic value can be true (1) or false (0) and can be set using the writeDigialPin function.
+A pin's digital logic value can be true (1) or false (0) and can be set using the writeDigitalPin function.
 
-The following example attempts to set the D2 pin of the connected arduini object "ar" to true, waits 5 seconds and
+The following example attempts to set the D2 pin of the connected arduino object "ar" to true, waits 5 seconds and
 then sets it to false:
 
 @example
@@ -271,8 +271,8 @@ value = readVoltage (ar,  "a0");
 @end example
 
 
-The raw digital value of the pin can also be read instead of a volatge, giving a value between 0 and 2^x where x is
-the number of bits used by the analog to digtial converter.
+The raw digital value of the pin can also be read instead of a voltage, giving a value between 0 and 2^x where x is
+the number of bits used by the analog to digital converter.
 
 @example
 value = readAnalogPin (ar,  "a0");
@@ -295,7 +295,7 @@ SPI communication can be performed by creating a SPI dev object and then calling
 spi = spidev (ar,  "d2");
 @end example
 
-The function call expects a connected arduino object as the first argument, followed by the chip slelect pin of the SPI device.
+The function call expects a connected arduino object as the first argument, followed by the chip select pin of the SPI device.
 
 After a device is created, a write to device followed by read can can be made using the writeRead function:
 
@@ -310,13 +310,13 @@ data = writeRead (spi,  100);
 
 I2C communication can be performed by creating an I2C dev object for a specific I2C address.
 
-The following example creates an i2c device that will communicate with a I2C device at address 100"
+The following example creates an I2C device that will communicate with a I2C device at address 100"
 @example
 i2c = i2cdev (ar,  100);
 @end example
 
-After creating an I2C device, data can be read and writen using read, write, readRegister and writeRegister. The data to send 
-and recieve will be device dependent.
+After creating an I2C device, data can be read and written using read, write, readRegister and writeRegister. The data to send 
+and receive will be device dependent.
 
 @section Servo communication
 @cindex Servo communication
@@ -328,7 +328,7 @@ servoobj = servo(ar, "d9", "minpulseduration", 1.0e-3, ...
   "maxpulseduration", 2e-3);
 @end example
 
-The servo function expects the connected arduino object and the PWM pin that the servo is connnected to. Optional properties 
+The servo function expects the connected arduino object and the PWM pin that the servo is connected to. Optional properties 
 can be specified to control the setup of device.
 
 In the example, the min and max pulse width values are set.
@@ -356,7 +356,7 @@ A shift register can be controlled by creating a shiftRegister object:
 registerobj = shiftRegister(ar, '74hc164', "d2", "d3");
 @end example
 
-The parameters required are dependant on the type of shift register created.
+The parameters required are dependent on the type of shift register created.
 
 Once a register object has been created, it can be read and written to using the read and write functions.
 
@@ -377,7 +377,7 @@ Using the created object, the rotary encoder value and speed can be read.
 @cindex Examples
 
 @section Blinking an LED
-@cindex Linking an LED
+@cindex Blinking an LED
 
 This example shows blinking the inbuilt LED on the Arduino board. Code is available by running:
 @example
@@ -573,7 +573,7 @@ The d10 is the chip select pin connected from the Arduino to the MCP3002.
 
 The MCP3002 expects specific commands in order to read a channel.
 
-For isslustration for the command to read chan 0 in single ended mode:
+For illustration for the command to read chan 0 in single ended mode:
 @example
 command (bits) in MSB mode to device:
 [START SGL ODN MSBF X X X X] [ X X X X X X X X ] 
@@ -585,7 +585,7 @@ data back:
 
 D is a output data bit
 
-X is a dont care what value is input/output
+X is a don't care what value is input/output
 
 The first byte contains the command and start of the data read back, the second bytes is written to clock out
 the rest of the ADC data.
@@ -606,7 +606,7 @@ Then bitand it to remove the non value parts, to get the ADC value:
 val = bitand (val, hex2dec('3FF'))
 @end example
 
-To make the vaue correspond to a voltage it needs to be scaled as 0 will be 0Volts, 1023 will be 5Volts.
+To make the value correspond to a voltage it needs to be scaled as 0 will be 0 Volts, 1023 will be 5 Volts.
 @example
 volts = double(val) * 5.0 / 1023.0;
 @end example

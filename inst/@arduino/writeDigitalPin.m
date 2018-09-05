@@ -21,7 +21,7 @@
 ##
 ## @var{value} - the logical value (0, 1, true false) to write to the pin.
 ##
-## If pin was unconfigured beore using, pin is set into digital mode.
+## If pin was unconfigured before using, pin is set into digital mode.
 ##
 ## @subsubheading Example
 ## @example

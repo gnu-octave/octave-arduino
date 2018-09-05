@@ -15,7 +15,7 @@
 ## Display the register object in a verbose way, 
 ##
 ## @subsubheading Inputs
-## @var{register} - the arduino regsiter object created with shiftRegister.
+## @var{register} - the arduino register object created with shiftRegister.
 ##
 ## @seealso{shiftRegister}
 ## @end deftypefn

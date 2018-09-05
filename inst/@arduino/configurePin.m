@@ -25,7 +25,7 @@
 ## mode if the mode is unset.
 ##
 ## @subsubheading Inputs
-## @var{ar} - the ardiuno object of the connection to an arduino board.
+## @var{ar} - the arduino object of the connection to an arduino board.
 ##
 ## @var{pin} - string name of the pin to set/get the mode of.
 ##
@@ -45,7 +45,7 @@
 ## @item I2C
 ## - Specify a pin to use with I2C protocol
 ## @item Pullup
-## - Apecify pin to use a pullup switch
+## - Specify pin to use a pullup switch
 ## @item PWM
 ## - Specify pin to use a pulse width modulator
 ## @item Servo 

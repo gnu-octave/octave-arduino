@@ -17,10 +17,10 @@
 ## @subsubheading Inputs
 ## @var{ar} - the connected arduino object
 ##
-## @var{terminal} is a terminal number ot check
+## @var{terminal} is a terminal number to check
 ##
 ## @subsubheading Outputs
-## @var{ret} return 1 of is a digital pin, 0 otherwise
+## @var{ret} return 1 if terminal is a digital pin, 0 otherwise
 ## @end deftypefn
 
 function retvalue = isTerminalDigital (obj, terminal)

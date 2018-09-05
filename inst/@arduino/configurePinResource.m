@@ -26,10 +26,10 @@
 ## mode and owner.
 ##
 ## If the pin is already owned by another owner, the configure will fail unless the force option is used.
-## If the mode is lready set, configure will fail unless force is used.
+## If the mode is already set, configure will fail unless force is used.
 ##
 ## @subsubheading Inputs
-## @var{ar} - the ardiuno object of the connection to an arduino board.
+## @var{ar} - the arduino object of the connection to an arduino board.
 ##
 ## @var{pin} - string name of the pin to set/get the mode of.
 ##

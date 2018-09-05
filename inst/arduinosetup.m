@@ -21,7 +21,7 @@
 ## the Octave arduino functions.
 ##
 ## arduinosetup will create a temporary project  using the arduino IDE and allow 
-## compiling aand programning of the code to an arduino. 
+## compiling and programming of the code to an arduino. 
 ##
 ## @subsubheading Inputs
 ## 
@@ -34,12 +34,12 @@
 ## The value should be the name of a library, or string array of libraries to program on the
 ## arduino board.
 ## @item arduinobinary
-## The value should be the name/path of the arduino ide binary for programming. If not specified,
+## The value should be the name/path of the arduino IDE binary for programming. If not specified,
 ## the function will attempt to find the binary itself.
 ## @end table
 ##
 ## @subsubheading Outputs
-## @var{restval} - return 1 if arduino ide returned without an error
+## @var{retval} - return 1 if arduino IDE returned without an error
 ##
 ## @seealso{arduino, __arduino_binary__}
 ## @end deftypefn

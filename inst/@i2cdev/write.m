@@ -19,11 +19,11 @@
 ## @subsubheading Inputs
 ## @var{dev} - connected i2c device opened using i2cdev
 ##
-## @var{datain} - data to write to device. Datasize should not exceed the contraints 
-## of the data type specified for the precison.
+## @var{datain} - data to write to device. Datasize should not exceed the constraints 
+## of the data type specified for the precision.
 ##
 ## @var{precision} - Optional precision for the input write data.
-## Currently known precision values are uint8 (defualt), int8, uint16, int16
+## Currently known precision values are uint8 (default), int8, uint16, int16
 ##
 ## @seealso{arduino, i2cdev, read}
 ## @end deftypefn

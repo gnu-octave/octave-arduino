@@ -18,19 +18,19 @@
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
-## @var{address} - address to use for device on i2c bus.
+## @var{address} - address to use for device on I2C bus.
 ##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
 ##
 ## Currently known properties:
 ## @table @asis
 ## @item bus
-## bus number (when arduino board supports multiple i2c buses)
+## bus number (when arduino board supports multiple I2C buses)
 ## with value of 0 or 1.
 ## @end table
 ##
 ## @subsubheading Outputs
-## @var{dev} - new creaied i2cdev object.
+## @var{dev} - new created i2cdev object.
 ##
 ## @seealso{arduino}
 ## @end deftypefn

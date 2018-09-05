@@ -13,7 +13,7 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{data} =} readRegister (@var{dev}, @var{reg}, @var{numbytes})
 ## @deftypefnx {} {@var{data} =} readRegister (@var{dev}, @var{reg}, @var{numbytes}, @var{precision})
-## Read a specified numer of bytes from a register of an i2cdev object 
+## Read a specified number of bytes from a register of an i2cdev object 
 ## using optional precision for bytesize.
 ##
 ## @subsubheading Inputs
@@ -24,7 +24,7 @@
 ## @var{numbytes} - number of bytes to read.
 ##
 ## @var{precision} - Optional precision for the output data read data.
-## Currently known precision values are uint8 (defualt), int8, uint16, int16
+## Currently known precision values are uint8 (default), int8, uint16, int16
 ##
 ## @subsubheading Output
 ## @var{data} - data read from device.

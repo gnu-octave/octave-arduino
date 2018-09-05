@@ -16,7 +16,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{lb} =} arduinoioaddons.ExampleAddon.Echo ()
-## Basic Example matlab/octave code to ilustrate creating
+## Basic Example matlab/octave code to illustrate creating
 ## a user addon. 
 ##
 ## @seealso{addon}

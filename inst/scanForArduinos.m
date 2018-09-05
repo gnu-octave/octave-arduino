@@ -23,7 +23,7 @@
 ## most @var{maxCount} of them as a cell array in @var{retval}.
 ##
 ## @subsubheading Inputs
-## @var{maxCount} - max number of arduino baords to detect.
+## @var{maxCount} - max number of arduino boards to detect.
 ## if @var{maxCount} is not specified, or is a less than 1, the function will return as many
 ## arduino boards as it can detect.
 ##

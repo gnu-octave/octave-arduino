@@ -32,7 +32,7 @@
 ## @subsubheading Outputs
 ## @var{outdata} - data returned back from the arduino in response to command
 ##
-## @var{outsize} - size of data recieved out
+## @var{outsize} - size of data received
 ##
 ## If the arduino fails to respond with a valid reply, sendCommand will error.
 ##
