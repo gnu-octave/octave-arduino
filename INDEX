@@ -68,6 +68,7 @@ Arduino SPI Functions
 Arduino Addons
   addon
   arduinoioaddons.ExampleAddon.Echo
+  arduinoioaddons.ExampleLCD.LCD
 Arduino I/O package
   arduinoio.FilePath
   arduinoio.LibFiles

@@ -10,6 +10,8 @@ Summary of important user-visible changes for arduino 0.2.0+:
  ** New boards:
     - Arduino Pro/Pro Mini
 
+ ** updated to arduinoaddons to query using metadata
+
 Summary of important user-visible changes for arduino 0.2.0:
 -------------------------------------------------------------------
 
