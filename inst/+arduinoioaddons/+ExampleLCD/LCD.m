@@ -56,30 +56,17 @@ classdef LCD < arduinoio.LibraryBase
          error ("ExampleLCD/LCDAddon: cant have only one LCD at a time");
       endif
 
-      # check can get the pins
-      pins = { rs enable d0 d1 d2 d3};
-
       obj.Pins = {};
-
       data = [];
 
-      # build list of pins will use, and thier current modes
-      pindata = {};
-      for p = 1:numel(pins)
-        pd = {};
-        pd.name = pins{p};
-        pd.mode = configurePin(obj.Parent, pd.name);
-        pd.id = getTerminalsFromPins(obj.Parent, pd.name);
-        pd.owner = getResourceOwner(obj.Parent, pd.name);
-        pindata{end+1} = pd;
-      endfor
+      pindata = getPinInfo(obj.Parent, {rs enable d0 d1 d2 d3});
 
       try
         for p = 1:numel(pindata)
           pin = pindata{p};
           configurePin(obj.Parent, pin.name, "digitaloutput")
 	  obj.Pins{end+1} = pin.name;
-	  data = [data pin.id];
+	  data = [data pin.terminal];
         endfor
       catch
         # catch any errors and restore pins
@@ -88,7 +75,7 @@ classdef LCD < arduinoio.LibraryBase
           configurePinResource(obj.Parent, pin.name, pin.owner, pin.mode, true)
           configurePin(obj.Parent, pin.name, pin.mode)
         endfor
-        rethrow (lasteror);
+        rethrow (lasterror);
       end_try_catch
 
       sendCommand(obj.Parent, obj.LibraryName, obj.INIT_COMMAND, data);
