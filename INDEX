@@ -70,6 +70,7 @@ Arduino Addons
   addon
   arduinoioaddons.ExampleAddon.Echo
   arduinoioaddons.ExampleLCD.LCD
+  arduinoioaddons.EEPRomAddon.EEPRom
 Arduino I/O package
   arduinoio.FilePath
   arduinoio.LibFiles

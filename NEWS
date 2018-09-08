@@ -9,6 +9,10 @@ Summary of important user-visible changes for arduino 0.2.0+:
     - rotationalEncoder
     - getPinInfo
 
+ ** New addons
+    - ExampleLCD.LCD
+    - EEPRomAddon.EEPRom
+
  ** minor function documentation updates
 
  ** New boards:
