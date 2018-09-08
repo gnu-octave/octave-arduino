@@ -81,6 +81,13 @@ function register = shiftRegister(ar,type,dataPin,clockPin, varargin)
     # datapin used also to address this register
     p.id = pins{1}.id;
 
+    name = ["shiftregister_" pins{1}.name];
+
+    count = getResourceCount(ar, name);
+    if count > 0
+      error ("@shiftRegister.shiftRegister: already have a shift register using this pin");
+    endif
+
     pins{end+1} = ar.get_pin(clockPin);
     pins{end}.func = "clockpin";
 
@@ -133,6 +140,8 @@ function register = shiftRegister(ar,type,dataPin,clockPin, varargin)
       endfor
 
       [tmp, sz] = sendCommand(ar, "shiftregister", ARDUINO_SHIFTREG_CONFIG, [p.id 1 init_data]);
+
+      incrementResourceCount(ar, name);
     catch
       # restore pin state
       for i=1:numel(pins)
@@ -143,8 +152,20 @@ function register = shiftRegister(ar,type,dataPin,clockPin, varargin)
       rethrow (lasterror);
     end_try_catch
 
+    p.cleanup = onCleanup (@() cleanupShiftRegister (ar, name, pins));
+
     register = class (p, "shiftRegister");
   endif
+endfunction
+
+# private clean up allocated pins
+function cleanupShiftRegister(ar, name, pins)
+  decrementResourceCount(ar, name);
+  for i=1:numel(pins)
+    pin = pins{i};
+    configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
+    configurePin(ar, pin.name, pin.mode);
+  endfor
 endfunction
 
 %!shared ar
@@ -152,12 +173,17 @@ endfunction
 
 %!test
 %! # validate pins not allocated
-%! #assert(configurePin(ar, "d10"), "unset") ## ss
-%! #assert(configurePin(ar, "d11"), "unset") ## mosi
-%! #assert(configurePin(ar, "d12"), "unset") ## miso
-%! #assert(configurePin(ar, "d13"), "unset") ## sck
+%! assert(configurePin(ar, "d2"), "unset");
+%! assert(configurePin(ar, "d3"), "unset");
 %! 
 %! register = shiftRegister(ar, '74hc164', "d2", "d3");
 %! assert (isa (register, "shiftRegister"))
 %!
 %! #pins allocated ?
+%! assert(configurePin(ar, "d2"), "digitaloutput");
+%! assert(configurePin(ar, "d3"), "digitaloutput");
+%!
+%! #free
+%! clear register
+%! assert(configurePin(ar, "d2"), "unset");
+%! assert(configurePin(ar, "d3"), "unset");

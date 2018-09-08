@@ -92,35 +92,48 @@ function this = servo(varargin)
   if (!isa (ar, "arduino"))
     error ("servo: expects arduino object");
   endif
+
+  pininfo = getPinInfo (ar, pin);
     
   this.arduinoobj = ar;
     
-  validatePin (ar, pin,'pwm');
+  validatePin (ar, pin, 'pwm');
     
   configurePin (ar, pin, "pwm");
     
-  pininfo = ar.get_pin (pin);
-    
   this.pins{end+1} = pininfo;
     
-  sendCommand (ar, "servo", ARDUINO_SERVO_CONFIG, [pininfo.id]);
+  sendCommand (ar, "servo", ARDUINO_SERVO_CONFIG, [pininfo.terminal]);
+
+  # set clean up function
+  this.cleanup = onCleanup (@() cleanupServo (ar, pininfo));
     
   this = class (this, "servo");
+endfunction
+
+# private clean up allocated pins
+function cleanupServo(ar, pin)
+  configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
+  configurePin(ar, pin.name, pin.mode);
 endfunction
 
 %!shared ar
 %! ar = arduino();
 
 %!test
-%! servo = servo(ar, "d9");
-%! assert(!isempty(servo));
-%! assert(isa(servo, "servo"));
+%! assert(configurePin(ar, "d9"), "unset") 
+%! s = servo(ar, "d9");
+%! assert(!isempty(s));
+%! assert(isa(s, "servo"));
+%! assert(configurePin(ar, "d9"), "pwm") 
+%! clear s
+%! assert(configurePin(ar, "d9"), "unset") 
 
 %!error <expects arduino object and servo pin> servo();
 
 %!error <expects arduino object and servo pin> servo(ar);
 
-%! servo = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
-%! assert(!isempty(servo));
-%! assert(servo.minpulseduration, 1.0e-3);
-%! assert(servo.maxpulseduration, 2.0e-3);
+%! s = servo(ar, "d9", "minpulseduration", 1.0e-3, "maxpulseduration", 2e-3);
+%! assert(!isempty(s));
+%! assert(s.minpulseduration, 1.0e-3);
+%! assert(s.maxpulseduration, 2.0e-3);

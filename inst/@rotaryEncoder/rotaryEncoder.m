@@ -81,6 +81,12 @@ function obj = rotaryEncoder(ar, pinA, pinB, ppr)
     p.pins = pins;
     p.ppr = ppr;
 
+    name = sprintf("encoder-%d", p.id);
+    count = getResourceCount(ar,name);
+    if count > 0
+      error ("@rotaryEncoder.rotaryEncoder: already in use");
+    endif
+
     try
       for i=1:numel(pins)
         pin = pins{i}.name;
@@ -88,6 +94,8 @@ function obj = rotaryEncoder(ar, pinA, pinB, ppr)
       endfor
 
       [tmp, sz] = sendCommand(ar, "rotaryencoder", ARDUINO_ROTARYENCODER_CONFIG, [p.id 1 pins{2}.id]);
+
+      incrementResourceCount(ar, name);
     catch
       # on error, restore pin state
       for i=1:numel(pins)
@@ -98,20 +106,45 @@ function obj = rotaryEncoder(ar, pinA, pinB, ppr)
       rethrow (lasterror);
     end_try_catch
 
+    # set clean up function
+    p.cleanup = onCleanup (@() cleanupEncoder (ar, name, pins));
+
     obj = class (p, "rotaryEncoder");
   endif
 endfunction
+
+# private clean up allocated encoder pins
+function cleanupEncoder(ar, name, pins)
+  decrementResourceCount(ar, name);
+  for i=1:numel(pins)
+    pin = pins{i};
+    configurePinResource(ar, pin.name, pin.owner, pin.mode, true)
+    configurePin(ar, pin.name, pin.mode)
+  endfor
+endfunction
+
 
 %!shared ar
 %! ar = arduino();
 
 %!test
+%! assert(configurePin(ar, "d2"), "unset")
+%! assert(configurePin(ar, "d3"), "unset")
 %! enc = rotaryEncoder(ar, "d2", "d3");
 %! assert (isa (enc, "rotaryEncoder"))
+%! assert(!strcmpi(configurePin(ar, "d2"), "unset"))
+%! assert(!strcmpi(configurePin(ar, "d3"), "unset"))
+%! clear enc
+%! assert(configurePin(ar, "d2"), "unset")
+%! assert(configurePin(ar, "d3"), "unset")
 
 %!test
 %! enc = rotaryEncoder(ar, "d2", "d3", 100);
 %! assert (isa (enc, "rotaryEncoder"))
+
+%!test
+%! enc = rotaryEncoder(ar, "d2", "d3");
+%! fail ('rotaryEncoder(ar, "d2", "d3");', "already in use");
 
 %!error rotaryEncoder(ar);
 

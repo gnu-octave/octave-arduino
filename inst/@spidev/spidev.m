@@ -54,7 +54,12 @@ function this = spidev (varargin)
   if !iscellstr (varargin(3:2:nargin))
     error ("arduino: expected property names to be strings");
   endif
-  
+
+  count = getResourceCount(ar,"spi");
+  if count > 0
+    error ("@spidev.spidev: can have only one SPI object at a time");
+  endif
+
   this.chipselectpin = "";
   this.mode = 0;
   this.bitrate = 4000000;
@@ -135,6 +140,7 @@ function this = spidev (varargin)
           
     [tmp, sz] = sendCommand(this.arduinoobj, "spi", ARDUINO_SPI_CONFIG, [0 1 this.mode bitorder]);
     
+    incrementResourceCount(ar, "spi");
   catch
     for i=1:4
       configurePinResource(ar, tmp_pins{i}.name, tmp_pins{i}.owner, tmp_pins{i}.mode, true)
@@ -142,8 +148,21 @@ function this = spidev (varargin)
     endfor
     rethrow (lasterror);
   end_try_catch
+
+  # set clean up function
+  this.cleanup = onCleanup (@() cleanupSPI (ar, tmp_pins));
           
   this = class(this, "spidev");
+endfunction
+
+# private clean up allocated pins
+function cleanupSPI(ar, pins)
+  decrementResourceCount(ar, "spi");
+  for i=1:numel(pins)
+    pin = pins{i};
+    configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
+    configurePin(ar, pin.name, pin.mode);
+  endfor
 endfunction
 
 %!shared arduinos
@@ -172,6 +191,12 @@ endfunction
 %! assert(configurePin(ar, "d13"), 'digitaloutput') ## sck
 %! clear spi
 %! # check now pins unset
-%! # currently not done as classdef destroy doesnt work correctly
-%! # assert(configurePin(ar, "d10"), "unset") 
+%! assert(configurePin(ar, "d10"), "unset") 
+%! assert(configurePin(ar, "d11"), "unset") 
+%! assert(configurePin(ar, "d12"), "unset") 
+%! assert(configurePin(ar, "d13"), "unset") 
 
+%!test
+%! ar = arduino();
+%! spi1 = spidev(ar, "d10");
+%! fail ('spidev(ar, "d10");', 'only one SPI object') 

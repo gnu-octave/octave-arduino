@@ -37,9 +37,9 @@ function out = __servoPosition__ (obj, value)
     intval = uint16(value*1e6);
 
     datain = [ bitshift(intval,-8) bitand(intval, 255)];
-    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id datain]);
+    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.terminal datain]);
   else
-    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.id]);
+    [tmp, sz] = sendCommand (ar, "servo", ARDUINO_SERVO_POSITION, [pininfo.terminal]);
     value = uint16(tmp(2))*256 + uint16(tmp(3));
     value = double(value)/1e6;
     value = value - obj.minpulseduration;
