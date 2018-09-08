@@ -36,14 +36,14 @@ function retval = getTerminalsFromPins(obj, pins)
   if iscell (pins)
     retval = {};
     for i=1:numel(pins)
-	    retval{end+1} = obj.get_pin(pins{i}).id;
+      retval{end+1} = obj.get_pin(pins{i}).id;
     endfor
   elseif ischar(pins)
     retval = obj.get_pin(pins).id;
   elseif isvector (pins)
     retval = {};
     for i=1:numel(pins)
-	    retval{end+1} = obj.get_pin(pins(i)).id;
+      retval{end+1} = obj.get_pin(pins(i)).id;
     endfor
   else
     error ("getTerminalFromPins: expected pins as cell or string");

@@ -3,7 +3,11 @@ Summary of important user-visible changes for arduino 0.2.0+:
 
  ** added getLibName, setup and loop functions to LibraryBase
 
- ** implemented playTone, rotationalEncoder functionality
+ ** implemented playTone
+
+ ** New functions:
+    - rotationalEncoder
+    - getPinInfo
 
  ** minor function documentation updates
 

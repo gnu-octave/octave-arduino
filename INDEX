@@ -12,6 +12,7 @@ Arduino Functions
   @arduino/getLEDTerminals
   @arduino/getMCU
   @arduino/getPWMTerminals
+  @arduino/getPinInfo
   @arduino/getPinsFromTerminals
   @arduino/getResourceCount
   @arduino/getResourceOwner
