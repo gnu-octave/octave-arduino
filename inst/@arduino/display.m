@@ -37,10 +37,39 @@ function display (ar)
     printf ("      %s\n", libs{i});
   endfor
   printf("    }\n");
+
+  # group pins where can
+  nextpin = "";
+  startpin = {};
+  endpin = {};
   printf ("    availablepins = {\n")
   for i=1:numel (ar.config.pins)
-    printf ("      %s\n", ar.config.pins{i}.name);
+    pin = ar.config.pins{i};
+    if !strcmpi(nextpin, pin.name)
+      if !isempty(endpin)
+        printf ("      %s - %s\n", startpin.name, endpin.name);
+      elseif !isempty(startpin)
+        printf ("      %s\n", startpin.name);
+      endif
+      startpin = pin;
+      endpin = {};
+    else
+      if isempty(startpin)
+        startpin = pin;
+      else
+        endpin = pin;
+      endif
+    endif
+    parts = sscanf(pin.name, "%c %d");
+    nextpin = sprintf("%c%d", char(parts(1)), parts(2)+1);
   endfor
+
+  if !isempty(endpin)
+    printf ("      %s - %s\n", startpin.name, endpin.name);
+  elseif !isempty(startpin)
+    printf ("      %s\n", startpin.name);
+  endif
+ 
   printf("    }\n");
   if ar.debug
     printf ("   config = \n");
