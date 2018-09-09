@@ -15,13 +15,39 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{lb} =} arduinoioaddons.ExampleAddon.Echo ()
+## @deftypefn {} {} arduinoioaddons.ExampleAddon.Echo
 ## Basic Example matlab/octave code to illustrate creating
 ## a user addon. 
 ##
 ## @seealso{addon}
 ## @end deftypefn
-
+##
+## @subsubheading Properties
+## @var{Parent} - the parent arduino object.
+##
+## @var{Pins} - the pins allocated the addon.
+##
+## @subheading Methods
+## @deftypefn {} {@var{obj} =} Echo(arObj)
+## Constructor to create Echo addon
+## @subsubheading Inputs
+## @var{arObj} - the arduino parent object
+##
+## @subsubheading Outputs
+## @var{obj} - created Echo object
+## @end deftypefn
+##
+## @deftypefn {} {@var{response} = } shout(@var{text})
+## Send text to arduino and receive back the echoed reply
+##
+## @subsubheading Inputs
+## @var{text} - text to send to arduino
+##
+## @subsubheading Outputs
+## @var{response} - response from the arduino, which should be the same as 
+## the input text.
+## @end deftypefn
+#
 classdef Echo < arduinoio.LibraryBase
     # commands
     properties(Access = private, Constant = true)
