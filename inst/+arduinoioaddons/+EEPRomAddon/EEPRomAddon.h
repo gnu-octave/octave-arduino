@@ -54,11 +54,15 @@ public:
       }
       case EEPROM_READ:
       {
-	 if(datasz == 2)
+	 if(datasz == 3)
 	 {
+	   datasz = data[2];
+
 	   uint16_t addr = (uint16_t(data[0])<<8) | data[1];
-           data[0] = EEPROM.read(addr);
-	   sendResponseMsg(cmdId, data, 1);
+	   for(int i=0;i<datasz;i++) {
+             data[i] = EEPROM.read(addr+i);
+	   }
+	   sendResponseMsg(cmdId, data, datasz);
 	 }
 	 else
 	 {
@@ -68,11 +72,16 @@ public:
       }
       case EEPROM_WRITE:
       {
-	 if(datasz == 3)
+	 if(datasz >= 3)
 	 {
 	   uint16_t addr = (uint16_t(data[0])<<8) | data[1];
-	   EEPROM.update(addr, data[2]);
-	   sendResponseMsg(cmdId, 0, 0);
+	   datasz = datasz-2;
+	   for(int i=0;i<datasz;i++) {
+	     EEPROM.update(addr+i, data[i+2]);
+	   }
+
+	   data[0] = datasz;
+	   sendResponseMsg(cmdId, data, 1);
 	 }
 	 else
 	 {
