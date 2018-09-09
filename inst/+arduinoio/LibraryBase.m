@@ -15,13 +15,50 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{lb} =} arduinoio.LibraryBase ()
+## @deftypefn {} {} arduinoio.LibraryBase
 ## Base class used for arduino library plugins
 ##
+## @seealso{arduino, listArduinoLibraries, addon}
+## @end deftypefn
+##
+## @subheading Properties
+## Base properties are expected to be inhited and overwriiten in inherited classes.
+## and are constant in order to query through the metaobject mechanism.
+##
+## @var{LibraryName} - name of the addon library
+##
+## @var{DependentLibraries} - array of dependant library names that ust be include when 
+## installing this plugin.
+##
+## @var{CppHeaderFile} - name (if any) of header file that will be included into the arduino
+## project when adding this library.
+##
+## @var{CppSourceFile} - name (if any) of source file that will be included into the arduino
+## project when adding this library.
+##
+## @var{CppClassName} - name of the cpp class for the addon library.
+## project when adding this library.
+##
+## @var{Pins} - pins allocated to the addon
+##
+## @var{Parent} - parent arduino object.
+##
+## @subheading Methods
+## @deftypefn {} {@var{lb} =} LibraryBase ()
+## Constructor of base class
+##
+## The construcor is usually not called but called indirectly from the addon function.
+##
+## @subsubheading Outputs
 ## The return value @var{lb} is an object of the arduinio.LibraryBase class.
 ##
 ## @seealso{arduino, listArduinoLibraries, addon}
 ## @end deftypefn
+##
+## @deftypefn {} {} display ()
+## Display the addon in a verbose way.
+## @end deftypefn
+
 
 classdef LibraryBase < handle
   # properties that may be overridden in 
