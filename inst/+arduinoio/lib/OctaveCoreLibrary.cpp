@@ -29,6 +29,9 @@
 
 #define ARDUINO_GETLIB      8
 
+#define ARDUINO_VERSION     20
+#define ARDUINO_UPTIME      21
+
 // TODO: how know what board we are ???
 //compiler provides something like:
 // -DF_CPU=16000000L -DARDUINO=10805 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR
@@ -238,6 +241,24 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
           sendInvalidNumArgsMsg();
         }
         break;
+      case ARDUINO_VERSION:
+        {
+	  data[0] = VERSION_MAJOR;
+	  data[1] = VERSION_MINOR;
+	  data[2] = VERSION_PATCH;
+          sendResponseMsg(cmdID, data, 3);
+        }
+        break;
+      case ARDUINO_UPTIME:
+       {
+         unsigned long t = millis();
+	 data[0] = (t>>24)&0xff;
+	 data[1] = (t>>16)&0xff;
+	 data[2] = (t>>8)&0xff;
+	 data[3] = (t>>0)&0xff;
+         sendResponseMsg(cmdID, data, 4);
+       }
+       break;
       default:
         sendUnknownCmdIDMsg();
         break;

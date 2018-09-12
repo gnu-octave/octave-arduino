@@ -29,7 +29,9 @@ Arduino Functions
   @arduino/readVoltage
   @arduino/reset
   @arduino/sendCommand
+  @arduino/uptime
   @arduino/validatePin
+  @arduino/version
   @arduino/writeDigitalPin
   @arduino/writePWMDutyCycle
   @arduino/writePWMVoltage
