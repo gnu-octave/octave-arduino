@@ -19,6 +19,7 @@ Summary of important user-visible changes for arduino 0.2.0+:
 
  ** New boards:
     - Arduino Pro/Pro Mini
+    - Lilypad
 
  ** updated to arduinoaddons to query using metadata
 

@@ -33,6 +33,8 @@ function retval = boardTypeString (id)
       retval = "uno";
     case 1
       retval = "mega";
+    case 10
+      retval = "lilypad";
     case 20
       retval = "promini";
     case 41
@@ -46,4 +48,5 @@ endfunction
 %!test
 %! assert(arduinoio.boardTypeString (0), "uno")
 %! assert(arduinoio.boardTypeString (1), "mega")
+%! assert(arduinoio.boardTypeString (10), "lilypad")
 %! assert(arduinoio.boardTypeString (-1), "unknown")

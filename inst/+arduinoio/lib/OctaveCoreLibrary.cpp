@@ -40,6 +40,8 @@
   #define BOARD_ID  0
 #elif defined(ARDUINO_AVR_MEGA2560)
   #define BOARD_ID  1
+#elif defined(ARDUINO_AVR_LILYPAD)
+  #define BOARD_ID  10
 #elif defined(ARDUINO_AVR_PRO)
   #define BOARD_ID  20
 #elif defined(ARDUINO_SAMD_ZERO)
@@ -55,16 +57,18 @@
 #endif
 
 // board voltage = actualV*10
-#if defined(ARDUINO_ARCH_SAMD)
-  #define BOARD_VOLTAGE 33
-#elif defined(ARDUINO_AVR_PRO)
- #if F_CPU == 8000000L 
-  #define BOARD_VOLTAGE 33
- #else
-  #define BOARD_VOLTAGE 50
- #endif
-#else
-  #define BOARD_VOLTAGE 50
+#ifndef BOARD_VOLTAGE
+  #if defined(ARDUINO_ARCH_SAMD)
+    #define BOARD_VOLTAGE 33
+  #elif defined(ARDUINO_AVR_PRO)
+   #if F_CPU == 8000000L 
+    #define BOARD_VOLTAGE 33
+   #else
+    #define BOARD_VOLTAGE 50
+   #endif
+  #else
+    #define BOARD_VOLTAGE 50
+  #endif
 #endif
 
 static const uint8_t map_config_mode[] PROGMEM = {

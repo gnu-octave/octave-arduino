@@ -118,29 +118,46 @@ function retval = arduinosetup (varargin)
     fd = fopen (fullfile (tmpdir, "octave", "settings.h"), "w+t");
     fprintf (fd, "// generated from arduinosetup for buildin library configuration\n");
 
+    fprintf (fd, "\n");
+    fprintf (fd, "// override target voltage (x10) by uncommenting and providing a value\n");
+    fprintf (fd, "//#define BOARD_VOLTAGE 50\n");
+
+    fprintf (fd, "\n");
+    fprintf (fd, "// builtin library support\n");
+
     idx = find (cellfun(@(x) strcmpi(x, "SPI"), builtinlibs), 1);
     if !isempty(idx)
-      fprintf (fd, "#define USE_SPI\n");   
+      fprintf (fd, "#define USE_SPI\n");
+    else
+      fprintf (fd, "//#define USE_SPI\n");
     endif
 
     idx = find (cellfun(@(x) strcmpi(x, "I2C"), builtinlibs), 1);
     if !isempty(idx)
-      fprintf (fd, "#define USE_I2C\n");   
+      fprintf (fd, "#define USE_I2C\n");
+    else
+      fprintf (fd, "//#define USE_I2C\n");
     endif
 
     idx = find (cellfun(@(x) strcmpi(x, "Servo"), builtinlibs), 1);
     if !isempty(idx)
-      fprintf (fd, "#define USE_SERVO\n");   
+      fprintf (fd, "#define USE_SERVO\n");
+    else
+      fprintf (fd, "//#define USE_SERVO\n");
     endif
 
     idx = find (cellfun(@(x) strcmpi(x, "ShiftRegister"), builtinlibs), 1);
     if !isempty(idx)
       fprintf (fd, "#define USE_SHIFTREG\n");
+    else
+      fprintf (fd, "//#define USE_SHIFTREG\n");
     endif
 
     idx = find (cellfun(@(x) strcmpi(x, "RotaryEncoder"), builtinlibs), 1);
     if !isempty(idx)
       fprintf (fd, "#define USE_ROTARYENCODER\n");
+    else
+      fprintf (fd, "//#define USE_ROTARYENCODER\n");
     endif
  
     fclose (fd);
