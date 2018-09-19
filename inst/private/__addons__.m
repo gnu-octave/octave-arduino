@@ -52,20 +52,31 @@ function addonfiles = __addons__ ()
         for k = 1:numel (files2)
           finfo = {};
           [d2,f2,e2] = fileparts (files2(k).name);
-	  classname = sprintf ("arduinoioaddons.%s.%s", f1, f2);
-	  z = eval(sprintf ("%s.AddonInfo('%s')", classname, classname));
-
-          z.scriptfile = fullfile (folder, files2(k).name);
+          classname = sprintf ("arduinoioaddons.%s.%s", f1, f2);
+          if is_arduino_addon_class(classname)
+            z = eval(sprintf ("%s.AddonInfo('%s')", classname, classname));
+            
+            z.scriptfile = fullfile (folder, files2(k).name);
           
-          # paths are wrong, as mfilename isnt giving use a path from within the class
-          # so for now, fixing here
-          z.cppheaderfile = strrep (z.cppheaderfile, addonpathfix, folder);
-          z.cppsourcefile = strrep (z.cppsourcefile, addonpathfix, folder);
+            # paths are wrong, as mfilename isnt giving use a path from within the class
+            # so for now, fixing here
+            z.cppheaderfile = strrep (z.cppheaderfile, addonpathfix, folder);
+            z.cppsourcefile = strrep (z.cppsourcefile, addonpathfix, folder);
   
-          addonfiles{end+1} = z;
+            addonfiles{end+1} = z;
+          endif
         endfor
       endif
     endfor
   endfor
- 
+endfunction
+
+function retval = is_arduino_addon_class(classname)
+  classinfo = meta.class.fromName(classname);
+  if !isempty(classinfo)
+    idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
+    retval = !isempty(idx);
+  else
+    retval = false;
+  endif
 endfunction
