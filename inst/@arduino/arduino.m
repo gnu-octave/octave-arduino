@@ -107,6 +107,7 @@ classdef arduino < handle
         this.name = ["arduino " board];
 
         requiredlibs = {};
+        forcebuild = false;
         for i = 3:2:nargin
           propname = tolower (varargin{i});
           propvalue = varargin{i+1};
@@ -126,11 +127,20 @@ classdef arduino < handle
               error ("arduino: expect libraries value to be a libraryname or cellarray of library names");
             endif
           endif
+          if strcmp (propname,"forcebuild")
+            if islogical (propvalue) || (isnumeric(propvalue) && (propvalue == 1 || propvalue == 0))
+              forcebuild = propvalue;
+            else
+              error ("arduino: expect forcebuild to be true or false");
+            endif
+          endif
         endfor
 
         this = __initArduino__ (this, port, board);
 
         # check have requested libs
+        actuallibs = {};
+        reprogram = false;
         for i = 1:numel (requiredlibs)
           lib = requiredlibs{i};
           id = this.get_lib (lib);
@@ -139,17 +149,43 @@ classdef arduino < handle
             idx = find( cellfun(@(x) strcmpi(x, lib), availablelibs), 1);
             if isempty (idx)
               error ('arduino: unknown library "%s"', lib);
+            elseif forcebuild
+              warning ('arduino: not configured with library "%s" - will need to reprogram', lib);
+              reprogram = true;
             else
-              error ('arduino: not configured with library "%s" - please rerun arduinosetup with library', lib);
+              error ('arduino: not configured with library "%s" - please rerun arduinosetup with library, or set forcebuild', lib);
             endif
+          else
+            l = {};
+            l.name = lib;
+            l.id = id;
+            actuallibs{end+1} = l;
           endif
         endfor
+
+        # set libs as the ones we know about
+        if !isempty(actuallibs)
+          this.config.libs = actuallibs;
+        endif
+
+        if reprogram
+          printf("starting reprogram process ....\n")
+
+          # free arduino resources, reprom and then reinit
+          this = __freeArduino__(this);
+
+          if !arduinosetup ('libraries', requiredlibs);
+            error ("arduinosetup returned a failure, so did not reprogram")
+          endif
+
+          this = __initArduino__ (this, port, board);
+        endif
       endif
     endfunction
   endmethods
 
   methods (Hidden = true)
-
+    
     # helper functions
     function set_debug (this, d)
       this.debug = d;
