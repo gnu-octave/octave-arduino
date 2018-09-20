@@ -18,6 +18,7 @@ Arduino Functions
   @arduino/getResourceOwner
   @arduino/getSPITerminals
   @arduino/getServoTerminals
+  @arduino/getSharedResourceProperty
   @arduino/getTerminalMode
   @arduino/getTerminalsFromPins
   @arduino/incrementResourceCount
@@ -29,6 +30,7 @@ Arduino Functions
   @arduino/readVoltage
   @arduino/reset
   @arduino/sendCommand
+  @arduino/setSharedResourceProperty
   @arduino/uptime
   @arduino/validatePin
   @arduino/version

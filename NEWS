@@ -12,6 +12,8 @@ Summary of important user-visible changes for arduino 0.2.0+:
     - @arduino/getPinInfo
     - @arduino/uptime
     - @arduino/version
+    - @arduino/getSharedResourceProperty
+    - @arduino/setSharedResourceProperty
 
  ** New addons
     - ExampleLCD.LCD

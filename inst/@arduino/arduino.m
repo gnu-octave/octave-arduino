@@ -185,7 +185,6 @@ classdef arduino < handle
   endmethods
 
   methods (Hidden = true)
-    
     # helper functions
     function set_debug (this, d)
       this.debug = d;
@@ -282,7 +281,7 @@ classdef arduino < handle
         endfor
       endif
     endfunction
-    
+
     function pins = availablepins(this)
       pins = {};
       for i=1:numel (this.config.pins)
@@ -331,6 +330,7 @@ classdef arduino < handle
         res.name = resource;
         res.count = 0;
         res.owner = "";
+        res.props = struct();
       else
         res = this.resources{idx};
       endif
