@@ -77,3 +77,8 @@ function addr = scanI2Cbus (ar, bus)
   endfor
 
 endfunction
+
+%!test
+%! ar = arduino();
+%! assert(!isempty(ar));
+%! scanI2Cbus(ar);
