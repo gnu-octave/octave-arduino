@@ -6,6 +6,8 @@ Summary of important user-visible changes for arduino 0.2.0+:
  ** Modified functions:
     - implemented playTone
     - added forcebuild property to arduino
+    - @spidev/writeRead uses transaction based transfers
+    - @spidev/spidev allow any CS pin to be used
 
  ** New functions:
     - @rotationalEncoder

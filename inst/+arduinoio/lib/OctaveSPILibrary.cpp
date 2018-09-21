@@ -18,8 +18,8 @@
 #include "settings.h"
 #include "OctaveSPILibrary.h"
 
-#define ARDUINO_SPI         0
 #define ARDUINO_CONFIGSPI   1
+#define ARDUINO_READ_WRITE_SPI 2
 
 #ifdef USE_SPI
 #include <SPI.h>
@@ -44,7 +44,7 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
       case ARDUINO_CONFIGSPI:
        {
          if(datasz == 4) {
-           // spi id   0
+           // spi id   0 (cs pin)
            // enable   1
            // mode ?   2
            // byte order 3
@@ -65,9 +65,8 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
              else spi_mode = SPI_MODE0;
 
              SPI.begin();
-             SPI.beginTransaction(SPISettings(14000000, spi_bitorder==0 ? MSBFIRST : LSBFIRST , spi_mode));
+             digitalWrite(data[0], HIGH); 
            } else {
-             SPI.endTransaction();
              SPI.end();
              spi_enabled = 0;
            }
@@ -77,22 +76,21 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
            if(data[1] == 1) {
              spi_enabled = 1;
              SPI.begin();
-             SPI.beginTransaction(SPISettings(14000000, spi_bitorder==0 ? MSBFIRST : LSBFIRST, spi_mode));
+             digitalWrite(data[0], HIGH); 
            } else {
-             SPI.endTransaction();
              SPI.end();
              spi_enabled = 0;
            }
            sendResponseMsg(cmdID,data, 2);
          }
          else if(datasz == 1) {
-           // spi id
+           // spi id (cs)
            // enable
            // mode ?
            // byte order
-          data[1] = spi_enabled;
-          data[2] = spi_mode;
-          data[3] = spi_bitorder;
+           data[1] = spi_enabled;
+           data[2] = spi_mode;
+           data[3] = spi_bitorder;
            sendResponseMsg(cmdID,data, 4);
          }
          else {
@@ -100,11 +98,29 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
          }
          break;
        }
-      case ARDUINO_SPI:
+      case ARDUINO_READ_WRITE_SPI:
       
-        if(datasz == 2) {
-          data[1] = SPI.transfer(data[1]);
-          sendResponseMsg(cmdID,data, 2);
+        if(datasz >= 2) {
+          uint8_t cs_pin = data[0];
+          // begin transaction
+          SPI.beginTransaction(SPISettings(4000000, spi_bitorder==0 ? MSBFIRST : LSBFIRST , spi_mode));
+
+          // set CS low
+          digitalWrite(cs_pin, LOW); 
+          delay(1);
+
+          // transfer the bytes
+          byte c;
+          for(c=1;c<=datasz;c++) {
+            data[c] = SPI.transfer(data[c]);
+          }
+          // set CS hi
+          digitalWrite(cs_pin, HIGH); 
+          delay(1);
+          // endtransaction
+          SPI.endTransaction();
+
+          sendResponseMsg(cmdID, data, datasz);
         } else {
           sendInvalidNumArgsMsg();
         }

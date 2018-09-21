@@ -18,7 +18,7 @@
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
-## @var{cspin} - chip select pin of selected SPI port.
+## @var{cspin} - chip select pin for attached spi device.
 ##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
 ##
@@ -55,11 +55,9 @@ function this = spidev (varargin)
     error ("arduino: expected property names to be strings");
   endif
 
-  count = getResourceCount(ar,"spi");
-  if count > 0
-    error ("@spidev.spidev: can have only one SPI object at a time");
-  endif
+  isfirst = getResourceCount(ar,"spi") == 0;
 
+  this.id = [];
   this.chipselectpin = "";
   this.mode = 0;
   this.bitrate = 4000000;
@@ -99,38 +97,65 @@ function this = spidev (varargin)
   this.chipselectpin = cspin;
   this.arduinoobj = ar;
   
-  # check if is valid CS pin
-  validatePin(ar,cspin,'SPI')
-  
-  % TODO on calling setup with the CS pin, returns back the other pins that we then setup as used ?
-  % sendCommand
-  # there only ever one port ??? with CS able to be completely independant ??
-  tmp_pins = ar.get_pingroup(cspin, "SPI");
-  if numel(tmp_pins) != 4
-    error ("expected 4 SPI pins but only have %d", numel(tmp_pins))
+  # check if is valid CS pin that can use as output
+  validatePin(ar, cspin, 'digital')
+  if strcmp(getResourceOwner(ar, cspin), "spi")
+    error ("pin %s is already in use by SPI", cspin)
   endif
-  this.pins = tmp_pins;
   
-  # TODO: save old modes and set them via force if we fail trying to alloc the whole group
+  if isfirst
+    terms = getSPITerminals(ar);
+    tmp_pins = ar.get_pingroup(terms{1}, "SPI");
+
+    if numel(tmp_pins) != 4
+      error ("expected 4 SPI pins but only have %d", numel(tmp_pins))
+    endif
+
+    setSharedResourceProperty(ar, "spi", "pins", tmp_pins);
+  endif
+
+  tmp_pins = getSharedResourceProperty(ar, "spi", "pins");
+  cs_is_ss = false;
+  cspin = getPinInfo(ar, cspin);
+  cspin.func = "cs";
+
+  for i=1:4
+    # verify cs pin is either SS pin, or a not a spi pin
+    if strcmp(tolower(tmp_pins{i}.func), "ss")
+      if strcmpi(tmp_pins{i}.name, cspin.name)
+        cs_is_ss = true;
+      endif
+    else
+      # check not trying to set CS to a spi pin
+      if strcmpi(tmp_pins{i}.name, cspin.name)
+        error ("can not set cspin to a SPI function pin");
+      endif
+    endif
+  endfor
+
+  if !cs_is_ss
+    tmp_pins{end+1} = cspin;
+  endif
+
+  this.pins = tmp_pins;
+  this.id = cspin.terminal;
+  
   try
-    for i=1:4
-      configurePin(ar, tmp_pins{i}.name, "spi")
-      
-      switch(tolower(tmp_pins{i}.func))
-        case "ss"
-          this.chipselectpin = tmp_pins{i}.name;
-          # override mode for digital out on SS
-          configurePinResource (ar, tmp_pins{i}.name, getResourceOwner (ar, tmp_pins{i}.name), "digitaloutput", true);
-        case "mosi"
-          #
-        case "miso"
-          # override mode for digital in on miso
-          #configurePinResource (ar, tmp_pins{i}.name, getResourceOwner (ar, tmp_pins{i}.name), "digitalinput", true);
-          #
-        case "sck"
-          #
-      endswitch
-            
+    for i=1:numel(tmp_pins)
+      if isfirst
+        if strcmp(tolower(tmp_pins{i}.func), "ss") || strcmp(tolower(tmp_pins{i}.func), "cs")
+          configurePin(ar, tmp_pins{i}.name, "digitaloutput")
+          configurePinResource (ar, tmp_pins{i}.name, "spi", "digitaloutput", true);
+        elseif !isfirst
+          configurePin(ar, tmp_pins{i}.name, "spi")
+        endif
+      else
+        # only allocate cs pin if not first device
+        if strcmp(tolower(tmp_pins{i}.func), "cs")
+          configurePin(ar, tmp_pins{i}.name, "digitaloutput")
+          configurePinResource (ar, tmp_pins{i}.name, "spi", "digitaloutput", true);
+	endif
+      endif
     endfor
           
     bitorder = 0;
@@ -138,31 +163,46 @@ function this = spidev (varargin)
       bitorder = 1;
     endif
           
-    [tmp, sz] = sendCommand(this.arduinoobj, "spi", ARDUINO_SPI_CONFIG, [0 1 this.mode bitorder]);
+    [tmp, sz] = sendCommand(this.arduinoobj, "spi", ARDUINO_SPI_CONFIG, [this.id 1 this.mode bitorder]);
     
     incrementResourceCount(ar, "spi");
   catch
-    for i=1:4
-      configurePinResource(ar, tmp_pins{i}.name, tmp_pins{i}.owner, tmp_pins{i}.mode, true)
-      configurePin(ar, tmp_pins{i}.name, tmp_pins{i}.mode)
+    for i=1:numel(tmp_pins)
+      if strcmp(tolower(tmp_pins{i}.func), "cs") || isfirst
+        configurePinResource(ar, tmp_pins{i}.name, tmp_pins{i}.owner, tmp_pins{i}.mode, true)
+        configurePin(ar, tmp_pins{i}.name, tmp_pins{i}.mode)
+      endif
     endfor
     rethrow (lasterror);
   end_try_catch
 
   # set clean up function
-  this.cleanup = onCleanup (@() cleanupSPI (ar, tmp_pins));
+  this.cleanup = onCleanup (@() cleanupSPI (ar, cspin));
           
   this = class(this, "spidev");
 endfunction
 
 # private clean up allocated pins
-function cleanupSPI(ar, pins)
-  decrementResourceCount(ar, "spi");
-  for i=1:numel(pins)
-    pin = pins{i};
-    configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
-    configurePin(ar, pin.name, pin.mode);
-  endfor
+function cleanupSPI(ar, cspin)
+  # free CS
+  configurePinResource(ar, cspin.name, cspin.owner, cspin.mode, true);
+  configurePin(ar, cspin.name, cspin.mode);
+
+  # clean up the spi port if not used?
+  count = getResourceCount(ar, "spi");
+  if count > 0
+    count = decrementResourceCount(ar, "spi");
+    if count == 0
+      # last user, so free pins (except ss that we already did)
+      pins = getSharedResourceProperty(ar, "spi", "pins");
+      #setSharedResourceProperty(ar, "spi", "pins", {});
+      for i=1:numel(pins)
+        pin = pins{i};
+        configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
+        configurePin(ar, pin.name, pin.mode);
+      endfor
+    endif
+  endif
 endfunction
 
 %!shared arduinos
@@ -198,5 +238,6 @@ endfunction
 
 %!test
 %! ar = arduino();
-%! spi1 = spidev(ar, "d10");
-%! fail ('spidev(ar, "d10");', 'only one SPI object') 
+%! spi = spidev(ar, "d10");
+%! fail ('spidev(ar, "d10");', 'pin10 already in use') 
+%! spi2 = spidev(ar, "d5");
