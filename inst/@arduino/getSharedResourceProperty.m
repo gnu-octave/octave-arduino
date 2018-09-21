@@ -12,14 +12,14 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{count} =} getSharedResourceProperty (@var{ar}, @var{resource}, @var{property})
-## Get the count of uses of  a given resource.
+## Get the value of a property from a given resource.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{resource} - name of resource to get property for.
 ##
-## @var{resource} - name of property from the resource.
+## @var{property} - name of property from the resource.
 ##
 ## @subsubheading Outputs
 ## @var{propvalue} - value of the property

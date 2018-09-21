@@ -12,8 +12,8 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} setSharedResourceProperty (@var{ar}, @var{resource}, @var{propname}, @var{propvalue})
-## @deftypefnx {} {} setSharedResourceProperty (@var{ar}, @var{resource}, @var{propname}, @var{propvalue}, __)
-## Set propery values for a given resource.
+## @deftypefnx {} {} setSharedResourceProperty (@var{ar}, @var{resource}, @var{propname}, @var{propvalue}, ___)
+## Set property values for a given resource.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
@@ -28,6 +28,14 @@
 ##
 ## @subsubheading Outputs
 ## None
+##
+## @subsubheading Example
+## @example
+## @code{
+## ar = arduino();
+## setSharedResourceProperty(ar, "myresource", "myproperty", [1 2 3])
+## }
+## @end example
 ##
 ## @seealso{getSharedResourceProperty}
 ## @end deftypefn
