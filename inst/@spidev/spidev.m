@@ -239,5 +239,5 @@ endfunction
 %!test
 %! ar = arduino();
 %! spi = spidev(ar, "d10");
-%! fail ('spidev(ar, "d10");', 'pin10 already in use') 
+%! fail ('spidev(ar, "d10");', 'pin d10 is already in use') 
 %! spi2 = spidev(ar, "d5");
