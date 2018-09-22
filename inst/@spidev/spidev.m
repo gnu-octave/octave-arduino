@@ -146,7 +146,7 @@ function this = spidev (varargin)
         if strcmp(tolower(tmp_pins{i}.func), "ss") || strcmp(tolower(tmp_pins{i}.func), "cs")
           configurePin(ar, tmp_pins{i}.name, "digitaloutput")
           configurePinResource (ar, tmp_pins{i}.name, "spi", "digitaloutput", true);
-        elseif !isfirst
+        else
           configurePin(ar, tmp_pins{i}.name, "spi")
         endif
       else
