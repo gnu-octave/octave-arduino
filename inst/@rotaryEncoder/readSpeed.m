@@ -41,9 +41,7 @@ function value = readSpeed(obj, varargin)
   endif
 endfunction
 
-%!shared ar
+%!test
 %! ar = arduino ();
-
-%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
 %! e = rotaryEncoder(ar, "d2","d3");
 %! readSpeed(e);

@@ -367,3 +367,12 @@ endclassdef
 %! assert(isa(ar, "arduino"))
 %! assert(ar.port, arduinos{1}.port);
 %! assert(ar.board, arduinos{1}.board);
+
+%!test
+%! ar = arduino();
+%! # verify have compiled support for functions we will be testing
+%! assert(!isempty(find(cellfun(@(x) strcmpi(x, "spi"), ar.libraries()), 1)))
+%! assert(!isempty(find(cellfun(@(x) strcmpi(x, "i2c"), ar.libraries()), 1)))
+%! assert(!isempty(find(cellfun(@(x) strcmpi(x, "servo"), ar.libraries()), 1)))
+%! assert(!isempty(find(cellfun(@(x) strcmpi(x, "shiftregister"), ar.libraries()), 1)))
+%! assert(!isempty(find(cellfun(@(x) strcmpi(x, "rotaryencoder"), ar.libraries()), 1)))
