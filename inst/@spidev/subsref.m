@@ -14,34 +14,39 @@
 ## @deftypefn {} {@var{val} = } subsref (@var{dev}, @var{sub})
 ## subref for spidev
 ##
-## @seealso{i2cdev}
+## @seealso{spidev}
 ## @end deftypefn
 
-function val = subsref (p, s)
+function val = subsref (this, s)
   if isempty(s)
     error ("spidev.subsref missing index");
   endif
 
   if s(1).type == "."
-    fld = tolower(s.subs);
+    fld = tolower(s(1).subs);
     switch (fld)
       case "pins"
-	val = {}
-	for i = 1:numel(p.pins)
-	  val{end+1} = p.pins{i}.name; 
+	val = {};
+	for i = 1:numel(this.pins)
+	  val{end+1} = this.pins{i}.name; 
 	endfor
       case "mode"
-	val = p.mode;
+	val = this.mode;
       case "bitrate"
-	val = p.bitrate;
+	val = this.bitrate;
       case "bitorder"
-	val = p.bitorder;
+	val = this.bitorder;
       case "chipselectpin"
-	val = p.chipselectpin;
+	val = this.chipselectpin;
       otherwise
 	error ("spidev.subsref invalid property '%s'", fld);
     endswitch
   else
     error("unimplemented spidev.subsref type");
   endif
+
+  if (numel (s) > 1)
+    val = subsref (val, s(2:end));
+  endif
+
 endfunction

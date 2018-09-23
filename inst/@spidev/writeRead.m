@@ -26,7 +26,7 @@
 ## @seealso{arduino, spidev}
 ## @end deftypefn
 
-function dataOut = writeRead (obj, dataIn)
+function dataOut = writeRead (this, dataIn)
   dataOut = [];
 
   persistent ARDUINO_SPI_READ_WRITE = 2;
@@ -35,7 +35,7 @@ function dataOut = writeRead (obj, dataIn)
     error ("@spidev.writeRead: expected dataIn");
   endif
 
-  [tmp, sz] = sendCommand (obj.arduinoobj, "spi", ARDUINO_SPI_READ_WRITE, [obj.id uint8(dataIn)]);
+  [tmp, sz] = sendCommand (this.parent, this.resourceowner, ARDUINO_SPI_READ_WRITE, [this.id uint8(dataIn)]);
   if sz > 0
     dataOut = tmp(2:end);
   endif

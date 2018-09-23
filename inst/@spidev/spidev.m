@@ -95,11 +95,12 @@ function this = spidev (varargin)
   endif
   
   this.chipselectpin = cspin;
-  this.arduinoobj = ar;
+  this.parent = ar;
+  this.resourceowner = "spi";
   
   # check if is valid CS pin that can use as output
   validatePin(ar, cspin, 'digital')
-  if strcmp(getResourceOwner(ar, cspin), "spi")
+  if strcmp(getResourceOwner(ar, cspin), this.resourceowner)
     error ("pin %s is already in use by SPI", cspin)
   endif
   
@@ -111,10 +112,10 @@ function this = spidev (varargin)
       error ("expected 4 SPI pins but only have %d", numel(tmp_pins))
     endif
 
-    setSharedResourceProperty(ar, "spi", "pins", tmp_pins);
+    setSharedResourceProperty(ar, this.resourceowner, "pins", tmp_pins);
   endif
 
-  tmp_pins = getSharedResourceProperty(ar, "spi", "pins");
+  tmp_pins = getSharedResourceProperty(ar, this.resourceowner, "pins");
   cs_is_ss = false;
   cspin = getPinInfo(ar, cspin);
   cspin.func = "cs";
@@ -163,9 +164,9 @@ function this = spidev (varargin)
       bitorder = 1;
     endif
           
-    [tmp, sz] = sendCommand(this.arduinoobj, "spi", ARDUINO_SPI_CONFIG, [this.id 1 this.mode bitorder]);
+    [tmp, sz] = sendCommand(this.parent, this.resourceowner, ARDUINO_SPI_CONFIG, [this.id 1 this.mode bitorder]);
     
-    incrementResourceCount(ar, "spi");
+    incrementResourceCount(ar, this.resourceowner);
   catch
     for i=1:numel(tmp_pins)
       if strcmp(tolower(tmp_pins{i}.func), "cs") || isfirst
@@ -177,25 +178,24 @@ function this = spidev (varargin)
   end_try_catch
 
   # set clean up function
-  this.cleanup = onCleanup (@() cleanupSPI (ar, cspin));
+  this.cleanup = onCleanup (@() cleanupSPI (ar, this.resourceowner, cspin));
           
   this = class(this, "spidev");
 endfunction
 
 # private clean up allocated pins
-function cleanupSPI(ar, cspin)
+function cleanupSPI(ar, resource, cspin)
   # free CS
   configurePinResource(ar, cspin.name, cspin.owner, cspin.mode, true);
   configurePin(ar, cspin.name, cspin.mode);
 
   # clean up the spi port if not used?
-  count = getResourceCount(ar, "spi");
+  count = getResourceCount(ar, resource);
   if count > 0
-    count = decrementResourceCount(ar, "spi");
+    count = decrementResourceCount(ar, resource);
     if count == 0
       # last user, so free pins (except ss that we already did)
-      pins = getSharedResourceProperty(ar, "spi", "pins");
-      #setSharedResourceProperty(ar, "spi", "pins", {});
+      pins = getSharedResourceProperty(ar, resource, "pins");
       for i=1:numel(pins)
         pin = pins{i};
         configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
