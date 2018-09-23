@@ -43,8 +43,10 @@ function resetCount(obj, cnt)
   [tmp, sz] = sendCommand(obj.parent, "rotaryencoder", ARDUINO_ROTARYENCODER_RESETCOUNT, [obj.id bitand(bitshift(cnt, -8),255) bitand(cnt,255)]);
 endfunction
 
-%!test
-%! a = arduino ();
-%! e = rotaryEncoder(a, "d2","d3");
+%!shared ar
+%! ar = arduino ();
+
+%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
+%! e = rotaryEncoder(ar, "d2","d3");
 %! resetCount(e);
 %! resetCount(e, 10);

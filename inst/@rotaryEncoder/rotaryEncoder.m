@@ -127,7 +127,7 @@ endfunction
 %!shared ar
 %! ar = arduino();
 
-%!test
+%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
 %! assert(configurePin(ar, "d2"), "unset")
 %! assert(configurePin(ar, "d3"), "unset")
 %! enc = rotaryEncoder(ar, "d2", "d3");
@@ -138,11 +138,11 @@ endfunction
 %! assert(configurePin(ar, "d2"), "unset")
 %! assert(configurePin(ar, "d3"), "unset")
 
-%!test
+%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
 %! enc = rotaryEncoder(ar, "d2", "d3", 100);
 %! assert (isa (enc, "rotaryEncoder"))
 
-%!test
+%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
 %! enc = rotaryEncoder(ar, "d2", "d3");
 %! fail ('rotaryEncoder(ar, "d2", "d3");', "already in use");
 

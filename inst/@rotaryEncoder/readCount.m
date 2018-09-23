@@ -65,9 +65,14 @@ function [value, time] = readCount(obj, reset, resetvalue)
   time = time/1000.0;
 endfunction
 
-%!test
-%! a = arduino ();
-%! e = rotaryEncoder(a, "d2","d3");
+%!shared ar
+%! ar = arduino ();
+
+%!testif !isempty(find(cellfun(@(x) strcmp(x, "rotaryencoder"), ar.libraries()), 1))
+%! e = rotaryEncoder(ar, "d2","d3");
 %! readCount(e);
+%! readCount(e, "reset", 0);
+%! readCount(e, "reset", 1);
+%! readCount(e, "reset", true);
 
 %!error readCount();
