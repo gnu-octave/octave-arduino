@@ -176,6 +176,8 @@ Arduino Mega 2560
 Arduino Pro/Pro Mini
 @item
 Sparkfun SAMD21
+@item
+Arduino Lilypad
 @end itemize
 
 Additional boards can be added easily, however require minor code changes.
