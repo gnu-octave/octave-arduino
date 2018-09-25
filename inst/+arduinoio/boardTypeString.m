@@ -33,6 +33,8 @@ function retval = boardTypeString (id)
       retval = "uno";
     case 1
       retval = "mega2560";
+    case 2
+      retval = "nano";
     case 10
       retval = "lilypad";
     case 20

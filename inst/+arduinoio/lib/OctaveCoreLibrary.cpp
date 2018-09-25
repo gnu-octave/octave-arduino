@@ -40,6 +40,8 @@
   #define BOARD_ID  0
 #elif defined(ARDUINO_AVR_MEGA2560)
   #define BOARD_ID  1
+#elif defined(ARDUINO_AVR_NANO)
+  #define BOARD_ID  2
 #elif defined(ARDUINO_AVR_LILYPAD)
   #define BOARD_ID  10
 #elif defined(ARDUINO_AVR_PRO)
