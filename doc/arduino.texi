@@ -171,7 +171,7 @@ Currently, known boards are:
 @item
 Arduino UNO
 @item
-Arduino Mega
+Arduino Mega 2560
 @item
 Arduino Pro/Pro Mini
 @item

@@ -32,7 +32,7 @@ function retval = boardTypeString (id)
     case 0
       retval = "uno";
     case 1
-      retval = "mega";
+      retval = "mega2560";
     case 10
       retval = "lilypad";
     case 20

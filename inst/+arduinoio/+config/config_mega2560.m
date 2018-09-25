@@ -19,7 +19,7 @@
 ## Private function for setting allowed modes of mega board pins
 ## @end deftypefn
 
-function retval = config_mega (initdata)
+function retval = config_mega2560 (initdata)
   retval = [];
 
   # default board info - must be provided
