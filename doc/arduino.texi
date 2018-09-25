@@ -173,6 +173,8 @@ Arduino UNO
 @item
 Arduino Mega 2560
 @item
+Arduino Nano
+@item
 Arduino Pro/Pro Mini
 @item
 Sparkfun SAMD21
