@@ -60,6 +60,8 @@
 ## - Specify pin to use a servo
 ## @item SPI
 ## - Specify a pin to use with SPI protocol
+## @item Reserved
+## - Pin marked researved, but not for of any particular mode
 ## @item Unset
 ## - Clears pin designation. The pin is no longer reserved and can be automatically
 ## set at the next operation.
