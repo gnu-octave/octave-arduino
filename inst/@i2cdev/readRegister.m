@@ -98,9 +98,9 @@ function out = readRegister(dev, reg, numbytes, precision)
     endif
   else
     if (strcmp (precision, 'int8'))
-      out = int8(tmp(2:end));
+      out = int8(out);
     else
-      out = tmp(2:end);
+      out = uint8(out);
     endif
   endif
 
