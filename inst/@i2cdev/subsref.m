@@ -26,7 +26,7 @@ function val = subsref (p, s)
     fld = tolower(s.subs);
     switch (fld)
       case "pins"
-	val = {}
+	val = {};
 	for i = 1:numel(p.pins)
 	  val{end+1} = p.pins{i}.name; 
 	endfor
