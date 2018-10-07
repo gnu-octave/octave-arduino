@@ -171,7 +171,6 @@ classdef DS1307 < arduinoio.LibraryBase
       address = p.Results.Address;
       i2caddresses = scanI2Cbus(parentObj);
       idx = find(cellfun ( @(x) strcmp(x, sprintf("0x%02X", address)), i2caddresses));
-      printf("here1\n")
       if isempty(idx)
 	error('RTCAddon/DS1307: matching i2c address found on bus');
       endif
