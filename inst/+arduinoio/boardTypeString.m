@@ -49,6 +49,6 @@ endfunction
 
 %!test
 %! assert(arduinoio.boardTypeString (0), "uno")
-%! assert(arduinoio.boardTypeString (1), "mega")
+%! assert(arduinoio.boardTypeString (1), "mega2560")
 %! assert(arduinoio.boardTypeString (10), "lilypad")
 %! assert(arduinoio.boardTypeString (-1), "unknown")
