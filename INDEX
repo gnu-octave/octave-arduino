@@ -4,6 +4,7 @@ General Functions
   listArduinoLibraries
   scanForArduinos
 Arduino Functions
+  isarduino
   @arduino/configurePin
   @arduino/configurePinResource
   @arduino/decrementResourceCount
