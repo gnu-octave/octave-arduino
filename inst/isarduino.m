@@ -39,3 +39,11 @@ function retval = isarduino (obj)
   endif
 endfunction
 
+%!test
+%! a = arduino();
+%! assert(isarduino(a), true)
+
+%!assert(isarduino(0), false)
+%!assert(isarduino({}), false)
+%!assert(isarduino([]), false)
+%!assert(isarduino(), false)
