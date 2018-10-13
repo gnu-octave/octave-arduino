@@ -36,7 +36,23 @@
 ## @subsubheading Outputs
 ## @var{retval} - a successfully connected arduino object.
 ##
-## @seealso{scanForArduinos}
+## @subsubheading Properties
+## The arduino object has the following public properties:
+## @table @asis
+## @item name
+## name assigned to the arduino object
+## @item debug
+## true / false flag for whether debug in turned on
+## @item port (read only)
+## the communications port the board is connected to.
+## @item board  (read only)
+## The name of the board type that the arduini connected to
+## @item libraries (read only)
+## The libraries currently programmed onto the board
+## @item availablepins
+## The pins available for use on the board
+## @end table
+## @seealso{scanForArduinos, arduinosetup}
 ## @end deftypefn 
 
 classdef arduino < handle

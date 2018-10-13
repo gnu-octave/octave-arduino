@@ -37,6 +37,17 @@
 ## enc = rotaryEncoder(a, "d2", "d3", 180);
 ## @end example
 ##
+## @subsubheading Properties
+## The rotaryEncoder object has the following public properties:
+## @table @asis
+## @item parent
+## The parent (arduino) for this device
+## @item pins
+## pins used by this object
+## @item ppr
+## Number of pulses used per rotation
+## @end table
+##
 ## @seealso{arduino}
 ## @end deftypefn
 

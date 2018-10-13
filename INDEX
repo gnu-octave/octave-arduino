@@ -1,10 +1,10 @@
 arduino >> Arduino Toolkit
 General Functions
   arduinosetup
+  isarduino
   listArduinoLibraries
   scanForArduinos
 Arduino Functions
-  isarduino
   @arduino/configurePin
   @arduino/configurePinResource
   @arduino/decrementResourceCount
@@ -54,6 +54,7 @@ Arduino Rotary Encoder Functions
   @rotaryEncoder/readSpeed
   @rotaryEncoder/resetCount
   @rotaryEncoder/rotaryEncoder
+  @rotaryEncoder/subsref
 Arduino Servo Functions
   @servo/display
   @servo/readPosition
@@ -66,6 +67,7 @@ Arduino Shiftregister Functions
   @shiftRegister/reset
   @shiftRegister/shiftRegister
   @shiftRegister/write
+  @shiftRegister/subsref
 Arduino SPI Functions
   @spidev/display
   @spidev/spidev

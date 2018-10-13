@@ -44,6 +44,19 @@
 ## writePosition(servo, 0.5);
 ## @end example
 ##
+## @subsubheading Properties
+## The servo object has the following public properties:
+## @table @asis
+## @item parent
+## The parent (arduino) for this device
+## @item pins
+## pins used by this object
+## @item minpulseduration
+## minpusleduration set for object
+## @item maxpulseduration
+## maxpulseduration set for object
+## @end table
+##
 ## @seealso{arduino, readPosition, writePosition}
 ## @end deftypefn
 

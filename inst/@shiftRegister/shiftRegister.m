@@ -57,6 +57,17 @@
 ## @subsubheading Outputs
 ## @var{register} - register object
 ##
+## @subsubheading Properties
+## The shiftRegister object has the following public properties:
+## @table @asis
+## @item parent
+## The parent (arduino) for this device
+## @item pins
+## pins used by this object
+## @item model
+## model set for object
+## @end table
+##
 ## @seealso{arduino}
 ## @end deftypefn
 

@@ -31,6 +31,19 @@
 ##
 ## @subsubheading Outputs
 ## @var{dev} - new created i2cdev object.
+## 
+## @subsubheading Properties
+## The i2cdev object has the following public properties:
+## @table @asis
+## @item parent
+## The parent (arduino) for this device
+## @item pins
+## pins used by this object
+## @item bus
+## bus used for created object
+## @item address
+## I2C address set for object
+## @end table
 ##
 ## @seealso{arduino}
 ## @end deftypefn

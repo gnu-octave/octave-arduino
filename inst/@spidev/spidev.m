@@ -35,6 +35,23 @@
 ## @subsubheading Outputs
 ## @var{dev} - created spidev object
 ##
+## @subsubheading Properties
+## The spidev object has the following public properties:
+## @table @asis
+## @item parent
+## The parent (arduino) for this device
+## @item pins
+## pins used by this object
+## @item mode
+## mode used for created object
+## @item bitrate
+## Bitrate set for object
+## @item bitorder
+## Bitorder set for object
+## @item chipselectpin
+## Pin used for chipselect
+## @end table
+##
 ## @seealso{arduino, readWrite}
 ## @end deftypefn
 
