@@ -30,6 +30,8 @@ function val = subsref (p, s)
 	for i = 1:numel(p.pins)
 	  val{end+1} = p.pins{i}.name; 
 	endfor
+      case "parent"
+	val = p.parent;
       case "model"
 	val = p.model;
       otherwise
@@ -39,3 +41,11 @@ function val = subsref (p, s)
     error("unimplemented shiftRegister.subsref type");
   endif
 endfunction
+
+%!test
+%! ar = arduino();
+%! r = shiftRegister(ar, '74hc164', "d2", "d3");
+%! assert (isarduino(r.parent))
+%! assert (r.model, "74HC164")
+%! assert (numel(r.pins) == 2)
+%! fail ("r.invalid") 

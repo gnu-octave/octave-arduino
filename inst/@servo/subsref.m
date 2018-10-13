@@ -30,6 +30,8 @@ function val = subsref (p, s)
 	for i = 1:numel(p.pins)
 	  val{end+1} = p.pins{i}; 
 	endfor
+      case "parent"
+	val = p.arduinoobj;
       case "minpulseduration"
 	val = p.minpulseduration;
       case "maxpulseduration"
@@ -47,3 +49,12 @@ function val = subsref (p, s)
     val = subsref (val, s(2:end));
   endif
 endfunction
+
+%!test
+%! ar = arduino();
+%! s = servo (ar, "d9");
+%! assert (isarduino(s.parent))
+%! assert(s.minpulseduration > 0);
+%! assert(s.maxpulseduration > 0);
+%! assert (numel(s.pins) == 1)
+%! fail ("s.invalid") 

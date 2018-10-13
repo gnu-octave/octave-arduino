@@ -30,6 +30,8 @@ function val = subsref (p, s)
 	for i = 1:numel(p.pins)
 	  val{end+1} = p.pins{i}.name; 
 	endfor
+      case "parent"
+	val = p.arduinoobj;
       case "bus"
 	val = p.bus;
       case "address"
@@ -43,3 +45,11 @@ function val = subsref (p, s)
     error("unimplemented i2cdev.subsref type");
   endif
 endfunction
+
+%!test
+%! ar = arduino();
+%! i2c = i2cdev (ar, 0x22);
+%! assert (isarduino(i2c.parent))
+%! assert (i2c.address, 0x22)
+%! assert (numel(i2c.pins) == 2)
+%! fail ("i2c.invalid") 

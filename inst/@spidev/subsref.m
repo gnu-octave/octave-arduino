@@ -30,6 +30,8 @@ function val = subsref (this, s)
 	for i = 1:numel(this.pins)
 	  val{end+1} = this.pins{i}.name; 
 	endfor
+      case "parent"
+	val = this.parent;
       case "mode"
 	val = this.mode;
       case "bitrate"
@@ -50,3 +52,13 @@ function val = subsref (this, s)
   endif
 
 endfunction
+
+%!test
+%! ar = arduino();
+%! spi = spidev (ar, "d10");
+%! assert (spi.chipselectpin, "d10")
+%! assert (isarduino(spi.parent))
+%! assert (spi.mode, 0)
+%! assert (spi.bitorder, "msbfirst")
+%! assert (numel(spi.pins) >= 4)
+%! fail ("spi.invalid") 

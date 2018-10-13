@@ -30,6 +30,8 @@ function val = subsref (p, s)
 	for i = 1:numel(p.pins)
 	  val{end+1} = p.pins{i}.name; 
 	endfor
+      case "parent"
+	val = p.parent;
       case "ppr"
 	val = p.ppr;
       otherwise
@@ -39,3 +41,11 @@ function val = subsref (p, s)
     error("unimplemented rotaryEncoder.subsref type");
   endif
 endfunction
+
+%!test
+%! ar = arduino();
+%! r = rotaryEncoder (ar, "d2", "d3", 100);
+%! assert (isarduino(r.parent))
+%! assert (r.ppr, 100)
+%! assert (numel(r.pins) == 2)
+%! fail ("r.invalid") 
