@@ -35,7 +35,6 @@
 ##
 ## @var{propertyname, propertyvalue} - optional property name, value pairs.
 ## Current known properties are:
-## Current properties are:
 ## @table @asis
 ## @item address
 ## I2C address of the DS1307 (default 0x68)
@@ -89,15 +88,15 @@
 ## @subsubheading Outputs
 ## @var{ctrl} - a structure containing the control bit fields.
 ##
-## Control strucrure fields are:
+## Control structure fields are:
 ## Current properties are:
 ## @table @asis
 ## @item out
 ## Out bit in the control register
 ## @item sqwe
-## Square wave enble bit in control register
+## Square wave enable bit in control register
 ## @item rs
-## The combined Rs0, RS1 value
+## The combined RS0, RS1 value
 ## @end table
 ##
 ## @end deftypefn
@@ -180,7 +179,7 @@ classdef DS1307 < arduinoio.LibraryBase
       obj.i2c = i2cdev(parentObj, obj.address);
       obj.Pins = obj.i2c.Pins;
 
-      # our arduino part isnt needed as we are really just using the i2c, but
+      # our arduino part isn't needed as we are really just using the i2c, but
       # we have to have the arduino part for lib detections, so lets
       # send a message to it on init anyway in case sometime in the future
       # we end up having it do something

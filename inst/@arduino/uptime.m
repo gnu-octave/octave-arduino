@@ -16,7 +16,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{sec} =} uptime (@var{ar})
-## Get the nember of seconds the arduino board has been running concurrently.
+## Get the number of seconds the arduino board has been running concurrently.
 ##
 ##
 ## @subsubheading Inputs
