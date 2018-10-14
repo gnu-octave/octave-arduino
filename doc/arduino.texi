@@ -89,6 +89,7 @@ The Arduino toolkit is a somewhat Matlab compatible arduino toolkit for GNU octa
 * Connecting to an arduino::  Making a connection to an arduino device
 * Basic Input and Output Overview::    Performing basic I/O
 * Protocol based I/O Overview::    Performing protocol based I/O
+* Addons Overview::           Arduino Addons
 * Examples::                  Examples using the Arduino toolkit
 * Function Reference::        Arduino toolkit functions
 * Copying::                   Copying
@@ -374,6 +375,299 @@ encoder = rotaryEncoder(ar, "d2", "d3", 180);
 @end example
 
 Using the created object, the rotary encoder value and speed can be read.
+
+@c -------------------------------------------------------------------------
+@node Addons Overview
+@chapter Addons Overview
+@cindex Addons Overview
+
+This chapter provides an overview of the arduino package addon functionality for adding
+additional addons to arduino.
+
+@section Addon Introduction
+@cindex Addon Introduction
+
+Addons provide a way of adding additional functionality to the arduino toolkit
+that provides matlab access directly to the arduino hardware.
+
+Addons are implemented in two parts.
+@enumerate
+@item code running on the arduino that implments the required functionality
+@item a octave wrapper class that provised the matlab interface and cummunication to the code.
+@end enumerate
+
+Both parts are required to create a plugin.
+
+The arduino toolkit provides a number of pre-created addons. These can be seen using
+the following command:
+
+@example
+@code {
+listArduinoLibraries
+}
+@end example
+
+The command will display all known arduino libraries (addons as well as core libraries), however
+addons typically use a "foldername/classname" for this naming.
+
+@seealso{listArduinoLibraries}
+
+@section Creating an addon
+@cindex Creating an addon
+
+An addon requires at minimum 3 things:
+@enumerate
+@item A addon directory that will contain the addon files
+@item A matlab file within that directory that is a subclass of arduinoio.LibraryBase
+@item A arduino source/header file that contains the arduino code to load, subclassed for LibraryBase
+@end enumerate
+
+So the addon directory structure at a minimum will be:
+@example
+@code {
+  +arduinoioaddons  (dir) [somewhere in the octave load path]
+    MyAddons (dir)
+      MyAddon1.m 
+      MyAddon1.h
+}
+@end example
+
+@subsection  Addon package directory
+@cindex  Addon package directory
+
+The addon architechure looks for plugins in the octave load path in a package directory called 
++arduinoioaddons
+
+So this directory nust be created somewhere within the paths that octave will check for 
+functions.
+
+In addition, the addon architecture expects plugins to be contained in a sub directory within
+the  +arduinoioaddons
+
+Muliple plugin .m files can be within teh same sub directory.
+
+@subsection  Addon package .m file
+@cindex  Addon package .m file
+
+The matlab interface file within the addon directory provides the matlab interface for the arduino code
+as well as provides information about the addon.
+
+@subsubheading Class inheritence and required properties
+The interface file must be a subclass pf arduinoio.LibraryBase and must contain some constant properties values that provide the information.
+
+A minumum example of required is below:
+@example
+@code {
+classdef MyAddon1 < arduinoio.LibraryBase
+  properties(Access = protected, Constant = true)
+    LibraryName = 'MyAddons/MyAddon1';
+    CppHeaderFile = fullfile(arduinoio.FilePath(mfilename('fullpath')), 'MyAddon1.h');
+    CppClassName = 'MyAddon1';
+  endproperties
+  .
+  .
+  .
+endclassdef
+}
+@end example
+
+The following constant properties can be set within the addon:
+@table @asis
+@item LibraryName
+(Required) The name of the addon. My convention this is usually the directoryname / theclassname
+@item CppHeaderFile
+(Required) The header file for the arduino code
+@item CppSourceFile
+(Optional) The source file (if any) for the arduino code
+@item CppClassName
+(Required) The classname used within the cppheaderfile for the arduino library
+@item DependantLibraries
+(Optional) Any additional addons or cores that are needed for this library to be used
+@item ArduinoLibraryHeaderFiles
+(Optional) Any additional header files that need to be included
+@end table
+
+@subsubheading Class constructor
+The matlab class constructor will be called from the addon function when creating a
+instance of the addon and should initialize at least two properties in inherited from
+arduinoio.LibraryBase:
+
+@enumerate
+@item Parent
+should be set to the first input argument (the auduino class)
+@item Pins
+should be set to a list of pins that are uused for the plugin
+@end enumerate
+
+@example
+@code {
+classdef MyAddon1 < arduinoio.LibraryBase
+  .
+  .
+  methods
+    function obj = MyAddon1(parentObj, varargin)
+      obj.Parent = parentObj;
+      # no pins being used
+      obj.Pins = [];
+      # send any command to the arduino during setup ?
+    endfunction
+    .
+    .
+  endmethods
+endclassdef
+}
+@end example
+
+@subsubheading Class functions
+
+The class functions will usually communicate to the arduino and use the response for 
+what is returned to the user.
+
+By convention, the commands sent to the arduino are defined as contants in teh class file but do not have to be.
+@example
+@code {
+classdef MyAddon1 < arduinoio.LibraryBase
+  properties(Access = private, Constant = true)
+    INIT_COMMAND = hex2dec('00');
+    FUNC1_COMMAND = hex2dec('01');
+  endproperties
+  .
+  .
+  methods
+    function obj = MyAddon1(parentObj, varargin)
+      obj.Parent = parentObj;
+      # no pins being used
+      obj.Pins = [];
+      # send any command to the arduino during setup ?
+      sendCommand(obj.Parent, obj.LibraryName, obj.INIT_COMMAND, []);
+    endfunction
+
+    function retval = func1(obj)
+       cmdID = obj.FUNC1_COMMAND;
+       retval = sendCommand(obj.Parent, obj.LibraryName, cmdID, []);
+    endfunction
+    .
+    .
+  endmethods
+endclassdef
+}
+@end example
+
+Note the sendCcommand uses the objects parent for the arduino,  the objects library name and the command id.
+
+@seealso{sendCommand}
+
+@subsection  Addon package header file
+@cindex  Addon package header file
+
+The header file should contain a class that matches the functionaly and information of the matlab file
+and provides the ability to register the code on the arduino.
+
+The following things should occur in the arduino class files:
+@enumerate
+@item The class name within the file must be the same as the one set in the .m file
+CppClassName property.
+
+@item The libName variable must be the same as the LibraryName property.
+
+@item The constructor should call registerLibrary
+
+@item the commandHandler function to act on cmdId values that match the commands that will be sent from .m file and send
+ data back using sendResponseMsg
+
+@item on recieving unknown cmdId values, the commandHandler should use sendUnknownCmdIDMsg
+
+@end enumerate
+
+An example, matching the previous .m file code is below:
+@example
+@code {
+#include "LibraryBase.h"
+
+#define MYADDON1_INIT  0x00
+#define MYADDON1_FUNC1 0x01
+
+class MyAddon1 : public LibraryBase
+@{
+  uint8_t cnt;
+public:
+  MyAddon1(OctaveArduinoClass& a)
+  @{
+    libName = "MyAddons/MyAddon1";
+    a.registerLibrary(this);
+  @}
+  void commandHandler(uint8_t cmdID, uint8_t* data, uint8_t datasz)
+  @{
+    switch (cmdID)
+      @{
+      case MYADDON_INIT:
+        @{
+          cnt = 0;
+          sendResponseMsg(cmdID, 0,0);
+          break;
+        @}
+      case MYADDON_FUNC1:
+        @{
+          // func 1 is just returing a uint8 count of number of times called
+          cnt ++;
+          sendResponseMsg(cmdID, &cnt, 1);
+          break;
+        @}
+      default:
+        @{
+          // notify of invalid cmd
+          sendUnknownCmdIDMsg();
+        @}
+      @}
+  @}
+@}
+}
+@end example
+
+The body of functions can be in the CppSourceFile file is it is defined or within the header file as illustrated above.
+
+@subsection  Verify octave can see the addon
+@cindex  Verify octave can see the addon
+
+Use the listArduinoLibaries command to verify that the new addon appears in the list of known libraries.
+
+If it does not, ensure that the +arduinoioaddons directory is within one of the octave class paths, and that the directory
+strucrure and inheritence requirements have been met.
+
+@section Using addons
+@cindex  Using Addons
+
+@subsection  Programing the arduino with the addon
+@cindex  Programing the arduino with the addon
+
+To use a addon, the code must be programmed onto the arduino.
+
+Using the libraries command, when creating a arduino object, the arduino can be reprgrammed if the librariy does not already
+exist on the arduino.
+
+@example
+@code {
+  ar = arduino([],[], 'libraries', 'MyAddons/MyAddon1', 'forcebuild', true)
+}
+@end example
+
+The libraries property of the arduino object should list the libraries propgrammed on the arduino.
+
+Alternatively, the library can be added using the libraries property and arduinosetup
+
+@seealso{arduino, arduinosetup}
+
+@subsection  Creating a addon object
+@cindex  Creating a addon object
+
+An object of the addon type can be created using teh addon command.
+
+@example
+@code {
+  ar = arduino([],[], 'libraries', 'MyAddons/MyAddon1', 'forcebuild', true)
+  obj = addon(ar, "MyAddons/MyAddon1");
+}
+@end example
 
 @c -------------------------------------------------------------------------
 @node Examples
