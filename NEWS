@@ -1,4 +1,4 @@
-Summary of important user-visible changes for arduino 0.2.0+:
+Summary of important user-visible changes for arduino 0.3.0:
 -------------------------------------------------------------------
 
  ** added getLibName, setup and loop functions to LibraryBase
@@ -27,7 +27,7 @@ Summary of important user-visible changes for arduino 0.2.0+:
 
  ** minor function documentation updates
 
- ** New boards:
+ ** New board configurations:
     - Arduino Pro/Pro Mini
     - Arduino Nano
     - Lilypad
