@@ -110,10 +110,8 @@ void OctaveSPILibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
           delay(1);
 
           // transfer the bytes
-          byte c;
-          for(c=1;c<=datasz;c++) {
-            data[c] = SPI.transfer(data[c]);
-          }
+	  SPI.transfer(&data[1], datasz-1);
+
           // set CS hi
           digitalWrite(cs_pin, HIGH); 
           delay(1);
