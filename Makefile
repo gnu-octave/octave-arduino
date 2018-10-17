@@ -208,7 +208,7 @@ doctest: all
 # Note "doctest" as prerequesite.  When testing the package, also check
 # the documentation.
 check: all test_files
-	$(OCTAVE) --silent --path "inst/" --path "src/" \
+	$(OCTAVE) --silent --path "$(TOPDIR)/inst/" --path "src/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval '${PKG_ADD}' \
-	  --eval "__run_test_suite__ ({'inst'}, {})"
+	  --eval "__run_test_suite__ ({'$(TOPDIR)/inst'}, {})"
