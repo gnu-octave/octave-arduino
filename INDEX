@@ -79,6 +79,9 @@ Arduino Addons
   arduinoioaddons.ExampleLCD.LCD
   arduinoioaddons.EEPRomAddon.EEPRom
   arduinoioaddons.RTCAddon.DS1307
+  arduinoioaddons.adafruit.motorshieldv2
+  arduinoioaddons.adafruit.dcmotorv2
+  arduinoioaddons.adafruit.stepper
 Arduino I/O package
   arduinoio.AddonBase
   arduinoio.FilePath

@@ -1,5 +1,8 @@
 Summary of important user-visible changes for arduino 0.3.0+:
 -------------------------------------------------------------------
+ 
+  ** New addons
+    - adafruit.motorshieldv2
 
 
 Summary of important user-visible changes for arduino 0.3.0:
