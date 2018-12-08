@@ -106,6 +106,9 @@ The Arduino toolkit must be installed and then loaded to be used.
 It can be installed in @acronym{GNU} Octave directly from octave-forge,
 or can be installed in an off-line mode via a downloaded tarball.
 
+The toolkit has a dependancy on the instrument-control package, so it must be installed in order
+to successfully install the Arduino toolkit.
+
 The toolkit must be then be loaded once per each @acronym{GNU} Octave session in order to use its functionality.
 
 @section Online Direct install
