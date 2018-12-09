@@ -23,7 +23,7 @@ function val = subsref (p, s)
   endif
 
   if s(1).type == "."
-    fld = tolower(s.subs);
+    fld = tolower(s(1).subs);
     switch (fld)
       case "pins"
 	val = {};
@@ -40,12 +40,17 @@ function val = subsref (p, s)
   else
     error("unimplemented rotaryEncoder.subsref type");
   endif
+
+  if (numel (s) > 1)
+    val = subsref (val, s(2:end));
+  endif
 endfunction
 
 %!test
 %! ar = arduino();
 %! r = rotaryEncoder (ar, "d2", "d3", 100);
 %! assert (isarduino(r.parent))
+%! assert (ar.port, r.parent.port)
 %! assert (r.ppr, 100)
 %! assert (numel(r.pins) == 2)
 %! fail ("r.invalid") 

@@ -23,7 +23,7 @@ function val = subsref (p, s)
   endif
 
   if s(1).type == "."
-    fld = tolower(s.subs);
+    fld = tolower(s(1).subs);
     switch (fld)
       case "pins"
 	val = {};
@@ -54,6 +54,7 @@ endfunction
 %! ar = arduino();
 %! s = servo (ar, "d9");
 %! assert (isarduino(s.parent))
+%! assert (ar.port, s.parent.port)
 %! assert(s.minpulseduration > 0);
 %! assert(s.maxpulseduration > 0);
 %! assert (numel(s.pins) == 1)

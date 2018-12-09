@@ -23,7 +23,7 @@ function val = subsref (p, s)
   endif
 
   if s(1).type == "."
-    fld = tolower(s.subs);
+    fld = tolower(s(1).subs);
     switch (fld)
       case "pins"
 	val = {};

@@ -58,6 +58,7 @@ endfunction
 %! spi = spidev (ar, "d10");
 %! assert (spi.chipselectpin, "d10")
 %! assert (isarduino(spi.parent))
+%! assert (ar.port, spi.parent.port)
 %! assert (spi.mode, 0)
 %! assert (spi.bitorder, "msbfirst")
 %! assert (numel(spi.pins) >= 4)
