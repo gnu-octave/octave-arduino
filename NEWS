@@ -4,6 +4,14 @@ Summary of important user-visible changes for arduino 0.3.0+:
   ** New addons
     - adafruit.motorshieldv2
 
+  ** Modified functions:
+    - added optional libtype specifier to listArduinoLibraries
+    - bugfix to core subsref functions
+  
+  ** minor function documentation updates
+
+
+
 
 Summary of important user-visible changes for arduino 0.3.0:
 -------------------------------------------------------------------

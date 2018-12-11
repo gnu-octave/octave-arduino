@@ -16,10 +16,22 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} listArduinoLibraries ()
+## @deftypefnx {} {@var{retval} =} listArduinoLibraries (@var{libtypes})
 ## Retrieve list of all known arduino library modules that are available.
 ##
 ## @subsubheading Inputs
-## None
+## @var{libtypes} - optional specifier for type of libraries to list.
+##
+## Options are:
+## @table @asis
+## @item all
+## List core and addons
+## @item core
+## List core only libraries
+## @item addons
+## List addons only
+## @end table
+## When no libtypes is specified, all libraries are shown.
 ##
 ## @subsubheading Outputs
 ## @var{retval} is an cell array of string library names that are
@@ -28,21 +40,35 @@
 ## @seealso{arduino, arduinosetup}
 ## @end deftypefn
 
-function retval = listArduinoLibraries ()
+function retval = listArduinoLibraries (libtypes)
   retval = {};
 
+  if nargin == 0
+    libtypes = "all";
+  elseif ! ischar(libtypes)
+    error ("Expected libtypes to be a string")
+  endif
+
+  if ! (strcmpi(libtypes, "all") || strcmpi(libtypes, "addons") || strcmpi(libtypes, "core"))
+    error ("Invalid libtypes value '%s'", libtypes)
+  endif
+  
   # hardcoded libraries
-  retval{end+1} = 'I2C';
-  retval{end+1} = 'Servo';
-  retval{end+1} = 'SPI';
-  retval{end+1} = 'ShiftRegister';
-  retval{end+1} = 'RotaryEncoder';
+  if strcmpi(libtypes, "all") || strcmpi(libtypes, "core")
+    retval{end+1} = 'I2C';
+    retval{end+1} = 'Servo';
+    retval{end+1} = 'SPI';
+    retval{end+1} = 'ShiftRegister';
+    retval{end+1} = 'RotaryEncoder';
+  endif
 
   # add ons
-  addonfiles = __addons__ ();
-  for i = 1:numel (addonfiles)
-    retval{end+1} = addonfiles{i}.libraryname;
-  endfor
+  if strcmpi(libtypes, "all") || strcmpi(libtypes, "addons")
+    addonfiles = __addons__ ();
+    for i = 1:numel (addonfiles)
+      retval{end+1} = addonfiles{i}.libraryname;
+    endfor
+  endif
 endfunction
 
 %!test
@@ -50,3 +76,15 @@ endfunction
 %! assert (!isempty (libs))
 %! assert (! isempty (find(strcmp(libs, 'SPI'))));
 %! assert (isempty (find(strcmp(libs, 'unknown'))));
+
+%!test
+%! deflibs = listArduinoLibraries ();
+%! alllibs = listArduinoLibraries ("all");
+%! corelibs = listArduinoLibraries ("core");
+%! addonlibs = listArduinoLibraries ("addons");
+%! assert(numel(alllibs) == (numel(corelibs) + numel(addonlibs)))
+%! assert(numel(alllibs) == numel(deflibs))
+
+%!error <Expected libtypes to be a string> listArduinoLibraries(1)
+
+%!error <Invalid libtypes value> listArduinoLibraries("invalid")
