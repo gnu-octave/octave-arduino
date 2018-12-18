@@ -67,7 +67,7 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    if tmpdataSize < 4
      errcode = 1;
      dataOut = "Undersized packet header";
-   elseif tmpdataOut(1) != hex2dec("A5") || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255)
+   elseif tmpdataOut(1) != hex2dec("A5") || tmpdataOut(2) != libid || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255)
      errcode = 2;
      dataOut = "Malformed packet header";
    else

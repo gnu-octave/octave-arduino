@@ -88,24 +88,26 @@ function arduinos = scanForArduinos (maxCount, typestr)
         len = srl_write (s, hdr);
         [tmpdataOut, tmpdataSize] = srl_read (s, 4);
         
-        if tmpdataSize == 4 && tmpdataOut(1) == hex2dec("A5") && tmpdataOut(3) == ARDUINO_INIT_COMMAND
+        if tmpdataSize == 4 && tmpdataOut(1) == hex2dec("A5") && tmpdataOut(2) == 0 && tmpdataOut(3) == ARDUINO_INIT_COMMAND && tmpdataOut(4) >= 5
           expectlen =  tmpdataOut(4);
 
           [dataout, datasize] = srl_read (s, expectlen);
 
-          # init returns the following info
-          sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
-          board = dataout(4);
-          voltref = double (dataout(5))/10.0;
-          if isempty (typestr) || (aruinoio.boardTypeString (board) == typestr)
-            info = {};
-            info.port = portname;
-            info.board = arduinoio.boardTypeString (board);
-            arduinos{end+1} = info;
+	  if datasize == expectlen
+            # init returns the following info
+            sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
+            board = dataout(4);
+            voltref = double (dataout(5))/10.0;
+            if isempty (typestr) || (aruinoio.boardTypeString (board) == typestr)
+              info = {};
+              info.port = portname;
+              info.board = arduinoio.boardTypeString (board);
+              arduinos{end+1} = info;
           
-            if numel (arduinos) == maxCount
-              break;
-            endif
+              if numel (arduinos) == maxCount
+                break;
+              endif
+	    endif
 	  endif
         endif
 
