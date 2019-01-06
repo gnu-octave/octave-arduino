@@ -278,10 +278,9 @@ public:
 	    style = SINGLE;
 
 	    stepperMotor[data[1]]->setSpeed(rpm);
+	    sendWaitMsg();
 	    stepperMotor[data[1]]->step(steps, (data[2] == 1) ? FORWARD : BACKWARD, style);
             sendResponseMsg(cmdId, data, 2);
-	    // TODO: we need way to handle that we had a successful execute, but also let know
-	    // that we will be busy for a time (so we dont get a timeout)
 	  }
 	  else {
 	   sendInvalidNumArgsMsg();

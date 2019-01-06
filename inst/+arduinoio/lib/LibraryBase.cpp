@@ -55,6 +55,11 @@ void OctaveLibraryBase::sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint
   OCTAVE_COMMS_PORT.flush();
 }
 
+void OctaveLibraryBase::sendWaitMsg()
+{
+  sendResponseMsg(ARDUINO_WAIT, NULL, 0);
+}
+
 void OctaveLibraryBase::sendErrorMsg(const char *err)
 {
   // work out len to max 200

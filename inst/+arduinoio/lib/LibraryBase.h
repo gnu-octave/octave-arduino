@@ -45,6 +45,7 @@ public:
   const char * getLibraryName() const;
 
   #define ARDUINO_ERROR       255
+  #define ARDUINO_WAIT        254
   void sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz);
   void sendResponseMsg_P(uint8_t cmdID, const uint8_t *data PROGMEM, uint8_t sz);
 
@@ -52,6 +53,7 @@ public:
   void sendErrorMsg_P(const char *msg PROGMEM);
   void sendUnknownCmdIDMsg();
   void sendInvalidNumArgsMsg();
+  void sendWaitMsg();
   // void debugPrint(const char *,varargs);
 };
 

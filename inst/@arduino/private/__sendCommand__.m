@@ -37,7 +37,7 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    % A5 00 00 00 = reset
    % A5 00 01 00 = req board info
    dataOut = [];
-   errcode = -1;
+   errcode = 0;
    
    if (nargin < 4)
      data = [];
@@ -67,10 +67,31 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    if tmpdataSize < 4
      errcode = 1;
      dataOut = "Undersized packet header";
-   elseif tmpdataOut(1) != hex2dec("A5") || tmpdataOut(2) != libid || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255)
+   elseif tmpdataOut(1) != hex2dec("A5") || tmpdataOut(2) != libid || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255 && tmpdataOut(3) != 254)
      errcode = 2;
      dataOut = "Malformed packet header";
-   else
+   elseif (tmpdataOut(3) == 254)
+     # got a wait for response value - length is expected to be 0
+     if (obj.debug)
+       printf("* wait for response\n");
+     endif
+ 
+     set(obj.connected, "timeout", -1);
+
+     [tmpdataOut, tmpdataSize] = srl_read (obj.connected, 4);
+     if (obj.debug)
+       printf("<< "); printf("%d ", tmpdataOut); printf("\n");
+     endif
+     if tmpdataSize < 4
+       errcode = 1;
+       dataOut = "Undersized packet header";
+     elseif tmpdataOut(1) != hex2dec("A5") || tmpdataOut(2) != libid || (tmpdataOut(3) != cmd && tmpdataOut(3) != 255)
+       errcode = 2;
+       dataOut = "Malformed packet header";
+     endif
+   endif
+
+   if(errcode == 0)
      expectlen =  tmpdataOut(4);
      if expectlen > 0
        [dataOut, tmpdataSize] = srl_read (obj.connected, expectlen);

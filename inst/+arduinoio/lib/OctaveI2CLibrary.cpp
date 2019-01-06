@@ -76,6 +76,7 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
           Wire.requestFrom(data[0], data[1]);
           byte c = 0;
           byte l = data[1];
+	  if(l > 5) sendWaitMsg();
           datasz = 1;
           for(c=0;c<=l;c++)
           {
@@ -111,6 +112,7 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
           Wire.endTransmission(false);
           byte l = data[2+data[1]];
           Wire.requestFrom(data[0], l);
+	  if(l > 5) sendWaitMsg();
           datasz = 2;
           for(c=0;c<=l;c++)
           {
