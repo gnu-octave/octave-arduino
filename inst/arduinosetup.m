@@ -56,6 +56,7 @@ function retval = arduinosetup (varargin)
   
   libs = {};
   arduinobinary = {};
+  debug = false;
   for i = 1:2:nargin
     propname = tolower (varargin{i});
     propvalue = varargin{i+1};
@@ -70,6 +71,8 @@ function retval = arduinosetup (varargin)
       endif
     elseif strcmp (propname, "arduinobinary")
       arduinobinary = propvalue;
+    elseif strcmp (propname, "debug")
+      debug = propvalue;
     endif
   endfor
 
@@ -85,6 +88,24 @@ function retval = arduinosetup (varargin)
   availlibs = listArduinoLibraries ();
   addonlibs = __addons__ ();
 
+  # for any addons, check the depndancies and add it we need to
+  for i = 1:numel(libs)
+    idx = find (cellfun(@(x) strcmpi(x.libraryname, libs{i}), addonlibs), 1);
+    if !isempty(idx)
+       lib = addonlibs{idx};
+       for n = 1:numel(lib.dependentlibraries)
+         addlib = lib.dependentlibraries{n};
+	 idx = find (cellfun(@(x) strcmpi(x, addlib), libs), 1);
+         if isempty(idx)
+           libs{end+1} = addlib;
+           if (debug)
+             printf("arduinosetup: adding %s as a dependency\n", addlib);
+           endif
+         endif
+       endfor
+    endif
+  endfor
+
   builtinlibs = {};
   for i = 1:numel(libs)
     idx = find (cellfun(@(x) strcmpi(x.libraryname, libs{i}), addonlibs), 1);
@@ -92,10 +113,15 @@ function retval = arduinosetup (varargin)
        idx = find (cellfun(@(x) strcmpi(x, libs{i}), availlibs), 1);
        if isempty (idx)
          error ("arduinosetup: unknown library '%s'", libs{i});
+       elseif (debug)
+         printf("arduinosetup: using builtin lib %s\n", libs{i});
        endif
        builtinlibs{end+1} = libs{i};
        libs{i} = [];
     else
+       if (debug)
+         printf("arduinosetup: using addon lib %s\n", libs{i});
+       endif
        libs{i} = addonlibs{idx};
     endif
   endfor

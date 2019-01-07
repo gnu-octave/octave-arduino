@@ -78,7 +78,7 @@ classdef LibraryBase < handle
     function info = AddonInfo(fullclassname)
       info = {};
       info.libraryname = "";
-      info.dependantlibraries = "";
+      info.dependentlibraries = "";
       info.cppheaderfile = "";
       info.cppsourcefile = "";
       info.cppclassname = "";
