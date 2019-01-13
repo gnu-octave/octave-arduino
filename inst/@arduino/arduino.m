@@ -298,7 +298,9 @@ classdef arduino < handle
     function libs = libraries(this)
       libs = {};
       for i=1:numel (this.config.libs)
-        libs{end+1} = this.config.libs{i}.name;
+	if ! strcmpi(this.config.libs{i}.name, "core")
+          libs{end+1} = this.config.libs{i}.name;
+	endif
       endfor
     endfunction
 

@@ -88,7 +88,7 @@ function retval = arduinosetup (varargin)
   availlibs = listArduinoLibraries ();
   addonlibs = __addons__ ();
 
-  # for any addons, check the depndancies and add it we need to
+  # for any addons, check the dependancies and add it we need to
   for i = 1:numel(libs)
     idx = find (cellfun(@(x) strcmpi(x.libraryname, libs{i}), addonlibs), 1);
     if !isempty(idx)
