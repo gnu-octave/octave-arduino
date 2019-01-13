@@ -117,27 +117,37 @@ classdef stepper < arduinoio.AddonBase
 
   methods
     function this = stepper(shield, mnum, stepsperrev, varargin)
-      if nargin < 3
-        error ("Expected shield, mnum and stepsperrev")
-      endif
-
-      if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
-        error("Expected shield to be a motorshieldv2 object");
-      endif
-
-      # check num is a number
-      if mnum != 1 && mnum != 2
-        error("Expected motor number to be 1 or 2");
-      endif
+##      if nargin < 3
+##        error ("Expected shield, mnum and stepsperrev")
+##      endif
+##
+##      if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
+##        error("Expected shield to be a motorshieldv2 object");
+##      endif
+##
+##      # check num is a number
+##      if mnum != 1 && mnum != 2
+##        error("Expected motor number to be 1 or 2");
+##      endif
 
       p = inputParser(CaseSensitive=false, FunctionName='adafruit/stepper');
-      p.addParameter('RPM', 0, @isnumeric);
-      p.addParameter('StepType', "single", @(x) any(validatestring(x,{"single", "double", "interleave", "microstep"})));
-      p.parse(varargin{:});
+      
+      validate_shield = @(x) isa(x, "arduinoioaddons.adafruit.motorshieldv2");
+      validate_mtrnum = @(x) (isnumeric(x) && isscalar(x) && (x ==1 || x ==2));
+      validate_steps = @(x) (isnumeric(x) && isscalar(x) && (x > 0));
+      validate_rpm = @(x) (isnumeric(x) && isscalar(x) && (x > 0));
 
-      this.Parent = shield;
-      this.MotorNumber = mnum;
-      this.StepsPerRevolution = stepsperrev;
+      p.addRequired('shield',validate_shield);
+      p.addRequired('mnum',validate_mtrnum);
+      p.addRequired('stepsperrev',validate_steps);      
+      
+      p.addParameter('RPM', 0, validate_rpm);
+      p.addParameter('StepType', "single", @(x) any(validatestring(x,{"single", "double", "interleave", "microstep"})));
+      p.parse(shield, mnum, stepsperrev, varargin{:});
+      
+      this.Parent = p.Results.shield;
+      this.MotorNumber = p.Results.mnum;
+      this.StepsPerRevolution = p.Results.stepsperrev;
       this.RPM = p.Results.RPM;
       this.StepType = p.Results.StepType;
 

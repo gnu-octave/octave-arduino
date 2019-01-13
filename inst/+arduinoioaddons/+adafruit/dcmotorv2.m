@@ -43,7 +43,8 @@
 ##
 ## Current known properties are:
 ## @table @asis
-## @item None
+## @item Speed
+## Initial speed (default 0). Should be a value between -1 and 1.
 ## @end table
 ##
 ## @subsubheading Outputs
@@ -106,21 +107,23 @@ classdef dcmotorv2 < arduinoio.AddonBase
 
   methods
     function this = dcmotorv2(shield, mnum, varargin)
-      if nargin < 2
-        error ("Expected shield and mnum")
-      endif
+      
+      validate_shield = @(x) isa(x, "arduinoioaddons.adafruit.motorshieldv2");
+      validate_mtrnum = @(x) (isnumeric(x) && isscalar(x) && (x >= 1 && x <= 4));
+      validate_speed = @(x) (isnumeric(x) && (x <= 1 && x >= -1));
 
-      if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
-        error("Expected shield to be a motorshieldv2 object");
-      endif
+      p = inputParser(CaseSensitive=false, FunctionName='adafruit/dcmotorv2');
+      
+      p.addRequired('shield',validate_shield);
+      p.addRequired('mnum',validate_mtrnum);
+      
+      p.addParameter('Speed', 0, validate_speed);
+      
+      p.parse(shield, mnum, varargin{:});
 
-      # check num is a number
-      if mnum != 1 && mnum != 2 && mnum != 3 && mnum != 4
-        error("Expected mnum to be 1, 2, 3 or 4");
-      endif
-
-      this.Parent = shield;
-      this.MotorNumber = mnum;
+      this.Parent = p.Results.shield;
+      this.MotorNumber = p.Results.mnum;
+      this.Speed = p.Results.Speed;
 
       sendCommand(this.Parent, this.INIT_COMMAND,[this.MotorNumber-1]);
       this.cleanup = onCleanup (@() sendCommand(this.Parent, this.FREE_COMMAND, [this.MotorNumber-1]));
@@ -145,7 +148,7 @@ classdef dcmotorv2 < arduinoio.AddonBase
 
     function set.Speed(this, newspeed)
       # check speed -1 .. 0 ... 1
-      if newspeed < -1 || newspeed > 1
+      if !isnumeric(newspeed) || newspeed < -1 || newspeed > 1
         error("Speed should be between -1 .. 1");
       endif
       this.Speed = newspeed;
