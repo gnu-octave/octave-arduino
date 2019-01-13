@@ -124,7 +124,8 @@ classdef motorshieldv2 < arduinoio.LibraryBase
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('00');
     FREE_COMMAND = hex2dec('01');
-  endproperties   
+  endproperties 
+  
   properties(Access = protected, Constant = true)
     LibraryName = 'adafruit/MotorShieldV2';
     DependentLibraries = { "i2c", "servo" };
@@ -132,6 +133,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     CppHeaderFile = fullfile(arduinoio.FilePath(mfilename('fullpath')), 'motorshieldv2.h');
     CppClassName = 'MotorShieldV2Addon';
   endproperties
+  
   properties(Access = private)
     i2c;
     cleanup;
@@ -163,16 +165,16 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     function s = servo (obj, mnum, varargin)
 
       if nargin < 2
-	error ("Expected shield and mnum")
+        error ("Expected shield and mnum")
       endif
 
       pinval = [];
       if mnum == 1
-	pinval = "d10";
+        pinval = "d10";
       elseif mnum == 2
-	pinval = "d9";
+        pinval = "d9";
       else
-	error ("Invalid motor number - (should be 1 or 2)")
+        error ("Invalid motor number - (should be 1 or 2)")
       endif
 
       s = servo(obj.Parent, pinval, varargin{:});
@@ -182,7 +184,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     function s = stepper (obj, mnum, stepsperrev, varargin)
 
       if nargin < 3
-	error ("Expected shield and mnum and stepsperrev")
+        error ("Expected shield and mnum and stepsperrev")
       endif
 
       s = arduinoioaddons.adafruit.stepper(obj, mnum, stepsperrev, varargin{:});
@@ -192,7 +194,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     function m = dcmotor (obj, mnum, varargin)
 
       if nargin < 2
-	error ("Expected shield and mnum")
+        error ("Expected shield and mnum")
       endif
 
       m = arduinoioaddons.adafruit.dcmotorv2(obj, mnum, varargin{:});
@@ -213,6 +215,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     endfunction
 
   endmethods
+  
   methods (Access = public)
     function data = sendCommand(obj, commandid, data)
       [data,~] = sendCommand(obj.Parent, obj.LibraryName, commandid, [obj.i2c.address data]);

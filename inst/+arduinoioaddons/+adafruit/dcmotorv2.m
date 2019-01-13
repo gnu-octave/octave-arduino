@@ -107,16 +107,16 @@ classdef dcmotorv2 < arduinoio.AddonBase
   methods
     function this = dcmotorv2(shield, mnum, varargin)
       if nargin < 2
-	error ("Expected shield and mnum")
+        error ("Expected shield and mnum")
       endif
-      # TODO: check shield is our motorshield
+
       if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
-	 error("Expected shield to be a motorshieldv2 object");
+        error("Expected shield to be a motorshieldv2 object");
       endif
 
       # check num is a number
       if mnum != 1 && mnum != 2 && mnum != 3 && mnum != 4
-	 error("Expected mnum to be 1, 2, 3 or 4");
+        error("Expected mnum to be 1, 2, 3 or 4");
       endif
 
       this.Parent = shield;
@@ -128,11 +128,11 @@ classdef dcmotorv2 < arduinoio.AddonBase
 
     function start(this)
       if this.Speed < 0
-	direction = 0;
-	speed = -this.Speed*255;
+        direction = 0;
+        speed = -this.Speed*255;
       else
-	direction = 1;
-	speed = this.Speed*255;
+        direction = 1;
+        speed = this.Speed*255;
       endif
       sendCommand(this.Parent,this.START_COMMAND,[this.MotorNumber-1, direction, speed]);
       this.IsRunning = true;
@@ -145,13 +145,13 @@ classdef dcmotorv2 < arduinoio.AddonBase
 
     function set.Speed(this, newspeed)
       # check speed -1 .. 0 ... 1
-     if newspeed < -1 || newspeed > 1
-       error("Speed should be between -1 .. 1");
-     endif
-     this.Speed = newspeed;
-     if this.IsRunning
-       start(this);
-     endif
+      if newspeed < -1 || newspeed > 1
+        error("Speed should be between -1 .. 1");
+      endif
+      this.Speed = newspeed;
+      if this.IsRunning
+        start(this);
+      endif
     endfunction
 
     function display(this)

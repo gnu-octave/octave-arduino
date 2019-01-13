@@ -99,7 +99,8 @@ classdef stepper < arduinoio.AddonBase
     FREE_COMMAND = hex2dec('11');
     MOVE_COMMAND = hex2dec('12');
     RELEASE_COMMAND = hex2dec('13');
-  endproperties   
+  endproperties
+  
   properties(Access = private)
     cleanup;
   endproperties
@@ -117,16 +118,16 @@ classdef stepper < arduinoio.AddonBase
   methods
     function this = stepper(shield, mnum, stepsperrev, varargin)
       if nargin < 3
-	error ("Expected shield and mnum")
+        error ("Expected shield, mnum and stepsperrev")
       endif
 
       if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
-	 error("Expected shield to be a motorshieldv2 object");
+        error("Expected shield to be a motorshieldv2 object");
       endif
 
       # check num is a number
       if mnum != 1 && mnum != 2
-	 error("Expected motor number to be 1 or 2");
+        error("Expected motor number to be 1 or 2");
       endif
 
       p = inputParser(CaseSensitive=false, FunctionName='adafruit/stepper');
@@ -150,10 +151,10 @@ classdef stepper < arduinoio.AddonBase
     function move(this, steps)
 
       if steps < 0
-	 direction = 0;
-	 steps = -steps;
+        direction = 0;
+        steps = -steps;
       else
-	 direction = 1;
+        direction = 1;
       endif
 
       intval = uint16(steps);
