@@ -82,6 +82,10 @@ Arduino Addons
   arduinoioaddons.adafruit.motorshieldv2
   arduinoioaddons.adafruit.dcmotorv2
   arduinoioaddons.adafruit.stepper
+Arduino Sensors
+  arduinosensor.DS1307
+  arduinosensor.MPC3002
+  arduinosensor.SI7021
 Arduino I/O package
   arduinoio.AddonBase
   arduinoio.FilePath

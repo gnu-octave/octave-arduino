@@ -7,11 +7,14 @@ Summary of important user-visible changes for arduino 0.3.0+:
   ** Modified functions:
     - added optional libtype specifier to listArduinoLibraries
     - bugfix to core subsref functions
+    - updated property compare on core
   
   ** minor function documentation updates
 
-
-
+  ** Added sensors package:
+    - arduinosensor.DS1307
+    - arduinosensor.MPC3002
+    - arduinosensor.SI7021
 
 Summary of important user-visible changes for arduino 0.3.0:
 -------------------------------------------------------------------

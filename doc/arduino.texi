@@ -90,6 +90,7 @@ The Arduino toolkit is a somewhat Matlab compatible arduino toolkit for GNU octa
 * Basic Input and Output Overview::    Performing basic I/O
 * Protocol based I/O Overview::    Performing protocol based I/O
 * Addons Overview::           Arduino Addons
+* Sensors Overview::          Arduino Sensors
 * Examples::                  Examples using the Arduino toolkit
 * Function Reference::        Arduino toolkit functions
 * Copying::                   Copying
@@ -671,6 +672,49 @@ An object of the addon type can be created using teh addon command.
   obj = addon(ar, "MyAddons/MyAddon1");
 }
 @end example
+
+@c -------------------------------------------------------------------------
+@node Arduino Sensors
+@chapter Arduino Sensors
+@cindex Arduino Sensors
+
+@section Sensor Overview
+@cindex Sensore Overview
+
+Arduino sensors are a collection of lightweight wrappers around other underlying protocols for 
+providing specific sensor functionality.
+
+For instance a DS1307 chip communicates using I2C protocol and so a DS1307 class exists that
+provides the conversion/commands in order to communicate to the chip.
+
+Using the class, providing the functionialty is very easy:
+@example
+@code {
+a = arduino()
+rtc = arduinosensor.DS1307(a)
+# get and display rtc time as a date string
+datestr(rtc.clock)
+}
+@end example
+
+It is lightweight compared to the addon functionalty, as it only requires a wrapper class rather than add on code,
+however it is limited to then using available addon and core codes rather than creating new ones.
+
+Currently the are only a small number of sensors available, however this will be built apon in future versions.
+
+@section Available Sensors
+@cindex Available Sensors
+
+The functions for each sensor is listed in the function reference and is provides for:
+
+@table @asis
+@item DS1307
+DS1307 RTC clock using i2c.
+@item MPC3002
+MPC3002 ADC using SPI
+@item SI7021
+SI7021 temperature and humidity sensor
+@end table
 
 @c -------------------------------------------------------------------------
 @node Examples
