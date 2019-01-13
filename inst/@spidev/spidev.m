@@ -85,17 +85,17 @@ function this = spidev (varargin)
     propvalue = varargin{i+1};
     
     % printf("%s = %s\n", propname, propvalue);
-    if propname == "bitrate"
+    if strcmp (propname, "bitrate")
       if !isnumeric (propvalue)
         error("bitrate should be a number")
       endif
       this.bitrate = propvalue;
-    elseif propname == "mode"
-      if !isnumeric(propvalue) || propvalue < 0 || propvalue > 3
+    elseif strcmp (propname, "mode")
+      if !isnumeric (propvalue) || propvalue < 0 || propvalue > 3
         error("mode should be a number betwwen 0 - 3");
       endif
       this.mode = propvalue;
-    elseif propname == "bitorder"
+    elseif strcmp (propname, "bitorder")
       if !ischar(propvalue)
         error("bitorder should be a string");
       endif
@@ -172,7 +172,7 @@ function this = spidev (varargin)
         if strcmp(tolower(tmp_pins{i}.func), "cs")
           configurePin(ar, tmp_pins{i}.name, "digitaloutput")
           configurePinResource (ar, tmp_pins{i}.name, "spi", "digitaloutput", true);
-	endif
+        endif
       endif
     endfor
           

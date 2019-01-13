@@ -88,12 +88,12 @@ function this = servo(varargin)
     propvalue = varargin{i+1};
     
     #printf("%s = %s\n", propname, propvalue);
-    if propname == "minpulseduration"
+    if strcmp(propname,  "minpulseduration") 
       if !isnumeric (propvalue)
         error ("servo: minpulseduration should be a number");
       endif
       this.minpulseduration = propvalue;
-    elseif propname == "maxpulseduration"
+    elseif strcmp(propname, "maxpulseduration")
       if !isnumeric (propvalue)
         error ("servo: maxpulseduration should be a number");
       endif

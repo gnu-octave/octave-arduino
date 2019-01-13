@@ -76,12 +76,12 @@ function p = i2cdev(varargin)
     propvalue = varargin{i+1};
 
     # printf("%s = %s\n", propname, propvalue);
-    if propname == "bus"
+    if strcmp (propname, "bus")
       if !isnumeric(propvalue) || propvalue < 0
         error("bus should be a positive number")
       endif
       bus = propvalue;
-    elseif propname == "bitorder"
+    elseif strcmp (propname, "bitorder")
       if !ischar(propvalue)
         error("bitorder should be a 'lsbfirst'  or 'msbfirst'");
       endif
@@ -158,7 +158,7 @@ endfunction
 %!  assert(!strcmpi(configurePin(ar, p), "unset"))
 %! endfor
 %! clear i2c
-%! # TODO check pins unallocated when we have implmented a free of shared spi bus
+%! # TODO check pins unallocated when we have implemented a free of shared spi bus
 %! #for i=1:numel(pins)
 %! # p = pins{i};
 %! # assert(configurePin(ar, p), "unset")
