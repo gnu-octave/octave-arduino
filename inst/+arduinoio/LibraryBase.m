@@ -70,10 +70,13 @@ classdef LibraryBase < handle
     CppHeaderFile = "";
     CppSourceFile = "";
     CppClassName = "";
+  endproperties
+  
+  properties (GetAccess = public, SetAccess = protected)  
     Parent = {};
     Pins = [];
   endproperties
-
+  
   methods (Static)
     function info = AddonInfo(fullclassname)
       info = {};
@@ -91,9 +94,9 @@ classdef LibraryBase < handle
         if p.Constant
           pname = lower(p.Name);
           pvalue = p.DefaultValue;
-	  if isfield(info, pname)
+          if isfield(info, pname)
             info.(pname) = pvalue;
-	  endif
+          endif
         endif
      endfor
 

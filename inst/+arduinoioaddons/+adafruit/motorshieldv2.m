@@ -26,6 +26,10 @@
 ##
 ## @var{Pins} - the pins allocated the addon.
 ##
+## @var{I2CAddress} - the i2c address used for accessing this shield.
+##
+## @var{PWMFrequency} - the set PWM frequencyfor this shield.
+##
 ## @subheading Methods
 ## @deftypefn {} {@var{obj} =} motorshieldv2(@var{arObj})
 ## @deftypefnx {} {@var{obj} =} motorshieldv2(@var{arObj}, @var{propertyname, propertyvalue} ....)
@@ -137,29 +141,34 @@ classdef motorshieldv2 < arduinoio.LibraryBase
   properties(Access = private)
     i2c;
     cleanup;
-    pwmfrequency;
   endproperties
-
+  
+  properties(GetAccess = public, SetAccess = private)
+    PWMFrequency;
+    I2CAddress;
+  endproperties
+  
   methods
     # constructor
     function obj = motorshieldv2(parentObj, varargin)
 
       # parse args
       p = inputParser(CaseSensitive=false, FunctionName='adafruit/MotorShieldV2');
-      p.addParameter('Address', 0x60, @isnumeric);
+      p.addParameter('I2CAddress', 0x60, @isnumeric);
       p.addParameter('PWMFrequency', 1600, @isnumeric);
       p.parse(varargin{:});
 
       obj.Parent = parentObj;
-      obj.i2c = i2cdev(parentObj, p.Results.Address);
+      obj.I2CAddress = p.Results.I2CAddress;
+      obj.i2c = i2cdev(parentObj, p.Results.I2CAddress);
       obj.Pins = obj.i2c.Pins;
-      obj.pwmfrequency = p.Results.PWMFrequency;
+      obj.PWMFrequency = p.Results.PWMFrequency;
 
-      intval = uint16(obj.pwmfrequency);
+      intval = uint16(obj.PWMFrequency);
       freq = [ bitshift(intval,-8) bitand(intval, 255)];
-      data = sendCommand(obj.Parent, obj.LibraryName, obj.INIT_COMMAND, [p.Results.Address freq]);
+      data = sendCommand(obj.Parent, obj.LibraryName, obj.INIT_COMMAND, [p.Results.I2CAddress freq]);
 
-      obj.cleanup = onCleanup (@() sendCommand(obj.Parent, obj.LibraryName, obj.FREE_COMMAND, [p.Results.Address]));
+      obj.cleanup = onCleanup (@() sendCommand(obj.Parent, obj.LibraryName, obj.FREE_COMMAND, [p.Results.I2CAddress]));
     endfunction
 
     function s = servo (obj, mnum, varargin)
@@ -174,7 +183,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
       elseif mnum == 2
         pinval = "d9";
       else
-        error ("Invalid motor number - (should be 1 or 2)")
+        error ("Invalid servo motor number - (should be 1 or 2)")
       endif
 
       s = servo(obj.Parent, pinval, varargin{:});
@@ -207,11 +216,11 @@ classdef motorshieldv2 < arduinoio.LibraryBase
       printf("        I2CAddress = %d (0x%X)\n", this.i2c.address, this.i2c.address);
       # show i2c pins as the pins
       printf("        Pins = {\n");
-        for i=1:numel(this.Pins)
-          printf("            %s\n", this.Pins{i});
-        endfor
+      for i=1:numel(this.Pins)
+        printf("            %s\n", this.Pins{i});
+      endfor
       printf("        }\n");
-      printf("        PWMFrequency = %d\n", this.pwmfrequency);
+      printf("        PWMFrequency = %d\n", this.PWMFrequency);
     endfunction
 
   endmethods
