@@ -155,8 +155,8 @@ classdef arduino < handle
         this = __initArduino__ (this, port, board);
 
         # check have requested libs
-        actuallibs = {};
         reprogram = false;
+
         for i = 1:numel (requiredlibs)
           lib = requiredlibs{i};
           id = this.get_lib (lib);
@@ -171,18 +171,8 @@ classdef arduino < handle
             else
               error ('arduino: not configured with library "%s" - please rerun arduinosetup with library, or set forcebuild', lib);
             endif
-          else
-            l = {};
-            l.name = lib;
-            l.id = id;
-            actuallibs{end+1} = l;
           endif
         endfor
-
-        # set libs as the ones we know about
-        if !isempty(actuallibs)
-          this.config.libs = actuallibs;
-        endif
 
         if reprogram
           printf("starting reprogram process ....\n")
