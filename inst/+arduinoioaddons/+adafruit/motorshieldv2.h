@@ -208,11 +208,11 @@ public:
 
           stepperMotor[data[1]] = AFMS->getStepper(cnt, data[1]+1);
 	  if(stepperMotor[data[1]]) {
-          sendResponseMsg(cmdId, data, 2);
-	  } else {
+            sendResponseMsg(cmdId, data, 2);
+          } else {
 	    sendInvalidNumArgsMsg();
-	  }
-	} else {
+          }
+        } else {
 	   sendInvalidNumArgsMsg();
 	}
 	break;
@@ -276,6 +276,9 @@ public:
 
 	    uint8_t style = data[7];
 	    style = SINGLE;
+	    if(style == 1) style = DOUBLE;
+	    if(style == 2) style = INTERLEAVE;
+	    if(style == 3) style = MICROSTEP;
 
 	    stepperMotor[data[1]]->setSpeed(rpm);
 	    sendWaitMsg();

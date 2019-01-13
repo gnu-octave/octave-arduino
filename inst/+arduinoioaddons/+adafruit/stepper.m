@@ -22,7 +22,18 @@
 ## @end deftypefn
 ##
 ## @subsubheading Properties
-## @var{RPM} - The rpm value set for the stepper motor
+## @table @asis
+## @item @var{RPM}
+## The rpm value set for the stepper motor
+## @item StepType
+## the StepType for the stepper (string) which can be "single", "double", "interleave" or "microstep"
+## @item StepsPerRevolution
+## the StepsPerRevoluion for the stepper (read only)
+## @item MotorNumber
+## the motor number for the stepper (read only) value will be 1 or 2.
+## @item Parent
+## the parent shield of this stepper (read only)
+## @end table
 ##
 ## @subheading Methods
 ## @deftypefn {} {@var{obj} =} stepper(@var{mObj}, @var{mnum}, @var{stepsperrev})
@@ -39,7 +50,10 @@
 ##
 ## Current known properties are:
 ## @table @asis
-## @item None
+## @item RPM
+## the RPM for the stepper (revolutions per minute)
+## @item StepType
+## the StepType for the stepper (string) which can be "single", "double", "interleave" or "microstep"
 ## @end table
 ##
 ## @subsubheading Outputs
@@ -78,21 +92,6 @@
 ##
 ## @seealso{adafruit.motorshieldv2}
 ## @end deftypefn
-##
-## @deftypefn {} {} RPM(@var{sObj}, @var{rpm})
-## @deftypefnx {} {@var{rpm} =} Speed(@var{sObj})
-## Get / set the stepper RPM
-##
-## @subsubheading Inputs
-## @var{sObj} - the stepper object
-##
-## @var{rpm} - the RPM to set for the stepper
-##
-## @subsubheading Outputs
-## @var{rpm} - the rpm set for the stepper
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
 
 classdef stepper < arduinoio.AddonBase
   properties(Access = private, Constant = true)
@@ -102,11 +101,17 @@ classdef stepper < arduinoio.AddonBase
     RELEASE_COMMAND = hex2dec('13');
   endproperties   
   properties(Access = private)
-    motornum;
-    rpm = 0;
-    stepsperrev = 0;
-    steptype = "single";
     cleanup;
+  endproperties
+
+  properties(GetAccess = public, SetAccess = private)
+    MotorNumber;
+    StepsPerRevolution = 0;
+  endproperties
+
+  properties(Access = public)
+    RPM = 0;
+    StepType = "single";
   endproperties
 
   methods
@@ -114,25 +119,32 @@ classdef stepper < arduinoio.AddonBase
       if nargin < 3
 	error ("Expected shield and mnum")
       endif
-      # TODO: check shield is our motorshield
+
       if ~isa(shield, "arduinoioaddons.adafruit.motorshieldv2")
 	 error("Expected shield to be a motorshieldv2 object");
       endif
 
       # check num is a number
-      if mnum != 1 && mnum != 2 && mnum != 3 && mnum != 4
-	 error("Expected mnum to be 1, 2");
+      if mnum != 1 && mnum != 2
+	 error("Expected motor number to be 1 or 2");
       endif
 
+      p = inputParser(CaseSensitive=false, FunctionName='adafruit/stepper');
+      p.addParameter('RPM', 0, @isnumeric);
+      p.addParameter('StepType', "single", @(x) any(validatestring(x,{"single", "double", "interleave", "microstep"})));
+      p.parse(varargin{:});
+
       this.Parent = shield;
-      this.motornum = mnum;
-      this.stepsperrev = stepsperrev;
+      this.MotorNumber = mnum;
+      this.StepsPerRevolution = stepsperrev;
+      this.RPM = p.Results.RPM;
+      this.StepType = p.Results.StepType;
 
       intval = uint16(stepsperrev);
       steps = [ bitshift(intval,-8) bitand(intval, 255)];
 
-      sendCommand(this.Parent, this.INIT_COMMAND,[this.motornum-1 steps]);
-      this.cleanup = onCleanup (@() sendCommand(this.Parent, this.FREE_COMMAND, [this.motornum-1 steps]));
+      sendCommand(this.Parent, this.INIT_COMMAND,[this.MotorNumber-1 steps]);
+      this.cleanup = onCleanup (@() sendCommand(this.Parent, this.FREE_COMMAND, [this.MotorNumber-1 steps]));
     endfunction
 
     function move(this, steps)
@@ -147,37 +159,48 @@ classdef stepper < arduinoio.AddonBase
       intval = uint16(steps);
       steps = [ bitshift(intval,-8) bitand(intval, 255)];
 
-      intval = uint16(this.rpm);
+      intval = uint16(this.RPM);
       rpm = [ bitshift(intval,-8) bitand(intval, 255)];
 
       steptype = 0;
+      switch lower(this.StepType)
+        case "single"
+          steptype = 0;
+        case "double"
+          steptype = 1;
+        case "interleave"
+          steptype = 2;
+        case "microstep"
+          steptype = 3;
+      endswitch
 
-      sendCommand(this.Parent,this.MOVE_COMMAND,[this.motornum-1, direction rpm, steps steptype]);
+      sendCommand(this.Parent,this.MOVE_COMMAND,[this.MotorNumber-1, direction, rpm, steps, steptype]);
     endfunction
 
     function release(this)
-      sendCommand(this.Parent,this.RELEASE_COMMAND,[this.motornum-1]);
+      sendCommand(this.Parent,this.RELEASE_COMMAND,[this.MotorNumber-1]);
     endfunction
 
-    function rpm = RPM(this, newrpm)
-      if nargin < 2
-	rpm = this.rpm;
-      else
-	# check rpm
-	if newrpm < 0
-	  error("RPM should be a positive number");
-	endif
-	this.rpm = newrpm;
+    function set.RPM(this, newrpm)
+      # check rpm
+      if !isnumeric(newrpm) || newrpm < 0
+       error("RPM should be a positive number");
       endif
+      this.RPM = newrpm;
+    endfunction
+
+    function set.StepType(this, val)
+      validate_val = validatestring (val, {"single", "double", "interleave", "microstep"});
+      this.StepType = val;
     endfunction
 
     function display(this)
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
-      printf("               MotorNumber = %d\n", this.motornum);
-      printf("                       RPM = %d\n", this.rpm);
-      printf("        StepsPerRevolution = %d\n", this.stepsperrev);
-      printf("                  StepType = %s\n", this.steptype);
+      printf("               MotorNumber = %d\n", this.MotorNumber);
+      printf("                       RPM = %d\n", this.RPM);
+      printf("        StepsPerRevolution = %d\n", this.StepsPerRevolution);
+      printf("                  StepType = %s\n", this.StepType);
     endfunction
 
   endmethods

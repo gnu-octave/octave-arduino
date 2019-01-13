@@ -44,7 +44,7 @@
 classdef AddonBase < handle
   # properties that may be overridden in 
   # subclasses
-  properties (Access = protected)
+  properties (GetAccess = public, SetAccess = protected)
     Parent = {};
   endproperties
 
