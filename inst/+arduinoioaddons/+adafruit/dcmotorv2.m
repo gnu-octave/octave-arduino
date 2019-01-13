@@ -24,6 +24,12 @@
 ## @subsubheading Properties
 ## @var{Speed} - The speed value set for the motor
 ##
+## @var{Parent} - The parent shield for object (read only)
+##
+## @var{MotorNumber} - The motor number (read only) values 1-4
+##
+## @var{IsRunning} - boolean for if the motor is started (read only)
+##
 ## @subheading Methods
 ## @deftypefn {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum})
 ## @deftypefnx {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum}, @var{propertyname, propertyvalue} ....)
@@ -76,21 +82,6 @@
 ##
 ## @seealso{adafruit.motorshieldv2}
 ## @end deftypefn
-##
-## @deftypefn {} {} Speed(@var{dcObj}, @var{speed})
-## @deftypefnx {} {@var{speed} =} Speed(@var{dcObj})
-## Get / set the dcmotor speed
-##
-## @subsubheading Inputs
-## @var{dcObj} - the dcmotor object
-##
-## @var{speed} - the dcmotor speed to set between -1 .. 1
-##
-## @subsubheading Outputs
-## @var{speed} - the speed set for the dcmotor
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
 
 classdef dcmotorv2 < arduinoio.AddonBase
   properties(Access = private, Constant = true)
@@ -99,11 +90,18 @@ classdef dcmotorv2 < arduinoio.AddonBase
     START_COMMAND = hex2dec('22');
     STOP_COMMAND = hex2dec('23');
   endproperties   
+
   properties(Access = private)
-    motornum;
-    speed = 0;
-    isrunning = false;
     cleanup;
+  endproperties
+
+  properties(GetAccess = public, SetAccess = private)
+    MotorNumber;
+    IsRunning = false;
+  endproperties
+
+  properties(Access = public)
+    Speed = 0;
   endproperties
 
   methods
@@ -122,52 +120,47 @@ classdef dcmotorv2 < arduinoio.AddonBase
       endif
 
       this.Parent = shield;
-      this.motornum = mnum;
+      this.MotorNumber = mnum;
 
-      sendCommand(this.Parent, this.INIT_COMMAND,[this.motornum-1]);
-      this.cleanup = onCleanup (@() sendCommand(this.Parent, this.FREE_COMMAND, [this.motornum-1]));
+      sendCommand(this.Parent, this.INIT_COMMAND,[this.MotorNumber-1]);
+      this.cleanup = onCleanup (@() sendCommand(this.Parent, this.FREE_COMMAND, [this.MotorNumber-1]));
     endfunction
 
     function start(this)
-      if this.speed < 0
+      if this.Speed < 0
 	direction = 0;
-	speed = -this.speed*255;
+	speed = -this.Speed*255;
       else
 	direction = 1;
-	speed = this.speed*255;
+	speed = this.Speed*255;
       endif
-      sendCommand(this.Parent,this.START_COMMAND,[this.motornum-1, direction, speed]);
-      this.isrunning = true;
+      sendCommand(this.Parent,this.START_COMMAND,[this.MotorNumber-1, direction, speed]);
+      this.IsRunning = true;
     endfunction
 
     function stop(this)
-      sendCommand(this.Parent,this.STOP_COMMAND,[this.motornum-1]);
-      this.isrunning = false;
+      sendCommand(this.Parent,this.STOP_COMMAND,[this.MotorNumber-1]);
+      this.IsRunning = false;
     endfunction
 
-    function speed = Speed(this, newspeed)
-      if nargin < 2
-	speed = this.speed;
-      else
-	# check speed -1 .. 0 ... 1
-	if newspeed < -1 || newspeed > 1
-	  error("Speed should be between -1 .. 1");
-	endif
-	this.speed = newspeed;
-	if this.isrunning
-	  start(this);
-	endif
-      endif
+    function set.Speed(this, newspeed)
+      # check speed -1 .. 0 ... 1
+     if newspeed < -1 || newspeed > 1
+       error("Speed should be between -1 .. 1");
+     endif
+     this.Speed = newspeed;
+     if this.IsRunning
+       start(this);
+     endif
     endfunction
 
     function display(this)
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
-      printf("        MotorNumber = %d\n", this.motornum);
-      printf("              Speed = %d\n", this.speed);
-      printf("          IsRunning = %d\n", this.isrunning);
+      printf("        MotorNumber = %d\n", this.MotorNumber);
+      printf("              Speed = %d\n", this.Speed);
+      printf("          IsRunning = %d\n", this.IsRunning);
     endfunction
-
 
   endmethods
  
