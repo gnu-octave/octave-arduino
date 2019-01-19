@@ -86,6 +86,7 @@ Arduino Sensors
   arduinosensor.DS1307
   arduinosensor.MPC3002
   arduinosensor.SI7021
+  arduinosensor.GUVAS12SD
 Arduino I/O package
   arduinoio.AddonBase
   arduinoio.FilePath

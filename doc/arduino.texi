@@ -714,6 +714,8 @@ DS1307 RTC clock using i2c.
 MPC3002 ADC using SPI
 @item SI7021
 SI7021 temperature and humidity sensor
+@item GUVAS12SD
+GUVAS12SD analog UV-B sensor
 @end table
 
 @c -------------------------------------------------------------------------
