@@ -33,9 +33,9 @@
 ## @code {
 ## # create arduino connection.
 ## ar = arduino();
-## # get the pins that will be used for I2C
+## # scan for devices on the I2C bus
 ## scanI2Cbus (ar)
-## % output
+## # output is each detected i2c address as a string
 ## ans =
 ## @{
 ##  [1,1] = 0x50
