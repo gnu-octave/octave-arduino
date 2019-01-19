@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-## Copyright 2018 John Donoghue
+## Copyright 2018-2019 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ class Index:
   name = ""
   groups = []
 
-def read_help (filename):
+def read_m_file(filename):
   help = []
   inhelp = False
   havehelp = False;
@@ -58,7 +58,47 @@ def read_help (filename):
 
   return help
 
-def read_index (filename):
+def read_cc_file(filename):
+  help = []
+  inhelp = False
+  havehelp = False;
+  with open(filename, 'rt') as f:
+    for line in f:
+      if not havehelp:
+        if havehelp == False and inhelp == False:
+          if "texinfo" in line:
+            inhelp = True
+        elif inhelp == True:
+          line = line.rstrip()
+          if line[-1] == '\\':
+            line = line[:-1]
+          line = line.rstrip()
+          line = line.replace("\\n", "\n") 
+          line = line.replace("\\\"", "\"") 
+          if line[-1] == '\n':
+            line = line[:-1]
+          if line.endswith('")'):
+            line = line[:-2]
+ 
+          if  line.startswith('{'):
+            inhelp = False
+            havehelp = True
+          else:
+            help.append (line);
+
+  return help
+
+def read_help (filename):
+  help = []
+
+  if filename[-2:] == ".m":
+    help = read_m_file(filename)
+  else:
+    help = read_cc_file(filename)
+
+  return help
+
+def read_index (filename, ignore):
   index = Index ()
 
   with open(filename, 'rt') as f:
@@ -74,7 +114,9 @@ def read_index (filename):
       index.name = l;
       first = False
     elif l.startswith(" "):
-        category.functions.append(l.strip());
+        l = l.strip()
+        if l not in ignore:
+          category.functions.append(l);
     else:
       # new category name
       if len(category.functions) > 0:
@@ -87,6 +129,29 @@ def read_index (filename):
 
   return index;
 
+def find_func_file(fname, paths, prefix):
+  for f in paths:
+      name = f + "/" + fname + ".m"
+      if os.path.isfile(name):
+        return name
+      name = f + "/" + fname + ".cc"
+      if os.path.isfile(name):
+        return name
+      name = f + "/" + fname + ".cpp"
+      if os.path.isfile(name):
+        return name
+      # if have a prefix, remove and try
+      if prefix and fname.startswith(prefix):
+        fname = fname[len(prefix):]
+        name = f + "/" + fname + ".cc"
+        if os.path.isfile(name):
+          return name
+        name = f + "/" + fname + ".cpp"
+        if os.path.isfile(name):
+          return name
+ 
+  return None
+
 def display_func(name, ref, help):
   print "@c -----------------------------------------"
   print "@subsection ", name
@@ -95,7 +160,7 @@ def display_func(name, ref, help):
     print l
 
 def process (args):
-  options = { "verbose": False, "srcdir": "inst" }
+  options = { "verbose": False, "srcdir": [], "funcprefix": "", "ignore": [] }
   indexfile = ""
 
   for a in args:
@@ -112,7 +177,13 @@ def process (args):
       options["verbose"] = True;
     elif key == "--src-dir":
       if val:
-        options["srcdir"] = val;
+        options["srcdir"].append(val);
+    elif key == "--ignore":
+      if val:
+        options["ignore"].append(val);
+    elif key == "--func-prefix":
+      if val:
+        options["funcprefix"] = val;
     elif val == "":
       if indexfile == "":
         indexfile = key
@@ -120,9 +191,12 @@ def process (args):
   if indexfile == "":
     raise Exception("No index filename")
 
+  if len(options["srcdir"]) == 0:
+    options["srcdir"].append("inst")
+
   #print "options=", options
 
-  idx = read_index(indexfile)
+  idx = read_index(indexfile,  options["ignore"])
   for g in idx.groups:
     #print "************ ", g.name
     print "@c ---------------------------------------------------"
@@ -133,12 +207,14 @@ def process (args):
     for f in sorted(g.functions):
       print "@c", g.name, f
       h = ""
+      filename = ""
+      path = ""
       if "@" in f:
         #print "class func"
         path = f
         name = "@" + f
         ref = f.split("/")[-1]
-        h = read_help (options["srcdir"] + "/" + path + ".m")
+        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
       elif "." in f:
         parts = f.split('.')
         cnt  = 0
@@ -152,17 +228,22 @@ def process (args):
             cnt = cnt + 1
         name = f;
         ref = parts[-1]
-        h = read_help (options["srcdir"] + "/" + path + ".m")
+        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
       elif "/" in f:
         path = f
         name = f
         ref = f.split("/")[-1]
-        h = read_help (options["srcdir"] + "/" + path + ".m")
+        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
       else:
         path = f
         name = f
         ref = f
-        h = read_help (options["srcdir"] + "/" + path + ".m")
+        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
+
+      if not filename:
+        sys.stderr.write("Warning: Cant find source file for {}\n".format(path))
+      else:
+        h = read_help (filename)
 
       if h:
         display_func (name, ref, h)
