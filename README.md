@@ -3,7 +3,7 @@ Introduction
 
 This is a basic implementation of the Matlab toolkit extension.
 
-Where possible, it attempts to use the same function calls as the matlab toolkit.
+It attempts to provide the same function calls as the Matlab toolkit, as well as additional functionality.
 
 Requirements
 ============
@@ -20,7 +20,7 @@ To install, run the octave package manager:
     pkg install -forge arduino
 
 2. to install from a local tarball.
-    pkg install ardion-XXXXXXX.tar.gz
+    pkg install arduino-XXXXXXX.tar.gz
 
 Where XXXXXXX is the version of the the downloaded tarball.
 
@@ -47,33 +47,31 @@ See the function list and examples directories.
 Expanding the known board types
 ===============================
 
-Currently the toolkit only recogises 2 boards: uno and mega, however additional boards
-can be added with mimimal code changes.
+Currently the toolkit only recognizes 2 boards: uno and mega, however additional boards
+can be added with minimal code changes.
 
-To add an addiyional board
-1. The arduino core library (code programmed to the arduino) must provide a board id that is unique.
-Currently 0=uno, 1=mega
+To add an additional board:
+1. The arduino core library (code programmed to the arduino) must provide a board id that is unique and matches the config id.
 
 2. the arduinoio.boardTypeString function must return the board name when provided the id.
 
 3. A config_<boardname>.m file must be present as arduinoio.config.config_<boardname>, which
 describes the pin functionality for the board.
 
-A matlab script in available in arduino toolkit sources that to create 90% of the config file based
+A Matlab script in available in arduino toolkit sources that to create 90% of the config file based
 on the arduino_pins header file from the arduino ide.
 
 Adding additional addon libraries
 =================================
 
-Addon libraries can be created using a similar interface as the matlab toolkit.
+Addon libraries can be created using a similar interface as the Matlab toolkit, or use existing Matlab code with minor changes.
 
 Known limitations and bugs
 ==========================
 
-1. Octave does not document classdef files, so documentation for the arduinoclass and ardionio.LibraryBase is
-not created.
+1. Octave does not document classdef files, so documentation for the arduino class and arduinoio.LibraryBase is
+not created in the function reference, however is in the reference manual.
 
 2. Octave has issues with displaying function help after the classdef constructor is called, and may not show the
 help for a given function.
 
-3. Currently only the base io, spi, i2c and shiftregister support is available, encoders have not been implemented.
