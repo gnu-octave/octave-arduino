@@ -5,6 +5,7 @@ General Functions
   listArduinoLibraries
   scanForArduinos
 Arduino Functions
+  @arduino/checkI2CAddress
   @arduino/configurePin
   @arduino/configurePinResource
   @arduino/decrementResourceCount

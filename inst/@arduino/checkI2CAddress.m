@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -15,18 +15,20 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} scanI2Cbus (@var{ar})
-## @deftypefnx {} {@var{retval} =} scanI2Cbus (@var{ar}, @var{bus})
-## Scan arduino for devices on the I2C bus.
+## @deftypefn {} {@var{retval} =} checkI2CAddress (@var{ar}, @var{address})
+## @deftypefnx {} {@var{retval} =} checkI2CAddress (@var{ar}, @var{address}, @var{bus})
+## Check that an address of given address responds on the I2C bus
 ##
 ## @subsubheading Inputs
 ## @var{ar} - arduino object connected to a arduino board.
 ##
-## @var{bus} - bus number to scan I2C devices, when multiple buses are available.
+## @var{address} - I2C address number to check
+##
+## @var{bus} - bus number to check for I2C device, when multiple buses are available.
 ## If the bus is not specified, it will default to 0.
 ## 
 ## @subsubheading Outputs
-## @var{retval} - cell array of addresses as strings in format of "0xXX".
+## @var{retval} - boolean value of true if address responds on the I2C bus
 ##
 ## @subsubheading Example
 ## @example
@@ -34,48 +36,49 @@
 ## # create arduino connection.
 ## ar = arduino();
 ## # scan for devices on the I2C bus
-## scanI2Cbus (ar)
-## # output is each detected i2c address as a string
+## checkI2CAddress (ar)
+## # output if a device using that address is attached
 ## ans =
-## @{
-##  [1,1] = 0x50
-## @}
+##   1
 ## }
 ## @end example
 ##
-## @seealso{arduino, i2cdev, checkI2CAddress}
+## @seealso{arduino, scanI2Cbus}
 ## @end deftypefn
 
-function addr = scanI2Cbus (ar, bus)
+function ret = checkI2CAddress (ar, address, bus)
 
-  addr = {};
+  persistent ARDUINO_I2C_SCAN = 0;
 
-  if nargin < 1 || nargin > 2
+  ret = false;
+
+  if nargin < 2 || nargin > 3
     print_usage ();
   endif
 
-  if nargin == 1
+  if nargin == 2
     bus = 0;
   elseif !isnumeric (bus) || bus < 0 || bus > 1
-    error ('scanI2Cbus: expected bus to be numeric and 0 or 1');
+    error ('checkI2CAddress: expected bus to be numeric and 0 or 1');
   endif
 
   if (!isa (ar, "arduino"))
-    error ("scanI2Cbus: expects arduino object as 1st argument");
+    error ("checkI2CAddress: expects arduino object as 1st argument");
+  endif
+
+  if !isnumeric (address) || address < 1 || address > 127
+    error ('checkI2CAddress: expected address to be numeric 1 > address <= 127');
   endif
   
   # TODO: configure SPI pins if not already done??
 
-  # scan each address, and add any found to cell array
-  for i = 1:127
-     if checkI2CAddress (ar, i, bus)
-       addr{end+1} = [ "0x" dec2hex(i, 2) ];
-     endif
-  endfor
-
+  [tmp, sz] = sendCommand (ar, "i2c", ARDUINO_I2C_SCAN, [bus address]);
+  if tmp(3) == 1
+    ret = true;
+  endif
 endfunction
 
 %!test
 %! ar = arduino();
 %! assert(!isempty(ar));
-%! scanI2Cbus(ar);
+%! checkI2CAddress(ar, 12);
