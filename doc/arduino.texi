@@ -76,6 +76,12 @@ To download a copy of the @acronym{GNU} Octave arduino package, please visit
 @c %*** End of TITLEPAGE
 
 @c %*** Start of BODY
+
+@dircategory Math
+@direntry
+* Arduino for Octave: (arduino).         Arduino Toolbox for Octave 
+@end direntry
+
 @contents
 @ifnottex
 @node Top
