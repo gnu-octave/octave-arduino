@@ -680,9 +680,9 @@ An object of the addon type can be created using the addon command.
 @end example
 
 @c -------------------------------------------------------------------------
-@node Arduino Sensors
-@chapter Arduino Sensors
-@cindex Arduino Sensors
+@node Sensors Overview
+@chapter Sensors Overview
+@cindex Sensors Overview
 
 @section Sensor Overview
 @cindex Sensor Overview
