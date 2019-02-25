@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -26,12 +26,12 @@
 ##
 ## @var{board} - name of board to connect (default is 'uno').
 ##
-## @var{propname}, @var{propvalue} - property name and value pair for additional properties to pass to the creation
-## of the arduino object.
+## @var{propname}, @var{propvalue} - property name and value pair for additional properties
+## to pass to the creation of the arduino object.
 ## Currently properties are ignored.
 ##
-## if the arduino function is called without parameters, it will scan for the first available arduino it can find and
-## connect to it.
+## if the arduino function is called without parameters, it will scan for the first available
+## arduino it can find and connect to it.
 ##
 ## @subsubheading Outputs
 ## @var{retval} - a successfully connected arduino object.
@@ -46,7 +46,7 @@
 ## @item port (read only)
 ## the communications port the board is connected to.
 ## @item board  (read only)
-## The name of the board type that the arduini connected to
+## The name of the board type that the arduino connected to
 ## @item libraries (read only)
 ## The libraries currently programmed onto the board
 ## @item availablepins

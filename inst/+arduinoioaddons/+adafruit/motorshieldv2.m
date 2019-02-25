@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@
 ##
 ## @var{I2CAddress} - the i2c address used for accessing this shield.
 ##
-## @var{PWMFrequency} - the set PWM frequencyfor this shield.
+## @var{PWMFrequency} - the set PWM frequency for this shield.
 ##
 ## @subheading Methods
 ## @deftypefn {} {@var{obj} =} motorshieldv2(@var{arObj})

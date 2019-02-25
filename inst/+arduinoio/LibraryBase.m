@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -22,12 +22,12 @@
 ## @end deftypefn
 ##
 ## @subheading Properties
-## Base properties are expected to be inhited and overwriiten in inherited classes.
+## Base properties are expected to be inherited and overwritten in inherited classes.
 ## and are constant in order to query through the metaobject mechanism.
 ##
 ## @var{LibraryName} - name of the addon library
 ##
-## @var{DependentLibraries} - array of dependant library names that ust be include when 
+## @var{DependentLibraries} - array of dependent library names that must be included when 
 ## installing this plugin.
 ##
 ## @var{CppHeaderFile} - name (if any) of header file that will be included into the arduino
@@ -47,7 +47,7 @@
 ## @deftypefn {} {@var{lb} =} LibraryBase ()
 ## Constructor of base class
 ##
-## The construcor is usually not called but called indirectly from the addon function.
+## The constructor is usually not called but called indirectly from the addon function.
 ##
 ## @subsubheading Outputs
 ## The return value @var{lb} is an object of the arduinio.LibraryBase class.

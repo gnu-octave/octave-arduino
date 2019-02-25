@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -61,7 +61,7 @@
 ## @item SPI
 ## - Specify a pin to use with SPI protocol
 ## @item Reserved
-## - Pin marked researved, but not for of any particular mode
+## - Pin marked reserved, but not for of any particular mode
 ## @item Unset
 ## - Clears pin designation. The pin is no longer reserved and can be automatically
 ## set at the next operation.

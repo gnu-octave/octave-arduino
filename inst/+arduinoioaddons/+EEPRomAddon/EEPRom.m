@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -51,7 +51,7 @@
 ## @subsubheading Inputs
 ## @var{address} - start address to write data to, should be a integer between 0 and the size of the EEPROM.
 ##
-## @var{uintdata} a value or array of uint8 data to write to EEROM.
+## @var{uintdata} a value or array of uint8 data to write to EEPROM.
 ## @end deftypefn
 ##
 ## @deftypefn {} {@var{data} =} read (@var{address})

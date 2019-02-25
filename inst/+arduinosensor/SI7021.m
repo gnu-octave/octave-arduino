@@ -74,7 +74,7 @@
 ## @var{dsObj} - the si7021 object
 ##
 ## @subsubheading Outputs
-## @var{relH} - relative humidity as a percentange (0 - 100.0)
+## @var{relH} - relative humidity as a percentage (0 - 100.0)
 ## @end deftypefn
 ##
 ## @deftypefn {} {@var{relH} =} info(@var{dsObj})
@@ -89,7 +89,7 @@
 ## Structure fields are:
 ## @table @asis
 ## @item version
-## Chip formware version
+## Chip firmware version
 ## @item id
 ## sensor id1,id2 value
 ## @item type

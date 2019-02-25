@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 ## @deftypefn {} {} arduinoioaddons.LCDAddon.LCD
 ## Basic Example octave addon for LCD
 ##
-## Allows basic manaipulation of an LCD as a illustrayion of using
+## Allows basic manipulation of an LCD as a illustration of using
 ## the addon functionality.
 ## @subsubheading Example
 ## Assuming the arduino has been programmed with the lcd addon:

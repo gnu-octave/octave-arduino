@@ -113,7 +113,7 @@ The Arduino toolkit must be installed and then loaded to be used.
 It can be installed in @acronym{GNU} Octave directly from octave-forge,
 or can be installed in an off-line mode via a downloaded tarball.
 
-The toolkit has a dependancy on the instrument-control package, so it must be installed in order
+The toolkit has a dependency on the instrument-control package, so it must be installed in order
 to successfully install the Arduino toolkit.
 
 The toolkit must be then be loaded once per each @acronym{GNU} Octave session in order to use its functionality.
@@ -403,7 +403,7 @@ that provides matlab access directly to the arduino hardware.
 Addons are implemented in two parts.
 @enumerate
 @item code running on the arduino that implments the required functionality
-@item a octave wrapper class that provised the matlab interface and cummunication to the code.
+@item a octave wrapper class that provides the matlab interface and communication to the code.
 @end enumerate
 
 Both parts are required to create a plugin.
@@ -445,16 +445,16 @@ So the addon directory structure at a minimum will be:
 @subsection  Addon package directory
 @cindex  Addon package directory
 
-The addon architechure looks for plugins in the octave load path in a package directory called 
+The addon architecture looks for plugins in the octave load path in a package directory called 
 +arduinoioaddons
 
-So this directory nust be created somewhere within the paths that octave will check for 
+So this directory must be created somewhere within the paths that octave will check for 
 functions.
 
 In addition, the addon architecture expects plugins to be contained in a sub directory within
 the  +arduinoioaddons
 
-Muliple plugin .m files can be within teh same sub directory.
+Multiple plugin .m files can be within the same sub directory.
 
 @subsection  Addon package .m file
 @cindex  Addon package .m file
@@ -462,10 +462,10 @@ Muliple plugin .m files can be within teh same sub directory.
 The matlab interface file within the addon directory provides the matlab interface for the arduino code
 as well as provides information about the addon.
 
-@subsubheading Class inheritence and required properties
+@subsubheading Class inheritance and required properties
 The interface file must be a subclass pf arduinoio.LibraryBase and must contain some constant properties values that provide the information.
 
-A minumum example of required is below:
+A minimum example of required is below:
 @example
 @code {
 classdef MyAddon1 < arduinoio.LibraryBase
@@ -504,9 +504,9 @@ arduinoio.LibraryBase:
 
 @enumerate
 @item Parent
-should be set to the first input argument (the auduino class)
+should be set to the first input argument (the arduino class)
 @item Pins
-should be set to a list of pins that are uused for the plugin
+should be set to a list of pins that are used for the plugin
 @end enumerate
 
 @example
@@ -533,7 +533,7 @@ endclassdef
 The class functions will usually communicate to the arduino and use the response for 
 what is returned to the user.
 
-By convention, the commands sent to the arduino are defined as contants in teh class file but do not have to be.
+By convention, the commands sent to the arduino are defined as constants in the class file but do not have to be.
 @example
 @code {
 classdef MyAddon1 < arduinoio.LibraryBase
@@ -563,14 +563,14 @@ endclassdef
 }
 @end example
 
-Note the sendCcommand uses the objects parent for the arduino,  the objects library name and the command id.
+Note the sendCommand uses the objects parent for the arduino,  the objects library name and the command id.
 
 @seealso{sendCommand}
 
 @subsection  Addon package header file
 @cindex  Addon package header file
 
-The header file should contain a class that matches the functionaly and information of the matlab file
+The header file should contain a class that matches the functionally and information of the matlab file
 and provides the ability to register the code on the arduino.
 
 The following things should occur in the arduino class files:
@@ -582,10 +582,10 @@ CppClassName property.
 
 @item The constructor should call registerLibrary
 
-@item the commandHandler function to act on cmdId values that match the commands that will be sent from .m file and send
+@item the commandHandler function to act on cmdID values that match the commands that will be sent from .m file and send
  data back using sendResponseMsg
 
-@item on recieving unknown cmdId values, the commandHandler should use sendUnknownCmdIDMsg
+@item on receiving unknown cmdID values, the commandHandler should use sendUnknownCmdIDMsg
 
 @end enumerate
 
@@ -618,7 +618,7 @@ public:
         @}
       case MYADDON_FUNC1:
         @{
-          // func 1 is just returing a uint8 count of number of times called
+          // func 1 is just returning a uint8 count of number of times called
           cnt ++;
           sendResponseMsg(cmdID, &cnt, 1);
           break;
@@ -642,17 +642,17 @@ The body of functions can be in the CppSourceFile file is it is defined or withi
 Use the listArduinoLibaries command to verify that the new addon appears in the list of known libraries.
 
 If it does not, ensure that the +arduinoioaddons directory is within one of the octave class paths, and that the directory
-strucrure and inheritence requirements have been met.
+structure and inheritance requirements have been met.
 
 @section Using addons
 @cindex  Using Addons
 
-@subsection  Programing the arduino with the addon
-@cindex  Programing the arduino with the addon
+@subsection  Programming the arduino with the addon
+@cindex  Programming the arduino with the addon
 
 To use a addon, the code must be programmed onto the arduino.
 
-Using the libraries command, when creating a arduino object, the arduino can be reprgrammed if the librariy does not already
+Using the libraries command, when creating a arduino object, the arduino can be reprogrammed if the library does not already
 exist on the arduino.
 
 @example
@@ -661,7 +661,7 @@ exist on the arduino.
 }
 @end example
 
-The libraries property of the arduino object should list the libraries propgrammed on the arduino.
+The libraries property of the arduino object should list the libraries programmed on the arduino.
 
 Alternatively, the library can be added using the libraries property and arduinosetup
 
@@ -670,7 +670,7 @@ Alternatively, the library can be added using the libraries property and arduino
 @subsection  Creating a addon object
 @cindex  Creating a addon object
 
-An object of the addon type can be created using teh addon command.
+An object of the addon type can be created using the addon command.
 
 @example
 @code {
@@ -685,7 +685,7 @@ An object of the addon type can be created using teh addon command.
 @cindex Arduino Sensors
 
 @section Sensor Overview
-@cindex Sensore Overview
+@cindex Sensor Overview
 
 Arduino sensors are a collection of lightweight wrappers around other underlying protocols for 
 providing specific sensor functionality.
@@ -693,7 +693,7 @@ providing specific sensor functionality.
 For instance a DS1307 chip communicates using I2C protocol and so a DS1307 class exists that
 provides the conversion/commands in order to communicate to the chip.
 
-Using the class, providing the functionialty is very easy:
+Using the class, providing the functionality is very easy:
 @example
 @code {
 a = arduino()
@@ -703,10 +703,10 @@ datestr(rtc.clock)
 }
 @end example
 
-It is lightweight compared to the addon functionalty, as it only requires a wrapper class rather than add on code,
+It is lightweight compared to the addon functionality, as it only requires a wrapper class rather than add on code,
 however it is limited to then using available addon and core codes rather than creating new ones.
 
-Currently the are only a small number of sensors available, however this will be built apon in future versions.
+Currently the are only a small number of sensors available, however this will be built upon in future versions.
 
 @section Available Sensors
 @cindex Available Sensors
@@ -738,7 +738,7 @@ edit examples/example_blink
 @end example
 
 @heading Hardware setup
-This example uses in the builtin LEDS, so requires only a connection of the Arduino board to
+This example uses in the builtin LED, so requires only a connection of the Arduino board to
 computer for communication.
 
 @heading Create an Arduino object
@@ -750,7 +750,7 @@ ar = arduino ();
 If you have more than one Arduino board connected, you may need to specify the port in order to
 connect to the correct device.
 
-@heading Query Device for pins connected to builtin LEDS
+@heading Query Device for pins connected to builtin LED
 
 The pin connected to the Arduino UNO built in led if D13.
 
