@@ -11,7 +11,7 @@
 @afourpaper
 @paragraphindent 0
 @finalout
-@set VERSION 0.3.0+
+@set VERSION 0.4.0
 @c @afourwide
 @c %*** End of the HEADER
 
