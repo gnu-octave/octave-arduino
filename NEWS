@@ -11,6 +11,7 @@ Summary of important user-visible changes for arduino 0.4.0:
     - added optional libtype specifier to listArduinoLibraries
     - bugfix to core subsref functions
     - updated property compare on core
+    - attempt to use user arduino preferences as back up for arduino binary find
   
   ** minor function documentation updates
 

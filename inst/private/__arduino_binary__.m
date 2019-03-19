@@ -50,7 +50,7 @@ function arduino_binary = find_arduino_binary ()
   while (n < numel (binaries) && isempty (arduino_binary))
     arduino_binary = file_in_path (getenv ("PATH"), binaries{++n});
   endwhile
-  
+
   % if a pc, and have the winqueryreg function, try find the path
   if isempty(arduino_binary) && ispc ()
     if exist('winqueryreg') == 5
@@ -65,12 +65,52 @@ function arduino_binary = find_arduino_binary ()
       endif
     endif
     if isempty(arduino_binary)
-      trypath = "C:\\Program Files (x86)\\Arduino\\arduino.exe"
+      trypath = "C:\\Program Files (x86)\\Arduino\\arduino.exe";
       if exist (trypath, "file")
         arduino_binary = trypath;
       endif
     endif
   endif
+
+  % look for arduino prefs file
+  if isempty (arduino_binary)
+    if ispc ()
+      prefsfile = fullfile (getenv ("LOCALAPPDATA"), "Arduino15", "preferences.txt");
+    else
+      prefsfile = fullfile (getenv ("HOME"), ".arduino15", "preferences.txt");
+    endif
+
+    fd = fopen (prefsfile, "rt")
+    if fd != -1
+      try
+        trypaths = {};
+        while ! feof (fd)
+          l = fgetl (fd);
+          str  = regexp (l, "last\.ide\.(?<version>\\d.*)\.hardwarepath=(?<path>.*)$", "names");
+          if ! isempty (str)
+            trypaths{end+1} = str;
+          endif
+        endwhile
+
+        if !isempty (trypaths)
+          % sort so will try newest ver first
+          [~, sortidx] = sort(arrayfun( @(x) x{1}.version, trypaths, 'uniformoutput', false), 'descend');
+          for idx = 1:length(sortidx)
+            if isempty (arduino_binary)
+              [trypath,~,~] = fileparts (trypaths{idx}.path);
+              n = 0;
+              while (n < numel (binaries) && isempty (arduino_binary))
+                arduino_binary = file_in_path (trypath, binaries{++n})
+              endwhile
+            endif
+          endfor
+        endif
+
+      end_try_catch
+      fclose (fd);
+    endif
+  endif
+
   if isempty(arduino_binary)
     error ("__arduino_binary__: can not find the arduino binary");
   endif
