@@ -231,27 +231,35 @@ endfunction
 %! ar = arduino();
 %! assert(!isempty(ar));
 %!
+%! spipins = getSPITerminals(ar);
+%! assert (numel(spipins), 4);
+%!
 %! # validate SPI pins not allocated
-%! assert(configurePin(ar, "d10"), "unset") ## ss
-%! assert(configurePin(ar, "d11"), "unset") ## mosi
-%! assert(configurePin(ar, "d12"), "unset") ## miso
-%! assert(configurePin(ar, "d13"), "unset") ## sck
+%! assert(configurePin(ar, "d10"), "unset")
+%! assert(configurePin(ar, spipins{1}), "unset")
+%! assert(configurePin(ar, spipins{2}), "unset")
+%! assert(configurePin(ar, spipins{3}), "unset")
+%! assert(configurePin(ar, spipins{4}), "unset")
 %!
 %! spi = spidev(ar, "d10");
 %! assert(!isempty(spi));
 %! assert(spi.chipselectpin, "d10");
 %!
 %! # validate SPI pins allocated
-%! assert(configurePin(ar, "d10"), 'digitaloutput') ## ss
-%! assert(configurePin(ar, "d11"), 'digitaloutput') ## mosi
-%! assert(configurePin(ar, "d12"), 'digitalinput')  ## miso
-%! assert(configurePin(ar, "d13"), 'digitaloutput') ## sck
+%! assert(configurePin(ar, "d10"), "digitaloutput")
+%! #assert(configurePin(ar, spipins{1}), 'digitaloutput') ## ss
+%! #assert(configurePin(ar, spipins{2}), 'digitaloutput') ## mosi
+%! #assert(configurePin(ar, spipins{3}), 'digitalinput')  ## miso
+%! #assert(configurePin(ar, spipins{4}), 'digitaloutput') ## sck
+%!
 %! clear spi
+%!
 %! # check now pins unset
-%! assert(configurePin(ar, "d10"), "unset") 
-%! assert(configurePin(ar, "d11"), "unset") 
-%! assert(configurePin(ar, "d12"), "unset") 
-%! assert(configurePin(ar, "d13"), "unset") 
+%! assert(configurePin(ar, "d10"), "unset")
+%! assert(configurePin(ar, spipins{1}), "unset")
+%! assert(configurePin(ar, spipins{2}), "unset")
+%! assert(configurePin(ar, spipins{3}), "unset")
+%! assert(configurePin(ar, spipins{4}), "unset")
 
 %!test
 %! ar = arduino();
