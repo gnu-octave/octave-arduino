@@ -17,14 +17,22 @@ SED       ?= sed
 GREP      ?= grep
 TAR       ?= tar
 TEXI2PDF  ?= texi2pdf -q
+CUT ?= cut
+TR ?= tr
 
-## Helper function
-TOLOWER   := $(SED) -e 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'
+HG           := hg
+HG_CMD        = $(HG) --config alias.$(1)=$(1) --config defaults.$(1)= $(1)
+HG_ID        := $(shell $(call HG_CMD,identify) --id | sed -e 's/+//' )
+HG_TIMESTAMP := $(firstword $(shell $(call HG_CMD,log) --rev $(HG_ID) --template '{date|hgdate}'))
+
+TAR_REPRODUCIBLE_OPTIONS := --sort=name --mtime="@$(HG_TIMESTAMP)" --owner=0 --group=0 --numeric-owner
+TAR_OPTIONS  := --format=ustar $(TAR_REPRODUCIBLE_OPTIONS)
 
 ### Note the use of ':=' (immediate set) and not just '=' (lazy set).
 ### http://stackoverflow.com/a/448939/1609556
-PACKAGE := $(shell $(SED) -n -e 's/^Name: *\(\w\+\)/\1/p' DESCRIPTION | $(TOLOWER))
-VERSION := $(shell $(SED) -n -e 's/^Version: *\(\w\+\)/\1/p' DESCRIPTION | $(TOLOWER))
+PACKAGE := $(shell $(GREP) "^Name: " DESCRIPTION | $(CUT) -f2 -d" " | \
+$(TR) '[:upper:]' '[:lower:]')
+VERSION := $(shell $(GREP) "^Version: " DESCRIPTION | $(CUT) -f2 -d" ")
 DEPENDS := $(shell $(SED) -n -e 's/^Depends[^,]*, \(.*\)/\1/p' DESCRIPTION | $(SED) 's/ *([^()]*),*/ /g')
 
 ## This are the files that will be created for the releases.
@@ -75,7 +83,7 @@ html: $(HTML_TARBALL)
 
 # An implicit rule with a recipe to build the tarballs correctly.
 %.tar.gz: %
-	tar -c -f - --posix -C "$(TARGET_DIR)/" "$(notdir $<)" | gzip -9n > "$@"
+	tar -cf - $(TAR_OPTIONS) -C "$(TARGET_DIR)/" "$(notdir $<)" | gzip -9n > "$@"
 
 # Some packages are distributed outside Octave Forge in non tar.gz format.
 %.zip: %
@@ -96,7 +104,7 @@ $(RELEASE_DIR): .hg/dirstate
 	@echo "Creating package version $(VERSION) release ..."
 	$(RM) -r "$@"
 #	hg archive --exclude ".hg*" --exclude Makefile --type files "$@"
-	hg archive --exclude ".hg*" --type files "$@"
+	$(HG) archive --exclude ".hg*" --type files "$@"
 	$(MAKE) -C "$@" docs
 	# remove dev stuff
 	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py
@@ -115,7 +123,7 @@ cleandocs:
 	$(RM) -f doc/functions.texi
 
 doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
-	cd doc && $(TEXI2PDF) $(PACKAGE).texi
+	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(TEXI2PDF) $(PACKAGE).texi
 	# remove temp files
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
 
@@ -142,7 +150,7 @@ $(HTML_DIR): install
 release: dist html
 	@$(MD5SUM) $(RELEASE_TARBALL) $(HTML_TARBALL)
 	@echo "Upload @ https://sourceforge.net/p/octave/package-releases/new/"
-	@echo "    and inform to rebuild release with '$$(hg id)'"
+	@echo "    and inform to rebuild release with '$$($(HG) id)'"
 	@echo 'Execute: hg tag "release-${VERSION}"'
 
 install: $(RELEASE_TARBALL)
