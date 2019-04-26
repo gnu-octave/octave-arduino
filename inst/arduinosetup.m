@@ -73,6 +73,8 @@ function retval = arduinosetup (varargin)
       arduinobinary = propvalue;
     elseif strcmp (propname, "debug")
       debug = propvalue;
+    elseif
+      warning ("arduinosetup: unknown property '%s', ignoring it", propname);
     endif
   endfor
 
