@@ -28,7 +28,7 @@ function reset (ar)
   ARDUINO_RESET = 0;
     
   if nargin != 1 
-    error ("@arduino.reset: expected ardiono object only");
+    error ("@arduino.reset: expected arduiono object only");
   endif    
   
   [dataout, status] = __sendCommand__ (ar, 0, ARDUINO_RESET, [], 0);

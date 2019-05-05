@@ -47,8 +47,16 @@ See the function list and examples directories.
 Expanding the known board types
 ===============================
 
-Currently the toolkit only recognizes 2 boards: uno and mega, however additional boards
-can be added with minimal code changes.
+Currently the toolkit recognizes 7 boards:
+* uno
+* nano
+* promini
+* mega2560
+* lilypad
+* uno wifi rev2
+* sparkfunsamd21
+
+Additional boards can be added with minimal code changes.
 
 To add an additional board:
 1. The arduino core library (code programmed to the arduino) must provide a board id that is unique and matches the config id.

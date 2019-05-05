@@ -18,13 +18,15 @@
 pkg load instrument-control
 
 a = arduino();
+leds = getLEDTerminals(a);
+led = getPinsFromTerminals(a, leds{1});
 
 unwind_protect
   printf("starting to blink...\n");
   while (true)
-    writeDigitalPin(a, 'D13', 0);
+    writeDigitalPin(a, led, 0);
     pause(0.5);
-    writeDigitalPin(a, 'D13', 1);
+    writeDigitalPin(a, led, 1);
     pause(0.5);
   endwhile
 unwind_protect_cleanup

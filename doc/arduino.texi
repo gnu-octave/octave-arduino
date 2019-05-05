@@ -191,6 +191,8 @@ Arduino Pro/Pro Mini
 Sparkfun SAMD21
 @item
 Arduino Lilypad
+@item
+Arduino UNO WiFi rev2    *NOTE: may require modifcations to the servo package for conficts between servos and the tone library
 @end itemize
 
 Additional boards can be added easily, however require minor code changes.

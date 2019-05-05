@@ -1,6 +1,6 @@
 /*
  * Octave arduino core interface
- * Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+ * Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -42,6 +42,8 @@
   #define BOARD_ID  1
 #elif defined(ARDUINO_AVR_NANO)
   #define BOARD_ID  2
+#elif defined(ARDUINO_AVR_UNO_WIFI_REV2)
+  #define BOARD_ID  5
 #elif defined(ARDUINO_AVR_LILYPAD)
   #define BOARD_ID  10
 #elif defined(ARDUINO_AVR_PRO)
@@ -95,11 +97,18 @@ int get_mode(int m)
 }
 
 #define pinToAnalog(a) (a < A0 ? 0 : a-A0)
-   
-static uint8_t pinconfig[NUM_DIGITAL_PINS];
 
-#if defined (ARDUINO_ARCH_AVR)
-//void (*reset)(void) = 0;
+#ifndef NUM_TOTAL_PINS
+#define NUM_TOTAL_PINS NUM_DIGITAL_PINS
+#endif
+
+//#ifdef UNO_WIFI_REV2_328MODE
+//  #error ("Uno wifi firmware must be compiled without a 328 emultaion enabled")
+//#endif
+   
+static uint8_t pinconfig[NUM_TOTAL_PINS];
+
+#if defined (ARDUINO_ARCH_AVR) || defined (ARDUINO_ARCH_MEGAAVR)
 #include <avr/wdt.h>
 void  reset()
 { 
@@ -112,6 +121,8 @@ void reset()
   // processor software reset 
   NVIC_SystemReset();
 }
+#else
+  #error("Unimplemented architecture for reset")
 #endif
 
 OctaveCoreLibrary::OctaveCoreLibrary(OctaveArduinoClass &oc) 
@@ -123,7 +134,7 @@ OctaveCoreLibrary::OctaveCoreLibrary(OctaveArduinoClass &oc)
   oc.registerLibrary(this);
 
   // set pins as not set
-  for(int i = 0;i<NUM_DIGITAL_PINS;i++) {
+  for(int i = 0;i<NUM_TOTAL_PINS;i++) {
     pinconfig[i] = 0xff;
   }
 }
@@ -174,10 +185,10 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
 	break;
       }
       case ARDUINO_CONFIGPIN:
-        if (datasz == 1 && data[0] < NUM_DIGITAL_PINS) {
+        if (datasz == 1 && data[0] < NUM_TOTAL_PINS) {
           data[1] = pinconfig[data[0]]; // TODO: get mode somehow ????
           sendResponseMsg(cmdID,data, 2);
-        } else if (datasz == 2 && data[0] < NUM_DIGITAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode)) {
+        } else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode)) {
           int mode = get_mode(data[1]);
           pinconfig[data[0]] = data[1];
           pinMode(data[0], mode);
