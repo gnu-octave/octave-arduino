@@ -13,6 +13,7 @@ Summary of important user-visible changes for arduino 0.4.0:
     - bugfix to core subsref functions
     - updated property compare on core
     - attempt to use user arduino preferences as back up for arduino binary find
+    - get full windows port for scanForArduinos, no case compare for board type
   
   ** minor function documentation updates
 
