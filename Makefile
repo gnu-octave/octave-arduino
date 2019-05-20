@@ -46,19 +46,9 @@ HTML_TARBALL    := $(TARGET_DIR)/$(PACKAGE)-html.tar.gz
 MKOCTFILE ?= mkoctfile
 OCTAVE    ?= octave --no-gui
 
-## Remove if not needed, most packages do not have PKG_ADD directives.
-#M_SOURCES   := $(wildcard inst/*.m)
-#CC_SOURCES  := $(wildcard src/*.cc)
-#CC_TST_SOURCES := $(shell $(GREP) --files-with-matches '^%!' $(CC_SOURCES))
-#TST_SOURCES := $(patsubst src/%.cc,inst/test/%.cc-tst,$(CC_TST_SOURCES))
-#PKG_ADD     := $(shell $(GREP) -sPho '(?<=(//|\#\#) PKG_ADD: ).*' \
-#                         $(CC_SOURCES) $(M_SOURCES))
-#AUTOCONF_TARGETS := src/configure src/Makefile
-AUTOCONF_TARGETS := 
-
 ## Targets that are not filenames.
 ## https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: help dist html release install all check run clean autoconf_target test_files
+.PHONY: help dist html release install all check run clean
 
 ## make will display the command before runnning them.  Use @command
 ## to not display it (makes specially sense for echo).
@@ -103,14 +93,10 @@ html: $(HTML_TARBALL)
 $(RELEASE_DIR): .hg/dirstate
 	@echo "Creating package version $(VERSION) release ..."
 	$(RM) -r "$@"
-#	hg archive --exclude ".hg*" --exclude Makefile --type files "$@"
 	$(HG) archive --exclude ".hg*" --type files "$@"
 	$(MAKE) -C "$@" docs
 	# remove dev stuff
 	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py
-#	cd "$@/src" && aclocal -Im4 && autoconf && $(RM) -r "src/autom4te.cache"
-#	cd "$@/src" && ./bootstrap
-#	cd "$@" && $(MAKE) test_files
 	cd "$@" && $(RM) Makefile
 	chmod -R a+rX,u+w,go-w "$@"
 
@@ -135,7 +121,6 @@ doc/functions.texi:
 # tarball will use the implicit rule for ".tar.gz" files).
 html_options = --eval 'options = get_html_options ("octave-forge");' \
                --eval 'options.package_doc = "$(PACKAGE).texi";'
-#html_options = --eval 'options = get_html_options ("octave-forge");'
 $(HTML_DIR): install
 	@echo "Generating HTML documentation. This may take a while ..."
 	$(RM) -r "$@"
@@ -159,31 +144,10 @@ install: $(RELEASE_TARBALL)
 
 clean: cleandocs
 	$(RM) -r $(RELEASE_DIR) $(RELEASE_TARBALL) $(HTML_TARBALL) $(HTML_DIR)
-	#$(MAKE) -C src clean
-	#$(RM) -rf inst/test
 
 #
 # Recipes for testing purposes
 #
-
-inst/test:
-	@mkdir -p "$@"
-
-$(TST_SOURCES): inst/test/%.cc-tst: src/%.cc | inst/test
-	@echo "Extracting tests from $< ..."
-	@$(RM) -f "$@" "$@-t"
-	@(	echo "## Generated from $<"; \
-                $(GREP) '^%!' "$<") > "$@"
-
-src/configure: src/configure.ac
-	cd src && ./bootstrap
-
-src/Makefile: src/Makefile.in src/configure
-	cd src && ./configure
-
-autoconf_target: $(AUTOCONF_TARGETS)
-
-test_files: $(TST_SOURCES)
 
 # Build any requires oct files.  Some packages may not need this at all.
 # Other packages may require a configure file to be created and run first.
@@ -193,21 +157,17 @@ all:
 # interactice test of development sources.
 run: all
 	$(OCTAVE) --silent --persist --path "$(TOPDIR)/inst/"  \
-	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
-	  --eval '$(PKG_ADD)'
+	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;'
 
 rungui: all
 	$(OCTAVE) --silent --gui --persist --path "$(TOPDIR)/inst/"  \
-	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
-	  --eval '$(PKG_ADD)'
-
-
+	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;'
 
 # Test example blocks in the documentation.  Needs doctest package
 #  http://octave.sourceforge.net/doctest/index.html
 doctest: all
 	$(OCTAVE) --path "inst/" --path "src/" \
-	  --eval '${PKG_ADD}' \
+	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval 'pkg load doctest;' \
 	  --eval "targets = '$(shell (ls inst; ls src | grep .oct) | cut -f2 -d@ | cut -f1 -d.)';" \
 	  --eval "targets = strsplit (targets, ' ');" \
@@ -215,8 +175,7 @@ doctest: all
 
 # Note "doctest" as prerequesite.  When testing the package, also check
 # the documentation.
-check: all test_files
+check: all
 	$(OCTAVE) --silent --path "$(TOPDIR)/inst/" --path "src/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
-	  --eval '${PKG_ADD}' \
 	  --eval "__run_test_suite__ ({'$(TOPDIR)/inst'}, {})"
