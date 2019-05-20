@@ -94,3 +94,5 @@ Arduino I/O package
   arduinoio.LibFiles
   arduinoio.LibraryBase
   arduinoio.getBoardConfig
+Test Functions:
+  arduino_bistsetup

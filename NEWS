@@ -6,6 +6,7 @@ Summary of important user-visible changes for arduino 0.4.0:
 
   ** New functions:
     - @arduino/checkI2CAddress
+    - arduino_bistsetup
 
   ** Modified functions:
     - added optional libtype specifier to listArduinoLibraries
