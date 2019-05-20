@@ -68,22 +68,26 @@ function retval = arduino_bistsetup (varargin)
   endfor
 
   printf ("** Installing core libraries on arduino - please press upload in the IDE, and after completion, close the IDE\n"); 
+  fflush(stdout);
   if ! arduinosetup ('libraries', listArduinoLibraries('core'), varargin{:})
     error ("Failed to program the arduino");
   endif
 
   unwind_protect
     printf ("** Checking for any arduinos\n"); 
+    fflush(stdout);
     ars = scanForArduinos();
     printf ("Found %d\n", numel(ars));
 
     printf ("** Checking can open an UNO arduino\n"); 
+    fflush(stdout);
     ar = arduino ([], "uno", 'debug', debug);
     if ! isarduino(ar)
       error ('Couldnt load find an arduino UNO board')
     endif
 
     printf ("** Checking arduino version\n"); 
+    fflush(stdout);
     p = pkg('list', 'arduino');
     if isempty(p)
       error ('No arduino package found');
@@ -96,6 +100,7 @@ function retval = arduino_bistsetup (varargin)
 
     printf ('Arduino has been programmed and is ready for BIST testing\n');
     printf (['run: __run_test_suite__({"' p{1}.dir '"}, {})\n']);
+    fflush(stdout);
 
     ret = 1;
   unwind_protect_cleanup
