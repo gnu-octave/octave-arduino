@@ -78,6 +78,8 @@ function arduinos = scanForArduinos (maxCount, typestr)
       unwind_protect
         if isunix
           portname = ["/dev/" ports{i}];
+        elseif ispc
+          portname = [ "\\\\.\\" ports{i}];
         else
           portname = ports{i};
         endif
@@ -98,7 +100,7 @@ function arduinos = scanForArduinos (maxCount, typestr)
             sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
             board = dataout(4);
             voltref = double (dataout(5))/10.0;
-            if isempty (typestr) || (aruinoio.boardTypeString (board) == typestr)
+            if isempty (typestr) || strcmpi(arduinoio.boardTypeString (board), typestr)
               info = {};
               info.port = portname;
               info.board = arduinoio.boardTypeString (board);
