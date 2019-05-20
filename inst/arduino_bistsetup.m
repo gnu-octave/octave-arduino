@@ -77,7 +77,7 @@ function retval = arduino_bistsetup (varargin)
     ars = scanForArduinos();
     printf ("Found %d\n", numel(ars));
 
-    printf ("** Checking can open an arduino\n"); 
+    printf ("** Checking can open an UNO arduino\n"); 
     ar = arduino ([], "uno", 'debug', debug);
     if ! isarduino(ar)
       error ('Couldnt load find an arduino UNO board')
@@ -88,7 +88,7 @@ function retval = arduino_bistsetup (varargin)
     if isempty(p)
       error ('No arduino package found');
     endif
-    ver = p{1}.version
+    ver = p{1}.version;
 
     if ! strcmp(ver, version(ar))
       error ('Arduino version did not match %s : %s', ver, version(ar));
@@ -96,8 +96,10 @@ function retval = arduino_bistsetup (varargin)
 
     printf ('Arduino has been programmed and is ready for BIST testing\n');
     printf (['run: __run_test_suite__({"' p{1}.dir '"}, {})\n']);
+
+    ret = 1;
   unwind_protect_cleanup
-    clear ar
+    clear ar;
   end_unwind_protect
   
 endfunction
