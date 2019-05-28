@@ -62,7 +62,7 @@ function [value, time] = readCount(obj, reset, resetvalue)
   value = typecast(uint16(tmp(2))*256 + uint16(tmp(3)), 'int16');
 
   time = uint32(tmp(4))*(256*256*256) + uint32(tmp(5))*(256*256) + uint32(tmp(6))*256 + uint32(tmp(7));
-  time = time/1000.0;
+  time = double(time)/1000.0;
 endfunction
 
 %!test
