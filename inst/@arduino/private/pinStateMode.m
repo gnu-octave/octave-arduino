@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -38,6 +38,8 @@ function [pstate, pmode]  = pinStateMode (pinStateVal)
         pstate = 7;  pmode="pwm";
       case "spi"
         pstate = 3;  pmode="spi"; % for now just setting as output
+      case "interrupt"
+        pstate = 2;  pmode="interrupt"; % for now just setting as input
       otherwise
         error ("unknown pin state %s", pinStateVal);
     endswitch
@@ -59,6 +61,8 @@ function [pstate, pmode]  = pinStateMode (pinStateVal)
         pstate = "servo"; pmode="pwm";
       case 8
         pstate = "spi";  pmode="spi";
+      case 9
+        pstate = "interrupt";  pmode="interrupt";
       otherwise
         pstate = "unset"; pmode="";
     endswitch

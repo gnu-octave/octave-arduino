@@ -60,6 +60,8 @@
 ## - Specify pin to use a servo
 ## @item SPI
 ## - Specify a pin to use with SPI protocol
+## @item Interrupt
+## - Specify a pin to use with interrupts
 ## @item Reserved
 ## - Pin marked reserved, but not for of any particular mode
 ## @item Unset
