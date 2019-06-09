@@ -6,6 +6,9 @@ Summary of important user-visible changes for arduino 0.4.0+:
   ** New functions:
     - @arduino/getInterruptTerminals
 
+  ** new classes
+    - @ultrasonic
+
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------
  

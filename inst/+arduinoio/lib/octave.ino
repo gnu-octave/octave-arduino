@@ -53,7 +53,10 @@ OctaveShiftRegisterLibrary lib4(octavearduino);
 OctaveRotaryEncoderLibrary lib5(octavearduino);
 #endif
 
-
+#ifdef USE_ULTRASONIC
+#include "OctaveUltrasonicLibrary.h"
+OctaveUltrasonicLibrary lib6(octavearduino);
+#endif
 
 // additional addons included from generated addons.h file
 #include "addons.h"

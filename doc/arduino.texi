@@ -388,6 +388,17 @@ encoder = rotaryEncoder(ar, "d2", "d3", 180);
 
 Using the created object, the rotary encoder value and speed can be read.
 
+@section Ultrasonic Sensors
+@cindex Ultrasonic Sensors
+
+An ultrasonic sensor can be read by creating an ultrasonic object.
+
+@example
+sensor = ultrasonic(ar, "d9", "d10");
+@end example
+
+Using the created object, the sensor distance and echo time and be read.
+
 @c -------------------------------------------------------------------------
 @node Addons Overview
 @chapter Addons Overview

@@ -187,6 +187,13 @@ function retval = arduinosetup (varargin)
     else
       fprintf (fd, "//#define USE_ROTARYENCODER\n");
     endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "Ultrasonic"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_ULTRASONIC\n");
+    else
+      fprintf (fd, "//#define USE_ULTRASONIC\n");
+    endif
  
     fclose (fd);
 

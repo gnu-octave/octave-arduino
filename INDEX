@@ -74,6 +74,12 @@ Arduino SPI Functions
   @spidev/spidev
   @spidev/subsref
   @spidev/writeRead
+Arduino Ultrasonic Functions
+  @ultrasonic/display
+  @ultrasonic/ultrasonic
+  @ultrasonic/subsref
+  @ultrasonic/readDistance
+  @ultrasonic/readEchoTime
 Arduino Addons
   addon
   arduinoioaddons.ExampleAddon.Echo
