@@ -38,6 +38,13 @@
 ##
 ## Currently known input SPI properties values:
 ## @table @asis
+## @item bitrate
+## bit rate speed in Mbs
+## @item bitorder
+## 'msbfirst' or 'lsbfirst'
+## @item spimode
+## SPI mode 0 - 3.
+
 ## @end table
 ##
 ## @subsubheading Outputs
@@ -70,7 +77,7 @@
 ## @subsubheading SPI Properties
 ## The object has the following public properties:
 ## @table @asis
-## @item mode
+## @item spimode
 ## mode used for created object
 ## @item bitrate
 ## Bitrate set for object
@@ -78,6 +85,12 @@
 ## Bitorder set for object
 ## @item spichipselectpin
 ## Pin used for chipselect
+## @item mosipin
+## Pin used for mosi
+## @item misopin
+## Pin used for miso
+## @item sckpin
+## Pin used for sckpin
 ## @end table
 ##
 ## @seealso{arduino, i2cdev, spidev}
@@ -169,13 +182,13 @@ function this = device(varargin)
     p.CaseSensitive = false;
     p.addRequired('ar', @isarduino);
     p.addParameter('SPIChipSelectPin', "", pin_type);
-    p.addParameter('Mode', 0, mode_type);
+    p.addParameter('SPIMode', 0, mode_type);
     p.addParameter('BitRate', 4000000, @isnumeric);
     p.addParameter('BitOrder', "mbsfirst", bitorder_type);
     p.parse(varargin{:});
 
     this.device.chipselectpin = p.Results.SPIChipSelectPin;
-    this.device.mode = p.Results.Mode;
+    this.device.mode = p.Results.SPIMode;
     this.device.bitrate = p.Results.BitRate;
     this.device.bitorder = tolower(p.Results.BitOrder);
 
