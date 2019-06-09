@@ -160,7 +160,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
 
       obj.Parent = parentObj;
       obj.I2CAddress = p.Results.I2CAddress;
-      obj.i2c = i2cdev(parentObj, p.Results.I2CAddress);
+      obj.i2c = device(parentObj, "i2caddress", p.Results.I2CAddress);
       obj.Pins = obj.i2c.Pins;
       obj.PWMFrequency = p.Results.PWMFrequency;
 

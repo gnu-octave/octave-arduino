@@ -176,7 +176,7 @@ classdef DS1307 < arduinoio.LibraryBase
 
       obj.Parent = parentObj;
       obj.address = p.Results.Address;
-      obj.i2c = i2cdev(parentObj, obj.address);
+      obj.i2c = device(parentObj, "i2caddress", obj.address);
       obj.Pins = obj.i2c.Pins;
 
       # our arduino part isn't needed as we are really just using the i2c, but

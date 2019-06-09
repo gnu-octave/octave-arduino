@@ -83,7 +83,8 @@ unwind_protect
     error ('scanI2bus failed - skipping eeprom tests')
   else
     printf("* opening i2c...\n");
-    i2c = i2cdev(a, eeprom_address);
+    #i2c = i2cdev(a, eeprom_address);
+    i2c = device(a, "i2caddress", eeprom_address);
     if isempty(i2c)
       printf("** i2cdev failed **\n")
     endif
@@ -161,7 +162,8 @@ unwind_protect
 
   printf("3. SPI tests with ADC\n");
   printf("* opening spi...\n");
-  spi = spidev(a, "d10");
+  #spi = spidev(a, "d10");
+  spi = device(a, "spichipselectpin", "d10");
   if isempty(spi)
     printf("** spi failed **\n")
   endif

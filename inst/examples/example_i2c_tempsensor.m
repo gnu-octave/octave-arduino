@@ -45,7 +45,10 @@ unwind_protect
 
   printf ("opening i2c...\n");
 
-  i2c = i2cdev (a, temp_address)
+  #old style
+  #i2c = i2cdev (a, temp_address)
+  # new style
+  i2c = device (a, "i2caddress", temp_address)
   SENSOR_ID_1 = [ hex2dec("FA") hex2dec("F0") ];
   SENSOR_ID_2 = [ hex2dec("FC") hex2dec("C9") ];
 

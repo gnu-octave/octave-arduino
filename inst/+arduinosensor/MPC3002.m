@@ -95,7 +95,7 @@ classdef MPC3002 < handle
       p.addParameter('referenceVoltage', 5.0, @isnumeric);
       p.parse(varargin{:});
 
-      this.spi = spidev(parentObj, selectpin);
+      this.spi = device(parentObj, "spichipselectpin", selectpin);
       this.reference_voltage = p.Results.referenceVoltage;
 
       # initial read

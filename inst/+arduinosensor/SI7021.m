@@ -132,7 +132,7 @@ classdef SI7021 < handle
         error('arduinosensor.SI7021: no matching i2c address found on bus');
       endif
 
-      this.i2c = i2cdev(parentObj, p.Results.I2CAddress);
+      this.i2c = device(parentObj, "i2caddress", p.Results.I2CAddress);
     endfunction
 
     function inf = info (this)

@@ -306,10 +306,10 @@ The arduino toolkit supports more complex I/O for SPI, I2C, Servo control and mo
 @section SPI communication
 @cindex SPI communication
 
-SPI communication can be performed by creating a SPI dev object and then calling the writeRead function:
+SPI communication can be performed by creating a SPI device object and then calling the writeRead function:
 
 @example
-spi = spidev (ar,  "d2");
+spi = device (ar,  "spichipselectpin", "d2");
 @end example
 
 The function call expects a connected arduino object as the first argument, followed by the chip select pin of the SPI device.
@@ -317,7 +317,7 @@ The function call expects a connected arduino object as the first argument, foll
 After a device is created, a write to device followed by read can can be made using the writeRead function:
 
 @example
-spi = spidev (ar,  "d2");
+spi = device (ar,  "spichipselectpin", "d2");
 data = writeRead (spi,  100);
 @end example
 
@@ -325,11 +325,11 @@ data = writeRead (spi,  100);
 @section I2C communication
 @cindex I2C communication
 
-I2C communication can be performed by creating an I2C dev object for a specific I2C address.
+I2C communication can be performed by creating an I2C device object for a specific I2C address.
 
 The following example creates an I2C device that will communicate with a I2C device at address 100"
 @example
-i2c = i2cdev (ar,  100);
+i2c = device (ar,  "i2caddress", 100);
 @end example
 
 After creating an I2C device, data can be read and written using read, write, readRegister and writeRegister. The data to send 
@@ -863,7 +863,7 @@ The devices listed should contain 0x50, the address of the EEPROM chip.
 
 @heading Create an I2C object to communicate to the EEPROM
 @example
-eeprom = i2cdev(ar, 0x50)
+eeprom = device (ar, "i2caddress", 0x50)
 @end example
 
 @heading Write data to the EEPROM
@@ -930,7 +930,7 @@ connect to the correct device.
 
 @heading Create an SPI object to communicate to the MCP3002
 @example
-adc = spidev(ar, "d10")
+adc = device(ar, "spichipselectpin", "d10")
 @end example
 
 The d10 is the chip select pin connected from the Arduino to the MCP3002.

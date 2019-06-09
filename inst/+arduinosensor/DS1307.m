@@ -160,7 +160,7 @@ classdef DS1307 < handle
 	error('arduinosensor.DS1307: no matching i2c address found on bus');
       endif
 
-      this.i2c = i2cdev(parentObj, p.Results.I2CAddress);
+      this.i2c = device(parentObj, "i2caddress", p.Results.I2CAddress);
     endfunction
 
     function c = clock (this, settime)

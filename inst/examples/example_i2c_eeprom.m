@@ -33,6 +33,7 @@ data = "this is eeprom data";
 a = arduino()
 
 unwind_protect
+  [~, ~, endian] = computer ();
 
   printf("i2c terminals\n")
   getI2CTerminals(a)
@@ -47,7 +48,10 @@ unwind_protect
 
   printf("opening i2c...\n");
 
-  i2c = i2cdev(a, eeprom_address)
+  # oldstyle
+  # i2c = i2cdev(a, eeprom_address)
+  # new style
+  i2c = device(a, "i2caddress", eeprom_address)
 
   printf("writing i2c...\n");
   # write data to address 0x0000
@@ -60,26 +64,39 @@ unwind_protect
 
   # demo read/write register
   val = readRegister(i2c, 0, 2, 'uint16');
-  printf("reading as reg from 0x0000 = expecting %X %X, and got '%X %X'\n", typecast(data(1:2),'uint16'),typecast(data(3:4), 'uint16'), val(1), val(2))
+  expected = [typecast(data(1:2),'uint16'),typecast(data(3:4), 'uint16')];
+  # since default to msb, result will be swapped if we are low endian
+  if endian == 'L'
+    expected = swapbytes(expected);
+  endif
+  printf("reading as reg from 0x0000 = expecting %X %X, and got '%X %X'\n", expected(1), expected(2), val(1), val(2))
 
   # 2nd page
   write(i2c, [1 0   0 1 0 2 0 3 0 4]);
 
+  # read from address 0 of page
+  # 0 1 0 2
   write(i2c, uint8([1 0]));
-  valu = read(i2c, 4)
+  valu = read(i2c, 4);
 
+  # read as register from address 0 of page 1
+  # 1 2
   val = readRegister(i2c, 256, 2, 'uint16')
 
+  # 2 3
   valx = readRegister(i2c, 258, 2, 'uint16')
 
+  # 0 2 0 3
   write(i2c, uint8([1 2]));
   valux = read(i2c, 4)
 
-  # 02 03
+  # write page 1, address 2 - 4
   writeRegister(i2c, 258, [8 9], 'uint16')
 
+  # 0 8 0 9
   write(i2c, uint8([1 2]));
   valux = read(i2c, 4)
+  # 8 9
   valx = readRegister(i2c, 258, 2, 'uint16')
 
   clear i2c

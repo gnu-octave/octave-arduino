@@ -31,7 +31,8 @@ unwind_protect
 
   # talk to the mpc3002 via spi - SS = D10 on uno
   # set msb mode
-  spi = spidev(ar, "d10")
+  #spi = spidev(ar, "d10")
+  spi = device(ar, "spichipselectpin", "d10")
 
   # command (bits) in MSB mode to device
   # [START SGL ODN MSBF X X X X] [ X X X X X X X X ] 
