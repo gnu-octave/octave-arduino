@@ -10,6 +10,10 @@ Summary of important user-visible changes for arduino 0.4.0+:
     - @ultrasonic
     - @device
 
+  ** Depreciated
+    - @spidev - use @device
+    - @i2cdev - use @device
+
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------
  
