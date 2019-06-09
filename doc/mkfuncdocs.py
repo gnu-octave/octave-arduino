@@ -115,8 +115,11 @@ def read_index (filename, ignore):
       first = False
     elif l.startswith(" "):
         l = l.strip()
-        if l not in ignore:
-          category.functions.append(l);
+        # may be multiple functions here
+        funcs = l.split()
+        for f in funcs:
+          if f not in ignore:
+            category.functions.append(f);
     else:
       # new category name
       if len(category.functions) > 0:
