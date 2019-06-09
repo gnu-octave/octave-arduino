@@ -50,6 +50,13 @@ Arduino I2C Functions
   @i2cdev/subsref
   @i2cdev/write
   @i2cdev/writeRegister
+  @device/device
+  @device/display
+  @device/read
+  @device/readRegister
+  @device/subsref
+  @device/write
+  @device/writeRegister
 Arduino Rotary Encoder Functions
   @rotaryEncoder/display
   @rotaryEncoder/readCount
@@ -75,6 +82,10 @@ Arduino SPI Functions
   @spidev/spidev
   @spidev/subsref
   @spidev/writeRead
+  @device/device
+  @device/display
+  @device/subsref
+  @device/writeRead
 Arduino Ultrasonic Functions
   @ultrasonic/display
   @ultrasonic/ultrasonic

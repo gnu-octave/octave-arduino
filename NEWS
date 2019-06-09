@@ -8,6 +8,7 @@ Summary of important user-visible changes for arduino 0.4.0+:
 
   ** new classes
     - @ultrasonic
+    - @device
 
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------
