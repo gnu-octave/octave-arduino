@@ -13,6 +13,10 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} i2cdev (@var{ar}, @var{address})
 ## @deftypefnx {} {@var{dev} =} i2cdev (@var{ar}, @var{address}, @var{propname}, @var{propvalue})
+##
+## @code{i2cdev} is depreciated and will be removed in a future version.
+## Use @code{device} instead.
+##
 ## Create an i2cdev object to communicate to the i2c port on a connected arduino.
 ##
 ## @subsubheading Inputs
@@ -51,6 +55,13 @@
 function p = i2cdev(varargin)
   ARDUINO_I2C_CONFIG = 1;
 
+  persistent warned = false;
+  if (! warned)
+    warned = true;
+    warning ("Octave:deprecated-function",
+             "spidev is obsolete and will be removed from a future version of arduino, please use 'device' instead");
+  endif
+ 
   if nargin < 2
     error("expects arduino object and address");
   endif

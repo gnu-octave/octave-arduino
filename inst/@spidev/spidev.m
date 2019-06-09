@@ -13,6 +13,10 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} spidev (@var{ar}, @var{cspin})
 ## @deftypefnx {} {@var{dev} =} spidev (@var{ar}, @var{cspin}, @var{propname}, @var{propvalue})
+##
+## @code{spidev} is depreciated and will be removed in a future version.
+## Use @code{device} instead.
+##
 ## Create an spidev object to communicate to the SPI port on a connected arduino.
 ##
 ## @subsubheading Inputs
@@ -57,6 +61,13 @@
 
 function this = spidev (varargin)
   ARDUINO_SPI_CONFIG = 1;
+
+  persistent warned = false;
+  if (! warned)
+    warned = true;
+    warning ("Octave:deprecated-function",
+             "spidev is obsolete and will be removed from a future version of arduino, please use 'device' instead");
+  endif
   
   if nargin < 2
     error ("expects arduino object and chipselect pin");
