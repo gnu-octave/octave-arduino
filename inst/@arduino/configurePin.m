@@ -52,6 +52,8 @@
 ## - Specify pin to use a servo
 ## @item SPI
 ## - Specify a pin to use with SPI protocol
+## @item Interrupt
+## - Specify a pin to use for with interrupts
 ## @item Unset
 ## - Clears pin designation. The pin is no longer reserved and can be automatically
 ## set at the next operation.

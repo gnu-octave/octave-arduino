@@ -85,6 +85,7 @@ static const uint8_t map_config_mode[] PROGMEM = {
   OUTPUT, // pwm
   OUTPUT, // servo
   OUTPUT, // spi TODO ?
+  INPUT,  // interrupt
 };
 
 int get_mode(int m)

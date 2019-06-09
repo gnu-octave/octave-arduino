@@ -1,3 +1,14 @@
+Summary of important user-visible changes for arduino 0.4.0+:
+-------------------------------------------------------------------
+  ** Modified functions:
+    - return fraction of time for rotaryEncoder.readCount (Bug #56377)
+
+  ** New functions:
+    - @arduino/getInterruptTerminals
+
+  ** new classes
+    - @ultrasonic
+
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------
  

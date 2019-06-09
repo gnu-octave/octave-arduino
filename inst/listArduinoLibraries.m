@@ -60,6 +60,7 @@ function retval = listArduinoLibraries (libtypes)
     retval{end+1} = 'SPI';
     retval{end+1} = 'ShiftRegister';
     retval{end+1} = 'RotaryEncoder';
+    retval{end+1} = 'Ultrasonic';
   endif
 
   # add ons
