@@ -14,6 +14,9 @@ Summary of important user-visible changes for arduino 0.4.0+:
     - @spidev - use @device
     - @i2cdev - use @device
 
+ ** New board configurations:
+    - Arduino Pro Micro
+
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------
  

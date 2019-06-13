@@ -188,6 +188,8 @@ Arduino Nano
 @item
 Arduino Pro/Pro Mini
 @item
+Arduino Pro Micro
+@item
 Sparkfun SAMD21
 @item
 Arduino Lilypad

@@ -48,6 +48,8 @@
   #define BOARD_ID  10
 #elif defined(ARDUINO_AVR_PRO)
   #define BOARD_ID  20
+#elif defined(ARDUINO_AVR_PROMICRO)
+  #define BOARD_ID  21
 #elif defined(ARDUINO_SAMD_ZERO)
   // sparkfun samed21 dev/mini
   #if USB_VID == 0x1B4F && USB_PID == 0x8D21
@@ -64,7 +66,7 @@
 #ifndef BOARD_VOLTAGE
   #if defined(ARDUINO_ARCH_SAMD)
     #define BOARD_VOLTAGE 33
-  #elif defined(ARDUINO_AVR_PRO)
+  #elif defined(ARDUINO_AVR_PRO) || defined(ARDUINO_AVR_PROMICRO)
    #if F_CPU == 8000000L 
     #define BOARD_VOLTAGE 33
    #else

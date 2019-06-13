@@ -51,6 +51,7 @@ Currently the toolkit recognizes 7 boards:
 * uno
 * nano
 * promini
+* promicro
 * mega2560
 * lilypad
 * uno wifi rev2
