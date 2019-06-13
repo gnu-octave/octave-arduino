@@ -44,7 +44,6 @@
 ## 'msbfirst' or 'lsbfirst'
 ## @item spimode
 ## SPI mode 0 - 3.
-
 ## @end table
 ##
 ## @subsubheading Outputs
