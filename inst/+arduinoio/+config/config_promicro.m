@@ -49,12 +49,12 @@ function retval = config_promicro (initdata)
 
 #  retval.pins{end+1} = arduinoio.config.pin_info('D11', 11, { 'digital', 'pwm' });
 #  retval.pins{end+1} = arduinoio.config.pin_info('D12', 12, { 'digital' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D13', 13, { 'digital', 'led', 'pwm' });
+#  retval.pins{end+1} = arduinoio.config.pin_info('D13', 13, { 'digital', 'led', 'pwm' });
 
   retval.pins{end+1} = arduinoio.config.pin_info('D14', 14, { 'digital', 'spi_miso' });
   retval.pins{end+1} = arduinoio.config.pin_info('D15', 15, { 'digital', 'spi_sck' });
   retval.pins{end+1} = arduinoio.config.pin_info('D16', 16, { 'digital', 'spi_mosi' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D17', 17, { 'digital', 'spi_ss' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D17', 17, { 'digital', 'spi_ss', 'led' });
 
   retval.pins{end+1} = arduinoio.config.pin_info('A0', 18, { 'digital', 'analog' });
   retval.pins{end+1} = arduinoio.config.pin_info('A1', 19, { 'digital', 'analog' });
@@ -63,8 +63,8 @@ function retval = config_promicro (initdata)
 
 #  retval.pins{end+1} = arduinoio.config.pin_info('A4', 22, { 'digital', 'analog' });
 #  retval.pins{end+1} = arduinoio.config.pin_info('A5', 23, { 'digital', 'analog' });
-#  retval.pins{end+1} = arduinoio.config.pin_info('A6', 24, { 'digital', 'analog' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D24', 24, { 'digital', 'led' });
+
+  retval.pins{end+1} = arduinoio.config.pin_info('D24', 24, { 'digital' }); # A6
 
 #  retval.pins{end+1} = arduinoio.config.pin_info('A7', 25, { 'digital', 'analog' });
 #  retval.pins{end+1} = arduinoio.config.pin_info('A8', 26, { 'digital', 'analog' });
@@ -72,5 +72,5 @@ function retval = config_promicro (initdata)
 #  retval.pins{end+1} = arduinoio.config.pin_info('A10', 28, { 'digital', 'analog' });
 #  retval.pins{end+1} = arduinoio.config.pin_info('A11', 29, { 'digital', 'analog' });
 
-#  retval.pins{end+1} = arduinoio.config.pin_info('D30', 30, { 'digital' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D30', 30, { 'digital', 'led' });
 endfunction

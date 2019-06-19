@@ -51,6 +51,8 @@ function retval = __initArduino__ (obj, port, board)
 	   mcu = "atmega1280";
          case hex2dec("1E9702")
 	   mcu = "atmega128";
+         case hex2dec("1E9587")
+	   mcu = "atmega32u4";
 	 otherwise
 	   mcu = sprintf("unknown_mcu(%X)", sig);
      endswitch
