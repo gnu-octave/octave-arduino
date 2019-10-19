@@ -57,6 +57,12 @@
 ## @table @asis
 ## @item baudrate
 ## baudrate value (default 9600)
+## @item databits
+## number of databits (5,6,7,8) (default 8)
+## @item stopbits
+## number of stopbits (1,2) (default 1)
+## @item parity
+## parity of device ('odd','even','none') (default 'none')
 ## @end table
 ##
 ##
@@ -113,6 +119,12 @@
 ## serial port id
 ## @item baudrate
 ## baudrate
+## @item databits
+## number of databits (5,6,7,8)
+## @item stopbits
+## number of stopbits (1,2)
+## @item parity
+## parity of device ('odd','even','none')
 ## @end table
 ##
 ## @seealso{arduino, i2cdev, spidev}
@@ -306,16 +318,27 @@ function this = device(varargin)
     this.interface = "Serial";
     this.resourceowner = "serial";
 
+    parity_type = @(x) (ischar(x) && any(stricmp(x, {"none", "odd", "even"})));
+    databits_type = @(x) (isnumeric(x) && x >= 5 && x <= 8);
+    stopbits_type = @(x) (isnumeric(x) && x >= 1 && x <= 2);
+    baudrate_type = @(x) (isnumeric(x) && x >= 300 && x <= 115200);
+
     p = inputParser();
     p.FunctionName = 'device';
     p.CaseSensitive = false;
     p.addRequired('ar', @isarduino);
     p.addParameter('Serial', -1, @isnumeric);
-    p.addParameter('BaudRate', 9600, @isnumeric);
+    p.addParameter('BaudRate', 9600, baudrate_type);
+    p.addParameter('DataBits', 8, databits_type);
+    p.addParameter('StopBits', 1, stopbits_type);
+    p.addParameter('Parity', "none", parity_type);
     p.parse(varargin{:});
 
     this.device.id = p.Results.Serial;
     this.device.baudrate = p.Results.BaudRate;
+    this.device.databits = p.Results.DataBits;
+    this.device.stopbits = p.Results.StopBits;
+    this.device.parity = p.Results.Parity;
     this.id = p.Results.Serial;
 
     name = ["uart" num2str(this.id) "_"]; 
@@ -329,8 +352,18 @@ function this = device(varargin)
       for i=1:2
         configurePin(this.parent, this.pins{i}.name, "reserved")
       endfor
-      # TODO: baudrate etc
-      [tmp, sz] = sendCommand(this.parent, "serial", ARDUINO_SERIAL_CONFIG, [this.id 1]);
+      
+      baudrate = uint32(this.device.baudrate);
+      baudin = [ bitand(bitshift(baudrate,-24), 255) bitand(bitshift(baudrate,-16), 255), bitand(bitshift(baudrate,-8), 255), bitand(baudrate, 255)];
+
+      parity = 0;
+      if strcmpi(this.device.parity, "odd")
+        parity = 1;
+      elseif strcmpi(this.device.parity, "even")
+        parity = 2;
+      endif
+
+      [tmp, sz] = sendCommand(this.parent, "serial", ARDUINO_SERIAL_CONFIG, [this.id 1 baudin this.device.databits this.device.stopbits parity]);
     catch
       for i=1:2
         configurePinResource(this.parent, this.pins{i}.name, this.pins{i}.owner, this.pins{i}.mode, true)

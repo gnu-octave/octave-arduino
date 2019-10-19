@@ -71,6 +71,14 @@ function val = subsref (this, s)
           val = this.parent;
         case "baudrate"
 	  val = this.device.baudrate;
+        case "databits"
+	  val = this.device.databits;
+        case "stopbits"
+	  val = this.device.stopbits;
+        case "parity"
+	  val = this.device.parity;
+        case "serialport"
+	  val = this.device.id;
         otherwise
 	  error ("device.subsref invalid property '%s'", fld);
       endswitch
