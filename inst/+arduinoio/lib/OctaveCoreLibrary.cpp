@@ -50,13 +50,15 @@
   #define BOARD_ID  20
 #elif defined(ARDUINO_AVR_PROMICRO)
   #define BOARD_ID  21
+#elif defined(ARDUINO_AVR_LEONARDO)
+  #define BOARD_ID  22
 #elif defined(ARDUINO_SAMD_ZERO)
   // sparkfun samed21 dev/mini
   #if USB_VID == 0x1B4F && USB_PID == 0x8D21
     #define BOARD_ID 41
   #else
     // Arduino Zero
-    #define BOARD_ID 20
+    #define BOARD_ID 40
   #endif
 #else
   #error "Unknown board type"

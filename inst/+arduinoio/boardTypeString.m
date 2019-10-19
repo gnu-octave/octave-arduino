@@ -43,6 +43,10 @@ function retval = boardTypeString (id)
       retval = "promini";
     case 21
       retval = "promicro";
+    case 22
+      retval = "leonardo";
+    #case 40
+    #  retval = "zero";
     case 41
       retval = "sparkfunsamd21";
     otherwise

@@ -16,6 +16,7 @@ Summary of important user-visible changes for arduino 0.4.0+:
 
  ** New board configurations:
     - Arduino Pro Micro
+    - Arduino Leonardo
 
 Summary of important user-visible changes for arduino 0.4.0:
 -------------------------------------------------------------------

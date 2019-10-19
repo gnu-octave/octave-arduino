@@ -53,6 +53,7 @@ Currently the toolkit recognizes 7 boards:
 * promini
 * promicro
 * mega2560
+* leonardo
 * lilypad
 * uno wifi rev2
 * sparkfunsamd21
