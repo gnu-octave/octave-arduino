@@ -20,7 +20,7 @@
 ##
 ## Function is essentially just a call of
 ## @code {
-## retval = asis(obj, "arduino");
+## retval = isa(obj, "arduino");
 ## }
 ##
 ## @subsubheading Inputs
