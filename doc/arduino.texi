@@ -414,6 +414,29 @@ sensor = ultrasonic(ar, "d9", "d10");
 
 Using the created object, the sensor distance and echo time and be read.
 
+@section Serial communication
+@cindex Serial communication
+
+Serial communication can be performed on devices that support multiple serial devices such as the leonardo and mega2560 boards. 
+The communications port to Octave is reserved and can not be used as a user controlled communications port.
+
+
+Serial communication can be performed by creating a serial device object and then calling teh read and write functions:
+
+@example
+ser = device (ar,  "serial", 1);
+@end example
+
+The function call expects a connected arduino object as the first argument, followed "serial" and serial id.
+
+After a device is created, the device can be read and written:
+
+@example
+ser = device (ar,  "serial", 1);
+write(ser, "hello");
+data = read(ser, 100);
+@end example
+
 @c -------------------------------------------------------------------------
 @node Addons Overview
 @chapter Addons Overview

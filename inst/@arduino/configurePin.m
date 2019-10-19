@@ -54,6 +54,8 @@
 ## - Specify a pin to use with SPI protocol
 ## @item Interrupt
 ## - Specify a pin to use for with interrupts
+## @item Reserved
+## - Specify a pin to be reserved
 ## @item Unset
 ## - Clears pin designation. The pin is no longer reserved and can be automatically
 ## set at the next operation.
@@ -97,7 +99,7 @@ function retval = configurePin (obj, pin, mode)
     endif
 
     % valid setting for this pin ?
-    if !strcmpi (mode, "unset")
+    if !strcmpi (mode, "unset") && !strcmp(mode, "reserved")
       validatePin (obj, pin, pinmode);
     else
       pinmode = getResourceOwner (obj, pin);

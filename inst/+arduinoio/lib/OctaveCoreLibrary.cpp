@@ -77,7 +77,9 @@
   #endif
 #endif
 
-static const uint8_t map_config_mode[] PROGMEM = {
+static const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
+
+static const int8_t map_config_mode[] PROGMEM = {
   INPUT, // unset
   INPUT, // analoginput
   INPUT, // dig in
@@ -88,6 +90,7 @@ static const uint8_t map_config_mode[] PROGMEM = {
   OUTPUT, // servo
   OUTPUT, // spi TODO ?
   INPUT,  // interrupt
+  -1,     // reserved
 };
 
 int get_mode(int m)
@@ -191,10 +194,15 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
         if (datasz == 1 && data[0] < NUM_TOTAL_PINS) {
           data[1] = pinconfig[data[0]]; // TODO: get mode somehow ????
           sendResponseMsg(cmdID,data, 2);
+        } else if (datasz == 2 && data[1] >= sizeof(map_config_mode)) {
+          sendErrorMsg_P(ERRORMSG_INVALID_MODE);
         } else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode)) {
           int mode = get_mode(data[1]);
           pinconfig[data[0]] = data[1];
-          pinMode(data[0], mode);
+	  if(mode != -1)
+	  {
+            pinMode(data[0], mode);
+	  }
           sendResponseMsg(cmdID,data, 0);
         } else {
           sendInvalidNumArgsMsg();

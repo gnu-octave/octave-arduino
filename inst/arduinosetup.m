@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -193,6 +193,13 @@ function retval = arduinosetup (varargin)
       fprintf (fd, "#define USE_ULTRASONIC\n");
     else
       fprintf (fd, "//#define USE_ULTRASONIC\n");
+    endif
+
+    idx = find (cellfun(@(x) strcmpi(x, "Serial"), builtinlibs), 1);
+    if !isempty(idx)
+      fprintf (fd, "#define USE_SERIAL\n");
+    else
+      fprintf (fd, "//#define USE_SERIAL\n");
     endif
  
     fclose (fd);

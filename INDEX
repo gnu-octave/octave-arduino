@@ -86,6 +86,13 @@ Arduino SPI Functions
   @device/display
   @device/subsref
   @device/writeRead
+Arduino Serial Functions
+  @device/device
+  @device/display
+  @device/flush
+  @device/read
+  @device/subsref
+  @device/write
 Arduino Ultrasonic Functions
   @ultrasonic/display
   @ultrasonic/ultrasonic
@@ -112,5 +119,5 @@ Arduino I/O package
   arduinoio.LibFiles
   arduinoio.LibraryBase
   arduinoio.getBoardConfig
-Test Functions:
+Test Functions
   arduino_bistsetup

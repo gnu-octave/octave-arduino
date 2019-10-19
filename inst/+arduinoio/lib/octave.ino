@@ -1,6 +1,6 @@
 /*
  * Octave arduino interface
- * Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+ * Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -57,6 +57,12 @@ OctaveRotaryEncoderLibrary lib5(octavearduino);
 #include "OctaveUltrasonicLibrary.h"
 OctaveUltrasonicLibrary lib6(octavearduino);
 #endif
+
+#ifdef USE_SERIAL
+#include "OctaveSerialLibrary.h"
+OctaveSerialLibrary lib7(octavearduino);
+#endif
+
 
 // additional addons included from generated addons.h file
 #include "addons.h"

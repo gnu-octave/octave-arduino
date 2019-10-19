@@ -35,8 +35,8 @@ function retval = config_promicro (initdata)
 
   # pin config
   retval.pins = {};
-  retval.pins{end+1} = arduinoio.config.pin_info('D0', 0, { 'digital', 'uart' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D1', 1, { 'digital', 'uart' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D0', 0, { 'digital', 'uart1_rx' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D1', 1, { 'digital', 'uart1_tx' });
   retval.pins{end+1} = arduinoio.config.pin_info('D2', 2, { 'digital', 'i2c_sda', 'interrupt' });
   retval.pins{end+1} = arduinoio.config.pin_info('D3', 3, { 'digital', 'i2c_scl', 'interrupt', 'pwm' });
   retval.pins{end+1} = arduinoio.config.pin_info('D4', 4, { 'digital' }); # share A6

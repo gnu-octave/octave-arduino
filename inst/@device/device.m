@@ -13,19 +13,22 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{dev} =} device (@var{ar}, 'I2CAddress', @var{address})
 ## @deftypefnx {} {@var{dev} =} device (@var{ar}, 'SPIChipSelectPin', @var{pin})
+## @deftypefnx {} {@var{dev} =} device (@var{ar}, 'Serial', @var{serialid})
 ## @deftypefnx {} {@var{dev} =} device (..., @var{propname}, @var{propvalue})
-## Create an i2c or spi object to communicate on a connected arduino.
+## Create an i2c, spi or serial object to communicate on a connected arduino.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - connected arduino object
 ##
 ## @var{propname}, @var{propvalue} - property name/value pair for values to pass to devices.
 ##
-## A property of 'i2caddress' or 'spichipselectpin' must be specified to denote the device type to create.
+## A property of 'i2caddress', 'spichipselectpin' or 'serial'  must be specified to denote the device type to create.
 ##
 ## @var{i2caddress} - address to use for device on I2C bus.
 ##
 ## @var{pin} - pin to use for device SPI chip select.
+##
+## @var{serialid} - Serial port id to use
 ##
 ## Additional properties can also be specified for the device object
 ##
@@ -36,6 +39,8 @@
 ## with value of 0 or 1.
 ## @end table
 ##
+##
+##
 ## Currently known input SPI properties values:
 ## @table @asis
 ## @item bitrate
@@ -45,6 +50,15 @@
 ## @item spimode
 ## SPI mode 0 - 3.
 ## @end table
+##
+##
+##
+## Currently known input Serial properties values:
+## @table @asis
+## @item baudrate
+## baudrate value (default 9600)
+## @end table
+##
 ##
 ## @subsubheading Outputs
 ## @var{dev} - new created device object.
@@ -92,12 +106,22 @@
 ## Pin used for sckpin
 ## @end table
 ##
+## @subsubheading Serial Properties
+## The object has the following public properties:
+## @table @asis
+## @item id
+## serial port id
+## @item baudrate
+## baudrate
+## @end table
+##
 ## @seealso{arduino, i2cdev, spidev}
 ## @end deftypefn
 
 function this = device(varargin)
   persistent ARDUINO_I2C_CONFIG = 1;
   persistent ARDUINO_SPI_CONFIG = 1;
+  persistent ARDUINO_SERIAL_CONFIG = 1;
 
   if nargin < 3
     error("expects arduino object and properties");
@@ -111,6 +135,7 @@ function this = device(varargin)
   p.addRequired('ar', @isarduino);
   p.addParameter('I2CAddress', -1, @isnumeric);
   p.addParameter('SPIChipSelectPin', "");
+  p.addParameter('Serial', "");
   p.parse(varargin{:});
 
   this.parent = p.Results.ar;
@@ -122,7 +147,7 @@ function this = device(varargin)
 
   pin_type = @(x) !isempty(getPinInfo(this.parent, x));
 
-  if p.Results.I2CAddress != -1 && isempty(p.Results.SPIChipSelectPin)
+  if p.Results.I2CAddress != -1 && isempty(p.Results.SPIChipSelectPin) && isempty("Serial")
     this.interface = "I2C";
 
     bus_type = @(x) (isnumeric(x) && x >= 0 && x <= 1);
@@ -170,7 +195,7 @@ function this = device(varargin)
 
     this.cleanup = onCleanup (@() cleanupI2Cdevice (this.parent, this.resourceowner, this.pins));
  
-  elseif p.Results.I2CAddress == -1 && !isempty(p.Results.SPIChipSelectPin)
+  elseif p.Results.I2CAddress == -1 && !isempty(p.Results.SPIChipSelectPin) && isempty("Serial")
     this.interface = "SPI";
 
     bitorder_type = @(x) (ischar(x) && any(stricmp(x, {"msbfirst", "lsbfirst"})));
@@ -276,9 +301,48 @@ function this = device(varargin)
 
     # set clean up function
     this.cleanup = onCleanup (@() cleanupSPIdevice (this.parent, this.resourceowner, cspin));
- 
+
+  elseif p.Results.I2CAddress == -1 && isempty(p.Results.SPIChipSelectPin) && !isempty("Serial")
+    this.interface = "Serial";
+    this.resourceowner = "serial";
+
+    p = inputParser();
+    p.FunctionName = 'device';
+    p.CaseSensitive = false;
+    p.addRequired('ar', @isarduino);
+    p.addParameter('Serial', -1, @isnumeric);
+    p.addParameter('BaudRate', 9600, @isnumeric);
+    p.parse(varargin{:});
+
+    this.device.id = p.Results.Serial;
+    this.device.baudrate = p.Results.BaudRate;
+    this.id = p.Results.Serial;
+
+    name = ["uart" num2str(this.id) "_"]; 
+    this.pins = this.parent.get_group(name);
+    if numel(this.pins) != 2
+       error("expected 2 Serial pins but only have %d", numel(this.pins) )
+    endif
+
+    # set pins
+    try
+      for i=1:2
+        configurePin(this.parent, this.pins{i}.name, "reserved")
+      endfor
+      # TODO: baudrate etc
+      [tmp, sz] = sendCommand(this.parent, "serial", ARDUINO_SERIAL_CONFIG, [this.id 1]);
+    catch
+      for i=1:2
+        configurePinResource(this.parent, this.pins{i}.name, this.pins{i}.owner, this.pins{i}.mode, true)
+        configurePin(this.parent, this.pins{i}.name, this.pins{i}.mode)
+      endfor
+      rethrow (lasterror)
+    end_try_catch
+
+    # set clean up function
+    this.cleanup = onCleanup (@() cleanupSerialdevice (this.parent, this.resourceowner, {}));
   else
-    error ('device expected I2cAddress or SPIChipSelectPin property');
+    error ('device expected I2cAddress, SPIChipSelectPin or Serial property');
   endif
 
   this = class (this, "device");
@@ -286,6 +350,11 @@ endfunction
 
 # private clean up allocated pins
 function cleanupI2Cdevice(ar, resource, pins)
+  # currently doing nothing
+  x = resource;
+endfunction
+
+function cleanupSerialdevice(ar, resource, pins)
   # currently doing nothing
   x = resource;
 endfunction

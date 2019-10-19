@@ -13,11 +13,11 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{data} =} read (@var{dev}, @var{numbytes})
 ## @deftypefnx {} {@var{data} =} read (@var{dev}, @var{numbytes}, @var{precision})
-## Read a specified number of bytes from a i2c device object
+## Read a specified number of bytes from a i2c or serial device object
 ## using optional precision for bytesize.
 ##
 ## @subsubheading Inputs
-## @var{dev} - connected i2c device opened using device
+## @var{dev} - connected i2c or serial device opened using device
 ##
 ## @var{numbytes} - number of bytes to read.
 ##
@@ -25,13 +25,14 @@
 ## Currently known precision values are uint8 (default), int8, uint16, int16
 ##
 ## @subsubheading Outputs
-## @var{data} - data read from i2cdevice
+## @var{data} - data read from the device
 ##
 ## @seealso{arduino, device}
 ## @end deftypefn
 
 function out = read (dev, numbytes, precision)
   persistent ARDUINO_I2C_READ = 3;
+  persistent ARDUINO_SERIAL_READ = 3;
   persistent endian;
   if isempty(endian)
     [~, ~, endian] = computer ();
@@ -45,8 +46,8 @@ function out = read (dev, numbytes, precision)
     error("@i2c.read: expected numbytes to be a number");
   endif
 
-  if !strcmp(dev.interface, "I2C")
-    error("@device.read: not a I2C device");
+  if !strcmp(dev.interface, "I2C") && !strcmp(dev.interface, "Serial")
+    error("@device.read: not a I2C or Serial device");
   endif
 
   if nargin == 3
@@ -67,7 +68,12 @@ function out = read (dev, numbytes, precision)
   endif
 
   % read request
-  [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.device.address numbytes*datasize]);
+  if strcmp(dev.interface, "I2C")
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.device.address numbytes*datasize]);
+  else
+    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_READ, [dev.device.id numbytes*datasize]);
+  endif
+
   # skip address and return the data
 
   out = typecast (uint8(tmp(2:end)), precision);

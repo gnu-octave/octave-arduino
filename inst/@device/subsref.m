@@ -55,7 +55,30 @@ function val = subsref (this, s)
     else
       error("unimplemented device.subsref type");
     endif
-  else
+
+  elseif strcmp(this.interface, "Serial")
+    if s(1).type == "."
+      fld = tolower(s(1).subs);
+      switch (fld)
+        case "pins"
+	  val = {};
+	  for i = 1:numel(this.pins)
+	    val{end+1} = this.pins{i}.name; 
+	  endfor
+        case "interface"
+	  val = this.interface;
+        case "parent"
+          val = this.parent;
+        case "baudrate"
+	  val = this.device.baudrate;
+        otherwise
+	  error ("device.subsref invalid property '%s'", fld);
+      endswitch
+    else
+      error("unimplemented device.subsref type");
+    endif
+
+  else # I2C
     if s(1).type == "."
       fld = tolower(s(1).subs);
       switch (fld)

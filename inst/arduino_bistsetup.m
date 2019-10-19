@@ -69,7 +69,8 @@ function retval = arduino_bistsetup (varargin)
 
   printf ("** Installing core libraries on arduino - please press upload in the IDE, and after completion, close the IDE\n"); 
   fflush(stdout);
-  if ! arduinosetup ('libraries', listArduinoLibraries('core'), varargin{:})
+  libs = { "I2C", "servo", "SPI", "ShiftRegister", "RotaryEncoder", "Ultrasonic" };
+  if ! arduinosetup ('libraries', libs, varargin{:})
     error ("Failed to program the arduino");
   endif
 

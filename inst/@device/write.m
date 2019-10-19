@@ -13,11 +13,11 @@
 ## -*- texinfo -*- 
 ## @deftypefn {} {} write (@var{dev}, @var{datain})
 ## @deftypefnx {} {} write (@var{dev}, @var{datain}, @var{precision})
-## Write data to a I2C device object
+## Write data to a I2C or serial device object
 ## using optional precision for the data byte used for the data.
 ##
 ## @subsubheading Inputs
-## @var{dev} - connected i2c device opened using device
+## @var{dev} - connected i2c or serial device opened using device
 ##
 ## @var{datain} - data to write to device. Datasize should not exceed the constraints 
 ## of the data type specified for the precision.
@@ -35,13 +35,14 @@ function write (dev, datain, precision)
   endif
 
   persistent ARDUINO_I2C_WRITE = 2;
+  persistent ARDUINO_SERIAL_WRITE = 2;
  
   if nargin < 2 || nargin > 3
     print_usage ();
   endif
 
-  if !strcmp(dev.interface, "I2C")
-    error("@device.write: not a I2C device");
+  if !strcmp(dev.interface, "I2C") && !strcmp(dev.interface, "Serial")
+    error("@device.write: not a I2C or Serial device");
   endif
 
   if nargin == 3
@@ -77,6 +78,9 @@ function write (dev, datain, precision)
   endif
 
   % write request
-  [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.device.address datain]);
-
+  if strcmp(dev.interface, "I2C")
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.device.address datain]);
+  else
+    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_WRITE, [dev.device.id datain]);
+  endif
 endfunction

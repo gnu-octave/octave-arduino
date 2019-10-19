@@ -35,6 +35,12 @@ function display (this)
     printf ("         spimode = %d\n", this.device.mode);
     printf ("        bitorder = %s\n", this.device.bitorder);
     printf ("         bitrate = %d\n", this.device.bitrate);
+  elseif strcmp(this.interface, "Serial")
+    printf ("              id = %d\n", this.device.id);
+    printf ("        baudrate = %d\n", this.device.baudrate);
+    for i=1:2
+      printf("%16s = %s\n", [ this.pins{i}.func "pin"], this.pins{i}.name)
+    endfor
   else
     printf ("      i2caddress = %d (0x%02X)\n", this.device.address, this.device.address);
     printf ("             bus = %d\n", this.device.bus);
