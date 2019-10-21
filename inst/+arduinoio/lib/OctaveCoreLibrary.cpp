@@ -52,6 +52,8 @@
   #define BOARD_ID  21
 #elif defined(ARDUINO_AVR_LEONARDO)
   #define BOARD_ID  22
+#elif defined(ARDUINO_AVR_MICRO)
+  #define BOARD_ID  23
 #elif defined(ARDUINO_SAMD_ZERO)
   // sparkfun samed21 dev/mini
   #if USB_VID == 0x1B4F && USB_PID == 0x8D21

@@ -45,6 +45,8 @@ function retval = boardTypeString (id)
       retval = "promicro";
     case 22
       retval = "leonardo";
+    case 23
+      retval = "micro";
     #case 40
     #  retval = "zero";
     case 41
