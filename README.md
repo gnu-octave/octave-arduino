@@ -3,7 +3,9 @@ Introduction
 
 This is a basic implementation of the Matlab toolkit extension.
 
-It attempts to provide the same function calls as the Matlab toolkit, as well as additional functionality.
+It attempts to provide the same function calls as the Matlab toolkit, as well as additional functionality, HOWEVER,
+is not binary compatible with matlab. (ie: you must program the arduino with the GNU octave code to commuicate with the
+octave arduino toolkit.
 
 Requirements
 ============

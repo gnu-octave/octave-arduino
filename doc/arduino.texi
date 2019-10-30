@@ -182,6 +182,9 @@ The sources will be compiled and then uploaded to the connected arduino board.
 
 After successful upload the Arduino IDE should be closed.
 
+@boxnote{The arduino programming is not compatible with the Matlab arduino library, so must be programmed by the Octave Arduino toolkit to
+to communicate to the arduino, even if it was previously used to work with Matlab.}
+
 @section Known Arduino Board Types
 @cindex Known Arduino Board Types
 The board type must be known in order to successfully detect and connect to the Arduino board after programming.
