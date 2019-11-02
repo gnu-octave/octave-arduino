@@ -23,7 +23,9 @@ static const char ERRORMSG_INVALID_SERIALID[] PROGMEM = "Invalid serial id";
 #define ARDUINO_CONFIGSERIAL   1
 #define ARDUINO_WRITESERIAL    2
 #define ARDUINO_READSERIAL     3
+#define ARDUINO_STATSERIAL     4
 
+#ifdef USE_SERIAL
 #ifndef SERIAL_PORT_HARDWARE_OPEN
   #error "This device does not support the serial octave serial interface"
 #endif
@@ -41,6 +43,7 @@ static HardwareSerial * serial[] = {
  0
 };
 #define NUM_SERIAL_PORTS (sizeof(serial)/sizeof(HardwareSerial*))
+#endif
 
 OctaveSerialLibrary::OctaveSerialLibrary(OctaveArduinoClass &oc) 
 {
@@ -50,6 +53,7 @@ OctaveSerialLibrary::OctaveSerialLibrary(OctaveArduinoClass &oc)
 }
 void OctaveSerialLibrary::setup() 
 {
+#ifdef USE_SERIAL
   serial[0] = &SERIAL_PORT_HARDWARE_OPEN;
 #ifdef SERIAL_PORT_HARDWARE_OPEN1
   serial[1] = &SERIAL_PORT_HARDWARE_OPEN1;
@@ -59,6 +63,7 @@ void OctaveSerialLibrary::setup()
 #endif
 #ifdef SERIAL_PORT_HARDWARE_OPEN3
   serial[3] = &SERIAL_PORT_HARDWARE_OPEN3;
+#endif
 #endif
   OctaveLibraryBase::setup();
 }
@@ -94,10 +99,11 @@ void OctaveSerialLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t d
        }
     case ARDUINO_READSERIAL:
       {
-        if(datasz != 2)
+        if(datasz != 3)
         {
           // port
           // numbytes
+	  // timeout in 10th of second
           sendInvalidNumArgsMsg();
         }
         else if(data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
@@ -107,9 +113,26 @@ void OctaveSerialLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t d
         else
         {
           uint8_t id = data[0]-1;
+	  uint8_t timeout = data[2];
 
           byte c = 0;
           byte l = data[1];
+
+	  // if have a timeout, try wait that time for enough data before returning
+          if (timeout > 0)
+	  {
+	    sendWaitMsg();
+
+            unsigned long t = millis();
+	    unsigned long e = t + timeout * 100; // 10th of a seconf to millis
+
+	    while(e > t && serial[id]->available() < l)
+	    {
+              t = millis();
+	    }
+
+	  }
+
           datasz = 1;
           for(c=0;c<l;c++)
           {
@@ -120,6 +143,25 @@ void OctaveSerialLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t d
             }
           }
           sendResponseMsg(cmdID,data, datasz);
+        }
+        break;
+      }
+    case ARDUINO_STATSERIAL:
+      {
+        if(datasz != 1)
+        {
+          // port
+          sendInvalidNumArgsMsg();
+        }
+        else if(data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
+        { 
+          sendErrorMsg_P(ERRORMSG_INVALID_SERIALID);
+        }
+        else
+        {
+          uint8_t id = data[0]-1;
+          data[1] = serial[id]->available();
+          sendResponseMsg(cmdID,data, 2);
         }
         break;
       }

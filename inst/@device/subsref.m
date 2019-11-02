@@ -77,6 +77,10 @@ function val = subsref (this, s)
 	  val = this.device.stopbits;
         case "parity"
 	  val = this.device.parity;
+        case "timeout"
+	  val = this.device.timeout;
+        case "numbytesavailable"
+	  val = __getBytesAvailable__(this);
         case "serialport"
 	  val = this.device.id;
         otherwise

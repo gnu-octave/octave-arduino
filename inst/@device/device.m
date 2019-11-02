@@ -339,6 +339,7 @@ function this = device(varargin)
     this.device.databits = p.Results.DataBits;
     this.device.stopbits = p.Results.StopBits;
     this.device.parity = p.Results.Parity;
+    this.device.timeout = 1.0;
     this.id = p.Results.Serial;
 
     name = ["uart" num2str(this.id) "_"]; 
