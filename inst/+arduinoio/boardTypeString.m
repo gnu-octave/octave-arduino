@@ -37,6 +37,8 @@ function retval = boardTypeString (id)
       retval = "nano";
     case 5
       retval = "uno_wifi_r2";
+    case 6
+      retval = "nano_every";
     case 10
       retval = "lilypad";
     case 20

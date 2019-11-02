@@ -26,6 +26,13 @@ static const char ERRORMSG_INVALID_SERIALID[] PROGMEM = "Invalid serial id";
 #define ARDUINO_STATSERIAL     4
 
 #ifdef USE_SERIAL
+
+#if defined(ARDUINO_AVR_NANO_EVERY)
+# ifndef SERIAL_PORT_HARDWARE_OPEN
+#  define SERIAL_PORT_HARDWARE_OPEN SERIAL_PORT_HARDWARE
+# endif
+#endif
+
 #ifndef SERIAL_PORT_HARDWARE_OPEN
   #error "This device does not support the serial octave serial interface"
 #endif

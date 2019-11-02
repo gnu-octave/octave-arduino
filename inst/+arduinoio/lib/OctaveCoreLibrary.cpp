@@ -44,6 +44,8 @@
   #define BOARD_ID  2
 #elif defined(ARDUINO_AVR_UNO_WIFI_REV2)
   #define BOARD_ID  5
+#elif defined(ARDUINO_AVR_NANO_EVERY)
+  #define BOARD_ID  6
 #elif defined(ARDUINO_AVR_LILYPAD)
   #define BOARD_ID  10
 #elif defined(ARDUINO_AVR_PRO)
@@ -159,12 +161,16 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
         break;
         
     case ARDUINO_INIT:
-#if defined(ARDUINO_ARCH_AVR)
+#if defined(ARDUINO_ARCH_AVR) || defined(ARDUINO_ARCH_MEGAAVR)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;
         data[2] =  SIGNATURE_2;
 #elif defined (ARDUINO_ARCH_SAMD)
-#warning "TODOO"
+#warning "TODO"
+        data[0] =  0;
+        data[1] =  0;
+        data[2] =  0;
+#else
         data[0] =  0;
         data[1] =  0;
         data[2] =  0;

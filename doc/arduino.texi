@@ -198,6 +198,8 @@ Arduino Mega 2560
 @item
 Arduino Nano
 @item
+Arduino Nano Every
+@item
 Arduino Pro/Pro Mini
 @item
 Arduino Pro Micro

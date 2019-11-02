@@ -60,6 +60,7 @@ Currently the toolkit recognizes 10 boards:
 * lilypad
 * uno wifi rev2
 * sparkfunsamd21
+* non every
 
 Additional boards can be added with minimal code changes.
 
