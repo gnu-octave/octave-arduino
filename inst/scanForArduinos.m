@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -77,8 +77,12 @@ function arduinos = scanForArduinos (maxCount, typestr)
       s = {};
       unwind_protect
         if isunix
-          portname = ["/dev/" ports{i}];
+          portname = ports{i};
+          if portname(1) != "/"
+            portname = ["/dev/" ports{i}];
+          endif
         elseif ispc
+          # use extended port name
           portname = [ "\\\\.\\" ports{i}];
         else
           portname = ports{i};
