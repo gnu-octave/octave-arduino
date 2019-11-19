@@ -159,7 +159,7 @@ function this = device(varargin)
 
   pin_type = @(x) !isempty(getPinInfo(this.parent, x));
 
-  if p.Results.I2CAddress != -1 && isempty(p.Results.SPIChipSelectPin) && isempty("Serial")
+  if p.Results.I2CAddress != -1 && isempty(p.Results.SPIChipSelectPin) && isempty(p.Results.Serial)
     this.interface = "I2C";
 
     bus_type = @(x) (isnumeric(x) && x >= 0 && x <= 1);
@@ -207,7 +207,7 @@ function this = device(varargin)
 
     this.cleanup = onCleanup (@() cleanupI2Cdevice (this.parent, this.resourceowner, this.pins));
  
-  elseif p.Results.I2CAddress == -1 && !isempty(p.Results.SPIChipSelectPin) && isempty("Serial")
+  elseif p.Results.I2CAddress == -1 && !isempty(p.Results.SPIChipSelectPin) && isempty(p.Results.Serial)
     this.interface = "SPI";
 
     bitorder_type = @(x) (ischar(x) && any(stricmp(x, {"msbfirst", "lsbfirst"})));
@@ -314,7 +314,7 @@ function this = device(varargin)
     # set clean up function
     this.cleanup = onCleanup (@() cleanupSPIdevice (this.parent, this.resourceowner, cspin));
 
-  elseif p.Results.I2CAddress == -1 && isempty(p.Results.SPIChipSelectPin) && !isempty("Serial")
+  elseif p.Results.I2CAddress == -1 && isempty(p.Results.SPIChipSelectPin) && !isempty(p.Results.Serial)
     this.interface = "Serial";
     this.resourceowner = "serial";
 
@@ -376,7 +376,7 @@ function this = device(varargin)
     # set clean up function
     this.cleanup = onCleanup (@() cleanupSerialdevice (this.parent, this.resourceowner, {}));
   else
-    error ('device expected I2cAddress, SPIChipSelectPin or Serial property');
+    error ('device expected I2CAddress, SPIChipSelectPin or Serial property');
   endif
 
   this = class (this, "device");
