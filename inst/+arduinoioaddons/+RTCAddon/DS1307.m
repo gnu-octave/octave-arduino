@@ -144,7 +144,7 @@ classdef DS1307 < arduinoio.LibraryBase
   endproperties   
   properties(Access = protected, Constant = true)
     LibraryName = 'RTCAddon/DS1307';
-    DependentLibraries = { "spi" };
+    DependentLibraries = { "i2c" };
     ArduinoLibraryHeaderFiles = {};
     CppHeaderFile = fullfile(arduinoio.FilePath(mfilename('fullpath')), 'DS1307Addon.h');
     CppClassName = 'DS1307Addon';
