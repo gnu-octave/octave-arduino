@@ -37,6 +37,10 @@
 ## @item bus
 ## bus number (when arduino board supports multiple I2C buses)
 ## with value of 0 or 1.
+## @item noprobe
+## Dont probe existance of device on creation if set to 1 (default 0)
+## @item bitrate
+## bit rate speed in Mbs - default 100000
 ## @end table
 ##
 ##
@@ -75,7 +79,7 @@
 ## @item parent
 ## The parent (arduino) for this device
 ## @item interface
-## The interface type for this device ("SPI" or "I2C")
+## The interface type for this device ("SPI" or "I2C" or "Serial")
 ## @end table
 ## 
 ## In addition, depending on type, the object will have these properties:
@@ -91,6 +95,8 @@
 ## the SCL pin of the device
 ## @item sdapin
 ## the SDA pin of the device
+## @item bitrate
+## bit rate for the i2c clock
 ## @end table
 ##
 ## @subsubheading SPI Properties
@@ -163,6 +169,7 @@ function this = device(varargin)
     this.interface = "I2C";
 
     bus_type = @(x) (isnumeric(x) && x >= 0 && x <= 1);
+    bool_type = @(x) ((isnumeric(x) && (x ==0 || x == 1)) || islogical(x));
 
     p = inputParser();
     p.FunctionName = 'device';
@@ -171,6 +178,7 @@ function this = device(varargin)
     p.addParameter('I2CAddress', "", @isnumeric);
     p.addParameter('Bus', 0, bus_type);
     p.addParameter('BitRate', 100000, @isnumeric);
+    p.addParameter('NoProbe', 0, bool_type);
     p.parse(varargin{:});
 
     this.id = [];
@@ -195,8 +203,15 @@ function this = device(varargin)
       for i=1:2
         configurePin(this.parent, this.pins{i}.name, "i2c")
       endfor
-      # TODO: bitrate etc
-      [tmp, sz] = sendCommand(this.parent, "i2c", ARDUINO_I2C_CONFIG, [this.device.bus 1]);
+      bitrate = uint16(this.device.bitrate/1000);
+      bitrate = [ bitand(bitshift(bitrate,-8), 255), bitand(bitrate, 255)];
+      # 0 = master mode, which all we currently support in our arduino toolkit
+      [tmp, sz] = sendCommand(this.parent, "i2c", ARDUINO_I2C_CONFIG, [this.device.bus 1 0 bitrate]);
+
+      # check a device is attached
+      if p.Results.NoProbe == false && !checkI2CAddress(this.parent, this.device.address, this.device.bus)
+        error ("I2c address did not respond to probe of address");
+      endif
     catch
       for i=1:2
         configurePinResource(this.parent, this.pins{i}.name, this.pins{i}.owner, this.pins{i}.mode, true)
@@ -429,7 +444,7 @@ endfunction
 %!  p = pins{i};
 %!  assert(configurePin(ar, p), "unset")
 %! endfor
-%! i2c = device(ar, 'i2caddress', 10);
+%! i2c = device(ar, 'i2caddress', 10, "noprobe", 1);
 %! assert(!isempty(i2c));
 %! assert(i2c.interface, "I2C");
 %! assert(i2c.i2caddress, 10);

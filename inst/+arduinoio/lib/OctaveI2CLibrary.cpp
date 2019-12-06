@@ -157,28 +157,49 @@ void OctaveI2CLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t data
        }
       case ARDUINO_CONFIGI2C:
        {
-         if(datasz == 2 || datasz == 3) {
+         if(datasz == 2 || datasz == 3 || datasz == 5)
+	 {
            // i2c id   0
            // enable   1
+	   // i2caddress (optional)
+	   // bitratehi 
+	   // birtarelo
 
            // enable
-           if(data[1] == 1) {
+           if(data[1] == 1) 
+	   {
              //SPI.begin();
              i2c_enabled = 1;
-             i2c_address = 0;
-             if (datasz == 3 && data[2] != 0) {
+
+	     if(datasz>= 3 && data[2] != 0)
+	     {
                i2c_address = data[2];
+	     }
+	     else
+	     {
+               i2c_address = 0;
+	     }
+
+	     if(i2c_address > 0)
                Wire.begin(i2c_address);
-             }
-             else
+	     else
                Wire.begin();
-           } else {
+
+             if (datasz == 5) 
+	     {
+               int32_t bitrate = (((uint32_t)data[3])<<8) | ((uint32_t)data[4]);
+               Wire.setClock(bitrate*1000L);
+             }
+           }
+	   else 
+	   {
              Wire.end();
              i2c_enabled = 0;
            }
            sendResponseMsg(cmdID,data, datasz);
          }
          else if(datasz == 1) {
+           // query config of device
            // spi id
            // enable
            // address
