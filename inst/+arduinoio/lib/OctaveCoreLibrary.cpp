@@ -85,7 +85,8 @@
 
 static const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
 
-static const int8_t map_config_mode[] PROGMEM = {
+static const int8_t map_config_mode[] PROGMEM = 
+{
   INPUT, // unset
   INPUT, // analoginput
   INPUT, // dig in
@@ -99,12 +100,13 @@ static const int8_t map_config_mode[] PROGMEM = {
   -1,     // reserved
 };
 
-int get_mode(int m)
+int
+get_mode(int m)
 {
-  if(m >= 0 && m < sizeof(map_config_mode))
-  {
-    return pgm_read_byte_near(map_config_mode + m);
-  }
+  if (m >= 0 && m < sizeof (map_config_mode))
+    {
+      return pgm_read_byte_near (map_config_mode + m);
+    }
   return INPUT;
 }
 
@@ -122,45 +124,50 @@ static uint8_t pinconfig[NUM_TOTAL_PINS];
 
 #if defined (ARDUINO_ARCH_AVR) || defined (ARDUINO_ARCH_MEGAAVR)
 #include <avr/wdt.h>
-void  reset()
+void
+reset ()
 { 
-  wdt_enable(WDTO_1S);
+  wdt_enable (WDTO_1S);
   while(1) {}
 }
 #elif defined (ARDUINO_ARCH_SAMD)
-void reset()
+void
+reset ()
 {
   // processor software reset 
-  NVIC_SystemReset();
+  NVIC_SystemReset ();
 }
 #else
   #error("Unimplemented architecture for reset")
 #endif
 
-OctaveCoreLibrary::OctaveCoreLibrary(OctaveArduinoClass &oc) 
-  : occlass(oc)
+OctaveCoreLibrary::OctaveCoreLibrary (OctaveArduinoClass &oc) 
+  : occlass (oc)
 {
 
   libName = "Core";
 
-  oc.registerLibrary(this);
+  oc.registerLibrary (this);
 
   // set pins as not set
-  for(int i = 0;i<NUM_TOTAL_PINS;i++) {
-    pinconfig[i] = 0xff;
-  }
+  for(int i = 0; i<NUM_TOTAL_PINS; i++)
+    {
+      pinconfig[i] = 0xff;
+    }
 }
-void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t datasz)
+void
+OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 {
   int val;
     
-  switch (cmdID) {
-    case ARDUINO_RESET:
-        sendResponseMsg(cmdID,0,0);
-        reset();
+  switch (cmdID) 
+    {
+      case ARDUINO_RESET:
+        sendResponseMsg (cmdID, 0, 0);
+        reset ();
         break;
         
-    case ARDUINO_INIT:
+      case ARDUINO_INIT:
 #if defined(ARDUINO_ARCH_AVR) || defined(ARDUINO_ARCH_MEGAAVR)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;
@@ -177,128 +184,149 @@ void OctaveCoreLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t dat
 #endif
         data[3] = BOARD_ID;
         data[4] = BOARD_VOLTAGE;
-	data[5] = occlass.getLibCount();
-        sendResponseMsg(cmdID,data, 6);
+        data[5] = occlass.getLibCount ();
+        sendResponseMsg (cmdID, data, 6);
         break;  
-    case ARDUINO_GETLIB:
-      {
-        if(datasz != 1)
-          sendInvalidNumArgsMsg();
-	else
-	{
-	  // lib idx
-	  // populate data[1]... with lib name
-	  datasz = 0;
-	  const char * name = occlass.getLibName(data[0]);
-	  while(name[datasz] != '\0' && datasz < 254)
-	  {
-	    data[datasz+1] = name[datasz];
-	    datasz++;
-	  }
-	  //strcpy((char*)&data[1], name)
-          sendResponseMsg(cmdID,data, datasz+1);
-	}
-	break;
-      }
-      case ARDUINO_CONFIGPIN:
-        if (datasz == 1 && data[0] < NUM_TOTAL_PINS) {
-          data[1] = pinconfig[data[0]]; // TODO: get mode somehow ????
-          sendResponseMsg(cmdID,data, 2);
-        } else if (datasz == 2 && data[1] >= sizeof(map_config_mode)) {
-          sendErrorMsg_P(ERRORMSG_INVALID_MODE);
-        } else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode)) {
-          int mode = get_mode(data[1]);
-          pinconfig[data[0]] = data[1];
-	  if(mode != -1)
-	  {
-            pinMode(data[0], mode);
-	  }
-          sendResponseMsg(cmdID,data, 0);
-        } else {
-          sendInvalidNumArgsMsg();
+      case ARDUINO_GETLIB:
+        {
+          if(datasz != 1)
+            {
+              sendInvalidNumArgsMsg ();
+            }
+          else
+            {
+              // lib idx
+              // populate data[1]... with lib name
+              datasz = 0;
+              const char * name = occlass.getLibName (data[0]);
+              while (name[datasz] != '\0' && datasz < 254)
+                {
+                  data[datasz+1] = name[datasz];
+                  datasz++;
+                }
+              sendResponseMsg (cmdID, data, datasz+1);
+            }
+          break;
         }
+      case ARDUINO_CONFIGPIN:
+        if (datasz == 1 && data[0] < NUM_TOTAL_PINS)
+          {
+            data[1] = pinconfig[data[0]]; // TODO: get mode somehow ????
+            sendResponseMsg (cmdID, data, 2);
+          }
+        else if (datasz == 2 && data[1] >= sizeof(map_config_mode))
+          {
+            sendErrorMsg_P (ERRORMSG_INVALID_MODE);
+          }
+        else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode))
+          {
+            int mode = get_mode (data[1]);
+            pinconfig[data[0]] = data[1];
+            if (mode != -1)
+              {
+                pinMode (data[0], mode);
+              }
+            sendResponseMsg (cmdID, data, 0);
+          }
+        else
+          {
+            sendInvalidNumArgsMsg ();
+          }
         break; 
         
       case ARDUINO_DIGITAL:
       
-        if(datasz == 1) {
-          val = digitalRead(data[0]);
-          if(val == HIGH)
-            data[1] = 1;
-          else
-            data[1] = 0;
-          sendResponseMsg(cmdID,data, 2);
-        } else if(datasz == 2) {
-          digitalWrite(data[0], data[1] ? HIGH : LOW); 
-          sendResponseMsg(cmdID,data, 0);
-        } else {
-          sendInvalidNumArgsMsg();
-        }
-        break;  
+        if (datasz == 1)
+          {
+            val = digitalRead (data[0]);
+            if (val == HIGH)
+              data[1] = 1;
+            else
+              data[1] = 0;
+          
+            sendResponseMsg (cmdID, data, 2);
+          }
+        else if (datasz == 2)
+          {
+            digitalWrite (data[0], data[1] ? HIGH : LOW); 
+            sendResponseMsg (cmdID, data, 0);
+          }
+        else
+          {
+            sendInvalidNumArgsMsg ();
+          }
+       break;  
 
       case ARDUINO_ANALOG:
       
-        if(datasz == 1) {
-          val = analogRead(pinToAnalog(data[0]));
-          data[1] = (val>>8)&0xff;
-          data[2] = (val)&0xff;
-          sendResponseMsg(cmdID,data, 3);
-        } else {
-          sendInvalidNumArgsMsg();
-        }
+        if (datasz == 1)
+          {
+            val = analogRead (pinToAnalog(data[0]));
+            data[1] = (val>>8)&0xff;
+            data[2] = (val)&0xff;
+            sendResponseMsg (cmdID, data, 3);
+          }
+        else
+          {
+            sendInvalidNumArgsMsg ();
+          }
         break;  
 
       case ARDUINO_PWM:
       
-        if(datasz == 2) {
-          analogWrite(data[0], data[1]);
-          sendResponseMsg(cmdID,data, 0);
-        } else {
-          sendInvalidNumArgsMsg();
-        }
+        if (datasz == 2)
+          {
+            analogWrite (data[0], data[1]);
+            sendResponseMsg (cmdID, data, 0);
+          }
+        else
+          {
+            sendInvalidNumArgsMsg ();
+          }
         break;  
       case ARDUINO_PLAYTONE:
-        if(datasz == 5) {
-	  // 0 = pin
-	  // 1 = freqh
-	  // 2 = freql (hz)
-	  // 3 = durh
-	  // 4 = durl (10ths of second)
-	  unsigned long duration = (((unsigned long)(data[3]))<<8 | data[4]) * 100;
-	  unsigned int freq = (((unsigned int)(data[1]))<<8 | data[2]);
+        if (datasz == 5)
+          {
+            // 0 = pin
+            // 1 = freqh
+            // 2 = freql (hz)
+            // 3 = durh
+            // 4 = durl (10ths of second)
+            unsigned long duration = (((unsigned long)(data[3]))<<8 | data[4]) * 100;
+            unsigned int freq = (((unsigned int)(data[1]))<<8 | data[2]);
 
-	  if(freq == 0) {
-	    noTone(data[0]);
-	  }
-	  else {
-	    tone(data[0], freq, duration);
-	  }
+            if (freq == 0)
+              noTone (data[0]);
+            else
+              tone (data[0], freq, duration);
 
-          sendResponseMsg(cmdID,data, 0);
-        } else {
-          sendInvalidNumArgsMsg();
-        }
+            sendResponseMsg (cmdID, data, 0);
+          }
+        else
+          {
+            sendInvalidNumArgsMsg ();
+          }
         break;
       case ARDUINO_VERSION:
         {
-	  data[0] = VERSION_MAJOR;
-	  data[1] = VERSION_MINOR;
-	  data[2] = VERSION_PATCH;
-          sendResponseMsg(cmdID, data, 3);
+          data[0] = VERSION_MAJOR;
+          data[1] = VERSION_MINOR;
+          data[2] = VERSION_PATCH;
+          sendResponseMsg (cmdID, data, 3);
         }
         break;
       case ARDUINO_UPTIME:
-       {
-         unsigned long t = millis();
-	 data[0] = (t>>24)&0xff;
-	 data[1] = (t>>16)&0xff;
-	 data[2] = (t>>8)&0xff;
-	 data[3] = (t>>0)&0xff;
-         sendResponseMsg(cmdID, data, 4);
-       }
-       break;
+        {
+          unsigned long t = millis ();
+          data[0] = (t>>24)&0xff;
+          data[1] = (t>>16)&0xff;
+          data[2] = (t>>8)&0xff;
+          data[3] = (t>>0)&0xff;
+          sendResponseMsg (cmdID, data, 4);
+        }
+        break;
       default:
-        sendUnknownCmdIDMsg();
+        sendUnknownCmdIDMsg ();
         break;
     }
 }

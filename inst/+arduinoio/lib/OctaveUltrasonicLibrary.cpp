@@ -27,25 +27,27 @@ static const char ERRORMSG_CANT_READ[] PROGMEM = "Max ultrasonics reached";
 #ifdef USE_ULTRASONIC
 
 #define MAX_ULTRASONICS 4
-class Ultrasonic {
+class Ultrasonic
+{
   #define USED 1
 public:
   uint8_t flags;
   uint8_t pins[2];
   uint8_t state;
 
-  Ultrasonic();
-  uint8_t init(uint8_t p1, uint8_t p2);
-  uint8_t free() { flags = 0; return 0;}
-  uint32_t read();
+  Ultrasonic ();
+  uint8_t init (uint8_t p1, uint8_t p2);
+  uint8_t free () { flags = 0; return 0;}
+  uint32_t read ();
 };
 
-Ultrasonic::Ultrasonic()
+Ultrasonic::Ultrasonic ()
 {
   flags = 0;
 }
 
-uint8_t Ultrasonic::init(uint8_t p1, uint8_t p2=0xff)
+uint8_t
+Ultrasonic::init (uint8_t p1, uint8_t p2=0xff)
 {
   flags = USED;
 
@@ -56,148 +58,149 @@ uint8_t Ultrasonic::init(uint8_t p1, uint8_t p2=0xff)
     pins[1] = 0xff;
   
   pinMode (pins[0], OUTPUT); 
-  digitalWrite(pins[0], LOW);
+  digitalWrite (pins[0], LOW);
 
-  if(pins[1] != 0xff)
-  {
-    pinMode (pins[1], INPUT);
-    digitalWrite(pins[1], LOW);
-  }
+  if (pins[1] != 0xff)
+    {
+      pinMode (pins[1], INPUT);
+      digitalWrite (pins[1], LOW);
+    }
 
   return 0;
 }
 
-uint32_t Ultrasonic::read()
+uint32_t
+Ultrasonic::read ()
 {
   uint32_t duration;
 
-  digitalWrite(pins[0], LOW);
-  delayMicroseconds(5);
+  digitalWrite (pins[0], LOW);
+  delayMicroseconds (5);
 
   // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(pins[0], HIGH);
-  delayMicroseconds(10);
-  digitalWrite(pins[0], LOW);
+  digitalWrite (pins[0], HIGH);
+  delayMicroseconds (10);
+  digitalWrite (pins[0], LOW);
 
-  if(pins[1] == 0xff)
-  {
-     pinMode (pins[0], INPUT); 
-     duration = pulseIn(pins[0], HIGH, 250);
-     pinMode (pins[0], OUTPUT); 
-  }
+  if (pins[1] == 0xff)
+    {
+      pinMode (pins[0], INPUT); 
+      duration = pulseIn(pins[0], HIGH, 250);
+      pinMode (pins[0], OUTPUT); 
+    }
   else
-  {
-    // Reads the echoPin, returns the sound wave travel time in microseconds
-    duration = pulseIn(pins[1], HIGH); //, 250);
-  }
+    {
+      // Reads the echoPin, returns the sound wave travel time in microseconds
+      duration = pulseIn (pins[1], HIGH); //, 250);
+    }
 
   return duration;
 }
 
 static Ultrasonic ultrasonics[MAX_ULTRASONICS];
 
-Ultrasonic * getUltrasonic(uint8_t id)
+Ultrasonic *
+getUltrasonic (uint8_t id)
 {
   uint8_t i;
   Ultrasonic * unused = 0;
 
-  for(i=0;i<MAX_ULTRASONICS;i++) 
-  {
-    if(ultrasonics[i].flags) 
+  for (i=0; i<MAX_ULTRASONICS; i++) 
     {
-      if(ultrasonics[i].pins[0] == id)
-        return &ultrasonics[i];
+      if (ultrasonics[i].flags) 
+        {
+          if (ultrasonics[i].pins[0] == id)
+            return &ultrasonics[i];
+        }
+      else if (!unused)
+        {
+          unused = &ultrasonics[i];
+        }
     }
-    else if(!unused)
-    {
-      unused = &ultrasonics[i];
-    }
-  }
   return unused;
 }
 
 #endif
 
-OctaveUltrasonicLibrary::OctaveUltrasonicLibrary(OctaveArduinoClass &oc) 
+OctaveUltrasonicLibrary::OctaveUltrasonicLibrary (OctaveArduinoClass &oc) 
 {
   libName = "Ultrasonic";
 
-  oc.registerLibrary(this);
+  oc.registerLibrary (this);
 }
 
-void OctaveUltrasonicLibrary::commandHandler(uint8_t cmdID, uint8_t* data, uint8_t datasz)
+void
+OctaveUltrasonicLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 {
-  int val;
-    
   switch (cmdID) 
-  {
+    {
 #ifdef USE_ULTRASONIC
-    case ARDUINO_CONFIG_ULTRASONIC:
-      {
-        // 0 = id/triggerpin
-        // 1 - enable/alloc
-        // 2 = echo pin (optional)
-        Ultrasonic * reg = getUltrasonic (data[0]);
-        if (reg) 
+      case ARDUINO_CONFIG_ULTRASONIC:
         {
-          // alloc
-          if(data[1] == 1 && datasz == 2)
-          {
-            reg->init(data[0]);
+          // 0 = id/triggerpin
+          // 1 - enable/alloc
+          // 2 = echo pin (optional)
+          Ultrasonic * reg = getUltrasonic (data[0]);
+          if (reg) 
+            {
+              // alloc
+              if (data[1] == 1 && datasz == 2)
+                {
+                  reg->init (data[0]);
         
-	    sendResponseMsg(cmdID,data, 2);
-          }
-	  else if(data[1] == 1 && datasz == 3)
-          {
-            reg->init(data[0], data[2]);
+	          sendResponseMsg (cmdID,data, 2);
+                }
+	      else if(data[1] == 1 && datasz == 3)
+                {
+                  reg->init (data[0], data[2]);
         
-	    sendResponseMsg(cmdID,data, 2);
-          }
-          // free
-          else if(data[1] == 0 && reg->flags && datasz == 2)
-          {
-            reg->free();
+	          sendResponseMsg (cmdID,data, 2);
+                }
+              // free
+              else if (data[1] == 0 && reg->flags && datasz == 2)
+                {
+                  reg->free ();
 
-	    sendResponseMsg(cmdID,data, 2);
-          }
-          else
-          {
-            sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
-          }
+	          sendResponseMsg(cmdID,data, 2);
+                }
+              else
+                {
+                  sendErrorMsg_P (ERRORMSG_INVALID_ARGS);
+                }
+            }
+          else 
+            {
+              sendErrorMsg_P (ERRORMSG_INVALID_ARGS);
+            }
+          break;
         }
-        else 
+      case ARDUINO_READ_ULTRASONIC:
         {
-          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
-        }
-        break;
-      }
-    case ARDUINO_READ_ULTRASONIC:
-      {
-        // 0 = id
-        Ultrasonic * reg = getUltrasonic(data[0]);
-        if(reg && datasz == 1) 
-        {
-          uint32_t v = reg->read();
+          // 0 = id
+          Ultrasonic * reg = getUltrasonic (data[0]);
+          if (reg && datasz == 1) 
+            {
+              uint32_t v = reg->read ();
 
-          data[1] = (v>>24)&0xff;
-          data[2] = (v>>16)&0xff;
-          data[3] = (v>>8)&0xff;
-          data[4] = (v)&0xff;
+              data[1] = (v>>24)&0xff;
+              data[2] = (v>>16)&0xff;
+              data[3] = (v>>8)&0xff;
+              data[4] = (v)&0xff;
 
-	  datasz = 5;
+	      datasz = 5;
 
-	  sendResponseMsg(cmdID, data, datasz);
-        }
-        else 
-        {
-          sendErrorMsg_P(ERRORMSG_INVALID_ARGS);
-        }
+	      sendResponseMsg (cmdID, data, datasz);
+            }
+          else 
+            {
+              sendErrorMsg_P (ERRORMSG_INVALID_ARGS);
+            }
  
-        break;
-      }
+          break;
+        }
 #endif
-    default:
-        sendUnknownCmdIDMsg();
+      default:
+        sendUnknownCmdIDMsg ();
         break;
     }
 }
