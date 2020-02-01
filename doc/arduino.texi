@@ -430,7 +430,7 @@ Serial communication can be performed on devices that support multiple serial de
 The communications port to Octave is reserved and can not be used as a user controlled communications port.
 
 
-Serial communication can be performed by creating a serial device object and then calling teh read and write functions:
+Serial communication can be performed by creating a serial device object and then calling the read and write functions:
 
 @example
 ser = device (ar,  "serial", 1);
@@ -458,12 +458,12 @@ additional addons to arduino.
 @cindex Addon Introduction
 
 Addons provide a way of adding additional functionality to the arduino toolkit
-that provides matlab access directly to the arduino hardware.
+that provides Matlab access directly to the arduino hardware.
 
 Addons are implemented in two parts.
 @enumerate
-@item code running on the arduino that implments the required functionality
-@item a octave wrapper class that provides the matlab interface and communication to the code.
+@item code running on the arduino that implements the required functionality
+@item a octave wrapper class that provides the Matlab interface and communication to the code.
 @end enumerate
 
 Both parts are required to create a plugin.
@@ -488,8 +488,8 @@ addons typically use a "foldername/classname" for this naming.
 An addon requires at minimum 3 things:
 @enumerate
 @item A addon directory that will contain the addon files
-@item A matlab file within that directory that is a subclass of arduinoio.LibraryBase
-@item A arduino source/header file that contains the arduino code to load, subclassed for LibraryBase
+@item A Matlab file within that directory that is a subclass of arduinoio.LibraryBase
+@item A arduino source/header file that contains the arduino code to load, sub-classed for LibraryBase
 @end enumerate
 
 So the addon directory structure at a minimum will be:
@@ -519,7 +519,7 @@ Multiple plugin .m files can be within the same sub directory.
 @subsection  Addon package .m file
 @cindex  Addon package .m file
 
-The matlab interface file within the addon directory provides the matlab interface for the arduino code
+The Matlab interface file within the addon directory provides the Matlab interface for the arduino code
 as well as provides information about the addon.
 
 @subsubheading Class inheritance and required properties
@@ -558,7 +558,7 @@ The following constant properties can be set within the addon:
 @end table
 
 @subsubheading Class constructor
-The matlab class constructor will be called from the addon function when creating a
+The Matlab class constructor will be called from the addon function when creating a
 instance of the addon and should initialize at least two properties in inherited from
 arduinoio.LibraryBase:
 
