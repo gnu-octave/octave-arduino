@@ -16,6 +16,28 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
+## mkfuncdocs.py will atempt to extract the help texts from functions in src
+## dirs, extracting only those that are in the specifed INDEX file and output them
+## to stdout in texi format
+##
+## It will extract from both .m and the help text for DEFUN_DLD help in .cc/.cpp
+## files.
+##
+## It attempts to find the help text for each function in a file within the src search
+## folders that match in order: [ functionname.m functionname.cc functionname.cpp
+## functionname_withoutprefix.cc functionname_withoutprefix.cpp ]
+##
+## Usage:
+##   mkfundocs.py options INDEXfile
+## Options can be 0 or more of:
+##   --verbose       : Turn on verbose mode
+##   --src-dir=xxxxx : Add dir xxxxx to the dirs searched for the function file.
+##                     If no directories are provided, it will default to looking in the
+##                     'inst' directory.
+##   --ignore=xxxxx  : dont attempt to generate help for function xxxxx.
+##   --funcprefix=xxxxx : remove xxxxx from the function name when searching for matching
+##                     source file.
+
 import sys
 import os
 import re
@@ -54,7 +76,7 @@ def read_m_file(filename):
             inhelp = False
             havehelp = True
           else:
-            help.append (line[2:].strip());
+            help.append (line[2:].rstrip());
 
   return help
 
@@ -70,12 +92,14 @@ def read_cc_file(filename):
             inhelp = True
         elif inhelp == True:
           line = line.rstrip()
-          if line[-1] == '\\':
+          if len(line) > 0 and line[-1] == '\\':
             line = line[:-1]
-          line = line.rstrip()
+            line = line.rstrip()
+
           line = line.replace("\\n", "\n") 
           line = line.replace("\\\"", "\"") 
-          if line[-1] == '\n':
+
+          if len(line) > 0 and line[-1] == '\n':
             line = line[:-1]
           if line.endswith('")'):
             line = line[:-2]
