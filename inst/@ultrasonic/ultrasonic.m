@@ -49,7 +49,7 @@
 ## Output format for the created onject
 ## @end table
 ##
-## @seealso{arduino, readDisatnce, readEchoTime}
+## @seealso{arduino, readDistance, readEchoTime}
 ## @end deftypefn
 
 function this = ultrasonic (varargin)

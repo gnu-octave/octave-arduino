@@ -20,7 +20,7 @@
 ## @subsubheading Outputs
 ## @var{distance} - distance value in meters from the ultrasonic device, or Inf if out of sensor range
 ##
-## @seealso{arduino, ultrasonicdev}
+## @seealso{arduino, ultrasonic}
 ## @end deftypefn
 
 function out = readDistance (dev)

@@ -88,9 +88,9 @@
 ## @item out
 ## Out bit in the control register
 ## @item sqwe
-## Square wave enble bit in control register
+## Square wave enable bit in control register
 ## @item rs
-## The combined Rs0, RS1 value
+## The combined RS0, RS1 value
 ## @end table
 ##
 ## @end deftypefn
