@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -145,15 +145,29 @@ function this = device(varargin)
     error("expects arduino object and properties");
   endif
 
+  has_add_param = true;
+  try
+    p = inputParser();
+    p.addParameter("test", 1);
+  catch
+    has_add_param = false;
+  end_try_catch
+
   # parse args
   p = inputParser();
   p.CaseSensitive = false;
   p.FunctionName = 'device';
   p.KeepUnmatched = true;
   p.addRequired('ar', @isarduino);
-  p.addParameter('I2CAddress', -1, @isnumeric);
-  p.addParameter('SPIChipSelectPin', "");
-  p.addParameter('Serial', "");
+  if has_add_param
+    p.addParameter('I2CAddress', -1, @isnumeric);
+    p.addParameter('SPIChipSelectPin', "");
+    p.addParameter('Serial', "");
+  else
+    p.addParamValue('I2CAddress', -1, @isnumeric);
+    p.addParamValue('SPIChipSelectPin', "");
+    p.addParamValue('Serial', "");
+  endif
   p.parse(varargin{:});
 
   this.parent = p.Results.ar;
@@ -171,14 +185,23 @@ function this = device(varargin)
     bus_type = @(x) (isnumeric(x) && x >= 0 && x <= 1);
     bool_type = @(x) ((isnumeric(x) && (x ==0 || x == 1)) || islogical(x));
 
+    i2caddr = p.Results.I2CAddress;
+
     p = inputParser();
     p.FunctionName = 'device';
     p.CaseSensitive = false;
     p.addRequired('ar', @isarduino);
-    p.addParameter('I2CAddress', "", @isnumeric);
-    p.addParameter('Bus', 0, bus_type);
-    p.addParameter('BitRate', 100000, @isnumeric);
-    p.addParameter('NoProbe', 0, bool_type);
+    if has_add_param
+      p.addParameter('I2CAddress', "", @isnumeric);
+      p.addParameter('Bus', 0, bus_type);
+      p.addParameter('BitRate', 100000, @isnumeric);
+      p.addParameter('NoProbe', 0, bool_type);
+    else
+      p.addParamValue('I2CAddress', i2caddr, @isnumeric);
+      p.addParamValue('Bus', 0, bus_type);
+      p.addParamValue('BitRate', 100000, @isnumeric);
+      p.addParamValue('NoProbe', 0, bool_type);
+    endif
     p.parse(varargin{:});
 
     this.id = [];
@@ -225,17 +248,26 @@ function this = device(varargin)
   elseif p.Results.I2CAddress == -1 && !isempty(p.Results.SPIChipSelectPin) && isempty(p.Results.Serial)
     this.interface = "SPI";
 
-    bitorder_type = @(x) (ischar(x) && any(stricmp(x, {"msbfirst", "lsbfirst"})));
+    bitorder_type = @(x) (ischar(x) && any(strcmp(lower(x), {"msbfirst", "lsbfirst"})));
     mode_type = @(x) (isnumeric(x) && x >= 0 && x <= 3);
+
+    cspin = p.Results.SPIChipSelectPin;
 
     p = inputParser();
     p.FunctionName = 'device';
     p.CaseSensitive = false;
     p.addRequired('ar', @isarduino);
-    p.addParameter('SPIChipSelectPin', "", pin_type);
-    p.addParameter('SPIMode', 0, mode_type);
-    p.addParameter('BitRate', 4000000, @isnumeric);
-    p.addParameter('BitOrder', "msbfirst", bitorder_type);
+    if has_add_param
+      p.addParameter('SPIChipSelectPin', "", pin_type);
+      p.addParameter('SPIMode', 0, mode_type);
+      p.addParameter('BitRate', 4000000, @isnumeric);
+      p.addParameter('BitOrder', "msbfirst", bitorder_type);
+    else
+      p.addParamValue('SPIChipSelectPin', cspin, pin_type);
+      p.addParamValue('SPIMode', 0, mode_type);
+      p.addParamValue('BitRate', 4000000, @isnumeric);
+      p.addParamValue('BitOrder', "msbfirst", bitorder_type);
+    endif
     p.parse(varargin{:});
 
     this.device.chipselectpin = p.Results.SPIChipSelectPin;
@@ -333,7 +365,7 @@ function this = device(varargin)
     this.interface = "Serial";
     this.resourceowner = "serial";
 
-    parity_type = @(x) (ischar(x) && any(stricmp(x, {"none", "odd", "even"})));
+    parity_type = @(x) (ischar(x) && any(strcmp(lower(x), {"none", "odd", "even"})));
     databits_type = @(x) (isnumeric(x) && x >= 5 && x <= 8);
     stopbits_type = @(x) (isnumeric(x) && x >= 1 && x <= 2);
     baudrate_type = @(x) (isnumeric(x) && x >= 300 && x <= 115200);
@@ -342,11 +374,19 @@ function this = device(varargin)
     p.FunctionName = 'device';
     p.CaseSensitive = false;
     p.addRequired('ar', @isarduino);
-    p.addParameter('Serial', -1, @isnumeric);
-    p.addParameter('BaudRate', 9600, baudrate_type);
-    p.addParameter('DataBits', 8, databits_type);
-    p.addParameter('StopBits', 1, stopbits_type);
-    p.addParameter('Parity', "none", parity_type);
+    if has_add_param
+      p.addParameter('Serial', -1, @isnumeric);
+      p.addParameter('BaudRate', 9600, baudrate_type);
+      p.addParameter('DataBits', 8, databits_type);
+      p.addParameter('StopBits', 1, stopbits_type);
+      p.addParameter('Parity', "none", parity_type);
+    else
+      p.addParamValue('Serial', -1, @isnumeric);
+      p.addParamValue('BaudRate', 9600, baudrate_type);
+      p.addParamValue('DataBits', 8, databits_type);
+      p.addParamValue('StopBits', 1, stopbits_type);
+      p.addParamValue('Parity', "none", parity_type);
+    endif
     p.parse(varargin{:});
 
     this.device.id = p.Results.Serial;
