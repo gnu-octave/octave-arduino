@@ -235,7 +235,7 @@ function this = device(varargin)
     p.addParameter('SPIChipSelectPin', "", pin_type);
     p.addParameter('SPIMode', 0, mode_type);
     p.addParameter('BitRate', 4000000, @isnumeric);
-    p.addParameter('BitOrder', "mbsfirst", bitorder_type);
+    p.addParameter('BitOrder', "msbfirst", bitorder_type);
     p.parse(varargin{:});
 
     this.device.chipselectpin = p.Results.SPIChipSelectPin;

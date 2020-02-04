@@ -138,11 +138,13 @@ endfunction
 
 %!test
 %! ar = arduino();
-%! spi = spidev (ar, "d10");
-%! assert (spi.chipselectpin, "d10")
+%! spi = device (ar, "spichipselectpin", "d10");
+%! assert (spi.spichipselectpin, "d10")
 %! assert (isarduino(spi.parent))
 %! assert (ar.port, spi.parent.port)
-%! assert (spi.mode, 0)
+%! assert (spi.spimode, 0)
 %! assert (spi.bitorder, "msbfirst")
+%! assert (spi.interface, "SPI")
 %! assert (numel(spi.pins) >= 4)
+%! clear spi
 %! fail ("spi.invalid") 
