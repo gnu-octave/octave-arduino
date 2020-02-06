@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -100,7 +100,7 @@ function retval = arduino_bistsetup (varargin)
     endif
 
     printf ('Arduino has been programmed and is ready for BIST testing\n');
-    printf (['run: __run_test_suite__({"' p{1}.dir '"}, {})\n']);
+    printf ("run: __run_test_suite__({'%s'}, {})\n", p{1}.dir);
     fflush(stdout);
 
     ret = 1;
