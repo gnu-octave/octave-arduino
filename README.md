@@ -49,18 +49,18 @@ See the function list and examples directories.
 Expanding the known board types
 ===============================
 
-Currently the toolkit recognizes 10 boards:
-* uno
+Currently the toolkit recognizes these boards:
+* leonardo
+* lilypad
+* mega2560
+* micro
 * nano
+* nano every
 * promini
 * promicro
-* mega2560
-* leonardo
-* micro
-* lilypad
-* uno wifi rev2
 * sparkfunsamd21
-* non every
+* uno wifi rev2
+* uno
 
 Additional boards can be added with minimal code changes.
 
