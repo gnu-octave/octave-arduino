@@ -16,19 +16,25 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} scanForArduinos (@var{maxCount})
+## @deftypefn {} {@var{retval} =} scanForArduinos (@var{"debug"})
 ## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{maxCount}, @var{type})
 ## Scan system for programmed arduino boards.
 ##
-## scanForArduinos will scan the system for programmed arduino boards and return at 
-## most @var{maxCount} of them as a cell array in @var{retval}.
+## scanForArduinos will scan the system for programmed arduino boards
+## and return at most @var{maxCount} of them as a cell array 
+## in @var{retval}.
 ##
 ## @subsubheading Inputs
 ## @var{maxCount} - max number of arduino boards to detect.
-## if @var{maxCount} is not specified, or is a less than 1, the function will return as many
-## arduino boards as it can detect.
+## if @var{maxCount} is not specified, or is a less than 1, the 
+## function will return as many arduino boards as it can detect.
 ##
-## @var{type} - optional board type to match. If specified, the board type must match for the arduino to be added to the
-## return list.
+## @var{type} - optional board type to match. If specified, the board 
+## type must match for the arduino to be added to the return list.
+##
+## @var{"debug"} - if single input parameter is "debug", the 
+## scanForArduinos will display debug information as it scans
+## all available ports for arduinos.
 ##
 ## @subsubheading Outputs
 ## @var{retval} structure cell array of matching detected arduino boards.
@@ -48,6 +54,7 @@ function arduinos = scanForArduinos (maxCount, typestr)
 
   arduinos = {};
   ARDUINO_INIT_COMMAND = 1;
+  debug_flag = false;
 
   if nargin > 2
     print_usage ();
@@ -56,6 +63,14 @@ function arduinos = scanForArduinos (maxCount, typestr)
   elseif nargin == 0
     maxCount = 0;
     typestr = "";
+  endif
+
+  if ischar (maxCount) && strcmpi(maxCount, "debug")
+    if nargin > 1
+      error ("scanForArduinos allows no additional arguments for 'debug'");
+    endif
+    maxCount = 0;
+    debug_flag = true;
   endif
 
   if ! isnumeric (maxCount)
@@ -87,17 +102,31 @@ function arduinos = scanForArduinos (maxCount, typestr)
         else
           portname = ports{i};
         endif
+        if debug_flag
+          printf("* trying comport %s\n", portname);	
+        endif
         s = serial (portname, 9600, 1);
         pause(2);
      
         hdr = uint8 ([ hex2dec("A5") 0 ARDUINO_INIT_COMMAND 0]);
+        if debug_flag
+          printf(" >> "); printf("%02X ", hdr); printf("\n");
+        endif
         len = srl_write (s, hdr);
         [tmpdataOut, tmpdataSize] = srl_read (s, 4);
+
+        if debug_flag
+          printf(" << "); printf("%02X ", tmpdataOut); printf("\n");
+        endif
         
         if tmpdataSize == 4 && tmpdataOut(1) == hex2dec("A5") && tmpdataOut(2) == 0 && tmpdataOut(3) == ARDUINO_INIT_COMMAND && tmpdataOut(4) >= 5
           expectlen =  tmpdataOut(4);
 
           [dataout, datasize] = srl_read (s, expectlen);
+
+          if debug_flag
+            printf(" << "); printf("%02X ", dataout); printf("\n");
+          endif
 
 	  if datasize == expectlen
             # init returns the following info
@@ -110,6 +139,10 @@ function arduinos = scanForArduinos (maxCount, typestr)
               info.board = arduinoio.boardTypeString (board);
               arduinos{end+1} = info;
           
+              if debug_flag
+                printf(" ** found board %s\n", info.board);
+              endif
+
               if numel (arduinos) == maxCount
                 break;
               endif
@@ -125,6 +158,9 @@ function arduinos = scanForArduinos (maxCount, typestr)
 
     catch err
       % do nothing
+      if debug_flag
+        printf(" ** %s\n", err.message);
+      endif
     end_try_catch
   endfor
 endfunction
