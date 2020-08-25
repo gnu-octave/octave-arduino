@@ -16,7 +16,8 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs.py will atempt to extract the help texts from functions in src
+## mkfuncdocs v1.0.1
+## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
 ##
@@ -37,6 +38,7 @@
 ##   --ignore=xxxxx  : dont attempt to generate help for function xxxxx.
 ##   --funcprefix=xxxxx : remove xxxxx from the function name when searching for matching
 ##                     source file.
+##   --allowscan     : if can not find function, attemp to scan .cc,cpp,cxx files for match
 
 import sys
 import os
@@ -61,14 +63,29 @@ class Index:
   name = ""
   groups = []
 
-def read_m_file(filename):
+def find_defun_line_in_file(filename, fnname):
+  linecnt = 0
+
+  defun_line=re.compile("^DEFUN_DLD\s*\(\s*{}".format(fnname))
+  with open(filename, 'rt') as f:
+    for line in f:
+      if re.match(defun_line, line):
+        return linecnt
+
+      linecnt = linecnt + 1
+
+  return -1
+
+def read_m_file(filename, skip=0):
   help = []
   inhelp = False
   havehelp = False;
   with open(filename, 'rt') as f:
     for line in f:
       line = line.lstrip()
-      if not havehelp:
+      if skip > 0:
+        skip = skip - 1
+      elif not havehelp:
         if havehelp == False and inhelp == False and line.startswith('##'):
           if "texinfo" in line:
             inhelp = True
@@ -81,14 +98,16 @@ def read_m_file(filename):
 
   return help
 
-def read_cc_file(filename):
+def read_cc_file(filename, skip=0):
   help = []
   inhelp = False
   havehelp = False;
   with open(filename, 'rt') as f:
     for line in f:
       line = line.lstrip()
-      if not havehelp:
+      if skip > 0:
+        skip = skip - 1
+      elif not havehelp:
         if havehelp == False and inhelp == False:
           if "texinfo" in line:
             inhelp = True
@@ -114,13 +133,13 @@ def read_cc_file(filename):
 
   return help
 
-def read_help (filename):
+def read_help (filename, skip=0):
   help = []
 
   if filename[-2:] == ".m":
-    help = read_m_file(filename)
+    help = read_m_file(filename, skip)
   else:
-    help = read_cc_file(filename)
+    help = read_cc_file(filename, skip)
 
   return help
 
@@ -158,28 +177,44 @@ def read_index (filename, ignore):
 
   return index;
 
-def find_func_file(fname, paths, prefix):
+def find_func_file(fname, paths, prefix, scanfiles=False):
   for f in paths:
       name = f + "/" + fname + ".m"
       if os.path.isfile(name):
-        return name
+        return name, 0
       name = f + "/" + fname + ".cc"
       if os.path.isfile(name):
-        return name
+        return name, 0
       name = f + "/" + fname + ".cpp"
       if os.path.isfile(name):
-        return name
+        return name, 0
       # if have a prefix, remove and try
       if prefix and fname.startswith(prefix):
         fname = fname[len(prefix):]
         name = f + "/" + fname + ".cc"
         if os.path.isfile(name):
-          return name
+          return name, 0
         name = f + "/" + fname + ".cpp"
         if os.path.isfile(name):
-          return name
- 
-  return None
+          return name, 0
+
+  # if here, we still dont have a file match
+  # if allowed to scan files, do that
+  if scanfiles:
+    #sys.stderr.write("Warning: Scaning for {}\n".format(fname))
+    for f in paths:
+      files = list(f + "/" + a for a in os.listdir(f))
+      cc_files = fnmatch.filter(files, "*.cc")
+      cpp_files = fnmatch.filter(files, "*.cpp")
+      cxx_files = fnmatch.filter(files, "*.cxx")
+
+      for fn in cc_files + cpp_files + cxx_files:
+        line = find_defun_line_in_file(fn, fname)
+        if line >= 0:
+          #sys.stderr.write("Warning: Found function for {} in {} at {}\n".format(fname, fn, line))
+          return fn, line
+  
+  return None, -1
 
 def display_func(name, ref, help):
   print "@c -----------------------------------------"
@@ -189,7 +224,7 @@ def display_func(name, ref, help):
     print l
 
 def process (args):
-  options = { "verbose": False, "srcdir": [], "funcprefix": "", "ignore": [] }
+  options = { "verbose": False, "srcdir": [], "funcprefix": "", "ignore": [], "allowscan": False }
   indexfile = ""
 
   for a in args:
@@ -204,6 +239,8 @@ def process (args):
 
     if key == "--verbose":
       options["verbose"] = True;
+    elif key == "--allowscan":
+      options["allowscan"] = True;
     elif key == "--src-dir":
       if val:
         options["srcdir"].append(val);
@@ -243,7 +280,7 @@ def process (args):
         path = f
         name = "@" + f
         ref = f.split("/")[-1]
-        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
       elif "." in f:
         parts = f.split('.')
         cnt  = 0
@@ -257,22 +294,22 @@ def process (args):
             cnt = cnt + 1
         name = f;
         ref = parts[-1]
-        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
       elif "/" in f:
         path = f
         name = f
         ref = f.split("/")[-1]
-        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
       else:
         path = f
         name = f
         ref = f
-        filename = find_func_file(path, options["srcdir"], options["funcprefix"])
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"], options['allowscan'])
 
       if not filename:
         sys.stderr.write("Warning: Cant find source file for {}\n".format(path))
       else:
-        h = read_help (filename)
+        h = read_help (filename, lineno)
 
       if h:
         display_func (name, ref, h)
