@@ -16,7 +16,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{retval} =} scanForArduinos (@var{maxCount})
-## @deftypefn {} {@var{retval} =} scanForArduinos (@var{"debug"})
+## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{"debug"})
 ## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{maxCount}, @var{type})
 ## Scan system for programmed arduino boards.
 ##
