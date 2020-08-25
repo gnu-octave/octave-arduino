@@ -120,5 +120,12 @@ classdef LibraryBase < handle
         printf("        }\n");
       endif
     endfunction
+
+    # overrides of arduino that matlab documentation indirectly
+    # seems to indicate in the examples
+    function [dataout, datasize] = sendCommand(this, varargin)
+      [dataout, datasize] = sendCommand(this.Parent, varargin{:}) 
+    endfunction
+
   endmethods
 endclassdef
