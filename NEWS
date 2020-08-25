@@ -1,3 +1,14 @@
+Summary of important user-visible changes for arduino 0.5.0+:
+-------------------------------------------------------------------
+
+  ** New functions:
+    - arduinoio.LibraryBase/sendCommand override
+
+  ** Modified functions:
+    - added debug mode to scanForArduinos
+
+  ** minor function documentation updates
+
 Summary of important user-visible changes for arduino 0.5.0:
 -------------------------------------------------------------------
   ** Modified functions:
