@@ -15,24 +15,7 @@
 @c @afourwide
 @c %*** End of the HEADER
 
-@c The following macro is used for the on-line help system, but we don't
-@c want lots of `See also: foo, bar, and baz' strings cluttering the
-@c printed manual (that information should be in the supporting text for
-@c each group of functions and variables).
-
-@macro seealso {args}
-@iftex
-@vskip 2pt
-@end iftex
-@ifnottex
-@c Texinfo @sp should work but in practice produces ugly results for HTML.
-@c A simple blank line produces the correct behavior.
-@c @sp 1
-
-@end ifnottex
-@noindent
-@strong{See also:} \args\.
-@end macro
+@include macros.texi
 
 @macro boxnote {args}
 @cartouche
@@ -480,7 +463,7 @@ listArduinoLibraries
 The command will display all known arduino libraries (addons as well as core libraries), however
 addons typically use a "foldername/classname" for this naming.
 
-@seealso{listArduinoLibraries}
+@xseealso{listArduinoLibraries}
 
 @section Creating an addon
 @cindex Creating an addon
@@ -625,7 +608,7 @@ endclassdef
 
 @boxnote{the sendCommand uses the objects parent for the arduino,  the objects library name and the command id}
 
-@seealso{sendCommand}
+@xseealso{sendCommand}
 
 @subsection  Addon package header file
 @cindex  Addon package header file
@@ -725,7 +708,7 @@ The libraries property of the arduino object should list the libraries programme
 
 Alternatively, the library can be added using the libraries property and arduinosetup
 
-@seealso{arduino, arduinosetup}
+@xseealso{arduino, arduinosetup}
 
 @subsection  Creating a addon object
 @cindex  Creating a addon object
