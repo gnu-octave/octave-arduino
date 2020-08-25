@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,130 +14,130 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.RTCAddon.DS1307
-## DS1307 addon
-##
-## @seealso{addon}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @var{Parent} - the parent arduino object.
-##
-## @var{Pins} - the pins allocated the addon.
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} DS1307(@var{arObj})
-## @deftypefnx {} {@var{obj} =} DS1307(@var{arObj}, @var{propertyname, propertyvalue} ....)
-## Constructor to create DS1307 addon
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{propertyname, propertyvalue} - optional property name, value pairs.
-## Current known properties are:
-## @table @asis
-## @item address
-## I2C address of the DS1307 (default 0x68)
-## @end table
-##
-## @subsubheading Outputs
-## @var{obj} - created DS1307 object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## rtc = addon(a, "rtcaddon/ds1307")
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {@var{date} =} clock(@var{dsObj})
-## @deftypefnx {} {} clock(@var{dsObj}, @var{date})
-## Get/set the DS1307 clock
-##
-## @subsubheading Inputs
-## @var{dsObj} - the ds1307 object
-##
-## @var{date} - a date vector in same format as datevec and clock
-##
-## @subsubheading Outputs
-## @var{date} - a date vector in same format as datevec and clock
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## rtc = addon(a, "rtcaddon/ds1307")
-## # get and display rtc time as a date string
-## datestr(rtc.clock)
-## }
-## @end example
-## @seealso{datevec}
-## @end deftypefn
-##
-## @deftypefn {} {@var{ctrl} =} control(@var{dsObj})
-## @deftypefnx {} {} control(@var{dsObj}, @var{ctrl})
-## Get/set the DS1307 clock
-##
-## @subsubheading Inputs
-## @var{dsObj} - the ds1307 object
-##
-## @var{ctrl} - a structure containing the control bit fields.
-##
-## @subsubheading Outputs
-## @var{ctrl} - a structure containing the control bit fields.
-##
-## Control structure fields are:
-## Current properties are:
-## @table @asis
-## @item out
-## Out bit in the control register
-## @item sqwe
-## Square wave enable bit in control register
-## @item rs
-## The combined RS0, RS1 value
-## @end table
-##
-## @end deftypefn
-##
-## @deftypefn {} {@var{YN} =} isstarted(@var{dsObj})
-## Get whether the RTC clock is currently counting time
-##
-## @subsubheading Inputs
-## @var{dsObj} - the ds1307 object
-##
-## @subsubheading Outputs
-## @var{YN} - returns true if the RTC is counting
-##
-## @seealso{start, stop}
-## @end deftypefn
-##
-## @deftypefn {} {} start(@var{dsObj})
-## Start the RTC counting
-##
-## @subsubheading Inputs
-## @var{dsObj} - the ds1307 object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{datevec}
-## @end deftypefn
-##
-## @deftypefn {} {} stop(@var{dsObj})
-## Stop the RTC counting
-##
-## @subsubheading Inputs
-## @var{dsObj} - the ds1307 object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{datevec}
-## @end deftypefn
-
 classdef DS1307 < arduinoio.LibraryBase
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.RTCAddon.DS1307
+  ## DS1307 addon
+  ##
+  ## @seealso{addon}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @var{Parent} - the parent arduino object.
+  ##
+  ## @var{Pins} - the pins allocated the addon.
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} DS1307(@var{arObj})
+  ## @deftypefnx {} {@var{obj} =} DS1307(@var{arObj}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create DS1307 addon
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{propertyname, propertyvalue} - optional property name, value pairs.
+  ## Current known properties are:
+  ## @table @asis
+  ## @item address
+  ## I2C address of the DS1307 (default 0x68)
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{obj} - created DS1307 object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## rtc = addon(a, "rtcaddon/ds1307")
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{date} =} clock(@var{dsObj})
+  ## @deftypefnx {} {} clock(@var{dsObj}, @var{date})
+  ## Get/set the DS1307 clock
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the ds1307 object
+  ##
+  ## @var{date} - a date vector in same format as datevec and clock
+  ##
+  ## @subsubheading Outputs
+  ## @var{date} - a date vector in same format as datevec and clock
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## rtc = addon(a, "rtcaddon/ds1307")
+  ## # get and display rtc time as a date string
+  ## datestr(rtc.clock)
+  ## }
+  ## @end example
+  ## @seealso{datevec}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{ctrl} =} control(@var{dsObj})
+  ## @deftypefnx {} {} control(@var{dsObj}, @var{ctrl})
+  ## Get/set the DS1307 clock
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the ds1307 object
+  ##
+  ## @var{ctrl} - a structure containing the control bit fields.
+  ##
+  ## @subsubheading Outputs
+  ## @var{ctrl} - a structure containing the control bit fields.
+  ##
+  ## Control structure fields are:
+  ## Current properties are:
+  ## @table @asis
+  ## @item out
+  ## Out bit in the control register
+  ## @item sqwe
+  ## Square wave enable bit in control register
+  ## @item rs
+  ## The combined RS0, RS1 value
+  ## @end table
+  ##
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{YN} =} isstarted(@var{dsObj})
+  ## Get whether the RTC clock is currently counting time
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the ds1307 object
+  ##
+  ## @subsubheading Outputs
+  ## @var{YN} - returns true if the RTC is counting
+  ##
+  ## @seealso{start, stop}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} start(@var{dsObj})
+  ## Start the RTC counting
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the ds1307 object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{datevec}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} stop(@var{dsObj})
+  ## Stop the RTC counting
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the ds1307 object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{datevec}
+  ## @end deftypefn
+
   # commands
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('00');

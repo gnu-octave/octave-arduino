@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,116 +14,121 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.adafruit.motorshieldv2
-## Adafruit motor shield addon
-##
-## @seealso{addon}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @var{Parent} - the parent arduino object.
-##
-## @var{Pins} - the pins allocated the addon.
-##
-## @var{I2CAddress} - the i2c address used for accessing this shield.
-##
-## @var{PWMFrequency} - the set PWM frequency for this shield.
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} motorshieldv2(@var{arObj})
-## @deftypefnx {} {@var{obj} =} motorshieldv2(@var{arObj}, @var{propertyname, propertyvalue} ....)
-## Constructor to create motorshieldv2 addon object
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{propertyname, propertyvalue} - optional property name, value pairs.
-## Current known properties are:
-## @table @asis
-## @item address
-## I2C address of the motor shield  (default 0x60)
-## @item pwmfrequency
-## PWM Frequency to set on shield  (default 1600)
-## @end table
-##
-## @subsubheading Outputs
-## @var{obj} - created  motorshieldv2 object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## mtr = addon(a, "adafruit/motorshieldv2")
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {@var{s} =} servo(@var{mObj}, @var{mtrnum})
-## @deftypefnx {} {@var{s} =} servo(@var{mObj}, @var{mtrnum}, @var{propertyname}, @var{propertyvalue} ...)
-## Create a servo object
-##
-## @subsubheading Inputs
-## @var{mObj} - the motor shield object
-##
-## @var{mtrnum} - The servo motor number, where 1 is servo on pin "d10" and 2 is a servo on pin "d9"
-##
-## @var{propertyname}, @var{propertyvalue} - Optional property name/value pairs to pass to servo object.
-##
-## Properties are the same as the base servo object.
-##
-## @subsubheading Outputs
-## @var{s} - a servo object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## ms = addon(a, "adafruit/motorshieldv2")
-## # get servo 1 (servo on pin D10)
-## s = ms.servo(1)
-## }
-## @end example
-##
-## The function if the equivalent of calling the arduino.servo with the D9 or D10 pin has the input pin.
-##
-## @seealso{servo}
-## @end deftypefn
-##
-## @deftypefn {} {@var{s} =} stepper(@var{mObj}, @var{mtrnum}, @var{stepsperrev})
-## @deftypefnx {} {@var{s} =} stepper(@var{mObj}, @var{mtrnum}, @var{stepsperrev}, @var{propertyname}, @var{propertyvalue} ...)
-## Create a stepper motor object
-##
-## @subsubheading Inputs
-## @var{mObj} - the motor shield object
-##
-## @var{mtrnum} - The stepper motor number (1 or 2)
-##
-## @var{stepsperrev} - Number of steps per revolution.
-##
-## @var{propertyname}, @var{propertyvalue} - Optional property name/value pairs to pass to stepper object.
-##
-## @subsubheading Outputs
-## @var{s} - a stepper object
-##
-## @end deftypefn
-##
-## @deftypefn {} {@var{s} =} dcmotor(@var{mObj}, @var{mtrnum})
-## @deftypefnx {} {@var{s} =} dcmotor(@var{mObj}, @var{mtrnum}, @var{propertyname}, @var{propertyvalue} ...)
-## Create a dcmotor motor object
-##
-## @subsubheading Inputs
-## @var{mObj} - the motor shield object
-##
-## @var{mtrnum} - The motor number (1 - 4)
-##
-## @var{propertyname}, @var{propertyvalue} - Optional property name/value pairs to pass to motor object.
-##
-## @subsubheading Outputs
-## @var{s} - a dcmotorv2 object
-##
-## @end deftypefn
-
 classdef motorshieldv2 < arduinoio.LibraryBase
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.adafruit.motorshieldv2
+  ## Adafruit motor shield addon
+  ##
+  ## @seealso{addon}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @var{Parent} - the parent arduino object.
+  ##
+  ## @var{Pins} - the pins allocated the addon.
+  ##
+  ## @var{I2CAddress} - the i2c address used for accessing this shield.
+  ##
+  ## @var{PWMFrequency} - the set PWM frequency for this shield.
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} motorshieldv2(@var{arObj})
+  ## @deftypefnx {} {@var{obj} =} motorshieldv2(@var{arObj}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create motorshieldv2 addon object
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{propertyname, propertyvalue} - optional property name, value pairs.
+  ## Current known properties are:
+  ## @table @asis
+  ## @item address
+  ## I2C address of the motor shield  (default 0x60)
+  ## @item pwmfrequency
+  ## PWM Frequency to set on shield  (default 1600)
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{obj} - created  motorshieldv2 object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## mtr = addon(a, "adafruit/motorshieldv2")
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{s} =} servo(@var{mObj}, @var{mtrnum})
+  ## @deftypefnx {} {@var{s} =} servo(@var{mObj}, @var{mtrnum}, @var{propertyname}, @var{propertyvalue} ...)
+  ## Create a servo object
+  ##
+  ## @subsubheading Inputs
+  ## @var{mObj} - the motor shield object
+  ##
+  ## @var{mtrnum} - The servo motor number, where 1 is servo on 
+  ## pin "d10" and 2 is a servo on pin "d9"
+  ##
+  ## @var{propertyname}, @var{propertyvalue} - Optional property 
+  ## name/value pairs to pass to servo object.
+  ##
+  ## Properties are the same as the base servo object.
+  ##
+  ## @subsubheading Outputs
+  ## @var{s} - a servo object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## ms = addon(a, "adafruit/motorshieldv2")
+  ## # get servo 1 (servo on pin D10)
+  ## s = ms.servo(1)
+  ## }
+  ## @end example
+  ##
+  ## The function if the equivalent of calling the arduino.servo with
+  ## the D9 or D10 pin has the input pin.
+  ##
+  ## @seealso{servo}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{s} =} stepper(@var{mObj}, @var{mtrnum}, @var{stepsperrev})
+  ## @deftypefnx {} {@var{s} =} stepper(@var{mObj}, @var{mtrnum}, @var{stepsperrev}, @var{propertyname}, @var{propertyvalue} ...)
+  ## Create a stepper motor object
+  ##
+  ## @subsubheading Inputs
+  ## @var{mObj} - the motor shield object
+  ##
+  ## @var{mtrnum} - The stepper motor number (1 or 2)
+  ##
+  ## @var{stepsperrev} - Number of steps per revolution.
+  ##
+  ## @var{propertyname}, @var{propertyvalue} - Optional property
+  ## name/value pairs to pass to stepper object.
+  ##
+  ## @subsubheading Outputs
+  ## @var{s} - a stepper object
+  ##
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{s} =} dcmotor(@var{mObj}, @var{mtrnum})
+  ## @deftypefnx {} {@var{s} =} dcmotor(@var{mObj}, @var{mtrnum}, @var{propertyname}, @var{propertyvalue} ...)
+  ## Create a dcmotor motor object
+  ##
+  ## @subsubheading Inputs
+  ## @var{mObj} - the motor shield object
+  ##
+  ## @var{mtrnum} - The motor number (1 - 4)
+  ##
+  ## @var{propertyname}, @var{propertyvalue} - Optional property 
+  ## name/value pairs to pass to motor object.
+  ##
+  ## @subsubheading Outputs
+  ## @var{s} - a dcmotorv2 object
+  ##
+  ## @end deftypefn
+
   # commands
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('00');

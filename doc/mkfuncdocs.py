@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 
-## Copyright 2018-2019 John Donoghue
+## Copyright 2018-2020 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -67,6 +67,7 @@ def read_m_file(filename):
   havehelp = False;
   with open(filename, 'rt') as f:
     for line in f:
+      line = line.lstrip()
       if not havehelp:
         if havehelp == False and inhelp == False and line.startswith('##'):
           if "texinfo" in line:
@@ -86,6 +87,7 @@ def read_cc_file(filename):
   havehelp = False;
   with open(filename, 'rt') as f:
     for line in f:
+      line = line.lstrip()
       if not havehelp:
         if havehelp == False and inhelp == False:
           if "texinfo" in line:

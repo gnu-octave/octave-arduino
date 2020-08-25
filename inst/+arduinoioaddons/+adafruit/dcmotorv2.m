@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,77 +14,78 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.adafruit.dcmotorv2
-## DC Motor class for dc motor control on the adafruit motor shield
-##
-## @seealso{arduinoioaddons.adafruit.motorshieldv2}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @var{Speed} - The speed value set for the motor
-##
-## @var{Parent} - The parent shield for object (read only)
-##
-## @var{MotorNumber} - The motor number (read only) values 1-4
-##
-## @var{IsRunning} - boolean for if the motor is started (read only)
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum})
-## @deftypefnx {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum}, @var{propertyname, propertyvalue} ....)
-## Constructor to create dcmotor object
-## @subsubheading Inputs
-## @var{mObj} - the motor shield object
-##
-## @var{mnum} - The motor number (1 - 4)
-##
-## @var{propertyname, propertyvalue} - Optional property name/value pairs to pass to motor object.
-##
-## Current known properties are:
-## @table @asis
-## @item Speed
-## Initial speed (default 0). Should be a value between -1 and 1.
-## @end table
-##
-## @subsubheading Outputs
-## @var{s} - a dcmotorv2 object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## ms = addon(a, "adafruit/motorshieldv2")
-## mtr = dcmotor(ms, 1)
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {} start(@var{dcObj})
-## Start the motor moving in previously set speed/direction
-##
-## @subsubheading Inputs
-## @var{dcObj} - the dcmotor object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
-##
-## @deftypefn {} {} stop(@var{dcObj})
-## Stop the motor moving
-##
-## @subsubheading Inputs
-## @var{dcObj} - the dcmotor object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
-
 classdef dcmotorv2 < arduinoio.AddonBase
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.adafruit.dcmotorv2
+  ## DC Motor class for dc motor control on the adafruit motor shield
+  ##
+  ## @seealso{arduinoioaddons.adafruit.motorshieldv2}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @var{Speed} - The speed value set for the motor
+  ##
+  ## @var{Parent} - The parent shield for object (read only)
+  ##
+  ## @var{MotorNumber} - The motor number (read only) values 1-4
+  ##
+  ## @var{IsRunning} - boolean for if the motor is started (read only)
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum})
+  ## @deftypefnx {} {@var{obj} =} dcmotorv2(@var{mObj}, @var{mnum}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create dcmotor object
+  ## @subsubheading Inputs
+  ## @var{mObj} - the motor shield object
+  ##
+  ## @var{mnum} - The motor number (1 - 4)
+  ##
+  ## @var{propertyname, propertyvalue} - Optional property name/value 
+  ## pairs to pass to motor object.
+  ##
+  ## Current known properties are:
+  ## @table @asis
+  ## @item Speed
+  ## Initial speed (default 0). Should be a value between -1 and 1.
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{s} - a dcmotorv2 object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## ms = addon(a, "adafruit/motorshieldv2")
+  ## mtr = dcmotor(ms, 1)
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} start(@var{dcObj})
+  ## Start the motor moving in previously set speed/direction
+  ##
+  ## @subsubheading Inputs
+  ## @var{dcObj} - the dcmotor object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{adafruit.motorshieldv2}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} stop(@var{dcObj})
+  ## Stop the motor moving
+  ##
+  ## @subsubheading Inputs
+  ## @var{dcObj} - the dcmotor object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{adafruit.motorshieldv2}
+  ## @end deftypefn
+
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('20');
     FREE_COMMAND = hex2dec('21');

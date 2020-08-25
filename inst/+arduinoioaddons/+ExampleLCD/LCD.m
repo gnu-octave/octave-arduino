@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,95 +14,95 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.LCDAddon.LCD
-## Basic Example octave addon for LCD
-##
-## Allows basic manipulation of an LCD as a illustration of using
-## the addon functionality.
-## @subsubheading Example
-## Assuming the arduino has been programmed with the lcd addon:
-## @example
-## a = arduino();
-## lcd = addon(a, "examplelcd/lcd", "d8", "d9", "d4", "d5", "d6", "d7")
-## clearLCD(lcd);
-## printLCD(lcd, "Hello");
-## # go to next line
-## gotoLCD(lcd, 0, 1);
-## printLCD(lcd, "World");
-## @end example
-## @seealso{addon}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @var{Pins} - the pins allocated the LCD display.
-##
-## @subheading Methods
-## @deftypefn {} {@var{lcd} =} LCD(arObj, rs, enable, d0, d1, d2, d3)
-## Constructor to create LCD device
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{rs} - the pin to use for the rs line.
-##
-## @var{enable} - the pin to use for the enable line.
-##
-## @var{d0} - the pin to use for the d0 line.
-##
-## @var{d1} - the pin to use for the d1 line.
-##
-## @var{d2} - the pin to use for the d2 line.
-##
-## @var{d3} - the pin to use for the d3 line.
-##
-## @subsubheading Outputs
-## @var{lcd} - created LCD object
-## @end deftypefn
-##
-## @deftypefn {} {} freeLCD()
-## Free the LCD
-##
-## Should be called before discarding the LCD
-## @subsubheading Inputs
-## None.
-##
-## @subsubheading Outputs
-## None.
-## @end deftypefn
-##
-## @deftypefn {} {} clearLCD()
-## Clear the LCD display and set the cursor position to the home position.
-##
-## @subsubheading Inputs
-## None.
-##
-## @subsubheading Outputs
-## None.
-## @end deftypefn
-##
-## @deftypefn {} {} printLCD(@var{text})
-## Display text on LCD starting at the current cursor position.
-##
-## @subsubheading Inputs
-## @var{text} - text to display on LCD
-##
-## @subsubheading Outputs
-## None.
-## @end deftypefn
-##
-## @deftypefn {} {} gotoLCD(@var{col}, @var{row})
-## Set the cursor position to row, col
-##
-## @subsubheading Inputs
-## @var{col} - 0 indexed LCD column to position to.
-##
-## @var{row} - 0 indexed LCD row to position to.
-##
-## @subsubheading Outputs
-## None.
-## @end deftypefn
-
 classdef LCD < arduinoio.LibraryBase
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.LCDAddon.LCD
+  ## Basic Example octave addon for LCD
+  ##
+  ## Allows basic manipulation of an LCD as a illustration of using
+  ## the addon functionality.
+  ## @subsubheading Example
+  ## Assuming the arduino has been programmed with the lcd addon:
+  ## @example
+  ## a = arduino();
+  ## lcd = addon(a, "examplelcd/lcd", "d8", "d9", "d4", "d5", "d6", "d7")
+  ## clearLCD(lcd);
+  ## printLCD(lcd, "Hello");
+  ## # go to next line
+  ## gotoLCD(lcd, 0, 1);
+  ## printLCD(lcd, "World");
+  ## @end example
+  ## @seealso{addon}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @var{Pins} - the pins allocated the LCD display.
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{lcd} =} LCD(arObj, rs, enable, d0, d1, d2, d3)
+  ## Constructor to create LCD device
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{rs} - the pin to use for the rs line.
+  ##
+  ## @var{enable} - the pin to use for the enable line.
+  ##
+  ## @var{d0} - the pin to use for the d0 line.
+  ##
+  ## @var{d1} - the pin to use for the d1 line.
+  ##
+  ## @var{d2} - the pin to use for the d2 line.
+  ##
+  ## @var{d3} - the pin to use for the d3 line.
+  ##
+  ## @subsubheading Outputs
+  ## @var{lcd} - created LCD object
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} freeLCD()
+  ## Free the LCD
+  ##
+  ## Should be called before discarding the LCD
+  ## @subsubheading Inputs
+  ## None.
+  ##
+  ## @subsubheading Outputs
+  ## None.
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} clearLCD()
+  ## Clear the LCD display and set the cursor position to the home position.
+  ##
+  ## @subsubheading Inputs
+  ## None.
+  ##
+  ## @subsubheading Outputs
+  ## None.
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} printLCD(@var{text})
+  ## Display text on LCD starting at the current cursor position.
+  ##
+  ## @subsubheading Inputs
+  ## @var{text} - text to display on LCD
+  ##
+  ## @subsubheading Outputs
+  ## None.
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} gotoLCD(@var{col}, @var{row})
+  ## Set the cursor position to row, col
+  ##
+  ## @subsubheading Inputs
+  ## @var{col} - 0 indexed LCD column to position to.
+  ##
+  ## @var{row} - 0 indexed LCD row to position to.
+  ##
+  ## @subsubheading Outputs
+  ## None.
+  ## @end deftypefn
+
   # commands
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('00');

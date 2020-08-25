@@ -14,86 +14,89 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.adafruit.stepper
-## Stepper class for stepper control on the adafruit motor shield
-##
-## @seealso{arduinoioaddons.adafruit.motorshieldv2}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @table @asis
-## @item @var{RPM}
-## The rpm value set for the stepper motor
-## @item StepType
-## the StepType for the stepper (string) which can be "single", "double", "interleave" or "microstep"
-## @item StepsPerRevolution
-## the StepsPerRevoluion for the stepper (read only)
-## @item MotorNumber
-## the motor number for the stepper (read only) value will be 1 or 2.
-## @item Parent
-## the parent shield of this stepper (read only)
-## @end table
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} stepper(@var{mObj}, @var{mnum}, @var{stepsperrev})
-## @deftypefnx {} {@var{obj} =} stepper(@var{mObj}, @var{mnum}, @var{stepsperrev}, @var{propertyname, propertyvalue} ....)
-## Constructor to create dcmotor object
-## @subsubheading Inputs
-## @var{mObj} - the motor shield object
-##
-## @var{mnum} - The motor number (1 or 2)
-##
-## @var{stepsperrev} - Number of steps per revolution.
-##
-## @var{propertyname, propertyvalue} - Optional property name/value pairs to pass to motor object.
-##
-## Current known properties are:
-## @table @asis
-## @item RPM
-## the RPM for the stepper (revolutions per minute)
-## @item StepType
-## the StepType for the stepper (string) which can be "single", "double", "interleave" or "microstep"
-## @end table
-##
-## @subsubheading Outputs
-## @var{s} - a stepper object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## ms = addon(a, "adafruit/motorshieldv2")
-## mtr = stepper(ms, 1, 200)
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {} move(@var{sObj}, @var{steps})
-## Move the motor moving in the specified steps using the configured RPM.
-##
-## @subsubheading Inputs
-## @var{sObj} - the stepper object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
-##
-## @deftypefn {} {} release(@var{sObj})
-## Release this motor
-##
-## @subsubheading Inputs
-## @var{sObj} - the stepper object
-##
-## @subsubheading Outputs
-## None
-##
-## @seealso{adafruit.motorshieldv2}
-## @end deftypefn
-
 classdef stepper < arduinoio.AddonBase
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.adafruit.stepper
+  ## Stepper class for stepper control on the adafruit motor shield
+  ##
+  ## @seealso{arduinoioaddons.adafruit.motorshieldv2}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @table @asis
+  ## @item @var{RPM}
+  ## The rpm value set for the stepper motor
+  ## @item StepType
+  ## the StepType for the stepper (string) which can be "single", 
+  ## "double", "interleave" or "microstep"
+  ## @item StepsPerRevolution
+  ## the StepsPerRevoluion for the stepper (read only)
+  ## @item MotorNumber
+  ## the motor number for the stepper (read only) value will be 1 or 2.
+  ## @item Parent
+  ## the parent shield of this stepper (read only)
+  ## @end table
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} stepper(@var{mObj}, @var{mnum}, @var{stepsperrev})
+  ## @deftypefnx {} {@var{obj} =} stepper(@var{mObj}, @var{mnum}, @var{stepsperrev}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create dcmotor object
+  ## @subsubheading Inputs
+  ## @var{mObj} - the motor shield object
+  ##
+  ## @var{mnum} - The motor number (1 or 2)
+  ##
+  ## @var{stepsperrev} - Number of steps per revolution.
+  ##
+  ## @var{propertyname, propertyvalue} - Optional property 
+  ## name/value pairs to pass to motor object.
+  ##
+  ## Current known properties are:
+  ## @table @asis
+  ## @item RPM
+  ## the RPM for the stepper (revolutions per minute)
+  ## @item StepType
+  ## the StepType for the stepper (string) which can be 
+  ## "single", "double", "interleave" or "microstep"
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{s} - a stepper object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## ms = addon(a, "adafruit/motorshieldv2")
+  ## mtr = stepper(ms, 1, 200)
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} move(@var{sObj}, @var{steps})
+  ## Move the motor moving in the specified steps using the configured RPM.
+  ##
+  ## @subsubheading Inputs
+  ## @var{sObj} - the stepper object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{adafruit.motorshieldv2}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} release(@var{sObj})
+  ## Release this motor
+  ##
+  ## @subsubheading Inputs
+  ## @var{sObj} - the stepper object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ##
+  ## @seealso{adafruit.motorshieldv2}
+  ## @end deftypefn
+
   properties(Access = private, Constant = true)
     INIT_COMMAND = hex2dec('10');
     FREE_COMMAND = hex2dec('11');

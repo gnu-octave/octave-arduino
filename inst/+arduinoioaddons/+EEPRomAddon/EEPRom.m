@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,65 +14,66 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinoioaddons.EEPRomAddon.EEPRom
-## EEPROM addon for arduino
-##
-## Allows read and write of uint8 data to the onboard arduino EEPROM.
-##
-## @subsubheading Example
-## Assuming eeprom addon has been programmed into the Arduino:
-## @example
-## a = arduino ();
-## e = addon (a, "eepromaddon/eeprom");
-## write (e, 0, uint8("hello world"));
-## str = uint8( read(e, 0, 11) )
-## @end example
-##
-## @seealso{addon}
-## @end deftypefn
-##
-## @subsubheading Properties
-## @var{length} - Size of the EEPROM.
-##
-## @subheading Methods
-## @deftypefn {} {@var{eeprom} =} EEPRom ()
-## Constructor to create eeprom device.
-## @subsubheading Outputs
-## @var{eeprom} - created EEPROM device.
-## @end deftypefn
-##
-## @deftypefn {} {} erase ()
-## Erase all values in EEPROM (Effectively setting the 0xFF)
-## @end deftypefn
-##
-## @deftypefn {} {} write (@var{address}, @var{uintdata})
-## Write data to EEPROM at the provided address.
-## @subsubheading Inputs
-## @var{address} - start address to write data to, should be a integer between 0 and the size of the EEPROM.
-##
-## @var{uintdata} a value or array of uint8 data to write to EEPROM.
-## @end deftypefn
-##
-## @deftypefn {} {@var{data} =} read (@var{address})
-## @deftypefnx {} {@var{data} =} read (@var{address}, @var{count})
-## Read data from starting address of EEPROM.
-## @subsubheading Inputs
-## @var{address} - start address to read data from, should be a integer between 0 and the size of the EEPROM.
-##
-## @var{count} - Number of uint8 values to read from the EEPROM (default is 1)
-##
-## @subsubheading Outputs
-## @var{data} a value or array of uint8 data read from the EEROM.
-## @end deftypefn
-
-
 classdef EEPRom < arduinoio.LibraryBase
-  # commands
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinoioaddons.EEPRomAddon.EEPRom
+  ## EEPROM addon for arduino
+  ##
+  ## Allows read and write of uint8 data to the onboard arduino EEPROM.
+  ##
+  ## @subsubheading Example
+  ## Assuming eeprom addon has been programmed into the Arduino:
+  ## @example
+  ## a = arduino ();
+  ## e = addon (a, "eepromaddon/eeprom");
+  ## write (e, 0, uint8("hello world"));
+  ## str = uint8( read(e, 0, 11) )
+  ## @end example
+  ##
+  ## @seealso{addon}
+  ## @end deftypefn
+  ##
+  ## @subsubheading Properties
+  ## @var{length} - Size of the EEPROM.
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{eeprom} =} EEPRom ()
+  ## Constructor to create eeprom device.
+  ## @subsubheading Outputs
+  ## @var{eeprom} - created EEPROM device.
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} erase ()
+  ## Erase all values in EEPROM (Effectively setting the 0xFF)
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} write (@var{address}, @var{uintdata})
+  ## Write data to EEPROM at the provided address.
+  ## @subsubheading Inputs
+  ## @var{address} - start address to write data to, should be an
+  ## integer between 0 and the size of the EEPROM.
+  ##
+  ## @var{uintdata} a value or array of uint8 data to write to EEPROM.
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{data} =} read (@var{address})
+  ## @deftypefnx {} {@var{data} =} read (@var{address}, @var{count})
+  ## Read data from starting address of EEPROM.
+  ## @subsubheading Inputs
+  ## @var{address} - start address to read data from, should be an
+  ## integer between 0 and the size of the EEPROM.
+  ##
+  ## @var{count} - Number of uint8 values to read from the EEPROM (default is 1)
+  ##
+  ## @subsubheading Outputs
+  ## @var{data} a value or array of uint8 data read from the EEROM.
+  ## @end deftypefn
+
   properties(Access = private)
     len = 0;
   endproperties
 
+  # commands
   properties(Access = private, Constant = true)
     INIT_COMMAND  = hex2dec('00');
     ERASE_COMMAND = hex2dec('01');

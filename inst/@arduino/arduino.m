@@ -14,48 +14,51 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} arduino ()
-## @deftypefnx {} {@var{retval} =} arduino (@var{port})
-## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board})
-## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board}[, [@var{propname}, @var{propvalue}]*)
-## Create a arduino object with a connection to an arduino board.
-## 
-## @subsubheading Inputs
-## @var{port} - full path of serial port to connect to. For Linux, usually /dev/ttySXXX, for windows COMXX.
-##
-## @var{board} - name of board to connect (default is 'uno').
-##
-## @var{propname}, @var{propvalue} - property name and value pair for additional properties
-## to pass to the creation of the arduino object.
-## Currently properties are ignored.
-##
-## if the arduino function is called without parameters, it will scan for the first available
-## arduino it can find and connect to it.
-##
-## @subsubheading Outputs
-## @var{retval} - a successfully connected arduino object.
-##
-## @subsubheading Properties
-## The arduino object has the following public properties:
-## @table @asis
-## @item name
-## name assigned to the arduino object
-## @item debug
-## true / false flag for whether debug in turned on
-## @item port (read only)
-## the communications port the board is connected to.
-## @item board  (read only)
-## The name of the board type that the arduino connected to
-## @item libraries (read only)
-## The libraries currently programmed onto the board
-## @item availablepins
-## The pins available for use on the board
-## @end table
-## @seealso{scanForArduinos, arduinosetup}
-## @end deftypefn 
-
 classdef arduino < handle
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {@var{retval} =} arduino ()
+  ## @deftypefnx {} {@var{retval} =} arduino (@var{port})
+  ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board})
+  ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board}[, [@var{propname}, @var{propvalue}]*)
+  ## Create a arduino object with a connection to an arduino board.
+  ## 
+  ## @subsubheading Inputs
+  ## @var{port} - full path of serial port to connect to. For Linux,
+  ## usually /dev/ttySXXX, for windows COMXX.
+  ##
+  ## @var{board} - name of board to connect (default is 'uno').
+  ##
+  ## @var{propname}, @var{propvalue} - property name and value pair
+  ## for additional properties to pass to the creation of the 
+  ## arduino object.
+  ##
+  ## Currently properties are ignored.
+  ##
+  ## if the arduino function is called without parameters, it will scan
+  ## for the first available arduino it can find and connect to it.
+  ##
+  ## @subsubheading Outputs
+  ## @var{retval} - a successfully connected arduino object.
+  ##
+  ## @subsubheading Properties
+  ## The arduino object has the following public properties:
+  ## @table @asis
+  ## @item name
+  ## name assigned to the arduino object
+  ## @item debug
+  ## true / false flag for whether debug in turned on
+  ## @item port (read only)
+  ## the communications port the board is connected to.
+  ## @item board  (read only)
+  ## The name of the board type that the arduino connected to
+  ## @item libraries (read only)
+  ## The libraries currently programmed onto the board
+  ## @item availablepins
+  ## The pins available for use on the board
+  ## @end table
+  ## @seealso{scanForArduinos, arduinosetup}
+  ## @end deftypefn 
+
   properties (Access = private)
     config = {};
     resources = {};

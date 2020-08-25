@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,63 +14,63 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinosensor.MPC3002
-## MCP3002 ADC sensor
-## @end deftypefn
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} MPC3002(@var{arObj}, @var{selectPin})
-## @deftypefnx {} {@var{obj} =} MPC3002(@var{arObj}, @var{selectPin}, @var{propertyname, propertyvalue} ....)
-## Constructor to create MPC3002 sensor
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{selectPin} - the SPI cs select pin
-##
-## @var{propertyname, propertyvalue} - optional property name, value pairs.
-##
-## Current properties are:
-## @table @asis
-## @item referenceVoltage
-## Reference voltage for scaling the ADC inputs (default 5.0)
-## @end table
-##
-## @subsubheading Outputs
-## @var{obj} - created MCP3002 object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## sensor = arduinosensor.MPC3002(a, "d10")
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {@var{voltage} =} readVoltage(@var{dsObj}, @var{chan})
-## Read the voltage from a channel
-##
-## @subsubheading Inputs
-## @var{dsObj} - the MPC3002 object
-##
-## @var{chan} - the channel to read (0 or 1)
-##
-## @subsubheading Outputs
-## @var{voltage} - read voltage.
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## s = arduinosensor.MPC3002(a, "d10")
-## volts = readVoltage(s, 0)
-## }
-## @end example
-## @seealso{arduinosensor.MPC3002}
-## @end deftypefn
-
 classdef MPC3002 < handle
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinosensor.MPC3002
+  ## MCP3002 ADC sensor
+  ## @end deftypefn
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} MPC3002(@var{arObj}, @var{selectPin})
+  ## @deftypefnx {} {@var{obj} =} MPC3002(@var{arObj}, @var{selectPin}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create MPC3002 sensor
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{selectPin} - the SPI cs select pin
+  ##
+  ## @var{propertyname, propertyvalue} - optional property name, value pairs.
+  ##
+  ## Current properties are:
+  ## @table @asis
+  ## @item referenceVoltage
+  ## Reference voltage for scaling the ADC inputs (default 5.0)
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{obj} - created MCP3002 object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## sensor = arduinosensor.MPC3002(a, "d10")
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{voltage} =} readVoltage(@var{dsObj}, @var{chan})
+  ## Read the voltage from a channel
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the MPC3002 object
+  ##
+  ## @var{chan} - the channel to read (0 or 1)
+  ##
+  ## @subsubheading Outputs
+  ## @var{voltage} - read voltage.
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## s = arduinosensor.MPC3002(a, "d10")
+  ## volts = readVoltage(s, 0)
+  ## }
+  ## @end example
+  ## @seealso{arduinosensor.MPC3002}
+  ## @end deftypefn
+
   properties(Access = private, constant = true)
     VERSION = "0.0.1";
     CHAN_0_READ = [ hex2dec("DF") hex2dec("FF") ];

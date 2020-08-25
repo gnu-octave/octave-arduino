@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,91 +14,91 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinosensor.SI7021
-## SI7021 temperature and humidity sensor
-## @end deftypefn
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} SI7021(@var{arObj})
-## @deftypefnx {} {@var{obj} =} SI7021(@var{arObj}, @var{propertyname, propertyvalue} ....)
-## Constructor to create SI7021 sensor
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{propertyname, propertyvalue} - optional property name, value pairs.
-## Current known properties are:
-## Current properties are:
-## @table @asis
-## @item i2caddress
-## I2C address of the SI7021 (default 0x40)
-## @end table
-##
-## @subsubheading Outputs
-## @var{obj} - created SI7020 object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## sensor = arduinosensor.SI7021(a)
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {@var{C} =} temperature(@var{dsObj})
-## Read the temperature
-##
-## @subsubheading Inputs
-## @var{dsObj} - the si7021 object
-##
-## @subsubheading Outputs
-## @var{C} - read temperature in deg C.
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## s = arduinosensor.SI7021(a)
-## # get temp
-## temp = s.temperature
-## }
-## @end example
-## @seealso{arduinosensor.SI7021}
-## @end deftypefn
-##
-## @deftypefn {} {@var{relH} =} humidity(@var{dsObj})
-## Read the relative humidity
-##
-## @subsubheading Inputs
-## @var{dsObj} - the si7021 object
-##
-## @subsubheading Outputs
-## @var{relH} - relative humidity as a percentage (0 - 100.0)
-## @end deftypefn
-##
-## @deftypefn {} {@var{relH} =} info(@var{dsObj})
-## Read the sensor info
-##
-## @subsubheading Inputs
-## @var{dsObj} - the si7021 object
-##
-## @subsubheading Outputs
-## @var{inf} - structure containing the sensor information.
-##
-## Structure fields are:
-## @table @asis
-## @item version
-## Chip firmware version
-## @item id
-## sensor id1,id2 value
-## @item type
-## String for detected chip type
-## @end table
-##
-## @end deftypefn
-
 classdef SI7021 < handle
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinosensor.SI7021
+  ## SI7021 temperature and humidity sensor
+  ## @end deftypefn
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} SI7021(@var{arObj})
+  ## @deftypefnx {} {@var{obj} =} SI7021(@var{arObj}, @var{propertyname, propertyvalue} ....)
+  ## Constructor to create SI7021 sensor
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{propertyname, propertyvalue} - optional property name, value pairs.
+  ## Current known properties are:
+  ## Current properties are:
+  ## @table @asis
+  ## @item i2caddress
+  ## I2C address of the SI7021 (default 0x40)
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{obj} - created SI7020 object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## sensor = arduinosensor.SI7021(a)
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{C} =} temperature(@var{dsObj})
+  ## Read the temperature
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the si7021 object
+  ##
+  ## @subsubheading Outputs
+  ## @var{C} - read temperature in deg C.
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## s = arduinosensor.SI7021(a)
+  ## # get temp
+  ## temp = s.temperature
+  ## }
+  ## @end example
+  ## @seealso{arduinosensor.SI7021}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{relH} =} humidity(@var{dsObj})
+  ## Read the relative humidity
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the si7021 object
+  ##
+  ## @subsubheading Outputs
+  ## @var{relH} - relative humidity as a percentage (0 - 100.0)
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{relH} =} info(@var{dsObj})
+  ## Read the sensor info
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the si7021 object
+  ##
+  ## @subsubheading Outputs
+  ## @var{inf} - structure containing the sensor information.
+  ##
+  ## Structure fields are:
+  ## @table @asis
+  ## @item version
+  ## Chip firmware version
+  ## @item id
+  ## sensor id1,id2 value
+  ## @item type
+  ## String for detected chip type
+  ## @end table
+  ##
+  ## @end deftypefn
+
   properties(Access = private, constant = true)
     SENSOR_ID_1 = [ hex2dec("FA") hex2dec("F0") ];
     SENSOR_ID_2 = [ hex2dec("FC") hex2dec("C9") ];

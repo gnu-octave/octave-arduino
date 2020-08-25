@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,74 +14,74 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {} arduinosensor.GUVAS12SD
-## A thin wrapper for the GUVAS12SD analog UV-B sensor
-## @end deftypefn
-##
-## @subheading Methods
-## @deftypefn {} {@var{obj} =} GUVAS12SD(@var{arObj}, @var{pin})
-## Constructor to create GUVAS12SD sensor
-## @subsubheading Inputs
-## @var{arObj} - the arduino parent object
-##
-## @var{pin} - the analog pin that the sensor is connected to
-##
-## @subsubheading Outputs
-## @var{obj} - created GUVAS12SD object
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## # create sensor attached to pin a0.
-## sensor = arduinosensor.GUVAS12SD(a, "a0")
-## }
-## @end example
-## @end deftypefn
-##
-## @deftypefn {} {@var{V} =} read(@var{dsObj})
-## Read the voltage of the sensor
-##
-## @subsubheading Inputs
-## @var{dsObj} - the GUVAS12SD object
-##
-## @subsubheading Outputs
-## @var{V} - read voltage - effectively equivalent to readAnalogPin(arObj, pin).
-##
-## @subsubheading Example
-## @example
-## @code {
-## a = arduino()
-## s = arduinosensor.GUVAS12SD(a)
-## # voltage
-## volts = s.read
-## }
-## @end example
-## @seealso{arduinosensor.GUVAS12SD}
-## @end deftypefn
-##
-## @deftypefn {} {@var{Idx} =} readIndex(@var{dsObj})
-## Read the UV index
-##
-## @subsubheading Inputs
-## @var{dsObj} - the GUVAS12SD object
-##
-## @subsubheading Outputs
-## @var{Idx} - the sensor reading as a UV index reading
-## @end deftypefn
-##
-## @deftypefn {} {@var{uA} =} readuA(@var{dsObj})
-## Read the uA of the sensor
-##
-## @subsubheading Inputs
-## @var{dsObj} - the GUVAS12SD object
-##
-## @subsubheading Outputs
-## @var{uA} - the sensor reading as a uAmp value
-## @end deftypefn
-
 classdef GUVAS12SD < handle
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {} arduinosensor.GUVAS12SD
+  ## A thin wrapper for the GUVAS12SD analog UV-B sensor
+  ## @end deftypefn
+  ##
+  ## @subheading Methods
+  ## @deftypefn {} {@var{obj} =} GUVAS12SD(@var{arObj}, @var{pin})
+  ## Constructor to create GUVAS12SD sensor
+  ## @subsubheading Inputs
+  ## @var{arObj} - the arduino parent object
+  ##
+  ## @var{pin} - the analog pin that the sensor is connected to
+  ##
+  ## @subsubheading Outputs
+  ## @var{obj} - created GUVAS12SD object
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## # create sensor attached to pin a0.
+  ## sensor = arduinosensor.GUVAS12SD(a, "a0")
+  ## }
+  ## @end example
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{V} =} read(@var{dsObj})
+  ## Read the voltage of the sensor
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the GUVAS12SD object
+  ##
+  ## @subsubheading Outputs
+  ## @var{V} - read voltage - effectively equivalent to 
+  ## readAnalogPin(arObj, pin).
+  ##
+  ## @subsubheading Example
+  ## @example
+  ## @code {
+  ## a = arduino()
+  ## s = arduinosensor.GUVAS12SD(a)
+  ## # voltage
+  ## volts = s.read
+  ## }
+  ## @end example
+  ## @seealso{arduinosensor.GUVAS12SD}
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{Idx} =} readIndex(@var{dsObj})
+  ## Read the UV index
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the GUVAS12SD object
+  ##
+  ## @subsubheading Outputs
+  ## @var{Idx} - the sensor reading as a UV index reading
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {@var{uA} =} readuA(@var{dsObj})
+  ## Read the uA of the sensor
+  ##
+  ## @subsubheading Inputs
+  ## @var{dsObj} - the GUVAS12SD object
+  ##
+  ## @subsubheading Outputs
+  ## @var{uA} - the sensor reading as a uAmp value
+  ## @end deftypefn
 
   properties(Access = private, constant = true)
     SCALE_UAMPS = 4.1;
