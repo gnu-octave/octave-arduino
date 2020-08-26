@@ -117,7 +117,11 @@ classdef LibraryBase < handle
       else
         printf("        Pins = {\n");
         for i=1:numel(this.Pins)
-          printf("            %s\n", this.Pins{i});
+          if isnumeric(this.Pins{i})
+            printf("            %d\n", this.Pins{i});
+          else
+            printf("            %s\n", this.Pins{i});
+          endif
         endfor
         printf("        }\n");
       endif
