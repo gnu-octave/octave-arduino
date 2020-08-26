@@ -47,6 +47,10 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
      timeout = 0.5;
    endif
 
+   if iscell(data)
+     data = cell2mat(data);
+   endif
+
    set(obj.connected, "timeout", timeout*10);
    
    hdr = uint8([ hex2dec("A5") libid cmd numel(data)]);
