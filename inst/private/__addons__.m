@@ -55,14 +55,22 @@ function addonfiles = __addons__ ()
           classname = sprintf ("arduinoioaddons.%s.%s", f1, f2);
           if is_arduino_addon_class(classname)
             z = eval(sprintf ("%s.AddonInfo('%s')", classname, classname));
-            
+
             z.scriptfile = fullfile (folder, files2(k).name);
-          
-            # paths are wrong, as mfilename isnt giving use a path from within the class
-            # so for now, fixing here
+
+            # set absolute filenames if not
+            if !is_absolute_filename(z.cppheaderfile)
+              z.cppheaderfile = fullfile(folder, z.cppheaderfile);
+            endif
+            if !is_absolute_filename(z.cppsourcefile)
+              z.cppsourcefile = fullfile(folder, z.cppsourcefile);
+            endif
+
+            # paths are wrong in octave < 6.0 as mfilename isnt giving us a
+            # correct path from within the class so for now, fixing here
             z.cppheaderfile = strrep (z.cppheaderfile, addonpathfix, folder);
             z.cppsourcefile = strrep (z.cppsourcefile, addonpathfix, folder);
-  
+
             addonfiles{end+1} = z;
           endif
         endfor
@@ -80,3 +88,4 @@ function retval = is_arduino_addon_class(classname)
     retval = false;
   endif
 endfunction
+

@@ -9,6 +9,8 @@ Summary of important user-visible changes for arduino 0.5.0+:
 
   ** minor function documentation updates
 
+  ** minor updates to support octave 6 compatibility
+
 Summary of important user-visible changes for arduino 0.5.0:
 -------------------------------------------------------------------
   ** Modified functions:
