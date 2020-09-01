@@ -120,7 +120,7 @@ classdef EEPRom < arduinoio.LibraryBase
       cmdID = obj.READ_COMMAND;
 
       if nargin != 2 && nargin != 3
-        error ("EEPRom: expected address and value");
+        error ("EEPRom: expected address and optional number of bytes");
       endif
       if nargin == 2
         num = 1;
