@@ -69,7 +69,7 @@ function this = ultrasonic (varargin)
   if nargin > 3 && mod(nargin-3, 2) != 0
     error ("arduino: expected property name, value pairs");
   endif
-  if !iscellstr (varargin(3:2:nargin))
+  if !iscellstr (varargin(4:2:nargin))
     error ("arduino: expected property names to be strings");
   endif
 
