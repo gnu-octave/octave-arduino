@@ -218,7 +218,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
     function display(this)
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
-      printf("        I2CAddress = %d (0x%X)\n", this.i2c.address, this.i2c.address);
+      printf("        I2CAddress = %d (0x%X)\n", this.i2c.i2caddress, this.i2c.i2caddress);
       # show i2c pins as the pins
       printf("        Pins = {\n");
       for i=1:numel(this.Pins)
@@ -232,7 +232,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
   
   methods (Access = public)
     function data = sendCommand(obj, commandid, data)
-      [data,~] = sendCommand(obj.Parent, obj.LibraryName, commandid, [obj.i2c.address data]);
+      [data,~] = sendCommand(obj.Parent, obj.LibraryName, commandid, [obj.i2c.i2caddress data]);
     endfunction
   endmethods
 endclassdef
