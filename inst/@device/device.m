@@ -399,6 +399,9 @@ function this = device(varargin)
 
     name = ["uart" num2str(this.id) "_"]; 
     this.pins = this.parent.get_group(name);
+    if numel(this.pins) == 0
+       error("Not a known serial number '%d'", this.id)
+    endif
     if numel(this.pins) != 2
        error("expected 2 Serial pins but only have %d", numel(this.pins) )
     endif
