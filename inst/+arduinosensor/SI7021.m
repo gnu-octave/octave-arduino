@@ -195,7 +195,22 @@ classdef SI7021 < handle
     function display(this)
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
-      printf("        I2C Address = 0x%X\n", this.i2c.address);
+      if isobject(this.i2c)
+        printf("        I2C Address = 0x%X\n", this.i2c.i2caddress);
+      else
+        printf("        Not connected");
+      endif
+    endfunction
+
+    function delete(this)
+      try
+	if isobject(this.i2c)
+	  delete(this.i2c);
+	  this.i2c = [];
+	endif
+      catch
+        # do nothing
+      end_try_catch
     endfunction
 
   endmethods

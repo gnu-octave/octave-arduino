@@ -78,7 +78,7 @@ classdef MPC3002 < handle
   endproperties
   
   properties(Access = private)
-    spi;
+    spi = [];
     reference_voltage = 5.0;
   endproperties
 
@@ -121,8 +121,24 @@ classdef MPC3002 < handle
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
       printf("      reference voltage = %f\n", this.reference_voltage);
-      printf("                 SPI cs = %s\n", this.spi.chipselectpin);
+      if isobject(this.spi)
+        printf("                 SPI cs = %s\n", this.spi.spichipselectpin);
+      else
+        printf("        Not connected");
+      endif
     endfunction
+
+    function delete(this)
+      try
+	if isobject(this.spi)
+	  delete(this.spi);
+	  this.spi = [];
+	endif
+      catch
+        # do nothing
+      end_try_catch
+    endfunction
+
 
   endmethods
 endclassdef
