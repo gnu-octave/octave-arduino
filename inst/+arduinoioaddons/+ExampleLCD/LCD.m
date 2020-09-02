@@ -132,9 +132,9 @@ classdef LCD < arduinoio.LibraryBase
       endif
 
       # our LCD code only allows 1 lcd at a time
-      count = getResourceCount(obj.Parent,obj.ResourceOwner);
+      count = getResourceCount(obj.Parent, obj.ResourceOwner);
       if count > 0
-         error ("ExampleLCD/LCDAddon: cant have only one LCD at a time");
+         error ("ExampleLCD/LCDAddon: can have only one LCD at a time");
       endif
 
       obj.Pins = {};
@@ -169,8 +169,12 @@ classdef LCD < arduinoio.LibraryBase
       if nargin != 1
         warning ("LCD: unexpected additional arguments being ignored");
       endif
-      cmdID = obj.FREE_COMMAND;
-      sendCommand(obj.Parent, obj.LibraryName, cmdID);
+      if isobject(obj.Parent)
+        cmdID = obj.FREE_COMMAND;
+        sendCommand(obj.Parent, obj.LibraryName, cmdID);
+        decrementResourceCount(obj.Parent,obj.ResourceOwner);
+        obj.Parent = [];
+      endif
     endfunction
 
     function printLCD(obj, text)
@@ -208,6 +212,18 @@ classdef LCD < arduinoio.LibraryBase
       endif
       cmdID = obj.SETCURSOR_COMMAND;
       sendCommand(obj.Parent, obj.LibraryName, cmdID, [col row]);
+    endfunction
+
+    function delete(obj)
+      try
+	ar = obj.Parent;
+	if isobject(ar)
+          freeLCD(obj);
+	endif
+      catch err
+        # do nothing
+	# warning("caught error %s", err.message)
+      end_try_catch
     endfunction
   endmethods
 endclassdef
