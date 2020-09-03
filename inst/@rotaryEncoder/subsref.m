@@ -54,3 +54,4 @@ endfunction
 %! assert (r.ppr, 100)
 %! assert (numel(r.pins) == 2)
 %! fail ("r.invalid") 
+%! delete(r)

@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -14,170 +14,174 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## -*- texinfo -*- 
-## @deftypefn {} {@var{register} =} shiftRegister (@var{ar}, @var{shifttype}, @var{dataPin}, @var{clockPin} ...)
-## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc164', @var{dataPin}, @var{clockPin}, @var{resetPin})
-## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc165', @var{dataPin}, @var{clockPin}, @var{loadPin}, @var{clockEnablePin})
-## @deftypefnx {} {@var{register} =} shiftRegister(@var{ar},'74hc595', @var{dataPin}, @var{clockPin}, @var{latchPin} , @var{resetPin})
-## Create shift register of a given type, controlled by the input pins.
-##
-## @subsubheading Inputs
-## Common function parameter definition:
-##
-## @var{ar} - connected arduino object.
-##
-## @var{shifttype} - string name of the shift register type.
-##
-## @var{dataPin} - pin used for data in/out of the device.
-##
-## @var{clockPin} - pin used for clocking data on the shiftRegister.
-##
-##
-## Other variables are dependent on the shift register type:
-## @table @asis
-## @item '74hc164'
-## Additional inputs:
-##
-## @var{resetPin} - optional  pin for resetting the shift register.
-##
-## @item '74hc165'
-## Additional inputs:
-##
-## @var{loadPin} - load pin to the shift register.
-## @var{clockEnablePin} - clock enable pin.
-##
-## @item '74hc595'
-## Additional inputs:
-##
-## @var{latchPin} - latching data to the shift register.
-## @var{resetPin} - optional pin for resetting the shift register.
-##
-## @end table
-##
-## @subsubheading Outputs
-## @var{register} - register object
-##
-## @subsubheading Properties
-## The shiftRegister object has the following public properties:
-## @table @asis
-## @item parent
-## The parent (arduino) for this device
-## @item pins
-## pins used by this object
-## @item model
-## model set for object
-## @end table
-##
-## @seealso{arduino}
-## @end deftypefn
+classdef shiftRegister < handle
+  ## -*- texinfo -*- 
+  ## @deftypefn {} {@var{register} =} shiftRegister (@var{ar}, @var{shifttype}, @var{dataPin}, @var{clockPin} ...)
+  ## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc164', @var{dataPin}, @var{clockPin}, @var{resetPin})
+  ## @deftypefnx {} {@var{register} =} shiftRegister (@var{ar},'74hc165', @var{dataPin}, @var{clockPin}, @var{loadPin}, @var{clockEnablePin})
+  ## @deftypefnx {} {@var{register} =} shiftRegister(@var{ar},'74hc595', @var{dataPin}, @var{clockPin}, @var{latchPin} , @var{resetPin})
+  ## Create shift register of a given type, controlled by the input pins.
+  ##
+  ## @subsubheading Inputs
+  ## Common function parameter definition:
+  ##
+  ## @var{ar} - connected arduino object.
+  ##
+  ## @var{shifttype} - string name of the shift register type.
+  ##
+  ## @var{dataPin} - pin used for data in/out of the device.
+  ##
+  ## @var{clockPin} - pin used for clocking data on the shiftRegister.
+  ##
+  ##
+  ## Other variables are dependent on the shift register type:
+  ## @table @asis
+  ## @item '74hc164'
+  ## Additional inputs:
+  ##
+  ## @var{resetPin} - optional  pin for resetting the shift register.
+  ##
+  ## @item '74hc165'
+  ## Additional inputs:
+  ##
+  ## @var{loadPin} - load pin to the shift register.
+  ## @var{clockEnablePin} - clock enable pin.
+  ##
+  ## @item '74hc595'
+  ## Additional inputs:
+  ##
+  ## @var{latchPin} - latching data to the shift register.
+  ## @var{resetPin} - optional pin for resetting the shift register.
+  ##
+  ## @end table
+  ##
+  ## @subsubheading Outputs
+  ## @var{register} - register object
+  ##
+  ## @subsubheading Properties
+  ## The shiftRegister object has the following public properties:
+  ## @table @asis
+  ## @item parent
+  ## The parent (arduino) for this device
+  ## @item pins
+  ## pins used by this object
+  ## @item model
+  ## model set for object
+  ## @end table
+  ##
+  ## @seealso{arduino}
+  ## @end deftypefn
 
-function register = shiftRegister(ar,type,dataPin,clockPin, varargin)
-  persistent ARDUINO_SHIFTREG_CONFIG = 1;
-
-  if (nargin == 1 && isa (ar, "shiftRegister"))
-    register = ar;   # Copy constructor
-  elseif nargin < 4
-    error ('Expected type, dataPin and clockPin');
-  else
-    p.parent = ar;
-    p.model = toupper(type);
-    p.datapin = dataPin;
-    p.clockpin = clockPin;
-    p.id = 0;
-
+  properties (Access = private)
+    parent = [];
+    model = "none";
+    datapin = "";
+    clockpin = "";
+    id = 0;
     pins = {};
-    pins{end+1} = ar.get_pin(dataPin);
-    pins{end}.func = "datapin";
+    resourceowner = "";
+  endproperties
 
-    # datapin used also to address this register
-    p.id = pins{1}.id;
+  methods (Access = public)
+    function p = shiftRegister(ar,type,dataPin,clockPin, varargin)
+      persistent ARDUINO_SHIFTREG_CONFIG = 1;
 
-    name = ["shiftregister_" pins{1}.name];
+      if (nargin == 1 && isa (ar, "shiftRegister"))
+        register = ar;   # Copy constructor
+      elseif nargin < 4
+        error ('Expected type, dataPin and clockPin');
+      else
+        p.parent = ar;
+        p.model = toupper(type);
+        p.datapin = dataPin;
+        p.clockpin = clockPin;
+        p.id = 0;
 
-    count = getResourceCount(ar, name);
-    if count > 0
-      error ("@shiftRegister.shiftRegister: already have a shift register using this pin");
-    endif
+        pins = {};
+        pins{end+1} = ar.get_pin(dataPin);
+        pins{end}.func = "datapin";
 
-    pins{end+1} = ar.get_pin(clockPin);
-    pins{end}.func = "clockpin";
+        # datapin used also to address this register
+        p.id = pins{1}.id;
 
-    init_data = [];
+        name = ["shiftregister_" pins{1}.name];
 
-    switch (p.model)
-      case '74HC164'
-         init_data = [0 pins{2}.id];
-      case '74HC165'
-        init_data = [1 pins{2}.id];
-        if nargin != 6
-          error('74HC165 expects loadPin and clockEnablePin');
+	p.resourceowner = name;
+
+        count = getResourceCount(ar, name);
+        if count > 0
+          error ("@shiftRegister.shiftRegister: already have a shift register using this pin");
         endif
-        pins{end+1} = ar.get_pin(varargin{1});
-        pins{end}.func = "loadpin";
-        pins{end+1} = ar.get_pin(varargin{2});
-        pins{end}.func = "clockenablepin";
-        init_data = [ init_data pins{3}.id pins{4}.id ];
-      case '74HC595'
-        init_data = [2 pins{2}.id];
-        if nargin != 5 && nargin != 6
-          error('74HC595 expects latchPin and optional resetPin');
-        endif
-        pins{end+1} = ar.get_pin(varargin{1});
-        pins{end}.func = "latchpin";
-        init_data = [ init_data pins{end}.id  ];
-        # optional reset
-        if nargin == 6
-          pins{end+1} = ar.get_pin(varargin{2});
-          pins{end}.func = "resetpin";
-          init_data = [ init_data pins{end}.id  ];
-        endif
-      otherwise
-        error ("Unknown shiftRegister type '%s'", p.model);
-    endswitch
 
-    # verify pins support digital i/o
-    for i = 1:numel(pins)
-      pin = pins{i}.name;
-      validatePin(ar, pin, "digital");
-    endfor
+        pins{end+1} = ar.get_pin(clockPin);
+        pins{end}.func = "clockpin";
 
-    p.pins = pins;
+        init_data = [];
 
-    # TODO: save old modes and set them via force if we fail trying to alloc the whole group
-    try
-      for i=1:numel(pins)
-        pin = pins{i}.name;
-        configurePin(ar, pin, "digitaloutput");
-      endfor
+        switch (p.model)
+          case '74HC164'
+             init_data = [0 pins{2}.id];
+          case '74HC165'
+            init_data = [1 pins{2}.id];
+            if nargin != 6
+              error('74HC165 expects loadPin and clockEnablePin');
+            endif
+            pins{end+1} = ar.get_pin(varargin{1});
+            pins{end}.func = "loadpin";
+            pins{end+1} = ar.get_pin(varargin{2});
+            pins{end}.func = "clockenablepin";
+            init_data = [ init_data pins{3}.id pins{4}.id ];
+          case '74HC595'
+            init_data = [2 pins{2}.id];
+            if nargin != 5 && nargin != 6
+              error('74HC595 expects latchPin and optional resetPin');
+            endif
+            pins{end+1} = ar.get_pin(varargin{1});
+            pins{end}.func = "latchpin";
+            init_data = [ init_data pins{end}.id  ];
+            # optional reset
+            if nargin == 6
+              pins{end+1} = ar.get_pin(varargin{2});
+              pins{end}.func = "resetpin";
+              init_data = [ init_data pins{end}.id  ];
+            endif
+          otherwise
+            error ("Unknown shiftRegister type '%s'", p.model);
+        endswitch
 
-      [tmp, sz] = sendCommand(ar, "shiftregister", ARDUINO_SHIFTREG_CONFIG, [p.id 1 init_data]);
+        # verify pins support digital i/o
+        for i = 1:numel(pins)
+          pin = pins{i}.name;
+          validatePin(ar, pin, "digital");
+        endfor
 
-      incrementResourceCount(ar, name);
-    catch
-      # restore pin state
-      for i=1:numel(pins)
-        pin = pins{i};
-        configurePinResource(ar, pin.name, pin.owner, pin.mode, true)
-        configurePin(ar, pin.name, pin.mode)
-      endfor
-      rethrow (lasterror);
-    end_try_catch
+        p.pins = pins;
 
-    p.cleanup = onCleanup (@() cleanupShiftRegister (ar, name, pins));
+        # TODO: save old modes and set them via force if we fail trying to alloc the whole group
+        try
+          for i=1:numel(pins)
+            pin = pins{i}.name;
+            configurePin(ar, pin, "digitaloutput");
+          endfor
 
-    register = class (p, "shiftRegister");
-  endif
-endfunction
+          [tmp, sz] = sendCommand(ar, "shiftregister", ARDUINO_SHIFTREG_CONFIG, [p.id 1 init_data]);
 
-# private clean up allocated pins
-function cleanupShiftRegister(ar, name, pins)
-  decrementResourceCount(ar, name);
-  for i=1:numel(pins)
-    pin = pins{i};
-    configurePinResource(ar, pin.name, pin.owner, pin.mode, true);
-    configurePin(ar, pin.name, pin.mode);
-  endfor
-endfunction
+          incrementResourceCount(ar, name);
+        catch
+          # restore pin state
+          for i=1:numel(pins)
+            pin = pins{i};
+            configurePinResource(ar, pin.name, pin.owner, pin.mode, true)
+            configurePin(ar, pin.name, pin.mode)
+          endfor
+          rethrow (lasterror);
+        end_try_catch
+
+        #p.cleanup = onCleanup (@() cleanupShiftRegister (ar, name, pins));
+      endif
+    endfunction
+  endmethods
+endclassdef
 
 %!shared ar
 %! ar = arduino();
@@ -195,6 +199,6 @@ endfunction
 %! assert(configurePin(ar, "d3"), "digitaloutput");
 %!
 %! #free
-%! clear register
+%! delete(register)
 %! assert(configurePin(ar, "d2"), "unset");
 %! assert(configurePin(ar, "d3"), "unset");

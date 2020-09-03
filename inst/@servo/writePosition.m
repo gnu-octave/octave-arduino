@@ -46,3 +46,6 @@ endfunction
 
 %! error <expected value> writePosition(s);
 
+%!test
+%!  delete(s);
+

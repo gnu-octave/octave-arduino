@@ -54,3 +54,4 @@ endfunction
 %! assert (r.model, "74HC164")
 %! assert (numel(r.pins) == 2)
 %! fail ("r.invalid") 
+%! delete(r);

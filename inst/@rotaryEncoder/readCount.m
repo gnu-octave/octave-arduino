@@ -72,5 +72,6 @@ endfunction
 %! readCount(e, "reset", 0);
 %! readCount(e, "reset", 1);
 %! readCount(e, "reset", true);
+%! delete(e)
 
 %!error readCount();

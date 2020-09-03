@@ -69,9 +69,9 @@ function out = read (dev, numbytes, precision)
 
   % read request
   if strcmp(dev.interface, "I2C")
-    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.device.address numbytes*datasize]);
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.devinfo.address numbytes*datasize]);
   else
-    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_READ, [dev.device.id numbytes*datasize dev.device.timeout*10]);
+    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_READ, [dev.devinfo.id numbytes*datasize dev.devinfo.timeout*10]);
   endif
 
   # skip address and return the data

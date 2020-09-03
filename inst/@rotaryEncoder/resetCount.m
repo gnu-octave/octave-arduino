@@ -48,3 +48,4 @@ endfunction
 %! e = rotaryEncoder(ar, "d2","d3");
 %! resetCount(e);
 %! resetCount(e, 10);
+%! delete(e);

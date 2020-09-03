@@ -91,6 +91,6 @@ function writeRegister (dev, reg, datain, precision)
     endif
   endif
 
-  sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITEREG, [dev.device.address reg datain]);
+  sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITEREG, [dev.devinfo.address reg datain]);
 
 endfunction

@@ -57,8 +57,8 @@ endfunction
 %! assert(!isempty(spi));
 %! data = writeRead(spi, 1);
 %! assert(numel(data), 1);
-%! clear spi
-%! clear ar
+%! delete(spi)
+%! delete(ar)
 
 %!test
 %! ar = arduino();
@@ -67,6 +67,6 @@ endfunction
 %! assert(!isempty(spi));
 %! data = writeRead(spi, [1 1 1]);
 %! assert(numel(data), 3);
-%! clear spi
-%! clear ar
+%! delete(spi)
+%! delete(ar)
 

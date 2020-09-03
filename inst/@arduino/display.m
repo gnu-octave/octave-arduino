@@ -25,52 +25,57 @@
 function display (ar)
 
   printf ("%s = \n", inputname (1));
-  printf ("  arduino object with fields of: \n");
-  printf ("    port = ")
-  disp (ar.config.port);
+  if isobject(ar.connected)
+    printf ("  arduino object with fields of: \n");
+    printf ("    port = ")
+    disp (ar.config.port);
   
-  printf ("    board = ")
-  disp (ar.config.board);
-  printf ("    libraries = {\n")
-  libs = ar.libraries ();
-  for i=1:numel (libs)
-    printf ("      %s\n", libs{i});
-  endfor
-  printf("    }\n");
+    printf ("    board = ")
+    disp (ar.config.board);
+    printf ("    libraries = {\n")
+    libs = ar.libraries ();
+    for i=1:numel (libs)
+      printf ("      %s\n", libs{i});
+    endfor
+    printf("    }\n");
 
-  # group pins where can
-  nextpin = "";
-  startpin = {};
-  endpin = {};
-  printf ("    availablepins = {\n")
-  for i=1:numel (ar.config.pins)
-    pin = ar.config.pins{i};
-    if !strcmpi(nextpin, pin.name)
-      if !isempty(endpin)
-        printf ("      %s - %s\n", startpin.name, endpin.name);
-      elseif !isempty(startpin)
-        printf ("      %s\n", startpin.name);
-      endif
-      startpin = pin;
-      endpin = {};
-    else
-      if isempty(startpin)
+    # group pins where can
+    nextpin = "";
+    startpin = {};
+    endpin = {};
+    printf ("    availablepins = {\n")
+    for i=1:numel (ar.config.pins)
+      pin = ar.config.pins{i};
+      if !strcmpi(nextpin, pin.name)
+        if !isempty(endpin)
+          printf ("      %s - %s\n", startpin.name, endpin.name);
+        elseif !isempty(startpin)
+          printf ("      %s\n", startpin.name);
+        endif
         startpin = pin;
+        endpin = {};
       else
-        endpin = pin;
+        if isempty(startpin)
+          startpin = pin;
+        else
+          endpin = pin;
+        endif
       endif
+      parts = sscanf(pin.name, "%c %d");
+      nextpin = sprintf("%c%d", char(parts(1)), parts(2)+1);
+    endfor
+  
+    if !isempty(endpin)
+      printf ("      %s - %s\n", startpin.name, endpin.name);
+    elseif !isempty(startpin)
+      printf ("      %s\n", startpin.name);
     endif
-    parts = sscanf(pin.name, "%c %d");
-    nextpin = sprintf("%c%d", char(parts(1)), parts(2)+1);
-  endfor
-
-  if !isempty(endpin)
-    printf ("      %s - %s\n", startpin.name, endpin.name);
-  elseif !isempty(startpin)
-    printf ("      %s\n", startpin.name);
+   
+    printf("    }\n");
+  else
+    printf ("  arduino object disconnected\n");
   endif
- 
-  printf("    }\n");
+  
   if ar.debug
     printf ("   config = \n");
     disp (ar.config);

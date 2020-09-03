@@ -26,29 +26,31 @@ function display (this)
   printf ("       interface = %s\n", this.interface);
 
   if strcmp(this.interface, "SPI")
-    printf ("spichipselectpin = %s\n", this.device.chipselectpin);
+    printf ("spichipselectpin = %s\n", this.devinfo.chipselectpin);
     for i=1:numel(this.pins)
       if ! any(strcmp(this.pins{i}.func,{"ss", "cs"})) 
         printf("%16s = %s\n", [ this.pins{i}.func "pin"], this.pins{i}.name)
       endif
     endfor
-    printf ("         spimode = %d\n", this.device.mode);
-    printf ("        bitorder = %s\n", this.device.bitorder);
-    printf ("         bitrate = %d\n", this.device.bitrate);
+    printf ("         spimode = %d\n", this.devinfo.mode);
+    printf ("        bitorder = %s\n", this.devinfo.bitorder);
+    printf ("         bitrate = %d\n", this.devinfo.bitrate);
   elseif strcmp(this.interface, "Serial")
-    printf ("      serialport = %d\n", this.device.id);
-    printf ("        baudrate = %d\n", this.device.baudrate);
+    printf ("      serialport = %d\n", this.devinfo.id);
+    printf ("        baudrate = %d\n", this.devinfo.baudrate);
     for i=1:2
       printf("%16s = %s\n", [ this.pins{i}.func "pin"], this.pins{i}.name)
     endfor
-  else
-    printf ("      i2caddress = %d (0x%02X)\n", this.device.address, this.device.address);
-    printf ("             bus = %d\n", this.device.bus);
-    printf ("         bitrate = %d\n", this.device.bitrate);
+  elseif strcmp(this.interface, "I2C")
+    printf ("      i2caddress = %d (0x%02X)\n", this.devinfo.address, this.devinfo.address);
+    printf ("             bus = %d\n", this.devinfo.bus);
+    printf ("         bitrate = %d\n", this.devinfo.bitrate);
     for i=1:2
       printf("%16s = %s\n", [ this.pins{i}.func "pin"], this.pins{i}.name)
     endfor
     % Mode, Bitrate, Bitorder
+  else
+    % should never happen
   endif
   printf("\n");
 endfunction

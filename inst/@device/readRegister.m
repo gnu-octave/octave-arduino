@@ -89,7 +89,7 @@ function out = readRegister(dev, reg, numbytes, precision)
     regsz = 1;
   endif
   % read  reg
-  [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READREG, [dev.device.address regsz reg numbytes*regsz]);
+  [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READREG, [dev.devinfo.address regsz reg numbytes*regsz]);
   # skip address and and regsz and return the data
   out = tmp(3:end);
 

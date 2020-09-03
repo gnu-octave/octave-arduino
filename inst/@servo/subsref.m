@@ -59,3 +59,4 @@ endfunction
 %! assert(s.maxpulseduration > 0);
 %! assert (numel(s.pins) == 1)
 %! fail ("s.invalid") 
+%! delete(s);

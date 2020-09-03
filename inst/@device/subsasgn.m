@@ -30,7 +30,7 @@ function this = subsasgn (this, s, val)
           if !isnumeric(val) || val < 0 || val > 8
 	     error ("expected numeric time out between 0 to 8 seconds", fld);
 	  endif
-	  this.device.timeout = val;
+	  this.devinfo.timeout = val;
         otherwise
 	  error ("device.subsasgn invalid or readonly property '%s'", fld);
       endswitch

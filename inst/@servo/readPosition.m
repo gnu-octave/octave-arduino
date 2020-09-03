@@ -39,6 +39,7 @@ endfunction
 %! assert(readPosition(s), 1);
 %! writePosition(s, 0);
 %! assert(readPosition(s), 0);
+%! delete(s);
 
 %!error <undefined> readPosition();
 

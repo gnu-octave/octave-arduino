@@ -36,13 +36,13 @@ function val = subsref (this, s)
         case "parent"
           val = this.parent;
         case "spimode"
-	  val = this.device.mode;
+	  val = this.devinfo.mode;
         case "bitrate"
-	  val = this.device.bitrate;
+	  val = this.devinfo.bitrate;
         case "bitorder"
-          val = this.device.bitorder;
+          val = this.devinfo.bitorder;
         case "spichipselectpin"
-	  val = this.device.chipselectpin;
+	  val = this.devinfo.chipselectpin;
         case "misopin"
 	  val = get_func_pin(this.pins, "miso");
         case "mosipin"
@@ -70,19 +70,19 @@ function val = subsref (this, s)
         case "parent"
           val = this.parent;
         case "baudrate"
-	  val = this.device.baudrate;
+	  val = this.devinfo.baudrate;
         case "databits"
-	  val = this.device.databits;
+	  val = this.devinfo.databits;
         case "stopbits"
-	  val = this.device.stopbits;
+	  val = this.devinfo.stopbits;
         case "parity"
-	  val = this.device.parity;
+	  val = this.devinfo.parity;
         case "timeout"
-	  val = this.device.timeout;
+	  val = this.devinfo.timeout;
         case "numbytesavailable"
 	  val = __getBytesAvailable__(this);
         case "serialport"
-	  val = this.device.id;
+	  val = this.devinfo.id;
         otherwise
 	  error ("device.subsref invalid property '%s'", fld);
       endswitch
@@ -104,11 +104,11 @@ function val = subsref (this, s)
         case "parent"
 	  val = this.parent;
         case "bus"
-          val = this.device.bus;
+          val = this.devinfo.bus;
         case "i2caddress"
-	  val = this.device.address;
+	  val = this.devinfo.address;
         case "bitrate"
-	  val = this.device.bitrate;
+	  val = this.devinfo.bitrate;
         case "sdapin"
 	  val = get_func_pin(this.pins, "sda");
         case "sclpin"
@@ -146,5 +146,5 @@ endfunction
 %! assert (spi.bitorder, "msbfirst")
 %! assert (spi.interface, "SPI")
 %! assert (numel(spi.pins) >= 4)
-%! clear spi
 %! fail ("spi.invalid") 
+%! delete(spi)

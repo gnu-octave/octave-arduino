@@ -79,8 +79,8 @@ function write (dev, datain, precision)
 
   % write request
   if strcmp(dev.interface, "I2C")
-    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.device.address datain]);
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.devinfo.address datain]);
   else
-    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_WRITE, [dev.device.id datain]);
+    [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_WRITE, [dev.devinfo.id datain]);
   endif
 endfunction

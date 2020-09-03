@@ -45,3 +45,4 @@ endfunction
 %! ar = arduino ();
 %! e = rotaryEncoder(ar, "d2","d3");
 %! readSpeed(e);
+%! delete(e)
