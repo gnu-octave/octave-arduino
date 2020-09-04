@@ -11,7 +11,7 @@
 @afourpaper
 @paragraphindent 0
 @finalout
-@set VERSION 0.5.0
+@set VERSION 0.6.0
 @set COPYRIGHT_DATE 2018-2020
 @c @afourwide
 @c %*** End of the HEADER

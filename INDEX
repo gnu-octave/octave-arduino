@@ -59,7 +59,6 @@ Arduino I2C Functions
   @device/subsref
   @device/write
   @device/writeRegister
-  @device/device
 Arduino Rotary Encoder Functions
   @rotaryEncoder/delete
   @rotaryEncoder/display
@@ -93,7 +92,6 @@ Arduino SPI Functions
   @device/display
   @device/subsref
   @device/writeRead
-  @device/device
 Arduino Serial Functions
   @device/delete
   @device/display
@@ -101,6 +99,17 @@ Arduino Serial Functions
   @device/read
   @device/subsref
   @device/write
+  @device/device
+Arduino Device Functions
+  @device/delete
+  @device/display
+  @device/flush
+  @device/read
+  @device/readRegister
+  @device/subsref
+  @device/write
+  @device/writeRead
+  @device/writeRegister
   @device/device
 Arduino Ultrasonic Functions
   @ultrasonic/delete
