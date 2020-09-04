@@ -53,7 +53,7 @@ classdef servo < handle
   ## @item pins
   ## pins used by this object
   ## @item minpulseduration
-  ## minpusleduration set for object
+  ## minpulseduration set for object
   ## @item maxpulseduration
   ## maxpulseduration set for object
   ## @end table

@@ -15,9 +15,9 @@
 ## Free resources of a ultrasonic object.
 ##
 ## @subsubheading Inputs
-## @var{dev} - ulrasonic object to free
+## @var{dev} - ultrasonic object to free
 ##
-## @seealso{unltrasonic}
+## @seealso{ultrasonic}
 ## @end deftypefn
 
 function delete(this)

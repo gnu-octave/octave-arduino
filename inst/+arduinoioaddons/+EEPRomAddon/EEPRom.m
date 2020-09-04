@@ -38,7 +38,7 @@ classdef EEPRom < arduinoio.LibraryBase
   ##
   ## @subheading Methods
   ## @deftypefn {} {@var{eeprom} =} EEPRom ()
-  ## Constructor to create eeprom device.
+  ## Constructor to create EEPROM device.
   ## @subsubheading Outputs
   ## @var{eeprom} - created EEPROM device.
   ## @end deftypefn
@@ -66,7 +66,7 @@ classdef EEPRom < arduinoio.LibraryBase
   ## @var{count} - Number of uint8 values to read from the EEPROM (default is 1)
   ##
   ## @subsubheading Outputs
-  ## @var{data} a value or array of uint8 data read from the EEROM.
+  ## @var{data} a value or array of uint8 data read from the EEPROM.
   ## @end deftypefn
 
   properties(Access = private)

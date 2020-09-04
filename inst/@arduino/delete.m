@@ -12,7 +12,7 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {} delete (@var{dev})
-## Free resources of a arduin object object.
+## Free resources of an arduino object.
 ##
 ## @subsubheading Inputs
 ## @var{dev} - object to free

@@ -47,7 +47,7 @@ classdef ultrasonic < handle
   ## @item echopin
   ## Echo pin set for object
   ## @item outputformat
-  ## Output format for the created onject
+  ## Output format for the created object
   ## @end table
   ##
   ## @seealso{arduino, readDistance, readEchoTime}

@@ -39,7 +39,7 @@ classdef device < handle
   ## bus number (when arduino board supports multiple I2C buses)
   ## with value of 0 or 1.
   ## @item noprobe
-  ## Dont probe existance of device on creation if set to 1 (default 0)
+  ## Do not probe the existence of device on creation if set to 1 (default 0)
   ## @item bitrate
   ## bit rate speed in Mbs - default 100000
   ## @end table
