@@ -64,6 +64,8 @@
     // Arduino Zero
     #define BOARD_ID 40
   #endif
+#elif defined(ARDUINO_SAMD_MKRZERO)
+    #define BOARD_ID 50
 #else
   #error "Unknown board type"
 #endif
@@ -113,7 +115,11 @@ get_mode(int m)
 #define pinToAnalog(a) (a < A0 ? 0 : a-A0)
 
 #ifndef NUM_TOTAL_PINS
+#ifdef ARDUINO_SAMD_MKRZERO
+#define NUM_TOTAL_PINS 33
+#else
 #define NUM_TOTAL_PINS NUM_DIGITAL_PINS
+#endif
 #endif
 
 //#ifdef UNO_WIFI_REV2_328MODE

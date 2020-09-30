@@ -192,6 +192,8 @@ Arduino Leonardo
 @item
 Arduino Micro
 @item
+Arduino MKRZero
+@item
 Sparkfun SAMD21
 @item
 Arduino Lilypad

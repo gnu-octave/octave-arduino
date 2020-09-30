@@ -54,6 +54,7 @@ Currently the toolkit recognizes these boards:
 * lilypad
 * mega2560
 * micro
+* mkrzero
 * nano
 * nano every
 * promini
