@@ -19,7 +19,7 @@
 ## Private function for setting allowed modes of mkrzero board pins
 ## @end deftypefn
 
-# configuration generated from /home/jade/.arduino15/packages/arduino/hardware/samd/1.8.8/variants/mkrzero/variant.h
+# configuration generated from mkrzero/variant.h
 function retval = config_mkrzero (initdata)
   retval = {};
 
