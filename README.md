@@ -57,6 +57,7 @@ Currently the toolkit recognizes these boards:
 * mkrzero
 * nano
 * nano every
+* nano 33 ble
 * promini
 * promicro
 * sparkfunsamd21

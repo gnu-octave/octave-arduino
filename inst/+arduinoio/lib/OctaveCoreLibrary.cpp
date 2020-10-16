@@ -66,13 +66,15 @@
   #endif
 #elif defined(ARDUINO_SAMD_MKRZERO)
     #define BOARD_ID 50
+#elif defined(ARDUINO_ARDUINO_NANO33BLE)
+    #define BOARD_ID 60
 #else
   #error "Unknown board type"
 #endif
 
 // board voltage = actualV*10
 #ifndef BOARD_VOLTAGE
-  #if defined(ARDUINO_ARCH_SAMD)
+  #if defined(ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
     #define BOARD_VOLTAGE 33
   #elif defined(ARDUINO_AVR_PRO) || defined(ARDUINO_AVR_PROMICRO)
    #if F_CPU == 8000000L 
@@ -136,7 +138,7 @@ reset ()
   wdt_enable (WDTO_1S);
   while(1) {}
 }
-#elif defined (ARDUINO_ARCH_SAMD)
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
 void
 reset ()
 {
@@ -178,8 +180,8 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;
         data[2] =  SIGNATURE_2;
-#elif defined (ARDUINO_ARCH_SAMD)
-#warning "TODO"
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
+        // allow the config file to supply the mcu
         data[0] =  0;
         data[1] =  0;
         data[2] =  0;

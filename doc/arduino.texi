@@ -184,6 +184,8 @@ Arduino Nano
 @item
 Arduino Nano Every
 @item
+Arduino Nano 33 BLE
+@item
 Arduino Pro/Pro Mini
 @item
 Arduino Pro Micro
