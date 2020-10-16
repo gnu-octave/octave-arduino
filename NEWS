@@ -1,8 +1,12 @@
 Summary of important user-visible changes for arduino 0.6.0+:
 -------------------------------------------------------------------
 
- ** New board configurations:
+  ** New board configurations:
     - Arduino MKRZero
+    - Arduino Nano 33 BLE
+
+  ** new arduino property:
+    - analogreference
 
 Summary of important user-visible changes for arduino 0.6.0:
 -------------------------------------------------------------------
