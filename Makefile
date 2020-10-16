@@ -165,12 +165,10 @@ rungui: all
 # Test example blocks in the documentation.  Needs doctest package
 #  http://octave.sourceforge.net/doctest/index.html
 doctest: all
-	$(OCTAVE) --path "inst/" --path "src/" \
+	$(OCTAVE) --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval 'pkg load doctest;' \
-	  --eval "targets = '$(shell (ls inst; ls src | grep .oct) | cut -f2 -d@ | cut -f1 -d.)';" \
-	  --eval "targets = strsplit (targets, ' ');" \
-	  --eval "doctest (targets);"
+	  --eval 'doctest ("$(TOPDIR)/inst/");'
 
 # Note "doctest" as prerequesite.  When testing the package, also check
 # the documentation.
