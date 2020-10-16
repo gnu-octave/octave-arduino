@@ -55,6 +55,8 @@ classdef arduino < handle
   ## The libraries currently programmed onto the board
   ## @item availablepins
   ## The pins available for use on the board
+  ## @item analogreference
+  ## The analog voltage reference
   ## @end table
   ## @seealso{scanForArduinos, arduinosetup}
   ## @end deftypefn 
@@ -289,6 +291,10 @@ classdef arduino < handle
            endif
         endfor
       endif
+    endfunction
+
+    function ref = analogreference(this)
+      ref = this.config.voltref;
     endfunction
 
     function pins = availablepins(this)
