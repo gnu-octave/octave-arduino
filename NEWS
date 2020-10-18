@@ -5,8 +5,9 @@ Summary of important user-visible changes for arduino 0.6.0+:
     - Arduino MKRZero
     - Arduino Nano 33 BLE
 
-  ** new arduino property:
-    - analogreference
+  ** @arduino/ardiuno
+    - added analogreference property
+    - added matlab compatable propertynames
 
 Summary of important user-visible changes for arduino 0.6.0:
 -------------------------------------------------------------------

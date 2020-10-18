@@ -71,6 +71,15 @@ classdef arduino < handle
     name = "";
     debug = false;
   endproperties
+
+  # matlab compatible properties
+  properties (SetAccess = private)
+    AvailablePins = [];
+    Libraries = [];
+    AnalogReference = 5.0;
+    Board = "";
+    Port = "";
+  endproperties
   
   methods (Access = public)
  
@@ -357,6 +366,27 @@ classdef arduino < handle
     function v = board_voltage (this)
       v = this.config.voltref;
     endfunction
+
+    function v = get.AvailablePins (this)
+      v = availablepins(this);
+    endfunction
+
+    function v = get.Libraries (this)
+      v = libraries(this);
+    endfunction
+
+    function v = get.AnalogReference (this)
+      v = this.config.voltref;
+    endfunction
+
+    function v = get.Board (this)
+      v = this.config.board;
+    endfunction
+
+    function v = get.Port (this)
+      v = this.config.port;
+    endfunction
+
   endmethods 
 endclassdef
 
