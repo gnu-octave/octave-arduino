@@ -66,8 +66,10 @@
   #endif
 #elif defined(ARDUINO_SAMD_MKRZERO)
     #define BOARD_ID 50
+    #define NUM_TOTAL_PINS 33
 #elif defined(ARDUINO_ARDUINO_NANO33BLE)
     #define BOARD_ID 60
+    #define NUM_TOTAL_PINS 34
 #else
   #error "Unknown board type"
 #endif
@@ -88,6 +90,7 @@
 #endif
 
 static const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
+static const char ERRORMSG_INVALID_PIN[] PROGMEM = "Invalid pin";
 
 static const int8_t map_config_mode[] PROGMEM = 
 {
@@ -117,11 +120,7 @@ get_mode(int m)
 #define pinToAnalog(a) (a < A0 ? 0 : a-A0)
 
 #ifndef NUM_TOTAL_PINS
-#ifdef ARDUINO_SAMD_MKRZERO
-#define NUM_TOTAL_PINS 33
-#else
-#define NUM_TOTAL_PINS NUM_DIGITAL_PINS
-#endif
+  #define NUM_TOTAL_PINS NUM_DIGITAL_PINS
 #endif
 
 //#ifdef UNO_WIFI_REV2_328MODE
@@ -225,6 +224,10 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
         else if (datasz == 2 && data[1] >= sizeof(map_config_mode))
           {
             sendErrorMsg_P (ERRORMSG_INVALID_MODE);
+          }
+        else if (datasz >= 1 && data[0] >= NUM_TOTAL_PINS)
+          {
+            sendErrorMsg_P (ERRORMSG_INVALID_PIN);
           }
         else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode))
           {
