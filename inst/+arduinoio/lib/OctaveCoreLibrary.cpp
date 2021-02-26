@@ -64,6 +64,9 @@
     // Arduino Zero
     #define BOARD_ID 40
   #endif
+#elif defined(ARDUINO_SAM_DUE)
+    #define BOARD_ID 45
+    #define NUM_TOTAL_PINS PINS_COUNT
 #elif defined(ARDUINO_SAMD_MKRZERO)
     #define BOARD_ID 50
     #define NUM_TOTAL_PINS 33
@@ -76,7 +79,7 @@
 
 // board voltage = actualV*10
 #ifndef BOARD_VOLTAGE
-  #if defined(ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
+  #if defined(ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM)
     #define BOARD_VOLTAGE 33
   #elif defined(ARDUINO_AVR_PRO) || defined(ARDUINO_AVR_PROMICRO)
    #if F_CPU == 8000000L 
@@ -91,6 +94,7 @@
 
 static const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
 static const char ERRORMSG_INVALID_PIN[] PROGMEM = "Invalid pin";
+static const char ERRORMSG_UNIMPLEMENTED[] PROGMEM = "Unimplemented feature";
 
 static const int8_t map_config_mode[] PROGMEM = 
 {
@@ -137,7 +141,7 @@ reset ()
   wdt_enable (WDTO_1S);
   while(1) {}
 }
-#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM)
 void
 reset ()
 {
@@ -179,7 +183,7 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;
         data[2] =  SIGNATURE_2;
-#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840)
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM)
         // allow the config file to supply the mcu
         data[0] =  0;
         data[1] =  0;
@@ -298,6 +302,9 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
       case ARDUINO_PLAYTONE:
         if (datasz == 5)
           {
+#if defined(ARDUINO_SAM_DUE)
+            sendErrorMsg_P (ERRORMSG_UNIMPLEMENTED);
+#else
             // 0 = pin
             // 1 = freqh
             // 2 = freql (hz)
@@ -312,6 +319,7 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
               tone (data[0], freq, duration);
 
             sendResponseMsg (cmdID, data, 0);
+#endif
           }
         else
           {

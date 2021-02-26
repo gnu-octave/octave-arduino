@@ -53,6 +53,8 @@ function retval = boardTypeString (id)
     #  retval = "zero";
     case 41
       retval = "sparkfunsamd21";
+    case 45
+      retval = "due";
     case 50
       retval = "mkrzero";
     case 60
