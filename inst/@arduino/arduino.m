@@ -257,6 +257,17 @@ classdef arduino < handle
       info = this.config.pins{idx};
     endfunction
 
+    function info = get_altpin (this, pin)
+      idx = find (cellfun(@(x) (sum(strcmpi (x.altnames, pin))>0), this.config.pins), 1);
+
+      if !isempty (idx)
+        info = this.config.pins{idx};
+      else
+        info = {};
+      endif
+     
+    endfunction
+
     function retval = get_group(this,type)
       retval = {};
 

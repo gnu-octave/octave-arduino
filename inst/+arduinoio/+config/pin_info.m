@@ -16,11 +16,16 @@
 ## Private function
 ## @end deftypefn
 
-function retval = pin_info (name, id, modes)
+function retval = pin_info (name, id, modes, alt)
   retval = [];
+  if (nargin < 4)
+    alt = {};
+  endif
   retval.name = lower(name);
   retval.id = id;
   retval.modes = lower(modes);
   retval.owner = "";
   retval.mode = "unset";
+  retval.altnames = lower(alt);
+
 endfunction
