@@ -50,6 +50,7 @@ Expanding the known board types
 ===============================
 
 Currently the toolkit recognizes these boards:
+* due
 * leonardo
 * lilypad
 * mega2560

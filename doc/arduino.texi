@@ -176,6 +176,8 @@ The board type must be known in order to successfully detect and connect to the 
 Currently, known boards are:
 @itemize @bullet
 @item
+Arduino Due
+@item
 Arduino UNO
 @item
 Arduino Mega 2560

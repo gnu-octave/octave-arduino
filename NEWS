@@ -2,12 +2,16 @@ Summary of important user-visible changes for arduino 0.6.0+:
 -------------------------------------------------------------------
 
   ** New board configurations:
+    - Arduino Due
     - Arduino MKRZero
     - Arduino Nano 33 BLE
 
-  ** @arduino/ardiuno
+  ** @arduino/arduino
     - added analogreference property
-    - added matlab compatable propertynames
+    - added matlab compatible property names
+
+  ** New functions:
+    - @arduino/getPinAlias
 
 Summary of important user-visible changes for arduino 0.6.0:
 -------------------------------------------------------------------
