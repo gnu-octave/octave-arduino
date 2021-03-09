@@ -25,8 +25,10 @@
 #define VERSION_MINOR 6
 #define VERSION_PATCH 0
 
-// sparkfun samed21 dev/mini
-#if defined(SERIAL_PORT_USBVIRTUAL)
+#if defined(ARDUINO_SAM_DUE)
+# define OCTAVE_COMMS_PORT SERIAL_PORT_MONITOR
+#elif defined(SERIAL_PORT_USBVIRTUAL)
+  // sparkfun samed21 dev/mini
 # define OCTAVE_COMMS_PORT SERIAL_PORT_USBVIRTUAL
 #else
 # define OCTAVE_COMMS_PORT SERIAL_PORT_MONITOR

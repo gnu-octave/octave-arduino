@@ -37,7 +37,11 @@ static const char ERRORMSG_INVALID_SERIALID[] PROGMEM = "Invalid serial id";
   #error "This device does not support the serial octave serial interface"
 #endif
 
+#if defined(ARDUINO_SAM_DUE)
+static USARTClass * serial[] = {
+#else
 static HardwareSerial * serial[] = {
+#endif
 #ifdef SERIAL_PORT_HARDWARE_OPEN1
  0,
 #endif
@@ -188,7 +192,11 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
               uint8_t id = data[0]-1;
               // data[1] = enable
               uint32_t baud = ((uint32_t)data[2]<<24) | ((uint32_t)data[3]<<16) | ((uint32_t)data[4]<<8) | data[5];
+#if defined(ARDUINO_SAM_DUE)
+              uint32_t conf = 0;
+#else
               uint8_t conf = 0;
+#endif
               // data[6] = databits
               // data[7] = stopbits
               // data[8] = parity
@@ -262,7 +270,11 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
                     }
                 }
 
+#if defined(ARDUINO_SAM_DUE)
+            serial[id]->begin (baud, (USARTClass::USARTModes)conf);
+#else
             serial[id]->begin (baud, conf);
+#endif
             sendResponseMsg (cmdID, data, 2);
           }
         // disable
