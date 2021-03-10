@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2021 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -39,13 +39,13 @@ function retval = config_promicro (initdata)
   retval.pins{end+1} = arduinoio.config.pin_info('D1', 1, { 'digital', 'uart1_tx' });
   retval.pins{end+1} = arduinoio.config.pin_info('D2', 2, { 'digital', 'i2c_sda', 'interrupt' });
   retval.pins{end+1} = arduinoio.config.pin_info('D3', 3, { 'digital', 'i2c_scl', 'interrupt', 'pwm' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D4', 4, { 'digital' }); # share A6
+  retval.pins{end+1} = arduinoio.config.pin_info('D4', 4, { 'digital' }, {"A6"}); # share A6
   retval.pins{end+1} = arduinoio.config.pin_info('D5', 5, { 'digital', 'pwm' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D6', 6, { 'digital', 'pwm' }); # share A7
+  retval.pins{end+1} = arduinoio.config.pin_info('D6', 6, { 'digital', 'pwm' }, {"A7"}); # share A7
   retval.pins{end+1} = arduinoio.config.pin_info('D7', 7, { 'digital', 'interrupt' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D8', 8, { 'digital' }); # share A8
-  retval.pins{end+1} = arduinoio.config.pin_info('D9', 9, { 'digital', 'pwm' }); # share A9
-  retval.pins{end+1} = arduinoio.config.pin_info('D10', 10, { 'digital', 'pwm' }); # share A10
+  retval.pins{end+1} = arduinoio.config.pin_info('D8', 8, { 'digital' }, {"A8"}); # share A8
+  retval.pins{end+1} = arduinoio.config.pin_info('D9', 9, { 'digital', 'pwm' }, {"A9"}); # share A9
+  retval.pins{end+1} = arduinoio.config.pin_info('D10', 10, { 'digital', 'pwm' }, {"A10"}); # share A10
 
 #  retval.pins{end+1} = arduinoio.config.pin_info('D11', 11, { 'digital', 'pwm' });
 #  retval.pins{end+1} = arduinoio.config.pin_info('D12', 12, { 'digital' });
@@ -65,12 +65,6 @@ function retval = config_promicro (initdata)
 #  retval.pins{end+1} = arduinoio.config.pin_info('A5', 23, { 'digital', 'analog' });
 
   retval.pins{end+1} = arduinoio.config.pin_info('D24', 24, { 'digital' }); # A6
-
-#  retval.pins{end+1} = arduinoio.config.pin_info('A7', 25, { 'digital', 'analog' });
-#  retval.pins{end+1} = arduinoio.config.pin_info('A8', 26, { 'digital', 'analog' });
-#  retval.pins{end+1} = arduinoio.config.pin_info('A9', 27, { 'digital', 'analog' });
-#  retval.pins{end+1} = arduinoio.config.pin_info('A10', 28, { 'digital', 'analog' });
-#  retval.pins{end+1} = arduinoio.config.pin_info('A11', 29, { 'digital', 'analog' });
 
   retval.pins{end+1} = arduinoio.config.pin_info('D30', 30, { 'digital', 'led' });
 endfunction
