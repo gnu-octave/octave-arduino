@@ -128,11 +128,12 @@ classdef i2cdev < handle
       % TODO on calling setup with the CS pin, returns back the other pins that we then setup as used ?
       % sendCommand
       # there only ever one port ??? with CS able to be completely independant ??
-      name = "i2c_";
-      if bus > 0
-        name = ["i2c" num2str(bus) "_"]; 
+
+      p.pins = ar.get_group(["i2c" num2str(bus) "_"]);
+      if isempty(p.pins) && bus == 0
+        p.pins = ar.get_group("i2c_");
       endif
-      p.pins = ar.get_group(name);
+
       if numel(p.pins) != 2
          error("expected 2 I2C pins but only have %d", numel(p.pins) )
       endif

@@ -222,11 +222,10 @@ classdef device < handle
 
         this.resourceowner = "i2c";
 
-        name = "i2c_";
-        if this.devinfo.bus > 0
-          name = ["i2c" num2str(bus) "_"]; 
+        this.pins = this.parent.get_group(["i2c" num2str(this.devinfo.bus) "_"]);
+        if isempty(this.pins) && this.devinfo.bus == 0
+          this.pins = this.parent.get_group("i2c_");
         endif
-        this.pins = this.parent.get_group(name);
 
         if numel(this.pins) != 2
            error("expected 2 I2C pins but only have %d", numel(this.pins) )

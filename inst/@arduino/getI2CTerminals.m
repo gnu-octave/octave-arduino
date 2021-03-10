@@ -12,10 +12,13 @@
 
 ## -*- texinfo -*- 
 ## @deftypefn {} {@var{pinlist} =} getI2CTerminals (@var{ar})
+## @deftypefnx {} {@var{pinlist} =} getI2CTerminals (@var{ar}, @var{bus})
 ## Get a cell list of pin Ids available are used for I2C mode.
 ##
 ## @subsubheading Inputs
 ## @var{ar} - the arduino object.
+##
+## @var{bus} - optional bus number 0 or 1 for boards that support more than 1 bus.
 ##
 ## @subsubheading Outputs
 ## @var{pinlist} - cell list of pin numbers available for I2C use.
@@ -23,13 +26,20 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function retval = getI2CTerminals (obj)
+function retval = getI2CTerminals (obj, bus)
 
-  if nargin != 1
+  if nargin < 1 || nargin > 2
     print_usage()
   endif
 
-  retval = getTypeTerminals(obj, "i2c");
+  if nargin < 2
+    bus = 0;
+  endif
+
+  retval = getTypeTerminals(obj, sprintf("i2c%d", bus));
+  if isempty(retval) && bus == 0
+    retval = getTypeTerminals(obj, "i2c");
+  endif
 
 endfunction
 

@@ -82,9 +82,13 @@ endfunction
 %! ar = arduino();
 
 %!test
+%! if !strcmp(ar.Board, "due")
 %! playTone(ar,"d2", 0, 0);
 %! playTone(ar,"d2", 220, 1);
 %! playTone(ar, "d2", 0);
+%! else
+%! # due doesnt have playTone
+%! endif
 
 %!error <undefined> playTone()
 

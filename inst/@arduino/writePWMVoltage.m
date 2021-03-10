@@ -55,7 +55,7 @@ endfunction
 %! pwmpin = getPinsFromTerminals(ar, getPWMTerminals(ar)){1};
 
 %!test
-%! writePWMVoltage(ar, pwmpin, 5.0);
+%! writePWMVoltage(ar, pwmpin, ar.AnalogReference);
 
 %!error <undefined> writePWMVoltage();
 
