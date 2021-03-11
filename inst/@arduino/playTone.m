@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2021 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -35,7 +35,7 @@ function playTone (obj, pin, freq, duration)
   if nargin < 3
     error ("@arduino.playTone: expected pin name and frequency");
   endif
-  if nargin >= 3
+  if nargin < 4
     duration = 0;
   endif
   if !ischar(pin) && !isnumeric(pin)

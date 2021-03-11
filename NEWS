@@ -9,6 +9,7 @@ Summary of important user-visible changes for arduino 0.6.0+:
   ** @arduino/arduino
     - added analogreference property
     - added matlab compatible property names
+    - playTone duration bug fix
 
   ** New functions:
     - @arduino/getPinAlias
