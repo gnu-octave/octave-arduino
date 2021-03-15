@@ -55,7 +55,7 @@ function retval = config_uno_wifi_r2 (initdata)
   #9=D9 PWM
   retval.pins{end+1} = arduinoio.config.pin_info("D9", 9, { 'digital', 'pwm', 'interrupt' });
   #10=D10 PWM SS
-  retval.pins{end+1} = arduinoio.config.pin_info("D10", 10, { 'digital', 'pwm', 'spi0_ss', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("D10", 10, { 'digital', 'pwm', 'interrupt' });
   #11=D11
   retval.pins{end+1} = arduinoio.config.pin_info("D11", 11, { 'digital', 'interrupt' });
   #12=D12
@@ -63,26 +63,32 @@ function retval = config_uno_wifi_r2 (initdata)
   #13=D13 
   retval.pins{end+1} = arduinoio.config.pin_info("D13", 13, { 'digital', 'interrupt' });
   #14=D14 A0
-  retval.pins{end+1} = arduinoio.config.pin_info("A0", 14, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A0", 14, { 'digital', 'analog', 'interrupt' }, {"D14"});
   #15=D15 A1
-  retval.pins{end+1} = arduinoio.config.pin_info("A1", 15, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A1", 15, { 'digital', 'analog', 'interrupt' }, {"D15"});
   #16=D16 A2
-  retval.pins{end+1} = arduinoio.config.pin_info("A2", 16, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A2", 16, { 'digital', 'analog', 'interrupt' }, {"D16"});
   #17=D17 A3
-  retval.pins{end+1} = arduinoio.config.pin_info("A3", 17, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A3", 17, { 'digital', 'analog', 'interrupt' }, {"D17"});
   #18=D18 A4 I2C_SDA
-  retval.pins{end+1} = arduinoio.config.pin_info("A4", 18, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A4", 18, { 'digital', 'analog', 'interrupt' }, {"D18"});
   #19=D19 A5 I2C_SCL
-  retval.pins{end+1} = arduinoio.config.pin_info("A5", 19, { 'digital', 'analog', 'interrupt' });
+  retval.pins{end+1} = arduinoio.config.pin_info("A5", 19, { 'digital', 'analog', 'interrupt' }, {"D19"});
+
   # additionals ?
   #20=D20
   retval.pins{end+1} = arduinoio.config.pin_info("D20", 20, { 'i2c_sda' });
   #21=D21
   retval.pins{end+1} = arduinoio.config.pin_info("D21", 21, { 'i2c_scl' });
+
+
+  retval.pins{end+1} = arduinoio.config.pin_info("D22", 22, { 'digital', 'spi0_ss' });
+
   #25=D25
   retval.pins{end+1} = arduinoio.config.pin_info("D25", 25, { 'digital', 'led' });
+
   #26=D26
-  retval.pins{end+1} = arduinoio.config.pin_info("D26", 26, { 'digital'});
+  #retval.pins{end+1} = arduinoio.config.pin_info("D26", 26, { 'digital'});
   #30=D30
   retval.pins{end+1} = arduinoio.config.pin_info("D30", 30, { 'digital', 'imu_ss'});
   #32=D32
