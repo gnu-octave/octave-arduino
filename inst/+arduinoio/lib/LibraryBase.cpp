@@ -17,6 +17,7 @@
 */
 
 #include "LibraryBase.h"
+#include <stdarg.h>
 
 #define ARDUINO_SOH         0xA5
 
