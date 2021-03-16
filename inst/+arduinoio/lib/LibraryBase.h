@@ -86,5 +86,14 @@ private:
 // for matlab compatability
 typedef OctaveArduinoClass MWArduinoClass;
 
+// error strings
+extern const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM;
+extern const char ERRORMSG_INVALID_ARGS[] PROGMEM;
+extern const char ERRORMSG_INVALID_MODE[] PROGMEM;
+extern const char ERRORMSG_INVALID_PIN[] PROGMEM;
+extern const char ERRORMSG_UNIMPLEMENTED[] PROGMEM;
+extern const char ERRORMSG_INVALID_DEVICE[] PROGMEM;
+
+
 
 #endif // OCTAVE_LIBRARY_BASE_H

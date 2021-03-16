@@ -24,8 +24,6 @@
 #ifdef USE_SPI
 #include <SPI.h>
 
-static const char ERRORMSG_INVALID_DEVICE[] PROGMEM = "Invalid device id";
-
 class SPIDevice
 {
   #define USED 1

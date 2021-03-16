@@ -18,8 +18,6 @@
 #include "settings.h"
 #include "OctaveSerialLibrary.h"
 
-static const char ERRORMSG_INVALID_SERIALID[] PROGMEM = "Invalid serial id";
-
 #define ARDUINO_CONFIGSERIAL   1
 #define ARDUINO_WRITESERIAL    2
 #define ARDUINO_READSERIAL     3
@@ -99,7 +97,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
             }
           else if (data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
             { 
-              sendErrorMsg_P (ERRORMSG_INVALID_SERIALID);
+              sendErrorMsg_P (ERRORMSG_INVALID_DEVICE);
             }
           else
             {
@@ -123,7 +121,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
             }
           else if (data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
             { 
-              sendErrorMsg_P (ERRORMSG_INVALID_SERIALID);
+              sendErrorMsg_P (ERRORMSG_INVALID_DEVICE);
             }
           else
             {
@@ -170,7 +168,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
             }
           else if (data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
             { 
-              sendErrorMsg_P (ERRORMSG_INVALID_SERIALID);
+              sendErrorMsg_P (ERRORMSG_INVALID_DEVICE);
             }
           else
             {
@@ -184,7 +182,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
         {
           if (datasz > 0 && data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
             { 
-              sendErrorMsg_P(ERRORMSG_INVALID_SERIALID);
+              sendErrorMsg_P(ERRORMSG_INVALID_DEVICE);
             }
           // enable
           else if (datasz == 9 && data[1] == 1)

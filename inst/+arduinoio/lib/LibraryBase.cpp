@@ -27,7 +27,7 @@
 #define STATE_DATA 4
 #define STATE_EOM  5
 
-static const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
+const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
 static const char ERRORMSG_UNKNOWN_CMDID[] PROGMEM = "Unknown cmdID";
 
 const char *

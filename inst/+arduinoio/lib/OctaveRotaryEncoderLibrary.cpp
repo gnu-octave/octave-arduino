@@ -23,7 +23,6 @@
 #define ARDUINO_READPOS_ENCODER    2
 #define ARDUINO_READSPEED_ENCODER  3
 
-static const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
 static const char ERRORMSG_CANT_READ[] PROGMEM = "Max encoder reached";
 
 static int8_t enc_states[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};

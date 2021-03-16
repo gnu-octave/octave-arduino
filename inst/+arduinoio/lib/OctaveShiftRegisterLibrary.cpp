@@ -44,7 +44,6 @@
 #define SER_74HC164_CLK    1
 #define SER_74HC164_RESET  2
 
-static const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
 static const char ERRORMSG_CANT_READ[] PROGMEM = "This register cant not read";
 static const char ERRORMSG_CANT_WRITE[] PROGMEM = "This register can not write";
 

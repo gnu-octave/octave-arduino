@@ -92,9 +92,11 @@
   #endif
 #endif
 
-static const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
-static const char ERRORMSG_INVALID_PIN[] PROGMEM = "Invalid pin";
-static const char ERRORMSG_UNIMPLEMENTED[] PROGMEM = "Unimplemented feature";
+const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
+const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
+const char ERRORMSG_INVALID_PIN[] PROGMEM = "Invalid pin";
+const char ERRORMSG_UNIMPLEMENTED[] PROGMEM = "Unimplemented feature";
+const char ERRORMSG_INVALID_DEVICE[] PROGMEM = "Invalid device id";
 
 static const int8_t map_config_mode[] PROGMEM = 
 {

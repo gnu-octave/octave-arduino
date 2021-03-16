@@ -21,7 +21,6 @@
 #define ARDUINO_CONFIG_ULTRASONIC     1
 #define ARDUINO_READ_ULTRASONIC       2
 
-static const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
 static const char ERRORMSG_CANT_READ[] PROGMEM = "Max ultrasonics reached";
 
 #ifdef USE_ULTRASONIC
