@@ -181,6 +181,8 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
         break;
         
       case ARDUINO_INIT:
+//      ** NOTE ** DO NOT use debugPrint in the init routine
+
 #if defined(ARDUINO_ARCH_AVR) || defined(ARDUINO_ARCH_MEGAAVR)
         data[0] =  SIGNATURE_0;
         data[1] =  SIGNATURE_1;

@@ -77,6 +77,22 @@ OctaveLibraryBase::sendErrorMsg (const char *err)
 }
 
 void
+OctaveLibraryBase::debugPrint (const char *err, ...)
+{
+  char buffer[201];
+  va_list args;
+  va_start (args, err);
+  vsnprintf (buffer,200,err, args);
+  va_end (args);
+
+  // work out len to max 200
+  int len = 0;
+  while(buffer[len] != '\0' && len < 200) len++;
+
+  sendResponseMsg (ARDUINO_DEBUG, (uint8_t *)buffer, len);
+}
+
+void
 OctaveLibraryBase::sendResponseMsg_P (uint8_t cmdID, const uint8_t *data PROGMEM, uint8_t sz)
 {
   char tmp[256];

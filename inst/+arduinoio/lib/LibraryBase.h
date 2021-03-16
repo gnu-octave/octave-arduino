@@ -48,6 +48,7 @@ public:
 
   #define ARDUINO_ERROR       255
   #define ARDUINO_WAIT        254
+  #define ARDUINO_DEBUG       253
   void sendResponseMsg(uint8_t cmdID, const uint8_t *data, uint8_t sz);
   void sendResponseMsg_P(uint8_t cmdID, const uint8_t *data PROGMEM, uint8_t sz);
 
@@ -56,7 +57,7 @@ public:
   void sendUnknownCmdIDMsg();
   void sendInvalidNumArgsMsg();
   void sendWaitMsg();
-  // void debugPrint(const char *,varargs);
+  void debugPrint(const char *, ...);
 };
 
 typedef OctaveLibraryBase LibraryBase;
