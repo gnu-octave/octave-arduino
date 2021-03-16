@@ -37,7 +37,7 @@ function out = readRegister(dev, reg, numbytes, precision)
   if isempty(endian)
     [~, ~, endian] = computer ();
   endif
-  persistent ARDUINO_I2C_READREG = 5;
+  persistent ARDUINO_I2C_READREG = 9;
 
   if nargin < 3 || nargin > 4
     print_usage ();
@@ -85,7 +85,7 @@ function out = readRegister(dev, reg, numbytes, precision)
     regsz = 1;
   endif
   % read  reg
-  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READREG, [dev.address regsz reg numbytes*regsz]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READREG, [dev.bus dev.address regsz reg numbytes*regsz]);
   # skip address and and regsz and return the data
   out = tmp(3:end);
 

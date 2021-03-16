@@ -31,7 +31,7 @@
 ## @end deftypefn
 
 function out = read (dev, numbytes, precision)
-  persistent ARDUINO_I2C_READ = 3;
+  persistent ARDUINO_I2C_READ = 7;
   persistent endian;
   if isempty(endian)
     [~, ~, endian] = computer ();
@@ -62,7 +62,7 @@ function out = read (dev, numbytes, precision)
   endif
 
   % read request
-  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READ, [dev.address numbytes*datasize]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_READ, [dev.bus dev.address numbytes*datasize]);
   # skip address and return the data
 
   out = typecast (uint8(tmp(2:end)), precision);

@@ -36,7 +36,7 @@ function writeRegister (dev, reg, datain, precision)
     [~, ~, endian] = computer ();
   endif
  
-  persistent ARDUINO_I2C_WRITEREG = 4;
+  persistent ARDUINO_I2C_WRITEREG = 8;
 
   if nargin < 3 || nargin > 4
     print_usage ();
@@ -91,6 +91,6 @@ function writeRegister (dev, reg, datain, precision)
     endif
   endif
 
-  sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITEREG, [dev.devinfo.address reg datain]);
+  sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITEREG, [dev.devinfo.bus dev.devinfo.address reg datain]);
 
 endfunction

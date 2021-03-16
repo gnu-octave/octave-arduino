@@ -215,7 +215,7 @@ classdef device < handle
         endif
         p.parse(varargin{:});
 
-        this.id = [];
+        this.id = p.Results.Bus;
         this.devinfo.address = p.Results.I2CAddress;
         this.devinfo.bus = p.Results.Bus;
         this.devinfo.bitrate = p.Results.BitRate;

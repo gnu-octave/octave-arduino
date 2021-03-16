@@ -34,7 +34,7 @@ function write (dev, datain, precision)
     [~, ~, endian] = computer ();
   endif
 
-  persistent ARDUINO_I2C_WRITE = 2;
+  persistent ARDUINO_I2C_WRITE = 6;
   persistent ARDUINO_SERIAL_WRITE = 2;
  
   if nargin < 2 || nargin > 3
@@ -79,7 +79,7 @@ function write (dev, datain, precision)
 
   % write request
   if strcmp(dev.interface, "I2C")
-    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.devinfo.address datain]);
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_WRITE, [dev.devinfo.bus dev.devinfo.address datain]);
   else
     [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_WRITE, [dev.devinfo.id datain]);
   endif

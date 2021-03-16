@@ -31,7 +31,7 @@
 ## @end deftypefn
 
 function out = read (dev, numbytes, precision)
-  persistent ARDUINO_I2C_READ = 3;
+  persistent ARDUINO_I2C_READ = 7;
   persistent ARDUINO_SERIAL_READ = 3;
   persistent endian;
   if isempty(endian)
@@ -69,7 +69,7 @@ function out = read (dev, numbytes, precision)
 
   % read request
   if strcmp(dev.interface, "I2C")
-    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.devinfo.address numbytes*datasize]);
+    [tmp, sz] = sendCommand (dev.parent, "i2c", ARDUINO_I2C_READ, [dev.devinfo.bus dev.devinfo.address numbytes*datasize]);
   else
     [tmp, sz] = sendCommand (dev.parent, "serial", ARDUINO_SERIAL_READ, [dev.devinfo.id numbytes*datasize dev.devinfo.timeout*10]);
   endif

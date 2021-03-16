@@ -67,7 +67,7 @@ function addr = scanI2Cbus (ar, bus)
   # TODO: configure SPI pins if not already done??
 
   # scan each address, and add any found to cell array
-  for i = 1:127
+  for i = 3:126
      if checkI2CAddress (ar, i, bus)
        addr{end+1} = [ "0x" dec2hex(i, 2) ];
      endif

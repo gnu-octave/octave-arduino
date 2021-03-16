@@ -34,7 +34,7 @@ function write (dev, datain, precision)
     [~, ~, endian] = computer ();
   endif
 
-  persistent ARDUINO_I2C_WRITE = 2;
+  persistent ARDUINO_I2C_WRITE = 6;
  
   if nargin < 2 || nargin > 3
     print_usage ();
@@ -73,6 +73,6 @@ function write (dev, datain, precision)
   endif
 
   % write request
-  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_WRITE, [dev.address datain]);
+  [tmp, sz] = sendCommand (dev.arduinoobj, "i2c", ARDUINO_I2C_WRITE, [dev.bus dev.address datain]);
 
 endfunction
