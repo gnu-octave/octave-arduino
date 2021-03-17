@@ -33,8 +33,8 @@ function retval = config_nano_33_ble (initdata)
   retval.pins{end+1} = arduinoio.config.pin_info('A1', 15, { 'digital', 'analog' });
   retval.pins{end+1} = arduinoio.config.pin_info('A2', 16, { 'digital', 'analog' });
   retval.pins{end+1} = arduinoio.config.pin_info('A3', 17, { 'digital', 'analog' });
-  retval.pins{end+1} = arduinoio.config.pin_info('A4', 18, { 'digital', 'analog', 'i2c_sda' });
-  retval.pins{end+1} = arduinoio.config.pin_info('A5', 19, { 'digital', 'analog', 'i2c_scl' });
+  retval.pins{end+1} = arduinoio.config.pin_info('A4', 18, { 'digital', 'analog', 'i2c0_sda' });
+  retval.pins{end+1} = arduinoio.config.pin_info('A5', 19, { 'digital', 'analog', 'i2c0_scl' });
   retval.pins{end+1} = arduinoio.config.pin_info('A6', 20, { 'digital', 'analog' });
   retval.pins{end+1} = arduinoio.config.pin_info('A7', 21, { 'digital', 'analog' });
 
@@ -44,8 +44,8 @@ function retval = config_nano_33_ble (initdata)
   retval.pins{end+1} = arduinoio.config.pin_info('D28', 28, { 'digital' }); # PDM clk
   retval.pins{end+1} = arduinoio.config.pin_info('D29', 29, { 'digital' }); # PDM din
 
-  retval.pins{end+1} = arduinoio.config.pin_info('D30', 30, { 'i2c_sda1' });
-  retval.pins{end+1} = arduinoio.config.pin_info('D31', 31, { 'i2c_scl1' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D30', 30, { 'i2c1_sda' });
+  retval.pins{end+1} = arduinoio.config.pin_info('D31', 31, { 'i2c1_scl' });
   retval.pins{end+1} = arduinoio.config.pin_info('D32', 32, { 'digital' }); # enable i2c pullup
   retval.pins{end+1} = arduinoio.config.pin_info('D33', 33, { 'digital' }); # enable i2c 3.3v
 
