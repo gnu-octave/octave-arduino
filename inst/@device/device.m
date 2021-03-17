@@ -231,6 +231,11 @@ classdef device < handle
            error("expected 2 I2C pins but only have %d", numel(this.pins) )
         endif
 
+        # check a device is attached
+        if p.Results.NoProbe == false && !checkI2CAddress(this.parent, this.devinfo.address, this.devinfo.bus)
+           error ("I2c address did not respond to probe of address");
+        endif
+
         # set pins
         try
           for i=1:2
@@ -240,11 +245,6 @@ classdef device < handle
           bitrate = [ bitand(bitshift(bitrate,-8), 255), bitand(bitrate, 255)];
           # 0 = master mode, which all we currently support in our arduino toolkit
           [tmp, sz] = sendCommand(this.parent, "i2c", ARDUINO_I2C_CONFIG, [this.devinfo.bus 1 0 bitrate]);
-
-          # check a device is attached
-          if p.Results.NoProbe == false && !checkI2CAddress(this.parent, this.devinfo.address, this.devinfo.bus)
-            error ("I2c address did not respond to probe of address");
-          endif
         catch
           for i=1:2
             configurePinResource(this.parent, this.pins{i}.name, this.pins{i}.owner, this.pins{i}.mode, true)
