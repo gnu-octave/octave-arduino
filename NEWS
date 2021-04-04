@@ -16,7 +16,7 @@ Summary of important user-visible changes for arduino 0.6.0+:
 
   ** Core Libraries:
     - provide basic debugPrint function
-    - support muliple i2c device buses correctly
+    - support multiple i2c device buses correctly
     - support differing spi device settings
     - use global error messages for common errors
 
