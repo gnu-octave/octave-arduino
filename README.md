@@ -86,6 +86,8 @@ Currently the toolkit recognizes these boards:
 
 * promicro
 
+* raspberry pi pico
+
 * sparkfunsamd21
 
 * uno wifi rev2

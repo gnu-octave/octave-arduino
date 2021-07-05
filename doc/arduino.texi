@@ -205,6 +205,8 @@ Arduino Lilypad
 Arduino UNO WiFi rev2
 @boxnote{The Arduino servo library code may require modifications to
  eliminate conflicts between servos and the tone library}
+@item
+Raspberry Pi Pico
 @end itemize
 
 Additional boards can be added easily, however require minor code changes.

@@ -59,6 +59,8 @@ function retval = boardTypeString (id)
       retval = "mkrzero";
     case 60
       retval = "nano_33_ble";
+    case 100
+      retval = "raspi_pico";
     otherwise
       retval = "unknown";
   endswitch

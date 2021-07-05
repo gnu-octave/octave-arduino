@@ -65,21 +65,26 @@
     #define BOARD_ID 40
   #endif
 #elif defined(ARDUINO_SAM_DUE)
-    #define BOARD_ID 45
-    #define NUM_TOTAL_PINS PINS_COUNT
+  #define BOARD_ID 45
+  #define NUM_TOTAL_PINS PINS_COUNT
 #elif defined(ARDUINO_SAMD_MKRZERO)
-    #define BOARD_ID 50
-    #define NUM_TOTAL_PINS 33
+  #define BOARD_ID 50
+  #define NUM_TOTAL_PINS 33
 #elif defined(ARDUINO_ARDUINO_NANO33BLE)
-    #define BOARD_ID 60
-    #define NUM_TOTAL_PINS 34
+  #define BOARD_ID 60
+  #define NUM_TOTAL_PINS 34
+#elif defined(ARDUINO_RASPBERRY_PI_PICO)
+  #define BOARD_ID 100
+  #ifndef ARDUINO_ARCH_MBED
+    #error "Expected mbed architechture"
+  #endif
 #else
   #error "Unknown board type"
 #endif
 
 // board voltage = actualV*10
 #ifndef BOARD_VOLTAGE
-  #if defined(ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM)
+  #if defined(ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM) || defined (ARDUINO_ARCH_RP2040)
     #define BOARD_VOLTAGE 33
   #elif defined(ARDUINO_AVR_PRO) || defined(ARDUINO_AVR_PROMICRO)
    #if F_CPU == 8000000L 
@@ -143,7 +148,7 @@ reset ()
   wdt_enable (WDTO_1S);
   while(1) {}
 }
-#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM)
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM) || defined (ARDUINO_ARCH_RP2040)
 void
 reset ()
 {
