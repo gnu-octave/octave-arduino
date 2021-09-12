@@ -68,14 +68,14 @@ function out = readRegister(dev, reg, numbytes, precision)
 
   if (strcmp (precision,'uint16'))
     reg = uint16(reg);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       reg = swapbytes (reg); 
     endif
     reg = typecast (reg, 'uint8');
     regsz = 2;
   elseif (strcmp (precision,'int16'))
     reg = int16(reg);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       reg = swabytes (reg); 
     endif
     reg = typecast (reg, 'uint8');
@@ -97,7 +97,7 @@ function out = readRegister(dev, reg, numbytes, precision)
   if (strcmp (precision,'uint16') || strcmp (precision,'int16'))
     sz = sz/2;
     out = typecast (out, precision);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       out = swapbytes (out); 
     endif
   else

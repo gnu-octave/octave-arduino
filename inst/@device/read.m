@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2021 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -80,7 +80,7 @@ function out = read (dev, numbytes, precision)
 
   if (strcmp (precision,'uint16') || strcmp (precision,'int16'))
     sz = sz/2;
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       out = swapbytes (out); 
     endif
   else

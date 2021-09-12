@@ -32,6 +32,11 @@
 #define ARDUINO_VERSION     20
 #define ARDUINO_UPTIME      21
 
+// endian flag
+#define ARDUINO_LITTLEENDIAN 0x00
+#define ARDUINO_BIGENDIAN    0x80
+#define ARDUINO_ENDIAN ARDUINO_LITTLEENDIAN
+
 // TODO: how know what board we are ???
 //compiler provides something like:
 // -DF_CPU=16000000L -DARDUINO=10805 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR
@@ -205,7 +210,11 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
         data[3] = BOARD_ID;
         data[4] = BOARD_VOLTAGE;
         data[5] = occlass.getLibCount ();
-        sendResponseMsg (cmdID, data, 6);
+	// flags
+	// if anything is big endian, 0x80
+	data[6] = ARDUINO_ENDIAN | 0;
+
+        sendResponseMsg (cmdID, data, 7);
         break;  
       case ARDUINO_GETLIB:
         {

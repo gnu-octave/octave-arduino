@@ -63,6 +63,11 @@ function retval = __initArduino__ (obj, port, board)
      voltref = double(dataout(5))/10.0;
      numlib = uint8(dataout(6));
 
+     flags = 0;
+     if length(dataout) > 6
+       flags = dataout(7)
+     endif
+
      % check board against config info
      if ~isempty(board) && (board != boardtype)
        warning("connected %s arduino does not match requested board type %s", boardtype, obj.board)
@@ -73,6 +78,7 @@ function retval = __initArduino__ (obj, port, board)
      obj.config.port = port;
      obj.config.board = boardtype;
      obj.config.voltref = voltref;
+     obj.config.flags = flags;
      if ! isempty(mcu)
        obj.config.mcu = mcu;
      elseif isempty(obj.config.mcu)

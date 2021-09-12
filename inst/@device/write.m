@@ -1,4 +1,4 @@
-## Copyright (C) 2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2019-2021 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -59,13 +59,13 @@ function write (dev, datain, precision)
 
   if (strcmp (precision,'uint16'))
     datain = uint16(datain);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       datain = swapbytes (datain); 
     endif
     datain = typecast (datain, 'uint8');
   elseif (strcmp (precision,'int16'))
     datain = int16(datain);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       datain = swapbytes (datain); 
     endif
     datain = typecast (datain, 'uint8');

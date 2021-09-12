@@ -11,6 +11,7 @@ Arduino Functions
   @arduino/decrementResourceCount
   @arduino/delete
   @arduino/display
+  @arduino/getEndian
   @arduino/getI2CTerminals
   @arduino/getInterruptTerminals
   @arduino/getLEDTerminals

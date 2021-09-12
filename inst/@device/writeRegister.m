@@ -66,7 +66,7 @@ function writeRegister (dev, reg, datain, precision)
   if (strcmp (precision,'uint16'))
     reg = uint16 (reg);
     datain = uint16 (datain);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       reg = swapbytes (reg); 
       datain = swapbytes (datain);
     endif
@@ -75,7 +75,7 @@ function writeRegister (dev, reg, datain, precision)
   elseif (strcmp (precision,'int16'))
     reg = uint16 (reg);
     datain = int16 (datain);
-    if (endian == 'L')
+    if (endian != getEndian(dev.parent))
       reg = swabytes (reg); 
       datain = swapbytes (datain);
     endif

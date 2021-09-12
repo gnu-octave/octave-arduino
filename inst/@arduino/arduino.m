@@ -219,6 +219,18 @@ classdef arduino < handle
       m = this.config.mcu;
     endfunction
 
+    function m = get_flags (this)
+      m = this.config.flags;
+    endfunction
+
+    function m = get_endian (this)
+      if bitand(this.config.flags, 0x80) != 0
+        m = "B";
+      else
+        m = "L";
+      endif
+    endfunction
+
     function id = get_lib (this, name)
       idx = find( cellfun(@(x) strcmpi(x.name, name), this.config.libs), 1);
 
