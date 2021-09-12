@@ -40,7 +40,11 @@ public:
   String libName;
   int id;
 
-  virtual void commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t payload_size) = 0;
+  virtual void commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t payload_size);
+
+  // matlab compatability
+  virtual void commandHandler(byte cmdID, byte* inputs, unsigned int payload_size);
+
   virtual void setup();
   virtual void loop();
 
@@ -94,7 +98,5 @@ extern const char ERRORMSG_INVALID_MODE[] PROGMEM;
 extern const char ERRORMSG_INVALID_PIN[] PROGMEM;
 extern const char ERRORMSG_UNIMPLEMENTED[] PROGMEM;
 extern const char ERRORMSG_INVALID_DEVICE[] PROGMEM;
-
-
 
 #endif // OCTAVE_LIBRARY_BASE_H

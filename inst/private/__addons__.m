@@ -82,10 +82,24 @@ endfunction
 function retval = is_arduino_addon_class(classname)
   classinfo = meta.class.fromName(classname);
   if !isempty(classinfo)
-    idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
-    retval = !isempty(idx);
+    # base class should have AddonInfo inhirected from arduinoio.LibraryBase
+    idx = find( cellfun(@(x) strcmpi(x, "AddonInfo"), methods(classname)), 1);
+    if !isempty(idx)
+      if size(classinfo.SuperClassList) > 0
+        idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
+        retval = !isempty(idx);
+
+        if retval == false
+          idx = cellfun(@(x) (is_arduino_addon_class(x.Name) == true), classinfo.SuperClassList);
+          retval = !isempty(idx);
+        endif
+      else
+        retval = false;
+      endif
+    else
+      retval = false;
+    endif
   else
     retval = false;
   endif
 endfunction
-

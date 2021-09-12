@@ -28,7 +28,14 @@
 #define STATE_DATA 4
 #define STATE_EOM  5
 
+// some standard(ish) error messages used throughout the addons
 const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
+const char ERRORMSG_UNIMPLEMENTED[] PROGMEM = "Unimplemented feature";
+const char ERRORMSG_INVALID_ARGS[] PROGMEM = "Invalid args";
+const char ERRORMSG_INVALID_MODE[] PROGMEM = "Invalid mode";
+const char ERRORMSG_INVALID_PIN[] PROGMEM = "Invalid pin";
+const char ERRORMSG_INVALID_DEVICE[] PROGMEM = "Invalid device id";
+
 static const char ERRORMSG_UNKNOWN_CMDID[] PROGMEM = "Unknown cmdID";
 
 const char *
@@ -47,6 +54,16 @@ OctaveLibraryBase::loop ()
 {
 }
 
+void OctaveLibraryBase::commandHandler(byte cmdID, byte* inputs, unsigned int payload_size)
+{
+  commandHandler((uint8_t)cmdID, (uint8_t*)inputs, (uint8_t)payload_size);
+}
+
+void OctaveLibraryBase::commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t payload_size)
+{
+  sendErrorMsg_P(ERRORMSG_UNIMPLEMENTED);
+}
+
 void
 OctaveLibraryBase::sendResponseMsg (uint8_t cmdID, const uint8_t *data, uint8_t sz)
 {
@@ -58,7 +75,8 @@ OctaveLibraryBase::sendResponseMsg (uint8_t cmdID, const uint8_t *data, uint8_t 
     {
       OCTAVE_COMMS_PORT.write (data, sz);
     }
-  OCTAVE_COMMS_PORT.flush ();
+  // flush appears to lockup port in some devices
+  //OCTAVE_COMMS_PORT.flush ();
 }
 
 void
@@ -173,13 +191,14 @@ OctaveArduinoClass::registerLibrary (LibraryBase *lib)
 uint8_t
 OctaveArduinoClass::processMessage (uint8_t libid, uint8_t cmd, uint8_t *data, uint8_t sz)
 {
-  if (libid < 0 || libid >= MAX_ARDUINO_LIBS || libs[libid] == 0)
+  if (libid >= MAX_ARDUINO_LIBS || libs[libid] == 0)
     {
-      // error, send reply
+      if(libcount > 0)
+        libs[0]->sendErrorMsg_P(ERRORMSG_UNIMPLEMENTED);
     }
   else
     {
-      libs[libid]->commandHandler(cmd, data,sz);
+      libs[libid]->commandHandler((byte)cmd, (byte *)data, (unsigned int)sz);
       return 1;
     }
   return 0; 

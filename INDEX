@@ -139,5 +139,7 @@ Arduino I/O package
   arduinoio.LibFiles
   arduinoio.LibraryBase
   arduinoio.getBoardConfig
+Matlab Compatability Classes
+  matlabshared.addon.LibraryBase
 Test Functions
   arduino_bistsetup
