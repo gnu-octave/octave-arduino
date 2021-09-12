@@ -82,6 +82,8 @@ Currently the toolkit recognizes these boards:
 
 * nano 33 ble
 
+* nano rp2040 connect
+
 * promini
 
 * promicro

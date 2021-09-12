@@ -188,6 +188,8 @@ Arduino Nano Every
 @item
 Arduino Nano 33 BLE
 @item
+Arduino Nano RP2040 Connect
+@item
 Arduino Pro/Pro Mini
 @item
 Arduino Pro Micro

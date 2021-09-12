@@ -78,6 +78,12 @@
   #ifndef ARDUINO_ARCH_MBED
     #error "Expected mbed architechture"
   #endif
+#elif defined(ARDUINO_NANO_RP2040_CONNECT)
+  #define BOARD_ID 101
+  #define BOARD_VOLTAGE 33
+  #ifndef ARDUINO_ARCH_MBED
+    #error "Expected mbed architechture"
+  #endif
 #else
   #error "Unknown board type"
 #endif
