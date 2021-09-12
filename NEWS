@@ -2,6 +2,15 @@ Summary of important user-visible changes for arduino 0.7.0+:
 -------------------------------------------------------------------
   ** New board configurations:
     - Raspberry Pi Pico
+    - Arduino Nano RP2040 Connect
+
+  ** New functions:
+    - @arduino/getEndian
+
+  ** @device/read and writeXXXXX:
+    - only fix endian when host and device do not match 
+
+  ** updates for closer matlab code compatibility
 
 Summary of important user-visible changes for arduino 0.7.0:
 -------------------------------------------------------------------
