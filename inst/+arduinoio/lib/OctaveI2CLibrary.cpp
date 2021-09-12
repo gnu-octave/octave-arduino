@@ -322,7 +322,7 @@ OctaveI2CLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 
                   if (data[0] == 0)
                     {
-#if defined(ARDUINO_AVR_NANO_EVERY)
+#if defined(ARDUINO_AVR_NANO_EVERY) || defined (ARDUINO_NANO_RP2040_CONNECT)
                       // arduino every A4,A5 pin is connected to 2 pins each on the micro controller
                       // so need ensure that the non I2C pins are pulled hi so doesnt effect the i2c pins
                       pinMode(18, INPUT_PULLUP);
