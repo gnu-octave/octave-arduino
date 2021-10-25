@@ -124,9 +124,9 @@ static const int8_t map_config_mode[] PROGMEM =
 };
 
 int
-get_mode(int m)
+get_mode(uint8_t m)
 {
-  if (m >= 0 && m < sizeof (map_config_mode))
+  if (m < sizeof (map_config_mode))
     {
       return pgm_read_byte_near (map_config_mode + m);
     }
@@ -173,7 +173,7 @@ OctaveCoreLibrary::OctaveCoreLibrary (OctaveArduinoClass &oc)
   oc.registerLibrary (this);
 
   // set pins as not set
-  for(int i = 0; i<NUM_TOTAL_PINS; i++)
+  for(unsigned int i = 0; i<NUM_TOTAL_PINS; i++)
     {
       pinconfig[i] = 0xff;
     }
@@ -251,7 +251,7 @@ OctaveCoreLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
           {
             sendErrorMsg_P (ERRORMSG_INVALID_PIN);
           }
-        else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] >= 0 && data[1] < sizeof(map_config_mode))
+        else if (datasz == 2 && data[0] < NUM_TOTAL_PINS && data[1] < sizeof(map_config_mode))
           {
             int mode = get_mode (data[1]);
             pinconfig[data[0]] = data[1];

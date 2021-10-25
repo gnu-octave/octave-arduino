@@ -168,7 +168,7 @@ OctaveArduinoClass::OctaveArduinoClass ()
 const char *
 OctaveArduinoClass::getLibName (uint8_t idx) const
 {
-  if (idx >= 0 && idx < libcount)
+  if (idx < libcount)
     {
       return libs[idx]->libName.c_str ();
     }

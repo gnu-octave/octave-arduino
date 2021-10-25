@@ -82,8 +82,6 @@ OctaveSerialLibrary::setup ()
 void
 OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 {
-  int val;
-    
   switch (cmdID)
     {
 #ifdef USE_SERIAL
@@ -180,7 +178,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
         }
       case ARDUINO_CONFIGSERIAL:
         {
-          if (datasz > 0 && data[0] < 1 || data[0] > NUM_SERIAL_PORTS)
+          if (datasz > 0 && (data[0] < 1 || data[0] > NUM_SERIAL_PORTS))
             { 
               sendErrorMsg_P(ERRORMSG_INVALID_DEVICE);
             }
@@ -190,7 +188,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
               uint8_t id = data[0]-1;
               // data[1] = enable
               uint32_t baud = ((uint32_t)data[2]<<24) | ((uint32_t)data[3]<<16) | ((uint32_t)data[4]<<8) | data[5];
-#if defined(ARDUINO_SAM_DUE)
+#if defined(ARDUINO_SAM_DUE) || defined(ARDUINO_ARCH_RP2040)
               uint32_t conf = 0;
 #else
               uint8_t conf = 0;

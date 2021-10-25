@@ -253,7 +253,7 @@ OctaveI2CLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
             }
           else
             {
-              byte error;
+              byte error = 1;
               // bus 0
               // address
               if (data[0] >= WIRE_INTERFACES_COUNT || data[0] > 1)

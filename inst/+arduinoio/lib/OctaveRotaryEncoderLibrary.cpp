@@ -23,11 +23,10 @@
 #define ARDUINO_READPOS_ENCODER    2
 #define ARDUINO_READSPEED_ENCODER  3
 
+#ifdef USE_ROTARYENCODER
 static const char ERRORMSG_CANT_READ[] PROGMEM = "Max encoder reached";
 
 static int8_t enc_states[] = {0,-1,1,0,1,0,0,-1,-1,0,0,1,0,1,-1,0};
-
-#ifdef USE_ROTARYENCODER
 
 #define MAX_ROTARYENCODERS 8
 class RotaryEncoder
@@ -162,8 +161,6 @@ OctaveRotaryEncoderLibrary::OctaveRotaryEncoderLibrary (OctaveArduinoClass &oc)
 void
 OctaveRotaryEncoderLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 {
-  int val;
-    
   switch (cmdID) 
     {
 #ifdef USE_ROTARYENCODER
