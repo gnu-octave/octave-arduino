@@ -198,6 +198,8 @@ Arduino Leonardo
 @item
 Arduino Micro
 @item
+Arduino MKR1000
+@item
 Arduino MKRZero
 @item
 Sparkfun SAMD21

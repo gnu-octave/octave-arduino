@@ -76,6 +76,8 @@ Currently the toolkit recognizes these boards:
 
 * mkrzero
 
+* mkr1000
+
 * nano
 
 * nano every

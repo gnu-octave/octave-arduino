@@ -188,7 +188,7 @@ OctaveSerialLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datas
               uint8_t id = data[0]-1;
               // data[1] = enable
               uint32_t baud = ((uint32_t)data[2]<<24) | ((uint32_t)data[3]<<16) | ((uint32_t)data[4]<<8) | data[5];
-#if defined(ARDUINO_SAM_DUE) || defined(ARDUINO_ARCH_RP2040)
+#if defined(ARDUINO_SAM_DUE) || defined(ARDUINO_ARCH_RP2040) || defined(ARDUINO_SAMD_MKR1000)
               uint32_t conf = 0;
 #else
               uint8_t conf = 0;

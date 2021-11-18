@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2020 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2021 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -57,6 +57,8 @@ function retval = boardTypeString (id)
       retval = "due";
     case 50
       retval = "mkrzero";
+    case 51
+      retval = "mkr1000";
     case 60
       retval = "nano_33_ble";
     case 100

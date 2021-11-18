@@ -75,6 +75,9 @@
 #elif defined(ARDUINO_SAMD_MKRZERO)
   #define BOARD_ID 50
   #define NUM_TOTAL_PINS 33
+#elif defined(ARDUINO_SAMD_MKR1000)
+  #define BOARD_ID 51
+  #define NUM_TOTAL_PINS 30
 #elif defined(ARDUINO_ARDUINO_NANO33BLE)
   #define BOARD_ID 60
   #define NUM_TOTAL_PINS 34
