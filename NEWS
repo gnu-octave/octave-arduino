@@ -13,6 +13,8 @@ Summary of important user-visible changes for arduino 0.7.0+:
 
   ** updates for closer matlab code compatibility
 
+  ** updates for octave 7 compatibility
+
 Summary of important user-visible changes for arduino 0.7.0:
 -------------------------------------------------------------------
 

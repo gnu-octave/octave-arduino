@@ -56,6 +56,8 @@ endfunction
 
 %!error <expected pin name> readDigitalPin(ar)
 
-%!error <expected pin name> readDigitalPin(ar, "d2", 2)
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected pin name
+%!error readDigitalPin(ar, "d2", 2)
 
 %!error <unknown pin nopin> readDigitalPin(ar, "nopin")

@@ -66,6 +66,8 @@ endfunction
 
 %!error <expected pin name> readVoltage(ar)
 
-%!error <expected pin name> readVoltage(ar, "a0", 2)
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected pin name
+%!error readVoltage(ar, "a0", 2)
 
 %!error <unknown pin nopin> readVoltage(ar, "nopin")

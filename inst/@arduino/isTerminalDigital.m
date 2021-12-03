@@ -53,7 +53,9 @@ endfunction
 
 %!error <expected single terminal value> isTerminalDigital(ar)
 
-%!error <expected single terminal value> isTerminalDigital(ar, "d1", 1)
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected single terminal value
+%!error isTerminalDigital(ar, "d1", 1)
 
 %!error <unknown pin> isTerminalDigital(ar, -1)
 

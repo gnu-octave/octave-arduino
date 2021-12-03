@@ -54,6 +54,8 @@ endfunction
 
 %!error <expected single terminal value> isTerminalAnalog(ar)
 
-%!error <expected single terminal value> isTerminalAnalog(ar, "d1", 1)
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected single terminal value
+%!error isTerminalAnalog(ar, "d1", 1)
 
 

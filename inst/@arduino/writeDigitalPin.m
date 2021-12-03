@@ -64,6 +64,8 @@ endfunction
 
 %!error <expected pin name and value> writeDigitalPin(ar)
 
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected pin name and value
 %!error <expected pin name and value> writeDigitalPin(ar, "d2", 1, 1)
 
 %!error <unknown pin nopin> writeDigitalPin(ar, "nopin", 1)

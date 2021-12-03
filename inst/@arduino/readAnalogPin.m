@@ -85,6 +85,8 @@ endfunction
 
 %!error <expected pin name> readAnalogPin(ar)
 
-%!error <expected pin name> readAnalogPin(ar, "a0", 2)
+# octave 7 returns: # function called with too many inputs
+# octave 6 returns: expected pin name
+%!error readAnalogPin(ar, "a0", 2)
 
 %!error <unknown pin nopin> readAnalogPin(ar, "nopin")
