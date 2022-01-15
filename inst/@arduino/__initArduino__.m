@@ -65,7 +65,7 @@ function retval = __initArduino__ (obj, port, board)
 
      flags = 0;
      if length(dataout) > 6
-       flags = dataout(7)
+       flags = dataout(7);
      endif
 
      % check board against config info
