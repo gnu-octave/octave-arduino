@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2022 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -83,7 +83,7 @@ function retval = is_arduino_addon_class(classname)
   classinfo = meta.class.fromName(classname);
   if !isempty(classinfo)
     # base class should have AddonInfo inhirected from arduinoio.LibraryBase
-    idx = find( cellfun(@(x) strcmpi(x, "AddonInfo"), methods(classname)), 1);
+    idx = find( cellfun(@(x) strcmpi(x.Name, "AddonInfo"), classinfo.Methods), 1);
     if !isempty(idx)
       if size(classinfo.SuperClassList) > 0
         idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
