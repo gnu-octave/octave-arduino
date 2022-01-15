@@ -106,6 +106,8 @@ The Arduino toolkit must be installed and then loaded to be used.
 It can be installed in @acronym{GNU} Octave directly from octave-forge,
 or can be installed in an off-line mode via a downloaded tarball.
 
+@boxnote{The toolkit requires the @url{https://www.arduino.cc/en/software, Arduino IDE} in order to program Arduino devices.}
+
 @boxnote{The toolkit has a dependency on the instrument-control package, so it must be installed in order
 to successfully install the Arduino toolkit}
 
@@ -168,6 +170,9 @@ After successful upload the Arduino IDE should be closed.
 
 @boxnote{The arduino programming is not compatible with the Matlab arduino library, so must be programmed by the Octave Arduino toolkit to
 to communicate to the arduino, even if it was previously used to work with Matlab.}
+
+@boxnote{The toolkit requires the @url{https://www.arduino.cc/en/software, Arduino IDE} in order to program the Arduino device.
+If the toolkit can not find the IDE, run the IDE manually, close it and retry programming the Arduino.}
 
 @section Known Arduino Board Types
 @cindex Known Arduino Board Types
