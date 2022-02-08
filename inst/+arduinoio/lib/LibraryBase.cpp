@@ -233,12 +233,42 @@ OctaveArduinoClass::processMessage (uint8_t libid, uint8_t cmd, uint8_t *data, u
   return 0; 
 }
 
+#if defined(WIFI_STATIC_IP)
+static IPAddress make_ip_address(const char *str)
+{
+  uint8_t parts[4];
+  uint8_t i = 0;
+  uint8_t o = 0;
+
+  while(str[i] != '\0')
+   {
+     if(str[i] == '.')
+     {
+       o ++;
+       if(o < 4)
+         parts[o] = 0;
+     }
+     if(str[i] >= '0' && str[i] <= '9')
+     {
+       if(o < 4)
+         parts[o] = parts[o]*10 + (str[i] - '0');
+     }
+     i++;
+   }
+  return IPAddress(parts[0], parts[1], parts[2], parts[3]);
+}
+#endif
+
 void
 OctaveArduinoClass::init () 
 {
   OCTAVE_COMMS_PORT.begin (9600);
 #if defined(OCTAVE_USE_WIFI_COMMS)
   while(!OCTAVE_COMMS_PORT) {}
+
+#if defined(WIFI_STATIC_IP)
+  WiFi.config(make_ip_address(WIFI_STATIC_IP));
+#endif
 
   while (wifi_status != WL_CONNECTED) {
     OCTAVE_COMMS_PORT.println("Attempting to connect to nework...");

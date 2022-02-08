@@ -209,6 +209,8 @@ function retval = arduinosetup (varargin)
     fprintf (fd, "# define WIFI_SECRET_SSID \"\"\n");
     fprintf (fd, "# define WIFI_SECRET_PASS \"\"\n");
     fprintf (fd, "# define WIFI_PORT 9500\n");
+    fprintf (fd, "  //uncomment and define if using static IP\n");
+    fprintf (fd, "//# define WIFI_STATIC_IP \"192.168.0.10\"\n");
     fprintf (fd, "#endif");
  
     fclose (fd);
