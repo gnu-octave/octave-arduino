@@ -19,6 +19,8 @@
 #include "LibraryBase.h"
 #include <stdarg.h>
 
+#include "settings.h"
+
 #define ARDUINO_SOH         0xA5
 
 #define STATE_SOH  0
@@ -27,6 +29,18 @@
 #define STATE_SIZE 3
 #define STATE_DATA 4
 #define STATE_EOM  5
+
+#if defined(OCTAVE_USE_WIFI_COMMS)
+  #include <WiFiNINA.h>
+
+  char wifi_ssid[] = WIFI_SECRET_SSID;        // your network SSID (name)
+  char wifi_pass[] = WIFI_SECRET_PASS;
+
+  int wifi_status = WL_IDLE_STATUS;
+
+  WiFiServer wifiServer(WIFI_PORT);
+  WiFiClient wifi_client;
+#endif
 
 // some standard(ish) error messages used throughout the addons
 const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
@@ -67,6 +81,20 @@ void OctaveLibraryBase::commandHandler(uint8_t cmdID, uint8_t* inputs, uint8_t p
 void
 OctaveLibraryBase::sendResponseMsg (uint8_t cmdID, const uint8_t *data, uint8_t sz)
 {
+#if defined(OCTAVE_USE_WIFI_COMMS)
+
+  if(wifi_status == 1)
+  {
+    wifi_client.write ((uint8_t)ARDUINO_SOH);
+    wifi_client.write ((uint8_t)id);
+    wifi_client.write (cmdID);
+    wifi_client.write (sz);
+    if(sz)
+      {
+        wifi_client.write (data, sz);
+      }
+  }
+#else
   OCTAVE_COMMS_PORT.write ((uint8_t)ARDUINO_SOH);
   OCTAVE_COMMS_PORT.write ((uint8_t)id);
   OCTAVE_COMMS_PORT.write (cmdID);
@@ -77,6 +105,7 @@ OctaveLibraryBase::sendResponseMsg (uint8_t cmdID, const uint8_t *data, uint8_t 
     }
   // flush appears to lockup port in some devices
   //OCTAVE_COMMS_PORT.flush ();
+#endif
 }
 
 void
@@ -208,7 +237,39 @@ void
 OctaveArduinoClass::init () 
 {
   OCTAVE_COMMS_PORT.begin (9600);
+#if defined(OCTAVE_USE_WIFI_COMMS)
+  while(!OCTAVE_COMMS_PORT) {}
 
+  while (wifi_status != WL_CONNECTED) {
+    OCTAVE_COMMS_PORT.println("Attempting to connect to nework...");
+    ///Serial.println(ssid);
+    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+    wifi_status = WiFi.begin(wifi_ssid, wifi_pass);
+
+    // wait 5 seconds for connection:
+    delay(5000);
+  }
+
+  // show some info about our connection
+  OCTAVE_COMMS_PORT.println("Connected to network");
+  OCTAVE_COMMS_PORT.print("SSID: ");
+  OCTAVE_COMMS_PORT.println(WiFi.SSID());
+
+  // print your WiFi shield's IP address:
+  IPAddress ip = WiFi.localIP();
+  OCTAVE_COMMS_PORT.print("IP Address: ");
+  OCTAVE_COMMS_PORT.println(ip);
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  OCTAVE_COMMS_PORT.print("signal strength (RSSI):");
+  OCTAVE_COMMS_PORT.print(rssi);
+  OCTAVE_COMMS_PORT.println(" dBm");
+
+  wifi_status = 0;
+  wifiServer.begin();
+
+#endif
   for (int i=0; i<libcount; i++)
   {
     libs[i]->setup ();
@@ -219,11 +280,34 @@ void
 OctaveArduinoClass::runLoop()
 {
   int ch;
+#if defined(OCTAVE_USE_WIFI_COMMS)
+  WiFiClient client = wifiServer.available();
+  if(client.connected())
+  {
+    //wifi_client = wifiServer.available();
+    wifi_client = client;
 
+    if(wifi_status == 0)
+    {
+      OCTAVE_COMMS_PORT.println("Connected");
+      wifi_status = 1;
+    }
+  }
+  else if(wifi_status == 1 && !wifi_client.connected())
+  {
+      OCTAVE_COMMS_PORT.println("Disconnected");
+      wifi_status = 0;
+  }
+
+  while(wifi_status == 1 && wifi_client.available())
+    {
+      ch = wifi_client.read();
+#else
   if (OCTAVE_COMMS_PORT.available())
     {
     
       ch = OCTAVE_COMMS_PORT.read();
+#endif
 
       switch (msg_state)
         {

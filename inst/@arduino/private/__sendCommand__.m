@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2022 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    endif
  
    % send command and get back reponse
-   if !isa(obj.connected, "octave_serial")
+   if !isa(obj.connected, "octave_serial") && !isa(obj.connected, "octave_tcp")
      error ("@arduino.__sendCommand__: not connected to a arduino");
    endif
    
@@ -51,10 +51,11 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
      data = cell2mat(data);
    endif
 
-   set(obj.connected, "timeout", timeout*10);
-   
    hdr = uint8([ hex2dec("A5") libid cmd numel(data)]);
-   len = srl_write(obj.connected, [hdr data]);
+
+   set(obj.connected, "timeout", timeout*10);
+
+   len = fwrite(obj.connected, [hdr data]);
 
    if (obj.debug)
      printf(">> "); printf("%d ", [hdr data]); printf("\n");

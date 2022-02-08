@@ -27,30 +27,36 @@ function display (ar)
   printf ("%s = \n", inputname (1));
   if isobject(ar.connected)
     printf ("  arduino object with fields of: \n");
-    printf ("    port = ")
+
+    if isa(ar.connected, "octave_tcp")
+      printf ("   deviceaddress = ")
+      disp (ar.config.deviceaddress);
+    endif
+
+    printf ("            port = ")
     disp (ar.config.port);
   
-    printf ("    board = ")
+    printf ("           board = ")
     disp (ar.config.board);
-    printf ("    libraries = {\n")
+    printf ("       libraries = {\n")
     libs = ar.libraries ();
     for i=1:numel (libs)
-      printf ("      %s\n", libs{i});
+      printf ("              %s\n", libs{i});
     endfor
-    printf("    }\n");
+    printf("        }\n");
 
     # group pins where can
     nextpin = "";
     startpin = {};
     endpin = {};
-    printf ("    availablepins = {\n")
+    printf ("        availablepins = {\n")
     for i=1:numel (ar.config.pins)
       pin = ar.config.pins{i};
       if !strcmpi(nextpin, pin.name)
         if !isempty(endpin)
-          printf ("      %s - %s\n", startpin.name, endpin.name);
+          printf ("              %s - %s\n", startpin.name, endpin.name);
         elseif !isempty(startpin)
-          printf ("      %s\n", startpin.name);
+          printf ("              %s\n", startpin.name);
         endif
         startpin = pin;
         endpin = {};
@@ -66,18 +72,18 @@ function display (ar)
     endfor
   
     if !isempty(endpin)
-      printf ("      %s - %s\n", startpin.name, endpin.name);
+      printf ("              %s - %s\n", startpin.name, endpin.name);
     elseif !isempty(startpin)
-      printf ("      %s\n", startpin.name);
+      printf ("              %s\n", startpin.name);
     endif
    
-    printf("    }\n");
+    printf("        }\n");
   else
-    printf ("  arduino object disconnected\n");
+    printf ("      arduino object disconnected\n");
   endif
   
   if ar.debug
-    printf ("   config = \n");
+    printf ("       config = \n");
     disp (ar.config);
   endif
 endfunction

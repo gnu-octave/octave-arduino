@@ -1,4 +1,4 @@
-## Copyright (C) 2021 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2021-2022 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
 # so try read what we need first without waiting ?
 
    # read in initial part
-   [tmpdataOut, tmpdataSize] = srl_read (obj.connected, 4);
+   [tmpdataOut, tmpdataSize] = fread (obj.connected, 4);
    if (obj.debug)
      printf("<< "); printf("%d ", tmpdataOut); printf("\n");
    endif
@@ -45,7 +45,7 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
  
      set(obj.connected, "timeout", -1);
 
-     [tmpdataOut, tmpdataSize] = srl_read (obj.connected, 4);
+     [tmpdataOut, tmpdataSize] = fread (obj.connected, 4);
      if (obj.debug)
        printf("<< "); printf("%d ", tmpdataOut); printf("\n");
      endif
@@ -61,7 +61,7 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
    if(errcode == 0)
      expectlen =  tmpdataOut(4);
      if expectlen > 0
-       [dataOut, tmpdataSize] = srl_read (obj.connected, expectlen);
+       [dataOut, tmpdataSize] = fread (obj.connected, expectlen);
        if (obj.debug)
          printf("<< "); printf("%d ", dataOut); printf("\n");
        endif
@@ -91,6 +91,5 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
 	 errcode = 0;
 	 # all is good
      endif
-
    endif
 endfunction

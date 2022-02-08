@@ -1,4 +1,4 @@
-## Copyright (C) 2018 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2022 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -25,7 +25,12 @@ function retval = __initArduino__ (obj, port, board)
    ok = false;
    
    if !isempty(port) || !ischar(port)
-     obj.connected = serial (port, 9600, 2);
+     # port maybe ip address ?
+     if !isempty(regexp(port, "^[0-9]+.[0-9]+.[0-9]+.[0-9]+$"))
+       obj.connected = tcp (port, 9500, 10);
+     else
+       obj.connected = serial (port, 9600, 2);
+     endif
      # need wait for aduino to potentially startup
      pause(2);
      
@@ -69,8 +74,8 @@ function retval = __initArduino__ (obj, port, board)
      endif
 
      % check board against config info
-     if ~isempty(board) && (board != boardtype)
-       warning("connected %s arduino does not match requested board type %s", boardtype, obj.board)
+     if ~isempty(board) && !strcmpi(board, boardtype)
+       warning("connected %s arduino does not match requested board type %s", boardtype, board)
      endif
 
      obj.config = arduinoio.getBoardConfig(boardtype);
@@ -79,6 +84,10 @@ function retval = __initArduino__ (obj, port, board)
      obj.config.board = boardtype;
      obj.config.voltref = voltref;
      obj.config.flags = flags;
+     if isa(obj.connected, "octave_tcp")
+       obj.config.port = 9500;
+       obj.config.deviceaddress = port;
+     endif
      if ! isempty(mcu)
        obj.config.mcu = mcu;
      elseif isempty(obj.config.mcu)

@@ -201,6 +201,15 @@ function retval = arduinosetup (varargin)
     else
       fprintf (fd, "//#define USE_SERIAL\n");
     endif
+
+    # if able to do network, add network settings here
+    fprintf (fd, "//#define OCTAVE_USE_WIFI_COMMS\n");
+    fprintf (fd, "#ifdef OCTAVE_USE_WIFI_COMMS\n");
+    fprintf (fd, "  // Provide these settings for network use\n");
+    fprintf (fd, "# define WIFI_SECRET_SSID \"\"\n");
+    fprintf (fd, "# define WIFI_SECRET_PASS \"\"\n");
+    fprintf (fd, "# define WIFI_PORT 9500\n");
+    fprintf (fd, "#endif");
  
     fclose (fd);
 

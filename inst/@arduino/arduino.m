@@ -20,6 +20,8 @@ classdef arduino < handle
   ## @deftypefnx {} {@var{retval} =} arduino (@var{port})
   ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board})
   ## @deftypefnx {} {@var{retval} =} arduino (@var{port}, @var{board}[, [@var{propname}, @var{propvalue}]*)
+  ## @deftypefnx {} {@var{retval} =} arduino (@var{iaddress})
+  ## @deftypefnx {} {@var{retval} =} arduino (@var{ipaddress}, @var{board})
   ## Create a arduino object with a connection to an arduino board.
   ## 
   ## @subsubheading Inputs
@@ -79,6 +81,10 @@ classdef arduino < handle
     AnalogReference = 5.0;
     Board = "";
     Port = "";
+  endproperties
+
+  properties (SetAccess = private, Hidden = true)
+    DeviceAddress = "";
   endproperties
   
   methods (Access = public)
@@ -408,6 +414,10 @@ classdef arduino < handle
 
     function v = get.Port (this)
       v = this.config.port;
+    endfunction
+
+    function v = get.DeviceAddress (this)
+      v = this.config.deviceaddress;
     endfunction
 
   endmethods 
