@@ -7,6 +7,10 @@ Summary of important user-visible changes for arduino 0.8.0+:
   ** Core Libraries
     - added initial Wifi connectivity
 
+  ** added sensors
+    - bme280
+    - si7021
+
 Summary of important user-visible changes for arduino 0.8.0:
 -------------------------------------------------------------------
   ** New board configurations:

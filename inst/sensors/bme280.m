@@ -142,7 +142,27 @@ classdef bme280 < handle
   ## @end table
   ##
   ## @end deftypefn
-
+  ##
+  ## @deftypefn {} {} flush(@var{obj})
+  ## Flush sensor data
+  ##
+  ## @subsubheading Inputs
+  ## @var{obj} - the sensor object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ## @end deftypefn
+  ##
+  ## @deftypefn {} {} release(@var{obj})
+  ## Release the resources of the sensor
+  ##
+  ## @subsubheading Inputs
+  ## @var{obj} - the sensor object
+  ##
+  ## @subsubheading Outputs
+  ## None
+  ## @end deftypefn
+ 
   properties(Access = private, constant = true)
     BME280_REG_DIG_T1 = 0x88;
     BME280_REG_DIG_T2 = 0x8A;
