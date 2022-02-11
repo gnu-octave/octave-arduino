@@ -89,7 +89,7 @@ The Arduino toolkit is a somewhat Matlab compatible arduino toolkit for GNU octa
 * Basic Input and Output Overview::    Performing basic I/O
 * Protocol based I/O Overview::    Performing protocol based I/O
 * Addons Overview::           Arduino Addons
-* Sensors Overview::          Arduino Sensors
+* Sensors Overview::          Sensors
 * Examples::                  Examples using the Arduino toolkit
 * Function Reference::        Arduino toolkit functions
 * Copying::                   Copying
@@ -745,9 +745,38 @@ An object of the addon type can be created using the addon command.
 @chapter Sensors Overview
 @cindex Sensors Overview
 
-@section Sensor Overview
-@cindex Sensor Overview
+There are two types of sensors available:
+@enumerate
+@item
+Matlab compatible(ish) sensors for envorinment and IMU.
+@item
+Additional lightweight wrappers for some chips in a arduinosensor namespace.
+@end enumerate
 
+@section Matlab Compatible Sensors
+@cindex Matlab Compatible Sensor
+
+@subsection Overview
+Matlab compatible functions are provided for a number of sensors, using a similar function naming as
+provided by the Maybal arduino package.
+
+@subsection Available Sensors
+@cindex Available Sensors
+
+The functions for each sensor is listed in the function reference, @ref{Sensors} and provides for:
+
+@table @asis
+@item bme280
+BME280 temperature, pressure and humidity sensor
+@item SI7021
+SI7021 temperature and humidity sensor
+@end table
+
+
+@section Lightweight Arduino Sensors
+@cindex Arduino Sensor
+
+@subsection Overview
 Arduino sensors are a collection of lightweight wrappers around other underlying protocols for 
 providing specific sensor functionality.
 
@@ -769,10 +798,10 @@ however it is limited to then using available addon and core codes rather than c
 
 Currently the are only a small number of sensors available, however this will be built upon in future versions.
 
-@section Available Sensors
+@subsection Available Sensors
 @cindex Available Sensors
 
-The functions for each sensor is listed in the function reference and is provides for:
+The functions for each sensor is listed in the function reference, @ref{Arduino Sensors} and provides for:
 
 @table @asis
 @item DS1307
