@@ -1,0 +1,9 @@
+if exist ("isfolder") == 0
+ if (isdir (fullfile (fileparts (mfilename ("fullpath")), "sensors")))
+   rmpath (fullfile (fileparts (mfilename ("fullpath")), "sensors"));
+ endif
+else
+ if (isfolder (fullfile (fileparts (mfilename ("fullpath")), "sensors")))
+   rmpath (fullfile (fileparts (mfilename ("fullpath")), "sensors"));
+ endif
+endif

@@ -114,7 +114,7 @@ doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
 
 doc/functions.texi:
-	cd doc && ./mkfuncdocs.py --src-dir=../inst/ ../INDEX | $(SED) 's/@seealso/@xseealso/g' > functions.texi
+	cd doc && ./mkfuncdocs.py --src-dir=../inst/ --src-dir=../inst/sensors/ ../INDEX | $(SED) 's/@seealso/@xseealso/g' > functions.texi
 
 # install is a prerequesite to the html directory (note that the html
 # tarball will use the implicit rule for ".tar.gz" files).
@@ -155,11 +155,11 @@ all:
 # Start an Octave session with the package directories on the path for
 # interactice test of development sources.
 run: all
-	$(OCTAVE) --silent --persist --path "$(TOPDIR)/inst/"  \
+	$(OCTAVE) --silent --persist --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;'
 
 rungui: all
-	$(OCTAVE) --silent --gui --persist --path "$(TOPDIR)/inst/"  \
+	$(OCTAVE) --silent --gui --persist --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;'
 
 # Test example blocks in the documentation.  Needs doctest package
@@ -173,6 +173,6 @@ doctest: all
 # Note "doctest" as prerequesite.  When testing the package, also check
 # the documentation.
 check: all
-	$(OCTAVE) --silent --path "$(TOPDIR)/inst/" --path "src/" \
+	$(OCTAVE) --silent --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval "__run_test_suite__ ({'$(TOPDIR)/inst'}, {})"

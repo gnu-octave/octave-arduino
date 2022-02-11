@@ -142,5 +142,7 @@ Arduino I/O package
   arduinoio.getBoardConfig
 Matlab Compatability Classes
   matlabshared.addon.LibraryBase
+Sensors
+  bme280
 Test Functions
   arduino_bistsetup
