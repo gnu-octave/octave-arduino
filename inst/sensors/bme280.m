@@ -372,10 +372,10 @@ classdef bme280 < handle
         if nargout > 2
           varargout{3} = C;
         endif
-        if nargout > 4
+        if nargout > 3
           varargout{4} = timestamp;
         endif
-        if nargout > 5
+        if nargout > 4
           varargout{5} = 0; # overrun
         endif
       endif
@@ -389,7 +389,7 @@ classdef bme280 < handle
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
       if isobject(this.i2c)
-        printf("        I2CAddress: %d ('%s')\n", this.i2c.i2caddress. num2hex(this.i2c.i2caddress));
+        printf("        I2CAddress: %d ('0x%s')\n", this.i2c.i2caddress, num2hex(this.i2c.i2caddress));
         printf("               Bus: %d\n", this.i2c.bus);
       else
         printf("        Not connected");

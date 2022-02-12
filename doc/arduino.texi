@@ -768,6 +768,8 @@ The functions for each sensor is listed in the function reference, @ref{Sensors}
 @table @asis
 @item bme280
 BME280 temperature, pressure and humidity sensor
+@item bno005
+BNO055 acceleration, angular velocity, orientation and magnetic field sensor
 @item SI7021
 SI7021 temperature and humidity sensor
 @end table

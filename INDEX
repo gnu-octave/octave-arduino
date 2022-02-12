@@ -144,6 +144,7 @@ Matlab Compatability Classes
   matlabshared.addon.LibraryBase
 Sensors
   bme280
+  bno055
   si7021
 Test Functions
   arduino_bistsetup

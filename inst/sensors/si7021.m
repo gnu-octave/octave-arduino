@@ -274,7 +274,7 @@ classdef si7021 < handle
       printf("%s = \n", inputname(1));
       printf("    %s with properties\n", class(this));
       if isobject(this.i2c)
-        printf("        I2CAddress: %d ('%s')\n", this.i2c.i2caddress. num2hex(this.i2c.i2caddress));
+        printf("        I2CAddress: %d ('0x%s')\n", this.i2c.i2caddress, num2hex(this.i2c.i2caddress));
         printf("               Bus: %d\n", this.i2c.bus);
       else
         printf("        Not connected");
@@ -301,3 +301,5 @@ classdef si7021 < handle
 
   endmethods
 endclassdef
+
+%!error <Expected arduino object as first parameter> si7021(1);
