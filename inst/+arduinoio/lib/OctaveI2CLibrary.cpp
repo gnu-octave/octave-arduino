@@ -322,6 +322,7 @@ OctaveI2CLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 
                   if (data[0] == 0)
                     {
+// TODO: i dont think need any more as setting i2c as pullup inputs before making it i2c
 #if defined(ARDUINO_AVR_NANO_EVERY) || defined (ARDUINO_NANO_RP2040_CONNECT)
                       // arduino every A4,A5 pin is connected to 2 pins each on the micro controller
                       // so need ensure that the non I2C pins are pulled hi so doesnt effect the i2c pins

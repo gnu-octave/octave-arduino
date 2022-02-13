@@ -118,7 +118,7 @@ static const int8_t map_config_mode[] PROGMEM =
   INPUT, // dig in
   OUTPUT, // dig out
   INPUT_PULLUP, // pullup
-  OUTPUT, // i2c TODO: ??
+  INPUT_PULLUP, //-1, // i2c TODO: ??
   OUTPUT, // pwm
   OUTPUT, // servo
   OUTPUT, // spi TODO ?
