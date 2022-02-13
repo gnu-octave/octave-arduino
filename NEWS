@@ -10,6 +10,7 @@ Summary of important user-visible changes for arduino 0.8.0+:
   ** added sensors
     - bme280
     - bno055
+    - mpu6050
     - si7021
 
 Summary of important user-visible changes for arduino 0.8.0:

@@ -480,7 +480,7 @@ classdef bno055 < handle
     endfunction
 
     function [status, timestamp] = readCalibrationStatus (this)
-      data = single(this.readRegisterS8(this.BNO055_REG_CALIB_STAT));
+      data = single(this.readRegisterU8(this.BNO055_REG_CALIB_STAT));
       timestamp = time();
       mcal = this.calStatusString (bitand(data, 3));
       gcal = this.calStatusString (bitand(bitshift(data, -4), 3));
@@ -499,7 +499,7 @@ classdef bno055 < handle
       timestamp = time();
       azm = typecast(uint16(data(2))*256 + uint16(data(1)), 'int16');
       pitch = typecast(uint16(data(4))*256 + uint16(data(3)), 'int16');
-      roll = typecast(uint16(data(6))*256 + uint16(data(4)), 'int16');
+      roll = typecast(uint16(data(6))*256 + uint16(data(5)), 'int16');
       readVal = deg2rad(single([azm pitch, roll])/16.0);
     endfunction
 
@@ -508,7 +508,7 @@ classdef bno055 < handle
       timestamp = time();
       x = typecast(uint16(data(2))*256 + uint16(data(1)), 'int16');
       y = typecast(uint16(data(4))*256 + uint16(data(3)), 'int16');
-      z = typecast(uint16(data(6))*256 + uint16(data(4)), 'int16');
+      z = typecast(uint16(data(6))*256 + uint16(data(5)), 'int16');
       readVal = single([x y z])/16.0;
     endfunction
 
@@ -517,7 +517,7 @@ classdef bno055 < handle
       timestamp = time();
       x = typecast(uint16(data(2))*256 + uint16(data(1)), 'int16');
       y = typecast(uint16(data(4))*256 + uint16(data(3)), 'int16');
-      z = typecast(uint16(data(6))*256 + uint16(data(4)), 'int16');
+      z = typecast(uint16(data(6))*256 + uint16(data(5)), 'int16');
       readVal = single([x y z])/100.0;
     endfunction
 
@@ -526,7 +526,7 @@ classdef bno055 < handle
       timestamp = time();
       x = typecast(uint16(data(2))*256 + uint16(data(1)), 'int16');
       y = typecast(uint16(data(4))*256 + uint16(data(3)), 'int16');
-      z = typecast(uint16(data(6))*256 + uint16(data(4)), 'int16');
+      z = typecast(uint16(data(6))*256 + uint16(data(5)), 'int16');
       readVal = single([x y z])/16.0;
     endfunction
 
