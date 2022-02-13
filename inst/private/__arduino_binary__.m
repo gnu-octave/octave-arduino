@@ -19,7 +19,7 @@
 ## @end deftypefn
 
 function retval = __arduino_binary__ (newarduinopath)
-  persistent arduino_binary = ""
+  persistent arduino_binary = "";
   
   if nargin == 0
     if isempty(arduino_binary)
@@ -80,7 +80,7 @@ function arduino_binary = find_arduino_binary ()
       prefsfile = fullfile (getenv ("HOME"), ".arduino15", "preferences.txt");
     endif
 
-    fd = fopen (prefsfile, "rt")
+    fd = fopen (prefsfile, "rt");
     if fd != -1
       try
         trypaths = {};
@@ -100,7 +100,7 @@ function arduino_binary = find_arduino_binary ()
               [trypath,~,~] = fileparts (trypaths{idx}.path);
               n = 0;
               while (n < numel (binaries) && isempty (arduino_binary))
-                arduino_binary = file_in_path (trypath, binaries{++n})
+                arduino_binary = file_in_path (trypath, binaries{++n});
               endwhile
             endif
           endfor
