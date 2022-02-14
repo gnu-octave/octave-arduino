@@ -770,6 +770,8 @@ The functions for each sensor is listed in the function reference, @ref{Sensors}
 BME280 temperature, pressure and humidity sensor
 @item bno005
 BNO055 acceleration, angular velocity, orientation and magnetic field sensor
+@item lis3dh
+LIS3DH acceleration sensor
 @item lsm6dso
 LSM6DSO acceleration, angular velocity sensor
 @item mpu6050

@@ -23,7 +23,7 @@ classdef lsm6dso < handle
   ## @subheading Methods
   ## @deftypefn {} {@var{obj} =} lsm6dso(@var{arObj})
   ## @deftypefnx {} {@var{obj} =} lsm6dso(@var{arObj}, @var{propertyname, propertyvalue} ....)
-  ## Constructor to create MPU-6050 sensor
+  ## Constructor to create LSM6DSO sensor
   ## @subsubheading Inputs
   ## @var{arObj} - the arduino parent object
   ##

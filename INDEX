@@ -145,6 +145,7 @@ Matlab Compatability Classes
 Sensors
   bme280
   bno055
+  lis3dh
   lsm6dso
   mpu6050
   si7021
