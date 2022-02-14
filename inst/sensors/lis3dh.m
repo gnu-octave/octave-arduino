@@ -49,29 +49,6 @@ classdef lis3dh < handle
   ## @end example
   ## @end deftypefn
   ##
-  ## @deftypefn {} {[@var{C}, @var{timestamp}] =} readTemperature(@var{obj})
-  ## Read the temperature
-  ##
-  ## @subsubheading Inputs
-  ## @var{obj} - the sensor object
-  ##
-  ## @subsubheading Outputs
-  ## @var{C} - read temperature in deg C.
-  ##
-  ## @var{timestamp} - timestamp when read
-  ##
-  ## @subsubheading Example
-  ## @example
-  ## @code {
-  ## a = arduino()
-  ## s = lis3dh(a)
-  ## # get temp
-  ## temp = s.readTemperature
-  ## }
-  ## @end example
-  ## @seealso{lis3dh}
-  ## @end deftypefn
-  ##
   ## @deftypefn {} {[@var{readVal}, @var{timestamp}] =} readAcceleration(@var{obj})
   ## Read the acceleration rate
   ##
@@ -84,20 +61,8 @@ classdef lis3dh < handle
   ## @var{timestamp} - timestamp when read
   ## @end deftypefn
   ##
-  ## @deftypefn {} {[@var{readVal}, @var{timestamp}] =} readAngularVelocity(@var{obj})
-  ## Read the angular velocity
-  ##
-  ## @subsubheading Inputs
-  ## @var{obj} - the sensor object
-  ##
-  ## @subsubheading Outputs
-  ## @var{readVal} - the 3 angular velocity values
-  ##
-  ## @var{timestamp} - timestamp when read
-  ## @end deftypefn
-  ## 
   ## @deftypefn {} {[@var{readings}, @var{overrun}] =} read(@var{obj})
-  ## @deftypefnx {} {[#var{accel}, @var{gyro}, @var{mag}, @var{timestamp}, @var{overrun}] =} read(@var{obj})
+  ## @deftypefnx {} {[@var{accel}, @var{timestamp}, @var{overrun}] =} read(@var{obj})
   ## Read the sensor data
   ##
   ## @subsubheading Inputs
@@ -106,13 +71,11 @@ classdef lis3dh < handle
   ## @subsubheading Outputs
   ## @var{accel} - acceleration reading from sensor.
   ##
-  ## @var{gyro} - angular acceleration reading from sensor.
-  ##
   ## @var{timestamp} - timestamp when read
   ##
   ## @var{overrun} - overrun flag.
   ##
-  ## @var{readings} - table structure with fields for Timestamp, Acceleration, AngularVelocity.
+  ## @var{readings} - table structure with fields for Timestamp, Acceleration.
   ## @end deftypefn
   ## 
   ## @deftypefn {} {@var{inf} =} info(@var{obj})
@@ -130,6 +93,8 @@ classdef lis3dh < handle
   ## sensor id value
   ## @item Type
   ## sensor type 'lis3dh'
+  ## @item Status
+  ## sensor status value
   ## @end table
   ##
   ## @end deftypefn

@@ -97,7 +97,7 @@ classdef mpu6050 < handle
   ## @end deftypefn
   ## 
   ## @deftypefn {} {[@var{readings}, @var{overrun}] =} read(@var{obj})
-  ## @deftypefnx {} {[#var{accel}, @var{gyro}, @var{mag}, @var{timestamp}, @var{overrun}] =} read(@var{obj})
+  ## @deftypefnx {} {[@var{accel}, @var{gyro}, @var{mag}, @var{timestamp}, @var{overrun}] =} read(@var{obj})
   ## Read the sensor data
   ##
   ## @subsubheading Inputs
