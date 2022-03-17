@@ -80,18 +80,22 @@ function addonfiles = __addons__ ()
 endfunction
 
 function retval = is_arduino_addon_class(classname)
-  classinfo = meta.class.fromName(classname);
-  if !isempty(classinfo)
-    # base class should have AddonInfo inhirected from arduinoio.LibraryBase
-    idx = find( cellfun(@(x) strcmpi(x.Name, "AddonInfo"), classinfo.Methods), 1);
-    if !isempty(idx)
-      if size(classinfo.SuperClassList) > 0
-        idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
-        retval = !isempty(idx);
-
-        if retval == false
-          idx = cellfun(@(x) (is_arduino_addon_class(x.Name) == true), classinfo.SuperClassList);
+  try
+    classinfo = meta.class.fromName(classname);
+    if !isempty(classinfo)
+      # base class should have AddonInfo inhirected from arduinoio.LibraryBase
+      idx = find( cellfun(@(x) strcmpi(x.Name, "AddonInfo"), classinfo.Methods), 1);
+      if !isempty(idx)
+        if size(classinfo.SuperClassList) > 0
+          idx = find( cellfun(@(x) strcmpi(x.Name, "arduinoio.LibraryBase"), classinfo.SuperClassList), 1);
           retval = !isempty(idx);
+  
+          if retval == false
+            idx = cellfun(@(x) (is_arduino_addon_class(x.Name) == true), classinfo.SuperClassList);
+            retval = !isempty(idx);
+          endif
+        else
+          retval = false;
         endif
       else
         retval = false;
@@ -99,7 +103,8 @@ function retval = is_arduino_addon_class(classname)
     else
       retval = false;
     endif
-  else
+  catch
     retval = false;
-  endif
+    #warning ("addon: Ignoring %s", lasterror.message)
+  end_try_catch
 endfunction

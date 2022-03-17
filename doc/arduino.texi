@@ -488,7 +488,7 @@ addons typically use a "foldername/classname" for this naming.
 
 An addon requires at minimum 3 things:
 @enumerate
-@item A addon directory that will contain the addon files
+@item A addon package directory that will contain the addon files
 @item A Matlab file within that directory that is a subclass of arduinoio.LibraryBase
 @item A arduino source/header file that contains the arduino code to load, sub-classed for LibraryBase
 @end enumerate
@@ -497,7 +497,7 @@ So the addon directory structure at a minimum will be:
 @example
 @code {
   +arduinoioaddons  (dir) [somewhere in the octave load path]
-    MyAddons (dir)
+    +MyAddons (dir)
       MyAddon1.m 
       MyAddon1.h
 }
@@ -513,7 +513,7 @@ So this directory must be created somewhere within the paths that octave will ch
 functions.
 
 In addition, the addon architecture expects plugins to be contained in a sub directory within
-the  +arduinoioaddons
+the +arduinoioaddons folder. The subdirectory must begin with a '+'.
 
 Multiple plugin .m files can be within the same sub directory.
 
