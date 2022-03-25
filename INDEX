@@ -129,6 +129,7 @@ Arduino Addons
   arduinoioaddons.adafruit.motorshieldv2
   arduinoioaddons.adafruit.dcmotorv2
   arduinoioaddons.adafruit.stepper
+  arduinoioaddons.SimpleStepper.SimpleStepper
 Arduino Sensors
   arduinosensor.DS1307
   arduinosensor.MPC3002
