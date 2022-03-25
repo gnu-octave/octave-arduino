@@ -17,8 +17,24 @@ SED       ?= sed
 GREP      ?= grep
 TAR       ?= tar
 TEXI2PDF  ?= texi2pdf -q
+MAKEINFO  ?= makeinfo
 CUT ?= cut
 TR ?= tr
+
+# work out a possible help generator
+ifeq ($(strip $(QHELPGENERATOR)),)
+  ifneq ($(shell qhelpgenerator -qt5 -v 2>/dev/null),)
+    QHELPGENERATOR = qhelpgenerator -qt5
+  else ifneq ($(shell qhelpgenerator-qt5 -v 2>/dev/null),)
+    QHELPGENERATOR = qhelpgenerator-qt5
+  else ifneq ($(shell qcollectiongenerator -qt5 -v 2>/dev/null),)
+    QHELPGENERATOR = qcollectiongenerator -qt5
+  else ifneq ($(shell qcollectiongenerator-qt5 -v 2>/dev/null),)
+    QHELPGENERATOR = qcollectiongenerator-qt5
+  else
+    QHELPGENERATOR = true
+  endif
+endif
 
 HG           := hg
 HG_CMD        = $(HG) --config alias.$(1)=$(1) --config defaults.$(1)= $(1)
@@ -96,22 +112,29 @@ $(RELEASE_DIR): .hg/dirstate
 	$(HG) archive --exclude ".hg*" --type files "$@"
 	$(MAKE) -C "$@" docs
 	# remove dev stuff
-	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py
+	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py doc/mkqhcp.py
 	cd "$@" && $(RM) Makefile
 	chmod -R a+rX,u+w,go-w "$@"
 
 .PHONY: docs
-docs: doc/$(PACKAGE).pdf
+docs: doc/$(PACKAGE).pdf doc/$(PACKAGE).qhc
 
 cleandocs:
 	$(RM) -f doc/$(PACKAGE).info
 	$(RM) -f doc/$(PACKAGE).pdf
 	$(RM) -f doc/functions.texi
+	$(RM) -f doc/$(PACKAGE).qhc doc/$(PACKAGE).qch
 
 doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
 	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(TEXI2PDF) $(PACKAGE).texi
 	# remove temp files
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
+
+doc/$(PACKAGE).qhc: doc/$(PACKAGE).texi doc/functions.texi
+	# try also create qch file if can
+	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split $(PACKAGE).texi
+	cd doc && ./mkqhcp.py $(PACKAGE) && $(QHELPGENERATOR) $(PACKAGE).qhcp -o $(PACKAGE).qhc
+	cd doc && $(RM) -f $(PACKAGE).html $(PACKAGE).qhcp $(PACKAGE).qhp
 
 doc/functions.texi:
 	cd doc && ./mkfuncdocs.py --src-dir=../inst/ --src-dir=../inst/sensors/ ../INDEX | $(SED) 's/@seealso/@xseealso/g' > functions.texi

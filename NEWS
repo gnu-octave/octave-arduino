@@ -15,6 +15,8 @@ Summary of important user-visible changes for arduino 0.8.0+:
     - mpu6050
     - si7021
 
+  ** added QT docs
+
 Summary of important user-visible changes for arduino 0.8.0:
 -------------------------------------------------------------------
   ** New board configurations:

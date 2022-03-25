@@ -1,0 +1,9 @@
+pre.example, .header, .float-caption, hr {
+  /* base00 ~ body text in light solarized theme */
+  color: #657b83;
+  border-color: #657b83; }
+
+pre.example {
+  /* base3 ~ background color in light solarized theme */
+  background-color: #fdf6e3;
+  padding: 0.5em; }
