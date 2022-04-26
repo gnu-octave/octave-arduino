@@ -29,6 +29,9 @@
 ## @end deftypefn
 
 function config = getBoardConfig (board)
+  if strcmp(board, "unknown")
+    error ("unknown board found type");
+  endif
   config = eval(sprintf("arduinoio.config.config_%s", board));
 endfunction
 
