@@ -772,6 +772,8 @@ BME280 temperature, pressure and humidity sensor
 BNO055 acceleration, angular velocity, orientation and magnetic field sensor
 @item lis3dh
 LIS3DH acceleration sensor
+@item lps22hb
+LPS22HB temperature and pressure sensor
 @item lsm6dso
 LSM6DSO acceleration, angular velocity sensor
 @item mpu6050
