@@ -64,4 +64,10 @@ classdef LibraryBase < arduinoio.LibraryBase
   ## @deftypefn {} {} display ()
   ## Display the addon in a verbose way.
   ## @end deftypefn
+  
+  methods (Access=public)
+    function this = LibraryBase ()
+       # nothing to do
+    endfunction
+  endmethods
 endclassdef
