@@ -35,7 +35,10 @@
 ## arduino board.
 ## @item arduinobinary
 ## The value should be the name/path of the arduino IDE binary for programming. If not specified,
-## the function will attempt to find the binary itself.
+## the function will use getpref preferences of arduino.arduino_binary, and if not found, the
+## function will attempt to find the binary itself.
+##
+## If provided, the value will be saved to preferences for future calls.
 ## @end table
 ##
 ## @subsubheading Outputs
@@ -239,6 +242,8 @@ function retval = arduinosetup (varargin)
     # start the arduino ide
     if isempty (arduinobinary)
       arduinobinary = __arduino_binary__ ();
+    else
+      arduinobinary = __arduino_binary__ (arduinobinary);
     endif
 
     filename = fullfile (tmpdir, "octave", "octave.ino");

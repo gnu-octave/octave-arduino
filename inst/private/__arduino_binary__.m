@@ -29,6 +29,7 @@ function retval = __arduino_binary__ (newarduinopath)
   else
     % trying to set the path ?
     arduino_binary = newarduinopath;
+    setpref('arduino', 'arduino_binary', arduino_binary);
   endif
   
   retval = arduino_binary;
@@ -39,6 +40,16 @@ function arduino_binary = find_arduino_binary ()
   # use arduino_debug.exe in windoze ?
   binary_name = "arduino";
   arduino_binary = "";
+  have_prefs = false;
+
+  binary = getpref("arduino", "arduino_binary", "");
+  if !isempty(binary)
+    have_prefs = true;
+    t = file_in_path (getenv ("PATH"), binary);
+    if !isempty(t)
+      arduino_binary = t;
+    endif
+  endif
   
   if (isunix ())
     binaries = strcat (binary_name, {"", ".exe"});
@@ -113,6 +124,8 @@ function arduino_binary = find_arduino_binary ()
 
   if isempty(arduino_binary)
     error ("__arduino_binary__: can not find the arduino binary");
+  elseif !have_prefs
+    setpref('arduino', 'arduino_binary', arduino_binary);
   endif
         
 endfunction
