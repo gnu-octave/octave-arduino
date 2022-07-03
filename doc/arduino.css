@@ -7,3 +7,28 @@ pre.example {
   /* base3 ~ background color in light solarized theme */
   background-color: #fdf6e3;
   padding: 0.5em; }
+
+table.cartouche {
+  width: 100%;
+  background-color: #fdf6e3;
+  border: 1px solid #1C6EA4;
+}
+
+table.xcartouche td {
+  border: 1px solid #1C6EA4;
+  padding: 4px 4px;
+}
+
+table.xcartouche tbody {
+  border: none;
+}
+
+table.cartouche {
+  border: 1px solid #948473;
+  background-color: #FFE3C6;
+  width: 100%;
+}
+table.cartouche td, table.cartouche th {
+  border: 1px solid #948473;
+  padding: 4px 4px;
+}

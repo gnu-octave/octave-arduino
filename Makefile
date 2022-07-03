@@ -118,11 +118,12 @@ $(RELEASE_DIR): .hg/dirstate
 	chmod -R a+rX,u+w,go-w "$@"
 
 .PHONY: docs
-docs: doc/$(PACKAGE).pdf doc/$(PACKAGE).qhc
+docs: doc/$(PACKAGE).pdf doc/$(PACKAGE).qhc doc/$(PACKAGE).html
 
 cleandocs:
 	$(RM) -f doc/$(PACKAGE).info
 	$(RM) -f doc/$(PACKAGE).pdf
+	$(RM) -f doc/$(PACKAGE).html
 	$(RM) -f doc/functions.texi
 	$(RM) -f doc/$(PACKAGE).qhc doc/$(PACKAGE).qch
 
@@ -131,11 +132,13 @@ doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
 	# remove temp files
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
 
-doc/$(PACKAGE).qhc: doc/$(PACKAGE).texi doc/functions.texi
+doc/$(PACKAGE).html: doc/$(PACKAGE).texi doc/functions.texi
+	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split --output=${PACKAGE}.html $(PACKAGE).texi
+
+doc/$(PACKAGE).qhc: doc/$(PACKAGE).html
 	# try also create qch file if can
-	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split $(PACKAGE).texi
 	cd doc && ./mkqhcp.py $(PACKAGE) && $(QHELPGENERATOR) $(PACKAGE).qhcp -o $(PACKAGE).qhc
-	cd doc && $(RM) -f $(PACKAGE).html $(PACKAGE).qhcp $(PACKAGE).qhp
+	cd doc && $(RM) -f $(PACKAGE).qhcp $(PACKAGE).qhp
 
 doc/functions.texi:
 	cd doc && ./mkfuncdocs.py --src-dir=../inst/ --src-dir=../inst/sensors/ ../INDEX | $(SED) 's/@seealso/@xseealso/g' > functions.texi
