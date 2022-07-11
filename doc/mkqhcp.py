@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
 ## Copyright 2022 John Donoghue
 ##
@@ -133,7 +133,7 @@ def process(name):
 
 
 def show_usage():
-  print sys.argv[0], "projname"
+  print (sys.argv[0], "projname")
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:

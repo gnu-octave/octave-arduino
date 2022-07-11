@@ -1,6 +1,6 @@
-#!/usr/bin/python2
+#!/usr/bin/python3
 
-## Copyright 2018-2020 John Donoghue
+## Copyright 2018-2022 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.1
+## mkfuncdocs v1.0.2
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -149,7 +149,7 @@ def read_index (filename, ignore):
   with open(filename, 'rt') as f:
     lines = f.read().splitlines()
 
-  #print "read", lines
+  #print ("read", lines)
   first = True
   category = Group()
   for l in lines:
@@ -217,18 +217,18 @@ def find_func_file(fname, paths, prefix, scanfiles=False):
   return None, -1
 
 def display_func(name, ref, help):
-  print "@c -----------------------------------------"
-  print "@subsection ", name
-  print "@cindex ", ref
+  print ("@c -----------------------------------------")
+  print ("@subsection {}".format(name))
+  print ("@cindex {}".format(ref))
   for l in help:
-    print l
+    print ("{}".format(l))
 
 def process (args):
   options = { "verbose": False, "srcdir": [], "funcprefix": "", "ignore": [], "allowscan": False }
   indexfile = ""
 
   for a in args:
-    #print a
+    #print ("{}".format(a))
     c=a.split("=")
     key=c[0]
 
@@ -264,19 +264,19 @@ def process (args):
 
   idx = read_index(indexfile,  options["ignore"])
   for g in idx.groups:
-    #print "************ ", g.name
-    print "@c ---------------------------------------------------"
-    print "@node ", g.name
-    print "@section ", g.name
-    print "@cindex ", g.name
+    #print ("************ {}".format(g.name))
+    print ("@c ---------------------------------------------------")
+    print ("@node {}".format(g.name))
+    print ("@section {}".format(g.name))
+    print ("@cindex {}".format(g.name))
 
     for f in sorted(g.functions):
-      print "@c", g.name, f
+      print ("@c {} {}".format(g.name, f))
       h = ""
       filename = ""
       path = ""
       if "@" in f:
-        #print "class func"
+        #print ("class func")
         path = f
         name = "@" + f
         ref = f.split("/")[-1]
@@ -316,7 +316,7 @@ def process (args):
 
     
 def show_usage():
-  print sys.argv[0], "[options] indexfile"
+  print (sys.argv[0], "[options] indexfile")
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
