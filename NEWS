@@ -1,3 +1,10 @@
+Summary of important user-visible changes for arduino 0.9.1:
+-------------------------------------------------------------------
+
+  ** @arduino/playTone: fix bitshifted values (Bug #62538)
+
+  ** Save/Restore arduinobinary to prefs arduino.arduino_binary.
+
 Summary of important user-visible changes for arduino 0.9.0:
 -------------------------------------------------------------------
 

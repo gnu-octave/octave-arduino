@@ -11,7 +11,7 @@
 @afourpaper
 @paragraphindent 0
 @finalout
-@set VERSION 0.9.0
+@set VERSION 0.9.1
 @set COPYRIGHT_DATE 2018-2022
 @c @afourwide
 @c %*** End of the HEADER
@@ -168,11 +168,15 @@ The sources will be compiled and then uploaded to the connected arduino board.
 
 After successful upload the Arduino IDE should be closed.
 
-@boxnote{The arduino programming is not compatible with the Matlab arduino library, so must be programmed by the Octave Arduino toolkit to
-to communicate to the arduino, even if it was previously used to work with Matlab.}
+@boxnote{The arduino programming is not compatible with the Matlab arduino library, so must be programmed by
+the Octave Arduino toolkit to communicate to the arduino, even if it was previously used to work with Matlab.}
 
 @boxnote{The toolkit requires the @url{https://www.arduino.cc/en/software, Arduino IDE} in order to program the Arduino device.
-If the toolkit can not find the IDE, run the IDE manually, close it and retry programming the Arduino.}
+
+The binary can set using the 'arduinobinary' property when running setup.
+
+For arduino IDEs before version 2, if the toolkit can not find the IDE, run the IDE manually, close it and retry programming
+the Arduino. Otherwise, use the 'arduino' binary property.}
 
 @section Known Arduino Board Types
 @cindex Known Arduino Board Types
