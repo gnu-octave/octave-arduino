@@ -65,6 +65,8 @@ function retval = boardTypeString (id)
       retval = "raspi_pico";
     case 101
       retval = "nano_rp2040_connect";
+    case 111
+      retval = "esp32_dev";
     otherwise
       retval = "unknown";
   endswitch

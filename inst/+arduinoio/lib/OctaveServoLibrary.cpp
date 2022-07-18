@@ -24,7 +24,13 @@
 #ifdef USE_SERVO
   // NOTE: if cant fint servo.h, you probally dont have the Servo library installed
   // go to Sketch -> Include Library -> Manage Libraries, and select 'Servo'
-  #include <Servo.h>
+  // For ESP boards, it bwill need to be ESP32Servo
+# ifdef ARDUINO_ARCH_ESP32
+  #include <ESP32Servo.h>
+# else
+   #include <Servo.h>
+# endif
+
   Servo servo[NUM_DIGITAL_PINS];
   uint16_t servo_pos[NUM_DIGITAL_PINS];
 #endif

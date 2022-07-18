@@ -66,6 +66,8 @@ Currently the toolkit recognizes these boards:
 
 * due
 
+* esp32 dev
+
 * leonardo
 
 * lilypad

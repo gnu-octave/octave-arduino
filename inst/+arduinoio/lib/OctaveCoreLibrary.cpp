@@ -19,6 +19,11 @@
 #include "settings.h"
 #include "OctaveCoreLibrary.h"
 
+#ifdef ARDUINO_ARCH_ESP32
+  // contains analogWrite
+  #include <ESP32Servo.h>
+#endif
+
 #define ARDUINO_RESET       0
 #define ARDUINO_INIT        1
 #define ARDUINO_CONFIGPIN   2
@@ -92,6 +97,9 @@
   #ifndef ARDUINO_ARCH_MBED
     #error "Expected mbed architechture"
   #endif
+#elif defined(ARDUINO_ESP32_DEV)
+  #define BOARD_ID 111
+  #define BOARD_VOLTAGE 33
 #else
   #error "Unknown board type"
 #endif
@@ -162,6 +170,12 @@ reset ()
 {
   // processor software reset 
   NVIC_SystemReset ();
+}
+#elif defined (ARDUINO_ARCH_ESP32)
+void
+reset ()
+{
+  ESP.restart ();
 }
 #else
   #error("Unimplemented architecture for reset")

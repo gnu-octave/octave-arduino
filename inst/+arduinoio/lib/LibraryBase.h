@@ -30,8 +30,10 @@
 #elif defined(SERIAL_PORT_USBVIRTUAL)
   // sparkfun samed21 dev/mini
 # define OCTAVE_COMMS_PORT SERIAL_PORT_USBVIRTUAL
-#else
+#elif defined(SERIAL_PORT_MONITOR)
 # define OCTAVE_COMMS_PORT SERIAL_PORT_MONITOR
+#else
+# define OCTAVE_COMMS_PORT Serial
 #endif
 
 class OctaveLibraryBase

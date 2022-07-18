@@ -220,6 +220,8 @@ Arduino UNO WiFi rev2
  eliminate conflicts between servos and the tone library}
 @item
 Raspberry Pi Pico
+@item
+EPS32 Dev
 @end itemize
 
 Additional boards can be added easily, however require minor code changes.

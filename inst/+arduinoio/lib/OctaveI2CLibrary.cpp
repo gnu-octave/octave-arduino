@@ -44,6 +44,10 @@ static uint8_t i2c_address = 0;
 #  endif
 #endif
 
+#if !defined(ARDUINO_ARCH_ESP32)
+ #define I2C_SUPPORTS_ENDCALL 1
+#endif
+
 #endif
 
 OctaveI2CLibrary::OctaveI2CLibrary (OctaveArduinoClass &oc) 
@@ -289,9 +293,11 @@ OctaveI2CLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
 
               if (!i2c_enabled[data[0]])
 	        {
+#if defined (I2C_SUPPORTS_ENDCALL)
                   if(data[0] == 0) Wire.end ();
-#if WIRE_INTERFACES_COUNT > 1
+# if WIRE_INTERFACES_COUNT > 1
                   if(data[0] == 1) Wire1.end ();
+# endif
 #endif
                 }
               sendResponseMsg (cmdID, data, 3);
@@ -368,10 +374,11 @@ OctaveI2CLibrary::commandHandler (uint8_t cmdID, uint8_t* data, uint8_t datasz)
               else 
                 {
                   // disable
-		  
+#if defined (I2C_SUPPORTS_ENDCALL)
                   if (data[0] == 0) Wire.end ();
-#if WIRE_INTERFACES_COUNT > 1
+# if WIRE_INTERFACES_COUNT > 1
                   if (data[0] == 1) Wire1.end ();
+# endif
 #endif
                   i2c_enabled[data[0]] = 0;
                 }
