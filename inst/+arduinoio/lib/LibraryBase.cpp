@@ -31,7 +31,11 @@
 #define STATE_EOM  5
 
 #if defined(OCTAVE_USE_WIFI_COMMS)
+# ifdef ARDUINO_ARCH_ESP32
+  #include <WiFi.h>
+# else
   #include <WiFiNINA.h>
+# endif
 
   char wifi_ssid[] = WIFI_SECRET_SSID;        // your network SSID (name)
   char wifi_pass[] = WIFI_SECRET_PASS;
@@ -234,9 +238,9 @@ OctaveArduinoClass::processMessage (uint8_t libid, uint8_t cmd, uint8_t *data, u
 }
 
 #if defined(WIFI_STATIC_IP)
-static IPAddress make_ip_address(const char *str)
+
+static int get_ip_parts(const char *str, uint8_t parts[4])
 {
-  uint8_t parts[4];
   uint8_t i = 0;
   uint8_t o = 0;
 
@@ -255,8 +259,23 @@ static IPAddress make_ip_address(const char *str)
      }
      i++;
    }
+  return o;
+}
+
+static IPAddress make_ip_address(const char *str)
+{
+  uint8_t parts[4];
+  get_ip_parts(str, parts);
   return IPAddress(parts[0], parts[1], parts[2], parts[3]);
 }
+
+static IPAddress make_gateway_address(const char *str)
+{
+  uint8_t parts[4];
+  get_ip_parts(str, parts);
+  return IPAddress(parts[0], parts[1], parts[2], 1);
+}
+
 #endif
 
 void
@@ -264,10 +283,18 @@ OctaveArduinoClass::init ()
 {
   OCTAVE_COMMS_PORT.begin (9600);
 #if defined(OCTAVE_USE_WIFI_COMMS)
+
+#ifdef ARDUINO_ARCH_ESP32
+  WiFi.begin(wifi_ssid, wifi_pass);
+#endif
   while(!OCTAVE_COMMS_PORT) {}
 
 #if defined(WIFI_STATIC_IP)
+#ifdef ARDUINO_ARCH_ESP32
+  WiFi.config(make_ip_address(WIFI_STATIC_IP), make_gateway_address(WIFI_STATIC_IP), IPAddress(255, 255, 0, 0));
+#else
   WiFi.config(make_ip_address(WIFI_STATIC_IP));
+#endif
 #endif
 
   while (wifi_status != WL_CONNECTED) {
