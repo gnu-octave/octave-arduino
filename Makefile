@@ -146,7 +146,8 @@ doc/functions.texi:
 # install is a prerequesite to the html directory (note that the html
 # tarball will use the implicit rule for ".tar.gz" files).
 html_options = --eval 'options = get_html_options ("octave-forge");' \
-               --eval 'options.package_doc = "$(PACKAGE).texi";'
+               --eval 'options.package_doc = "$(PACKAGE).texi";' \
+	       --eval 'options.package_doc_options = [options.package_doc_options " --css-include=$(PACKAGE).css"];'
 $(HTML_DIR): install
 	@echo "Generating HTML documentation. This may take a while ..."
 	$(RM) -r "$@"
