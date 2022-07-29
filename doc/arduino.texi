@@ -530,7 +530,7 @@ The Matlab interface file within the addon directory provides the Matlab interfa
 as well as provides information about the addon.
 
 @subsubheading Class inheritance and required properties
-The interface file must be a subclass pf arduinoio.LibraryBase and must contain some constant properties values that provide the information.
+The interface file must be a subclass of arduinoio.LibraryBase and must contain some constant properties values that provide the information.
 
 A minimum example of required is below:
 @example
@@ -677,13 +677,13 @@ public:
   @{
     switch (cmdID)
       @{
-      case MYADDON_INIT:
+      case MYADDON1_INIT:
         @{
           cnt = 0;
           sendResponseMsg(cmdID, 0,0);
           break;
         @}
-      case MYADDON_FUNC1:
+      case MYADDON1_FUNC1:
         @{
           // func 1 is just returning a uint8 count of number of times called
           cnt ++;
@@ -698,7 +698,7 @@ public:
       @}
   @}
 @}
-}
+};
 @end example
 
 The body of functions can be in the CppSourceFile file is it is defined or within the header file as illustrated above.
