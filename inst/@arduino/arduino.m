@@ -49,6 +49,9 @@ classdef arduino < handle
   ## name assigned to the arduino object
   ## @item debug
   ## true / false flag for whether debug in turned on
+  ## @item forcebuildon
+  ## true / false flag for whether to force show of the arduino IDE to
+  ## reprogram the arduino
   ## @item port (read only)
   ## the communications port the board is connected to.
   ## @item board  (read only)
@@ -144,6 +147,7 @@ classdef arduino < handle
 
         requiredlibs = {};
         forcebuild = false;
+        forcebuildon = false;
         for i = 3:2:nargin
           propname = tolower (varargin{i});
           propvalue = varargin{i+1};
@@ -163,6 +167,14 @@ classdef arduino < handle
               error ("arduino: expect libraries value to be a libraryname or cellarray of library names");
             endif
           endif
+          if strcmp (propname,"forcebuildon")
+            if islogical (propvalue) || (isnumeric(propvalue) && (propvalue == 1 || propvalue == 0))
+              forcebuildon = propvalue;
+            else
+              error ("arduino: expect forcebuildon to be true or false");
+            endif
+          endif
+          # older option that probally should remove
           if strcmp (propname,"forcebuild")
             if islogical (propvalue) || (isnumeric(propvalue) && (propvalue == 1 || propvalue == 0))
               forcebuild = propvalue;
@@ -176,23 +188,28 @@ classdef arduino < handle
 
         # check have requested libs
         reprogram = false;
-        availablelibs = listArduinoLibraries ();
 
-        for i = 1:numel (requiredlibs)
-          lib = requiredlibs{i};
-          id = this.get_lib (lib);
-          if id < 0
-            idx = find( cellfun(@(x) strcmpi(x, lib), availablelibs), 1);
-            if isempty (idx)
-              error ('arduino: unknown library "%s"', lib);
-            elseif forcebuild
-              warning ('arduino: not configured with library "%s" - will need to reprogram', lib);
-              reprogram = true;
-            else
-              error ('arduino: not configured with library "%s" - please rerun arduinosetup with library, or set forcebuild', lib);
+        if forcebuildon
+          reprogram = true;
+        else
+          availablelibs = listArduinoLibraries ();
+
+          for i = 1:numel (requiredlibs)
+            lib = requiredlibs{i};
+            id = this.get_lib (lib);
+            if id < 0
+              idx = find( cellfun(@(x) strcmpi(x, lib), availablelibs), 1);
+              if isempty (idx)
+                error ('arduino: unknown library "%s"', lib);
+              elseif forcebuild
+                warning ('arduino: not configured with library "%s" - will need to reprogram', lib);
+                reprogram = true;
+              else
+                error ('arduino: not configured with library "%s" - please rerun arduinosetup with library, or set forcebuild', lib);
+              endif
             endif
-          endif
-        endfor
+          endfor
+        endif
 
         if reprogram
           printf("starting reprogram process ....\n")
