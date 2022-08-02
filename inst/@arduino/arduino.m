@@ -176,12 +176,12 @@ classdef arduino < handle
 
         # check have requested libs
         reprogram = false;
+        availablelibs = listArduinoLibraries ();
 
         for i = 1:numel (requiredlibs)
           lib = requiredlibs{i};
           id = this.get_lib (lib);
           if id < 0
-            availablelibs = listArduinoLibraries ();
             idx = find( cellfun(@(x) strcmpi(x, lib), availablelibs), 1);
             if isempty (idx)
               error ('arduino: unknown library "%s"', lib);
