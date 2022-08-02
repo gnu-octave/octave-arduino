@@ -33,6 +33,16 @@ function retval = __initArduino__ (obj, port, board)
      endif
      # need wait for aduino to potentially startup
      pause(2);
+
+     # clear any data in buffers
+     set(obj.connected, "timeout", 1);
+     data = fread(obj.connected,100);
+     while length(data) >= 100
+       data = fread(obj.connected,100);
+       if obj.debug
+         printf("flushing %d bytes of data\n", length(data));
+       endif
+     endwhile
      
      [dataout, status] = __sendCommand__(obj, 0, ARDUINO_INIT);
      if status != 0
