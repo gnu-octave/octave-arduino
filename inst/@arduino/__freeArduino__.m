@@ -18,9 +18,9 @@
 
 function retval = __freeArduino__ (obj, port, board)
  
-  if(obj.connected)
+  if isobject (obj.connected)
      fclose(obj.connected);
-     obj.connected = [];
+     obj.connected = false;
   endif
 
   retval = obj;
