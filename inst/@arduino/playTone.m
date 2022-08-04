@@ -61,11 +61,11 @@ function playTone (obj, pin, freq, duration)
   endif
 
   freq = uint16(freq);
-  freqh = bitshift (freq, -8)
+  freqh = bitshift (freq, -8);
   freql = bitand(freq, hex2dec('FF'));
 
   duration = uint16(duration*10);
-  durh = bitshift (duration, -8)
+  durh = bitshift (duration, -8);
   durl = bitand(duration, hex2dec('FF'));
 
   datain = uint8([pininfo.id freqh freql durh durl]);
