@@ -226,6 +226,20 @@ def find_func_file(fname, paths, prefix, scanfiles=False):
   
   return None, -1
 
+def display_standalone_header():
+  # make a file that doesnt need to be included in a texinfo file to
+  # be valid
+  print("@c mkfuncdocs output for a standalone function list")
+  print("@include macros.texi")
+  #print("@node Top")
+  print("@top Functions")
+  print("@node Function Reference")
+  print("@chapter Function Reference")
+  print("@cindex Function Reference")
+
+def display_standalone_footer():
+  print("@bye")
+
 def display_func(name, ref, help):
   print ("@c -----------------------------------------")
   print ("@subsection {}".format(name))
@@ -234,7 +248,14 @@ def display_func(name, ref, help):
     print ("{}".format(l))
 
 def process (args):
-  options = { "verbose": False, "srcdir": [], "funcprefix": "", "ignore": [], "allowscan": False }
+  options = { 
+    "verbose": False,
+    "srcdir": [],
+    "funcprefix": "",
+    "ignore": [],
+    "standalone": False,
+    "allowscan": False
+  }
   indexfile = ""
 
   for a in args:
@@ -249,6 +270,8 @@ def process (args):
 
     if key == "--verbose":
       options["verbose"] = True;
+    if key == "--standalone":
+      options["standalone"] = True;
     elif key == "--allowscan":
       options["allowscan"] = True;
     elif key == "--src-dir":
@@ -271,6 +294,8 @@ def process (args):
     options["srcdir"].append("inst")
 
   #print "options=", options
+  if options['standalone']:
+      display_standalone_header()
 
   idx = read_index(indexfile,  options["ignore"])
   for g in idx.groups:
@@ -325,7 +350,10 @@ def process (args):
       if h:
         display_func (name, ref, h)
 
-    
+  if options['standalone']:
+      display_standalone_footer()
+
+
 def show_usage():
   print (sys.argv[0], "[options] indexfile")
 
