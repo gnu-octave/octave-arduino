@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.2
+## mkfuncdocs v1.0.3
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -56,12 +56,22 @@ class Group:
   functions = []
 
   def __init__ (self, name=""):
-    self.name = name
+    if name:
+        self.name = name
     self.functions = []
 
 class Index:
   name = ""
   groups = []
+
+def texify_line(line):
+  # convert any special chars in a line to texinfo format
+  # currently just used for group formatting ?
+  line = line.replace("@", "@@")
+  line = line.replace("{", "@{")
+  line = line.replace("}", "@}")
+  line = line.replace(",", "@comma{}")
+  return line
 
 def find_defun_line_in_file(filename, fnname):
   linecnt = 0
@@ -265,13 +275,14 @@ def process (args):
   idx = read_index(indexfile,  options["ignore"])
   for g in idx.groups:
     #print ("************ {}".format(g.name))
+    g_name = texify_line(g.name)
     print ("@c ---------------------------------------------------")
-    print ("@node {}".format(g.name))
-    print ("@section {}".format(g.name))
-    print ("@cindex {}".format(g.name))
+    print ("@node {}".format(g_name))
+    print ("@section {}".format(g_name))
+    print ("@cindex {}".format(g_name))
 
     for f in sorted(g.functions):
-      print ("@c {} {}".format(g.name, f))
+      print ("@c {} {}".format(g_name, f))
       h = ""
       filename = ""
       path = ""
