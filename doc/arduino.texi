@@ -754,7 +754,7 @@ An object of the addon type can be created using the addon command.
 There are two types of sensors available:
 @enumerate
 @item
-Matlab compatible(ish) sensors for envorinment and IMU.
+Matlab compatible(ish) sensors for environment and IMU.
 @item
 Additional lightweight wrappers for some chips in a arduinosensor namespace.
 @end enumerate
@@ -764,7 +764,7 @@ Additional lightweight wrappers for some chips in a arduinosensor namespace.
 
 @subsection Overview
 Matlab compatible functions are provided for a number of sensors, using a similar function naming as
-provided by the Maybal arduino package.
+provided by the Matlab arduino package.
 
 @subsection Available Sensors
 @cindex Available Sensors
