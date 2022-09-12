@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.3
+## mkfuncdocs v1.0.4
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -39,6 +39,9 @@
 ##   --funcprefix=xxxxx : remove xxxxx from the function name when searching for matching
 ##                     source file.
 ##   --allowscan     : if can not find function, attemp to scan .cc,cpp,cxx files for match
+##
+##   --standalone    : generate a texinfo file expected to be used with being included in
+##                     another document file.
 
 import sys
 import os
@@ -192,6 +195,11 @@ def find_func_file(fname, paths, prefix, scanfiles=False):
       name = f + "/" + fname + ".m"
       if os.path.isfile(name):
         return name, 0
+      # class constructor ?
+      name = f + "/@" + fname + "/" + fname + ".m"
+      if os.path.isfile(name):
+        return name, 0
+      name = f + "/" + fname + ".cc"
       name = f + "/" + fname + ".cc"
       if os.path.isfile(name):
         return name, 0
