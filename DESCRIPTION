@@ -1,6 +1,6 @@
 Name: arduino
-Version: 0.9.1
-Date: 2022-07-13
+Version: 0.10.0
+Date: 2022-09-13
 Author: John Donoghue <john.donoghue@ieee.org>
 Maintainer: John Donoghue <john.donoghue@ieee.org>
 Title: Octave Arduino Toolkit

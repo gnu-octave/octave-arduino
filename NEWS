@@ -1,8 +1,13 @@
-Summary of important user-visible changes for arduino 0.9.1+:
+Summary of important user-visible changes for arduino 0.10.0:
 -------------------------------------------------------------------
 
   ** New board configurations:
     - ESP32 Dev
+
+  ** Doc corrections for using addons
+
+  ** @arduino/arduino
+    - added 'forcebuildon' input property
 
 Summary of important user-visible changes for arduino 0.9.1:
 -------------------------------------------------------------------
