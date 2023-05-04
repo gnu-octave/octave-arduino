@@ -57,9 +57,10 @@
       .mysidebar {
         box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         z-index: 600;
+        overflow-y: scroll;
       }
 
-      .sideoverflow {
+      .myoverflow {
         overflow-y: scroll;
       }
 
@@ -106,9 +107,9 @@
 
     <!-- main section -->
     <div class="container-fluid afterheader">
-      <div class="row fullheight sideoverflow">
+      <div class="row fullheight">
         <!-- left navbar - is set no expand when > md -->
-        <div class="col-sm-1 col-md-3 col-lg-2 col-xl-2 mysidebar">
+        <div class="col-sm-1 col-md-3 col-lg-2 col-xl-2 mysidebar" id="mysidebar">
           <nav class="navbar navbar-expand-md bg-white fixed-left">
             <button class="navbar-toggler pull-right" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarLeft"
@@ -163,6 +164,7 @@
 	var p = getOffset(document.getElementById('mainscroll'));
 	var pp = getOffset(document.getElementById('mainscroll').parentElement);
         document.getElementById('mainscroll').style.height = (pp.height - (p.top - pp.top)) + 'px'
+        document.getElementById('mysidebar').style.height = (pp.height - (p.top - pp.top)) + 'px'
       }
     
       window.onload = resizeDivs;
