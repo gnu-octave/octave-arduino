@@ -1,0 +1,15 @@
+---
+layout: "default"
+---
+<!-- we are generating our own content here -->
+<div class="container">
+<p>The following functions are available:</p>
+{%- for cat in page.categories -%}
+  <a id="{{cat.id}}"><h2>{{ cat.description }}</h2></a>
+  <table class="function-list table table-striped table-bordered">
+   {%- for fun in cat.functions -%}
+   <tr><td><a href="{{site.url}}{{fun.url}}">{{fun.name}}</a></td><td>{{fun.description}}</td></tr>
+   {%- endfor -%}
+  </table>
+{%- endfor -%}
+</div>

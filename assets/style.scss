@@ -1,0 +1,72 @@
+---
+---
+
+// no underline on links
+a { text-decoration: none; }
+
+div.card-body a:hover { text-decoration: underline; }
+div.card-body ul { padding-inline-start: 1em; }
+div.card-body li {
+  list-style-type: none;
+  margin-top: 0.7em;
+}
+
+li.nav-item { margin-left: 3rem; }
+
+a.nav-link { color: #FFF !important; }
+a.nav-link:hover {
+  color: #FFF !important;
+  background-color: #585858;
+}
+
+span.fixed-width {
+  display: inline-block;
+  width: 1.3em;
+}
+
+// our functions list table
+table.function-list {
+  tr td:first-child {
+    width: 25%;
+    min-width: 25%;
+    max-width: 25%;
+  };
+}
+
+// overview table
+table.overview {
+  tr td:first-child {
+    font-weight: bold;
+  };
+}
+
+
+// color the code outputs in manual and function ref
+
+pre.example, .header, .float-caption, hr {
+  /* base00 ~ body text in light solarized theme */
+  color: #657b83;
+  border-color: #657b83; }
+
+pre.example {
+  /* base3 ~ background color in light solarized theme */
+  background-color: #fdf6e3;
+  padding: 0.5em; }
+
+pre.example, kbd {
+  /* base3 ~ background color in light solarized theme */
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+
+table.cartouche {
+  border: 1px solid #948473;
+  background-color: #FFE3C6;
+  width: 100%;
+}
+
+table.cartouche td, table.cartouche th {
+  border: 1px solid #948473;
+  padding: 4px 4px;
+}
+

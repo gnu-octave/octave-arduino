@@ -1,0 +1,167 @@
+---
+layout: "default"
+permalink: "/functions/7_lps22hb/"
+pkg_name: "arduino"
+pkg_version: "0.10.0"
+pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
+title: "Arduino Toolkit - lps22hb"
+category: "Sensors"
+func_name: "lps22hb"
+navigation:
+- id: "overview"
+  name: "Overview"
+  url: "/index"
+- id: "Functions"
+  name: "Function Reference"
+  url: "/functions"
+- id: "news"
+  name: "News"
+  url: "/news"
+- id: "manual"
+  name: "Manual"
+  url: "/manual"
+---
+<dl class="def">
+<dt id="index-lps22hb"><span class="category">: </span><span><em></em> <strong>lps22hb</strong><a href='#index-lps22hb' class='copiable-anchor'></a></span></dt>
+<dd><p>LPS22HB absolute pressure and temperature sensor
+ </p></dd></dl>
+
+<span id="Methods"></span><h4 class="subheading">Methods</h4>
+<dl class="def">
+<dt id="index-lps22hb_0028arObj_0029"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>lps22hb(<var>arObj</var>)</strong><a href='#index-lps22hb_0028arObj_0029' class='copiable-anchor'></a></span></dt>
+<dt id="index-lps22hb_0028arObj_002c"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>lps22hb(<var>arObj</var>,</strong> <em><var>propertyname, propertyvalue</var> ....)</em><a href='#index-lps22hb_0028arObj_002c' class='copiable-anchor'></a></span></dt>
+<dd><p>Constructor to create LPS22HB sensor
+ </p><span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>arObj</var> - the arduino parent object
+</p>
+<p><var>propertyname, propertyvalue</var> - optional property name, value pairs.
+ Current known properties are:
+ Current properties are:
+ </p><dl compact="compact">
+<dt><span>I2CAddress</span></dt>
+<dd><p>I2C address of the sensor (default 0x5C)
+ </p></dd>
+<dt><span>Bus</span></dt>
+<dd><p>I2C bus  - 0 or 1 (default 0)
+ </p></dd>
+</dl>
+
+<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
+<p><var>obj</var> - created object
+</p>
+<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<div class="example">
+<pre class="example"> <code>
+ a = arduino()
+ sensor = lps22hb(a)
+ </code>
+ </pre></div>
+</dd></dl>
+
+<dl class="def">
+<dt id="index-readTemperature_0028obj_0029"><span class="category">: </span><span><em>[<var>C</var>, <var>timestamp</var>] =</em> <strong>readTemperature(<var>obj</var>)</strong><a href='#index-readTemperature_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dd><p>Read the temperature
+</p>
+<span id="Inputs-1"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-1"></span><h4 class="subsubheading">Outputs</h4>
+<p><var>C</var> - read temperature in deg C.
+</p>
+<p><var>timestamp</var> - timestamp when read
+</p>
+<span id="Example-1"></span><h4 class="subsubheading">Example</h4>
+<div class="example">
+<pre class="example"> <code>
+ a = arduino()
+ s = lps22hb(a)
+ # get temp
+ temp = s.readTemperature
+ </code>
+ </pre></div>
+
+<p><strong>See also:</strong> lps22hb.
+ </p></dd></dl>
+
+<dl class="def">
+<dt id="index-readPressure_0028obj_0029"><span class="category">: </span><span><em>[<var>P</var>, <var>timestamp</var>] =</em> <strong>readPressure(<var>obj</var>)</strong><a href='#index-readPressure_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dd><p>Read the pressure
+</p>
+<span id="Inputs-2"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-2"></span><h4 class="subsubheading">Outputs</h4>
+<p><var>P</var> - pressure reading from sensor.
+</p>
+<p><var>timestamp</var> - timestamp when read
+ </p></dd></dl>
+ 
+<dl class="def">
+<dt id="index-read_0028obj_0029"><span class="category">: </span><span><em>[<var>readings</var>, <var>overrun</var>] =</em> <strong>read(<var>obj</var>)</strong><a href='#index-read_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dt id="index-read_0028obj_0029-1"><span class="category">: </span><span><em>[<var>P</var>, <var>C</var>, <var>timestamp</var>, <var>overrun</var>] =</em> <strong>read(<var>obj</var>)</strong><a href='#index-read_0028obj_0029-1' class='copiable-anchor'></a></span></dt>
+<dd><p>Read the sensor data
+</p>
+<span id="Inputs-3"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-3"></span><h4 class="subsubheading">Outputs</h4>
+<p><var>P</var> - pressure reading from sensor.
+</p>
+<p><var>C</var> - temperature reading from sensor.
+</p>
+<p><var>timestamp</var> - timestamp when read
+</p>
+<p><var>overrun</var> - overrun flag.
+</p>
+<p><var>readings</var> - table structure with fields for Timestamp, Pressure, Temperature and Humidity.
+ </p></dd></dl>
+ 
+<dl class="def">
+<dt id="index-info_0028obj_0029"><span class="category">: </span><span><em><var>inf</var> =</em> <strong>info(<var>obj</var>)</strong><a href='#index-info_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dd><p>Read the sensor info
+</p>
+<span id="Inputs-4"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-4"></span><h4 class="subsubheading">Outputs</h4>
+<p><var>inf</var> - structure containing the sensor information.
+</p>
+<p>Structure fields are:
+ </p><dl compact="compact">
+<dt><span>Version</span></dt>
+<dd><p>Chip firmware version
+ </p></dd>
+<dt><span>SensorId</span></dt>
+<dd><p>sensor id value
+ </p></dd>
+<dt><span>Type</span></dt>
+<dd><p>sensor type &rsquo;lps22hb&rsquo;
+ </p></dd>
+<dt><span>Status</span></dt>
+<dd><p>Status value read from sensor
+ </p></dd>
+</dl>
+
+</dd></dl>
+
+<dl class="def">
+<dt id="index-flush_0028obj_0029"><span class="category">: </span><span><em></em> <strong>flush(<var>obj</var>)</strong><a href='#index-flush_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dd><p>Flush sensor data
+</p>
+<span id="Inputs-5"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-5"></span><h4 class="subsubheading">Outputs</h4>
+<p>None
+ </p></dd></dl>
+
+<dl class="def">
+<dt id="index-release_0028obj_0029"><span class="category">: </span><span><em></em> <strong>release(<var>obj</var>)</strong><a href='#index-release_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dd><p>Release the resources of the sensor
+</p>
+<span id="Inputs-6"></span><h4 class="subsubheading">Inputs</h4>
+<p><var>obj</var> - the sensor object
+</p>
+<span id="Outputs-6"></span><h4 class="subsubheading">Outputs</h4>
+<p>None
+ </p></dd></dl>
