@@ -57,8 +57,12 @@
       .mysidebar {
         box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
         z-index: 600;
+      }
+
+      .sideoverflow {
         overflow-y: scroll;
       }
+
     </style>
 
     <!-- top nav bar -->
@@ -102,7 +106,7 @@
 
     <!-- main section -->
     <div class="container-fluid afterheader">
-      <div class="row fullheight">
+      <div class="row fullheight sideoverflow">
         <!-- left navbar - is set no expand when > md -->
         <div class="col-sm-1 col-md-3 col-lg-2 col-xl-2 mysidebar">
           <nav class="navbar navbar-expand-md bg-white fixed-left">
