@@ -37,12 +37,22 @@ ifeq ($(strip $(QHELPGENERATOR)),)
   endif
 endif
 
+## Detect which VCS is used
+vcs := $(if $(wildcard .hg),hg,$(if $(wildcard .git),git,unknown))
+ifeq ($(vcs),hg)
+release_dir_dep := .hg/dirstate
 HG           := hg
 HG_CMD        = $(HG) --config alias.$(1)=$(1) --config defaults.$(1)= $(1)
 HG_ID        := $(shell $(call HG_CMD,identify) --id | sed -e 's/+//' )
-HG_TIMESTAMP := $(firstword $(shell $(call HG_CMD,log) --rev $(HG_ID) --template '{date|hgdate}'))
+REPO_TIMESTAMP := $(firstword $(shell $(call HG_CMD,log) --rev $(HG_ID) --template '{date|hgdate}'))
+endif
+ifeq ($(vcs),git)
+release_dir_dep := .git/index
+GIT          := git
+REPO_TIMESTAMP := $(firstword $(shell $(GIT) log -n1 --date=unix --format="%ad"))
+endif
 
-TAR_REPRODUCIBLE_OPTIONS := --sort=name --mtime="@$(HG_TIMESTAMP)" --owner=0 --group=0 --numeric-owner
+TAR_REPRODUCIBLE_OPTIONS := --sort=name --mtime="@$(REPO_TIMESTAMP)" --owner=0 --group=0 --numeric-owner
 TAR_OPTIONS  := --format=ustar $(TAR_REPRODUCIBLE_OPTIONS)
 
 ### Note the use of ':=' (immediate set) and not just '=' (lazy set).
@@ -99,7 +109,7 @@ html: $(HTML_TARBALL)
 # Create the unpacked package.
 #
 # Notes:
-#    * having ".hg/dirstate" as a prerequesite  means it is only rebuilt
+#    * having release_dir_dep as a prerequesite  means it is only rebuilt
 #      if we are at a different commit.
 #    * the variable RM usually defaults to "rm -f"
 #    * having this recipe separate from the one that makes the tarball
@@ -107,10 +117,16 @@ html: $(HTML_TARBALL)
 #    * note that if a commands needs to be ran in a specific directory,
 #      the command to "cd" needs to be on the same line.  Each line restores
 #      the original working directory.
-$(RELEASE_DIR): .hg/dirstate
+$(RELEASE_DIR): $(release_dir_dep)
 	@echo "Creating package version $(VERSION) release ..."
 	$(RM) -r "$@"
+ifeq (${vcs},hg)
 	$(HG) archive --exclude ".hg*" --type files "$@"
+endif
+ifeq (${vcs},git)
+	$(GIT) archive --format=tar --prefix="$@/" HEAD | $(TAR) -x
+	$(RM) "$@/.gitignore"
+endif
 	$(MAKE) -C "$@" docs
 	# remove dev stuff
 	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py doc/mkqhcp.py
@@ -128,12 +144,12 @@ cleandocs:
 	$(RM) -f doc/$(PACKAGE).qhc doc/$(PACKAGE).qch
 
 doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi
-	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(TEXI2PDF) $(PACKAGE).texi
+	cd doc && SOURCE_DATE_EPOCH=$(REPO_TIMESTAMP) $(TEXI2PDF) $(PACKAGE).texi
 	# remove temp files
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
 
 doc/$(PACKAGE).html: doc/$(PACKAGE).texi doc/functions.texi
-	cd doc && SOURCE_DATE_EPOCH=$(HG_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split --output=${PACKAGE}.html $(PACKAGE).texi
+	cd doc && SOURCE_DATE_EPOCH=$(REPO_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split --output=${PACKAGE}.html $(PACKAGE).texi
 
 doc/$(PACKAGE).qhc: doc/$(PACKAGE).html
 	# try also create qch file if can
