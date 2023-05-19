@@ -39,7 +39,8 @@
       }
 
       .fullheight {
-	 height: 100%
+	 height: 100%;
+	 align-items: start;
       }
 
       .footer {
@@ -59,7 +60,7 @@
         z-index: 600;
       }
 
-      .myoverflow {
+      .sidebarscroll {
         overflow-y: scroll;
       }
 
@@ -109,7 +110,7 @@
       <div class="row fullheight">
         <!-- left navbar - is set no expand when > md -->
         <div class="col-sm-1 col-md-3 col-lg-2 col-xl-2 mysidebar" id="mysidebar">
-          <nav class="navbar navbar-expand-md bg-white fixed-left">
+	  <nav class="navbar navbar-expand-md bg-white fixed-left fullheight">
             <button class="navbar-toggler pull-right" type="button"
               data-bs-toggle="collapse" data-bs-target="#navbarLeft"
               aria-controls="navbarLeft" aria-expanded="true"
@@ -117,8 +118,9 @@
             >
               <span class="fas fa-bars"></span>
             </button>
-            <div class="collapse navbar-collapse myoverflow" id="navbarLeft">
-              <ul class="collapse show list-group list-group-flush">
+            <div class="collapse navbar-collapse" id="navbarLeft">
+              <div class="sidebarscroll fullheight" id="navbaritems">
+              <ul class="list-group list-group-flush">
                 {%- if page.navigation -%}
                   {%- for nav in page.navigation -%}
                     {% if nav.url %}
@@ -133,10 +135,11 @@
                   <li class="list-group-item py-1"><a href="{{site.url}}/news">News</a></li>
                 {%- endif -%}
               </ul>
+	      </div>
             </div>
           </nav>
         </div>
-        <!-- main page -->
+        <!-- main page - will have height set to the size of the screen between the top/bottom bar -->
         <div class="col-sm-11 col-md-9 col-lg-10 col-xl-10 mainscroll" id="mainscroll">
           <h1>{{ page.title | default: site.title }}</h1><hr/>
           {{content}}
@@ -160,10 +163,16 @@
         };
       }
       function resizeDivs() {
-	var p = getOffset(document.getElementById('mainscroll'));
-	var pp = getOffset(document.getElementById('mainscroll').parentElement);
-        document.getElementById('mainscroll').style.height = (pp.height - (p.top - pp.top)) + 'px'
+        var ctrl = document.getElementById('mainscroll');
+	var p = getOffset(ctrl);
+	var pp = getOffset(ctrl.parentElement);
+        ctrl.style.height = (pp.height - (p.top - pp.top)) + 'px'
         document.getElementById('mysidebar').style.height = (pp.height - (p.top - pp.top)) + 'px'
+
+        var ctrl = document.getElementById('navbarLeft');
+	var p = getOffset(ctrl);
+	var pp = getOffset(ctrl.parentElement);
+        ctrl.style.height = (pp.height - (p.top - pp.top)) + 'px'
       }
     
       window.onload = resizeDivs;
