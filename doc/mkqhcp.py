@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-## Copyright 2022 John Donoghue
+## mkqhcp.py
+## Version 1.0.1
+
+## Copyright 2022-2023 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -48,12 +51,12 @@ def process(name):
           title = e.group("title")
           break
 
-  h2_match = re.compile('.*<h2 class="chapter">(?P<title>[^<]+)</h2>.*')
-  h3_match = re.compile('.*<h3 class="section">(?P<title>[^<]+)</h3>.*')
-  h4_match = re.compile('.*<h4 class="subsection">(?P<title>[^<]+)</h4>.*')
-  tag_match1 = re.compile('.*<span id="(?P<tag>[^"]+)"></span>.*')
-  tag_match2 = re.compile('.*<div class="[sub]*section" id="(?P<tag>[^"]+)">.*')
-  index_match = re.compile('.*<h4 class="subsection">[\d\.\s]*(?P<name>[^<]+)</h4>.*')
+  h2_match = re.compile('.*<h2 class="chapter"[^>]*>(?P<title>[^<]+)</h2>.*')
+  h3_match = re.compile('.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
+  h4_match = re.compile('.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
+  tag_match1 = re.compile('.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
+  tag_match2 = re.compile('.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
+  index_match = re.compile('.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
 
   tag = "top"
   has_h2 = False 
@@ -68,7 +71,7 @@ def process(name):
       f.write('  <virtualFolder>doc</virtualFolder>\n')
       f.write('  <filterSection>\n')
       f.write('    <toc>\n')
-      f.write('      <section title="{}" ref="{}.html">\n'.format(title, name))
+      f.write('      <section title="{} Manual" ref="{}.html">\n'.format(title, name))
       # chapters here
       for line in fin:
           line = line.strip()

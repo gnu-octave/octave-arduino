@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.4
+## mkfuncdocs v1.0.5
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -107,7 +107,11 @@ def read_m_file(filename, skip=0):
             inhelp = False
             havehelp = True
           else:
-            help.append (line[2:].rstrip());
+            if line.startswith("## @"):
+              line = line[3:]
+            else:
+              line = line[2:]
+            help.append (line.rstrip());
 
   return help
 
