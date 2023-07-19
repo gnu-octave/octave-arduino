@@ -69,6 +69,8 @@ function retval = boardTypeString (id)
       retval = "esp32_dev";
     case 112
       retval = "uno_wifi_r4";
+    case 113
+      retval = "uno_minima_r4";
     otherwise
       retval = "unknown";
   endswitch
