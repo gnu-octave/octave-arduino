@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/34_arduinosetSharedResourceProperty/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/setSharedResourceProperty"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,33 +69,33 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-setSharedResourceProperty"><span class="category">: </span><span><em></em> <strong>setSharedResourceProperty</strong> <em>(<var>ar</var>, <var>resource</var>, <var>propname</var>, <var>propvalue</var>)</em><a href='#index-setSharedResourceProperty' class='copiable-anchor'></a></span></dt>
-<dt id="index-setSharedResourceProperty-1"><span class="category">: </span><span><em></em> <strong>setSharedResourceProperty</strong> <em>(<var>ar</var>, <var>resource</var>, <var>propname</var>, <var>propvalue</var>, ___)</em><a href='#index-setSharedResourceProperty-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-setSharedResourceProperty"><span class="category-def">: </span><span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-setSharedResourceProperty'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-setSharedResourceProperty-1"><span class="category-def">: </span><span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>, ___)</code><a class="copiable-link" href='#index-setSharedResourceProperty-1'></a></span></dt>
 <dd><p>Set property values for a given resource.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>resource</var> - name of resource to get property for.
+<p><var class="var">resource</var> - name of resource to get property for.
 </p>
-<p><var>propname</var> - name of property from the resource.
+<p><var class="var">propname</var> - name of property from the resource.
 </p>
-<p><var>propvalue</var> - value of property from the resource.
+<p><var class="var">propvalue</var> - value of property from the resource.
 </p>
-<p>Multiple <var>propname</var>, <var>propvalue</var> pairs can be given.
+<p>Multiple <var class="var">propname</var>, <var class="var">propvalue</var> pairs can be given.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
 <p>None
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  ar = arduino();
  setSharedResourceProperty(ar, &quot;myresource&quot;, &quot;myproperty&quot;, [1 2 3])
  </code>
  </pre></div>
 
 
-<p><strong>See also:</strong> getSharedResourceProperty.
+<p><strong class="strong">See also:</strong> getSharedResourceProperty.
  </p></dd></dl>

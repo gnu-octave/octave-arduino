@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/28_rotaryEncoderrotaryEncoder/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/rotaryEncoder"
 category: "Arduino Rotary Encoder Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,43 +69,43 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-rotaryEncoder"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>rotaryEncoder</strong> <em>(<var>ar</var>, <var>chanApin</var>, <var>chanBpin</var>)</em><a href='#index-rotaryEncoder' class='copiable-anchor'></a></span></dt>
-<dt id="index-rotaryEncoder-1"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>rotaryEncoder</strong> <em>(<var>ar</var>, <var>chanApin</var>, <var>chanBpin</var>, <var>ppr</var>)</em><a href='#index-rotaryEncoder-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-rotaryEncoder"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>)</code><a class="copiable-link" href='#index-rotaryEncoder'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-rotaryEncoder-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>, <var class="var">ppr</var>)</code><a class="copiable-link" href='#index-rotaryEncoder-1'></a></span></dt>
 <dd><p>Create a rotaryEncoder object controlled by the input pins.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object.
 </p>
-<p><var>chanApin</var> - pin used for channel A
+<p><var class="var">chanApin</var> - pin used for channel A
 </p>
-<p><var>chanBpin</var> - pin used for channel B
+<p><var class="var">chanBpin</var> - pin used for channel B
 </p>
-<p><var>ppr</var> - count of encoder pulsed required for a full revolution of the encoder.
+<p><var class="var">ppr</var> - count of encoder pulsed required for a full revolution of the encoder.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>obj</var> - created rotary encoder object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">obj</var> - created rotary encoder object
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> a = arduino ();
+<pre class="example-preformatted"> a = arduino ();
  enc = rotaryEncoder(a, &quot;d2&quot;, &quot;d3&quot;, 180);
  </pre></div>
 
-<span id="Properties"></span><h4 class="subsubheading">Properties</h4>
+<h4 class="subsubheading" id="Properties">Properties</h4>
 <p>The rotaryEncoder object has the following public properties:
- </p><dl compact="compact">
-<dt><span>parent</span></dt>
+ </p><dl class="table">
+<dt>parent</dt>
 <dd><p>The parent (arduino) for this device
  </p></dd>
-<dt><span>pins</span></dt>
+<dt>pins</dt>
 <dd><p>pins used by this object
  </p></dd>
-<dt><span>ppr</span></dt>
+<dt>ppr</dt>
 <dd><p>Number of pulses used per rotation
  </p></dd>
 </dl>
 
 
-<p><strong>See also:</strong> arduino.
+<p><strong class="strong">See also:</strong> arduino.
  </p></dd></dl>

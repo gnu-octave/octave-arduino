@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/13_i2cdevwrite/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/write"
 category: "Arduino I2C Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,21 +69,21 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-write"><span class="category">: </span><span><em></em> <strong>write</strong> <em>(<var>dev</var>, <var>datain</var>)</em><a href='#index-write' class='copiable-anchor'></a></span></dt>
-<dt id="index-write-1"><span class="category">: </span><span><em></em> <strong>write</strong> <em>(<var>dev</var>, <var>datain</var>, <var>precision</var>)</em><a href='#index-write-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-write"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-1"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-1'></a></span></dt>
 <dd><p>Write data to a i2cdev object
  using optional precision for the data byte used for the data.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dev</var> - connected i2c device opened using i2cdev
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">dev</var> - connected i2c device opened using i2cdev
 </p>
-<p><var>datain</var> - data to write to device. Datasize should not exceed the constraints 
+<p><var class="var">datain</var> - data to write to device. Datasize should not exceed the constraints 
  of the data type specified for the precision.
 </p>
-<p><var>precision</var> - Optional precision for the input write data.
+<p><var class="var">precision</var> - Optional precision for the input write data.
  Currently known precision values are uint8 (default), int8, uint16, int16
 </p>
 
-<p><strong>See also:</strong> arduino, i2cdev, read.
+<p><strong class="strong">See also:</strong> arduino, i2cdev, read.
  </p></dd></dl>

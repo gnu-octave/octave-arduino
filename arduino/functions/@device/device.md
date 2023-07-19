@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/14_devicedevice/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/device"
 category: "Arduino Device Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,38 +69,38 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-device"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>device</strong> <em>(<var>ar</var>, 'I2CAddress', <var>address</var>)</em><a href='#index-device' class='copiable-anchor'></a></span></dt>
-<dt id="index-device-1"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>device</strong> <em>(<var>ar</var>, 'SPIChipSelectPin', <var>pin</var>)</em><a href='#index-device-1' class='copiable-anchor'></a></span></dt>
-<dt id="index-device-2"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>device</strong> <em>(<var>ar</var>, 'Serial', <var>serialid</var>)</em><a href='#index-device-2' class='copiable-anchor'></a></span></dt>
-<dt id="index-device-3"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>device</strong> <em>(..., <var>propname</var>, <var>propvalue</var>)</em><a href='#index-device-3' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-device"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code><a class="copiable-link" href='#index-device'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code><a class="copiable-link" href='#index-device-1'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code><a class="copiable-link" href='#index-device-2'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-device-3'></a></span></dt>
 <dd><p>Create an i2c, spi or serial object to communicate on a connected arduino.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>propname</var>, <var>propvalue</var> - property name/value pair for values to pass to devices.
+<p><var class="var">propname</var>, <var class="var">propvalue</var> - property name/value pair for values to pass to devices.
 </p>
 <p>A property of &rsquo;i2caddress&rsquo;, &rsquo;spichipselectpin&rsquo; or &rsquo;serial&rsquo;  must be specified to denote the device type to create.
 </p>
-<p><var>i2caddress</var> - address to use for device on I2C bus.
+<p><var class="var">i2caddress</var> - address to use for device on I2C bus.
 </p>
-<p><var>pin</var> - pin to use for device SPI chip select.
+<p><var class="var">pin</var> - pin to use for device SPI chip select.
 </p>
-<p><var>serialid</var> - Serial port id to use
+<p><var class="var">serialid</var> - Serial port id to use
 </p>
 <p>Additional properties can also be specified for the device object
 </p>
 <p>Currently known input I2C properties values:
- </p><dl compact="compact">
-<dt><span>bus</span></dt>
+ </p><dl class="table">
+<dt>bus</dt>
 <dd><p>bus number (when arduino board supports multiple I2C buses)
  with value of 0 or 1.
  </p></dd>
-<dt><span>noprobe</span></dt>
+<dt>noprobe</dt>
 <dd><p>Do not probe the existence of device on creation if set to 1 (default 0)
  </p></dd>
-<dt><span>bitrate</span></dt>
+<dt>bitrate</dt>
 <dd><p>bit rate speed in Mbs - default 100000
  </p></dd>
 </dl>
@@ -108,14 +108,14 @@ navigation:
 
 
 <p>Currently known input SPI properties values:
- </p><dl compact="compact">
-<dt><span>bitrate</span></dt>
+ </p><dl class="table">
+<dt>bitrate</dt>
 <dd><p>bit rate speed in Mbs
  </p></dd>
-<dt><span>bitorder</span></dt>
+<dt>bitorder</dt>
 <dd><p>&rsquo;msbfirst&rsquo; or &rsquo;lsbfirst&rsquo;
  </p></dd>
-<dt><span>spimode</span></dt>
+<dt>spimode</dt>
 <dd><p>SPI mode 0 - 3.
  </p></dd>
 </dl>
@@ -123,104 +123,104 @@ navigation:
 
 
 <p>Currently known input Serial properties values:
- </p><dl compact="compact">
-<dt><span>baudrate</span></dt>
+ </p><dl class="table">
+<dt>baudrate</dt>
 <dd><p>baudrate value (default 9600)
  </p></dd>
-<dt><span>databits</span></dt>
+<dt>databits</dt>
 <dd><p>number of databits (5,6,7,8) (default 8)
  </p></dd>
-<dt><span>stopbits</span></dt>
+<dt>stopbits</dt>
 <dd><p>number of stopbits (1,2) (default 1)
  </p></dd>
-<dt><span>parity</span></dt>
+<dt>parity</dt>
 <dd><p>parity of device (&rsquo;odd&rsquo;,&rsquo;even&rsquo;,&rsquo;none&rsquo;) (default &rsquo;none&rsquo;)
  </p></dd>
 </dl>
 
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>dev</var> - new created device object.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">dev</var> - new created device object.
 </p> 
-<span id="Properties"></span><h4 class="subsubheading">Properties</h4>
+<h4 class="subsubheading" id="Properties">Properties</h4>
 <p>The object has the following public properties:
- </p><dl compact="compact">
-<dt><span>parent</span></dt>
+ </p><dl class="table">
+<dt>parent</dt>
 <dd><p>The parent (arduino) for this device
  </p></dd>
-<dt><span>interface</span></dt>
+<dt>interface</dt>
 <dd><p>The interface type for this device (&quot;SPI&quot; or &quot;I2C&quot; or &quot;Serial&quot;)
  </p></dd>
 </dl>
  
 <p>In addition, depending on type, the object will have these properties:
 </p>
-<span id="I2C-Properties"></span><h4 class="subsubheading">I2C Properties</h4>
+<h4 class="subsubheading" id="I2C-Properties">I2C Properties</h4>
 <p>The object has the following public properties:
- </p><dl compact="compact">
-<dt><span>bus</span></dt>
+ </p><dl class="table">
+<dt>bus</dt>
 <dd><p>bus used for created object
  </p></dd>
-<dt><span>i2caddress</span></dt>
+<dt>i2caddress</dt>
 <dd><p>I2C address set for object
  </p></dd>
-<dt><span>sclpin</span></dt>
+<dt>sclpin</dt>
 <dd><p>the SCL pin of the device
  </p></dd>
-<dt><span>sdapin</span></dt>
+<dt>sdapin</dt>
 <dd><p>the SDA pin of the device
  </p></dd>
-<dt><span>bitrate</span></dt>
+<dt>bitrate</dt>
 <dd><p>bit rate for the i2c clock
  </p></dd>
 </dl>
 
-<span id="SPI-Properties"></span><h4 class="subsubheading">SPI Properties</h4>
+<h4 class="subsubheading" id="SPI-Properties">SPI Properties</h4>
 <p>The object has the following public properties:
- </p><dl compact="compact">
-<dt><span>spimode</span></dt>
+ </p><dl class="table">
+<dt>spimode</dt>
 <dd><p>mode used for created object
  </p></dd>
-<dt><span>bitrate</span></dt>
+<dt>bitrate</dt>
 <dd><p>Bitrate set for object
  </p></dd>
-<dt><span>bitorder</span></dt>
+<dt>bitorder</dt>
 <dd><p>Bitorder set for object
  </p></dd>
-<dt><span>spichipselectpin</span></dt>
+<dt>spichipselectpin</dt>
 <dd><p>Pin used for chipselect
  </p></dd>
-<dt><span>mosipin</span></dt>
+<dt>mosipin</dt>
 <dd><p>Pin used for mosi
  </p></dd>
-<dt><span>misopin</span></dt>
+<dt>misopin</dt>
 <dd><p>Pin used for miso
  </p></dd>
-<dt><span>sckpin</span></dt>
+<dt>sckpin</dt>
 <dd><p>Pin used for sckpin
  </p></dd>
 </dl>
 
-<span id="Serial-Properties"></span><h4 class="subsubheading">Serial Properties</h4>
+<h4 class="subsubheading" id="Serial-Properties">Serial Properties</h4>
 <p>The object has the following public properties:
- </p><dl compact="compact">
-<dt><span>id</span></dt>
+ </p><dl class="table">
+<dt>id</dt>
 <dd><p>serial port id
  </p></dd>
-<dt><span>baudrate</span></dt>
+<dt>baudrate</dt>
 <dd><p>baudrate
  </p></dd>
-<dt><span>databits</span></dt>
+<dt>databits</dt>
 <dd><p>number of databits (5,6,7,8)
  </p></dd>
-<dt><span>stopbits</span></dt>
+<dt>stopbits</dt>
 <dd><p>number of stopbits (1,2)
  </p></dd>
-<dt><span>parity</span></dt>
+<dt>parity</dt>
 <dd><p>parity of device (&rsquo;odd&rsquo;,&rsquo;even&rsquo;,&rsquo;none&rsquo;)
  </p></dd>
 </dl>
 
 
-<p><strong>See also:</strong> arduino, i2cdev, spidev.
+<p><strong class="strong">See also:</strong> arduino, i2cdev, spidev.
  </p></dd></dl>

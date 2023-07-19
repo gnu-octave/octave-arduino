@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/24_arduinoiogetBoardConfig/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoio.getBoardConfig"
 category: "Arduino I/O package"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,16 +69,16 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-arduinoio_002egetBoardConfig"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>arduinoio.getBoardConfig</strong> <em>(<var>boardname</var>)</em><a href='#index-arduinoio_002egetBoardConfig' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-arduinoio_002egetBoardConfig"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.getBoardConfig</strong> <code class="def-code-arguments">(<var class="var">boardname</var>)</code><a class="copiable-link" href='#index-arduinoio_002egetBoardConfig'></a></span></dt>
 <dd><p>Return the configuration for a known arduino board type
 </p>
 <p>Function is used to get the expected pin/board configuration for a named board type
  which is used to verify and identify the functionality of the board.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>boardname</var> - name of board to get configuration of ie: &quot;uno&quot;
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">boardname</var> - name of board to get configuration of ie: &quot;uno&quot;
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>retval</var> configuration struct.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">retval</var> configuration struct.
  </p></dd></dl>

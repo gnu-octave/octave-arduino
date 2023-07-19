@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@spidev/17_spidevwriteRead/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @spidev/writeRead"
 category: "Arduino SPI Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,19 +69,19 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-readWrite"><span class="category">: </span><span><em><var>dataOut</var> =</em> <strong>readWrite</strong> <em>(<var>spi</var>, <var>dataIn</var>)</em><a href='#index-readWrite' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readWrite"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-readWrite'></a></span></dt>
 <dd><p>Write uint8 data to spi device and return 
  back clocked out response data of same size.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>spi</var> - connected spi device on arduino
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">spi</var> - connected spi device on arduino
 </p>
-<p><var>dataIn</var> - uint8 sized data to send to spi device framed between SS frame.
+<p><var class="var">dataIn</var> - uint8 sized data to send to spi device framed between SS frame.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>dataOut</var> - uint8 data clocked out during send to dataIn.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">dataOut</var> - uint8 data clocked out during send to dataIn.
 </p>
 
-<p><strong>See also:</strong> arduino, spidev.
+<p><strong class="strong">See also:</strong> arduino, spidev.
  </p></dd></dl>

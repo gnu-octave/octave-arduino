@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/23_arduinosensorGUVAS12SD/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosensor.GUVAS12SD"
 category: "Arduino Sensors"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,26 +69,26 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-arduinosensor_002eGUVAS12SD"><span class="category">: </span><span><em></em> <strong>arduinosensor.GUVAS12SD</strong><a href='#index-arduinosensor_002eGUVAS12SD' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-arduinosensor_002eGUVAS12SD"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.GUVAS12SD</strong><a class="copiable-link" href='#index-arduinosensor_002eGUVAS12SD'></a></span></dt>
 <dd><p>A thin wrapper for the GUVAS12SD analog UV-B sensor
  </p></dd></dl>
 
-<span id="Methods"></span><h4 class="subheading">Methods</h4>
-<dl class="def">
-<dt id="index-GUVAS12SD_0028arObj_002c"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>GUVAS12SD(<var>arObj</var>,</strong> <em><var>pin</var>)</em><a href='#index-GUVAS12SD_0028arObj_002c' class='copiable-anchor'></a></span></dt>
+<h4 class="subheading" id="Methods">Methods</h4>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-GUVAS12SD_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">GUVAS12SD(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin</var>)</code><a class="copiable-link" href='#index-GUVAS12SD_0028arObj_002c'></a></span></dt>
 <dd><p>Constructor to create GUVAS12SD sensor
- </p><span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>arObj</var> - the arduino parent object
+ </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">arObj</var> - the arduino parent object
 </p>
-<p><var>pin</var> - the analog pin that the sensor is connected to
+<p><var class="var">pin</var> - the analog pin that the sensor is connected to
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>obj</var> - created GUVAS12SD object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">obj</var> - created GUVAS12SD object
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  # create sensor attached to pin a0.
  sensor = arduinosensor.GUVAS12SD(a, &quot;a0&quot;)
@@ -96,20 +96,20 @@ navigation:
  </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-read_0028dsObj_0029"><span class="category">: </span><span><em><var>V</var> =</em> <strong>read(<var>dsObj</var>)</strong><a href='#index-read_0028dsObj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-read_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">V</var> =</code> <strong class="def-name">read(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-read_0028dsObj_0029'></a></span></dt>
 <dd><p>Read the voltage of the sensor
 </p>
-<span id="Inputs-1"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dsObj</var> - the GUVAS12SD object
+<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<p><var class="var">dsObj</var> - the GUVAS12SD object
 </p>
-<span id="Outputs-1"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>V</var> - read voltage - effectively equivalent to 
+<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<p><var class="var">V</var> - read voltage - effectively equivalent to 
  readAnalogPin(arObj, pin).
 </p>
-<span id="Example-1"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example-1">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  s = arduinosensor.GUVAS12SD(a)
  # voltage
@@ -117,27 +117,27 @@ navigation:
  </code>
  </pre></div>
 
-<p><strong>See also:</strong> arduinosensor.GUVAS12SD.
+<p><strong class="strong">See also:</strong> arduinosensor.GUVAS12SD.
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-readIndex_0028dsObj_0029"><span class="category">: </span><span><em><var>Idx</var> =</em> <strong>readIndex(<var>dsObj</var>)</strong><a href='#index-readIndex_0028dsObj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readIndex_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">Idx</var> =</code> <strong class="def-name">readIndex(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-readIndex_0028dsObj_0029'></a></span></dt>
 <dd><p>Read the UV index
 </p>
-<span id="Inputs-2"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dsObj</var> - the GUVAS12SD object
+<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<p><var class="var">dsObj</var> - the GUVAS12SD object
 </p>
-<span id="Outputs-2"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>Idx</var> - the sensor reading as a UV index reading
+<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<p><var class="var">Idx</var> - the sensor reading as a UV index reading
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-readuA_0028dsObj_0029"><span class="category">: </span><span><em><var>uA</var> =</em> <strong>readuA(<var>dsObj</var>)</strong><a href='#index-readuA_0028dsObj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readuA_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">uA</var> =</code> <strong class="def-name">readuA(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-readuA_0028dsObj_0029'></a></span></dt>
 <dd><p>Read the uA of the sensor
 </p>
-<span id="Inputs-3"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dsObj</var> - the GUVAS12SD object
+<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<p><var class="var">dsObj</var> - the GUVAS12SD object
 </p>
-<span id="Outputs-3"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>uA</var> - the sensor reading as a uAmp value
+<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<p><var class="var">uA</var> - the sensor reading as a uAmp value
  </p></dd></dl>

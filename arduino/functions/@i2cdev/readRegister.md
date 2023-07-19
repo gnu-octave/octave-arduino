@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/20_i2cdevreadRegister/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/readRegister"
 category: "Arduino I2C Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,25 +69,25 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-readRegister"><span class="category">: </span><span><em><var>data</var> =</em> <strong>readRegister</strong> <em>(<var>dev</var>, <var>reg</var>, <var>numbytes</var>)</em><a href='#index-readRegister' class='copiable-anchor'></a></span></dt>
-<dt id="index-readRegister-1"><span class="category">: </span><span><em><var>data</var> =</em> <strong>readRegister</strong> <em>(<var>dev</var>, <var>reg</var>, <var>numbytes</var>, <var>precision</var>)</em><a href='#index-readRegister-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readRegister"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-readRegister'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-readRegister-1'></a></span></dt>
 <dd><p>Read a specified number of bytes from a register of an i2cdev object 
  using optional precision for bytesize.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dev</var> - connected i2c device opened using i2cdev
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">dev</var> - connected i2c device opened using i2cdev
 </p>
-<p><var>reg</var> - registry value number
+<p><var class="var">reg</var> - registry value number
 </p>
-<p><var>numbytes</var> - number of bytes to read.
+<p><var class="var">numbytes</var> - number of bytes to read.
 </p>
-<p><var>precision</var> - Optional precision for the output data read data.
+<p><var class="var">precision</var> - Optional precision for the output data read data.
  Currently known precision values are uint8 (default), int8, uint16, int16
 </p>
-<span id="Output"></span><h4 class="subsubheading">Output</h4>
-<p><var>data</var> - data read from device.
+<h4 class="subsubheading" id="Output">Output</h4>
+<p><var class="var">data</var> - data read from device.
 </p>
 
-<p><strong>See also:</strong> arduino, i2cdev.
+<p><strong class="strong">See also:</strong> arduino, i2cdev.
  </p></dd></dl>

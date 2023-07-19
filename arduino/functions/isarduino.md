@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/9_isarduino/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - isarduino"
 category: "General Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,21 +69,21 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-isarduino"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>isarduino</strong> <em>(<var>obj</var>)</em><a href='#index-isarduino' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-isarduino"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">isarduino</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-isarduino'></a></span></dt>
 <dd><p>Check if input value is an arduino object
 </p>
 <p>Function is essentially just a call of
- <code>
+ <code class="code">
  retval = isa(obj, &quot;arduino&quot;);
  </code>
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - The object to check
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">obj</var> - The object to check
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>retval</var> is true, if obj is an arduino object, false otherwise.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">retval</var> is true, if obj is an arduino object, false otherwise.
 </p>
 
-<p><strong>See also:</strong> arduino.
+<p><strong class="strong">See also:</strong> arduino.
  </p></dd></dl>

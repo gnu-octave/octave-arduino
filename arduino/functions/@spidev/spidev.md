@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@spidev/14_spidevspidev/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @spidev/spidev"
 category: "Arduino SPI Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,61 +69,61 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-spidev"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>spidev</strong> <em>(<var>ar</var>, <var>cspin</var>)</em><a href='#index-spidev' class='copiable-anchor'></a></span></dt>
-<dt id="index-spidev-1"><span class="category">: </span><span><em><var>dev</var> =</em> <strong>spidev</strong> <em>(<var>ar</var>, <var>cspin</var>, <var>propname</var>, <var>propvalue</var>)</em><a href='#index-spidev-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-spidev"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>)</code><a class="copiable-link" href='#index-spidev'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-spidev-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-spidev-1'></a></span></dt>
 <dd>
-<p><code>spidev</code> is depreciated and will be removed in a future version.
- Use <code>device</code> instead.
+<p><code class="code">spidev</code> is depreciated and will be removed in a future version.
+ Use <code class="code">device</code> instead.
 </p>
 <p>Create an spidev object to communicate to the SPI port on a connected arduino.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>cspin</var> - chip select pin for attached spi device.
+<p><var class="var">cspin</var> - chip select pin for attached spi device.
 </p>
-<p><var>propname</var>, <var>propvalue</var> - property name/value pair for values to pass to devices.
+<p><var class="var">propname</var>, <var class="var">propvalue</var> - property name/value pair for values to pass to devices.
 </p>
 <p>Currently known properties:
- </p><dl compact="compact">
-<dt><span>bitrate</span></dt>
+ </p><dl class="table">
+<dt>bitrate</dt>
 <dd><p>bit rate speed in Mbs
  </p></dd>
-<dt><span>bitorder</span></dt>
+<dt>bitorder</dt>
 <dd><p>&rsquo;msbfirst&rsquo; or &rsquo;lsbfirst&rsquo;
  </p></dd>
-<dt><span>mode</span></dt>
+<dt>mode</dt>
 <dd><p>SPI mode 0 - 3.
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>dev</var> - created spidev object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">dev</var> - created spidev object
 </p>
-<span id="Properties"></span><h4 class="subsubheading">Properties</h4>
+<h4 class="subsubheading" id="Properties">Properties</h4>
 <p>The spidev object has the following public properties:
- </p><dl compact="compact">
-<dt><span>parent</span></dt>
+ </p><dl class="table">
+<dt>parent</dt>
 <dd><p>The parent (arduino) for this device
  </p></dd>
-<dt><span>pins</span></dt>
+<dt>pins</dt>
 <dd><p>pins used by this object
  </p></dd>
-<dt><span>mode</span></dt>
+<dt>mode</dt>
 <dd><p>mode used for created object
  </p></dd>
-<dt><span>bitrate</span></dt>
+<dt>bitrate</dt>
 <dd><p>Bitrate set for object
  </p></dd>
-<dt><span>bitorder</span></dt>
+<dt>bitorder</dt>
 <dd><p>Bitorder set for object
  </p></dd>
-<dt><span>chipselectpin</span></dt>
+<dt>chipselectpin</dt>
 <dd><p>Pin used for chipselect
  </p></dd>
 </dl>
 
 
-<p><strong>See also:</strong> arduino, readWrite.
+<p><strong class="strong">See also:</strong> arduino, readWrite.
  </p></dd></dl>

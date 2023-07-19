@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinogetI2CTerminals/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getI2CTerminals"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,19 +69,19 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-getI2CTerminals"><span class="category">: </span><span><em><var>pinlist</var> =</em> <strong>getI2CTerminals</strong> <em>(<var>ar</var>)</em><a href='#index-getI2CTerminals' class='copiable-anchor'></a></span></dt>
-<dt id="index-getI2CTerminals-1"><span class="category">: </span><span><em><var>pinlist</var> =</em> <strong>getI2CTerminals</strong> <em>(<var>ar</var>, <var>bus</var>)</em><a href='#index-getI2CTerminals-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-getI2CTerminals"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getI2CTerminals'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-getI2CTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">bus</var>)</code><a class="copiable-link" href='#index-getI2CTerminals-1'></a></span></dt>
 <dd><p>Get a cell list of pin Ids available are used for I2C mode.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - the arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - the arduino object.
 </p>
-<p><var>bus</var> - optional bus number 0 or 1 for boards that support more than 1 bus.
+<p><var class="var">bus</var> - optional bus number 0 or 1 for boards that support more than 1 bus.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>pinlist</var> - cell list of pin numbers available for I2C use.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">pinlist</var> - cell list of pin numbers available for I2C use.
 </p>
 
-<p><strong>See also:</strong> arduino.
+<p><strong class="strong">See also:</strong> arduino.
  </p></dd></dl>

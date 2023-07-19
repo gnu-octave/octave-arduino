@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@servo/19_servoreadPosition/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @servo/readPosition"
 category: "Arduino Servo Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,17 +69,17 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-readPosition"><span class="category">: </span><span><em><var>position</var> =</em> <strong>readPosition</strong> <em>(<var>servo</var>)</em><a href='#index-readPosition' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readPosition"><span class="category-def">: </span><span><code class="def-type"><var class="var">position</var> =</code> <strong class="def-name">readPosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>)</code><a class="copiable-link" href='#index-readPosition'></a></span></dt>
 <dd><p>Read the position of a servo
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>servo</var> - servo object created from arduino.servo.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">servo</var> - servo object created from arduino.servo.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>position</var> - value between 0 .. 1 for the current servo position,
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">position</var> - value between 0 .. 1 for the current servo position,
  where 0 is the servo min position, 1 is the servo maximum position.
 </p>
 
-<p><strong>See also:</strong> servo, writePosition.
+<p><strong class="strong">See also:</strong> servo, writePosition.
  </p></dd></dl>

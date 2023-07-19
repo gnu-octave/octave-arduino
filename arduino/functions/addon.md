@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/5_addon/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - addon"
 category: "Arduino Addons"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,24 +69,24 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-addon"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>addon</strong> <em>(<var>ar</var>, <var>addonname</var>)</em><a href='#index-addon' class='copiable-anchor'></a></span></dt>
-<dt id="index-addon-1"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>addon</strong> <em>(<var>ar</var>, <var>addonname</var>, varargs)</em><a href='#index-addon-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-addon"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>)</code><a class="copiable-link" href='#index-addon'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-addon-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>, varargs)</code><a class="copiable-link" href='#index-addon-1'></a></span></dt>
 <dd><p>Create an addon object using the addon named class.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>addonname</var> - the name of the addon to create. The addon name can be a user 
+<p><var class="var">addonname</var> - the name of the addon to create. The addon name can be a user 
  addon or an inbuilt addon, however must appear in the listArduinoLibraries 
  output and have been programmed onto the arduino.
 </p>
-<p><var>varargs</var> - optional values that will be provided verbatim to the
+<p><var class="var">varargs</var> - optional values that will be provided verbatim to the
  the addon class constructor.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>retval</var> - cell array of string library names. 
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">retval</var> - cell array of string library names. 
 </p>
 
-<p><strong>See also:</strong> arduino, arduinosetup, listArduinoLibraries.
+<p><strong class="strong">See also:</strong> arduino, arduinosetup, listArduinoLibraries.
  </p></dd></dl>

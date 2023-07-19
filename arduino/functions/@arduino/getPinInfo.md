@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/19_arduinogetPinInfo/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getPinInfo"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,43 +69,43 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-getPinInfo"><span class="category">: </span><span><em><var>pininfo</var> =</em> <strong>getPinInfo</strong> <em>(<var>ar</var>, <var>pin</var>)</em><a href='#index-getPinInfo' class='copiable-anchor'></a></span></dt>
-<dt id="index-getPinInfo-1"><span class="category">: </span><span><em><var>pininfoarray</var> =</em> <strong>getPinInfo</strong> <em>(<var>ar</var>, <var>pinarray</var>)</em><a href='#index-getPinInfo-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-getPinInfo"><span class="category-def">: </span><span><code class="def-type"><var class="var">pininfo</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-getPinInfo'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-getPinInfo-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pininfoarray</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pinarray</var>)</code><a class="copiable-link" href='#index-getPinInfo-1'></a></span></dt>
 <dd><p>Get the pin information from the input pins values.
 </p>
-<p>getPinInfo (<var>ar</var>, <var>pin</var>) will get information for a single pin.
+<p>getPinInfo (<var class="var">ar</var>, <var class="var">pin</var>) will get information for a single pin.
 </p>
-<p>getPinInfo (<var>ar</var>, <var>pinarray</var>) will get a cell array of pin information
+<p>getPinInfo (<var class="var">ar</var>, <var class="var">pinarray</var>) will get a cell array of pin information
 </p> 
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - the connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - the connected arduino object.
 </p>
-<p><var>pin</var> - a pin number or pin name.
+<p><var class="var">pin</var> - a pin number or pin name.
 </p>
-<p><var>pinarray</var> - the array of pin numbers or names
+<p><var class="var">pinarray</var> - the array of pin numbers or names
 </p>
 <p>The pininfo struct contains the following fields:
- </p><dl compact="compact">
-<dt><span>terminal</span></dt>
+ </p><dl class="table">
+<dt>terminal</dt>
 <dd><p>Terminal number of the pin
  </p></dd>
-<dt><span>name</span></dt>
+<dt>name</dt>
 <dd><p>String name of the pin
  </p></dd>
-<dt><span>owner</span></dt>
+<dt>owner</dt>
 <dd><p>Current item owner of the pin
  </p></dd>
-<dt><span>mode</span></dt>
+<dt>mode</dt>
 <dd><p>Current configured mode for the pin
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>pininfo</var> - struct on pin information.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">pininfo</var> - struct on pin information.
 </p>
-<p><var>pininfolist</var> - cell array of pin info
+<p><var class="var">pininfolist</var> - cell array of pin info
 </p>
 
-<p><strong>See also:</strong> arduino, configurePinResource, getResourceOwner.
+<p><strong class="strong">See also:</strong> arduino, configurePinResource, getResourceOwner.
  </p></dd></dl>

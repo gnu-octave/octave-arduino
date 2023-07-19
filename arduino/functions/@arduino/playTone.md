@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/17_arduinoplayTone/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/playTone"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,21 +69,21 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-playTone"><span class="category">: </span><span><em></em> <strong>playTone</strong> <em>(<var>ar</var>, <var>pin</var>, <var>freq</var>, <var>duration</var>)</em><a href='#index-playTone' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-playTone"><span class="category-def">: </span><span><strong class="def-name">playTone</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">freq</var>, <var class="var">duration</var>)</code><a class="copiable-link" href='#index-playTone'></a></span></dt>
 <dd><p>Play a tone of a given frequency on a specified pin.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>pin</var> - digital pin to play tone on
+<p><var class="var">pin</var> - digital pin to play tone on
 </p>
-<p><var>freq</var> - frequency in  hertz to play between 0 and 32767Hz.
+<p><var class="var">freq</var> - frequency in  hertz to play between 0 and 32767Hz.
 </p>
-<p><var>duration</var> duration in seconds to play tone between 0 and 30 seconds
+<p><var class="var">duration</var> duration in seconds to play tone between 0 and 30 seconds
 </p>
 <p>If duration is 0 or not specified, tone will continue to play until next tone is commanded.
  If frequency is 0, tone will stop playing
 </p>
-<p><strong>NOTE:</strong> use of playTone can interfere with PWM output.
+<p><strong class="strong">NOTE:</strong> use of playTone can interfere with PWM output.
  </p></dd></dl>

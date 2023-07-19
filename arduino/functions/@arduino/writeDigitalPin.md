@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinowriteDigitalPin/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/writeDigitalPin"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,28 +69,28 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-writeDigitalPin"><span class="category">: </span><span><em></em> <strong>writeDigitalPin</strong> <em>(<var>ar</var>, <var>pin</var>, <var>value</var>)</em><a href='#index-writeDigitalPin' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-writeDigitalPin"><span class="category-def">: </span><span><strong class="def-name">writeDigitalPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-writeDigitalPin'></a></span></dt>
 <dd><p>Write digital value to a digital I/O pin.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object.
 </p>
-<p><var>pin</var> - string name of the pin to write to.
+<p><var class="var">pin</var> - string name of the pin to write to.
 </p>
-<p><var>value</var> - the logical value (0, 1, true false) to write to the pin.
+<p><var class="var">value</var> - the logical value (0, 1, true false) to write to the pin.
 </p>
 <p>If pin was unconfigured before using, pin is set into digital mode.
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino();
  writeDigitalPin(a,'D5',1);
  </code>
  </pre></div>
 
 
-<p><strong>See also:</strong> arduino, readDigitalPin.
+<p><strong class="strong">See also:</strong> arduino, readDigitalPin.
 </p>
 </dd></dl>

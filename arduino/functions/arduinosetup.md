@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/12_arduinosetup/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosetup"
 category: "General Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,27 +69,27 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-arduinosetup"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>arduinosetup</strong> <em>()</em><a href='#index-arduinosetup' class='copiable-anchor'></a></span></dt>
-<dt id="index-arduinosetup-1"><span class="category">: </span><span><em><var>retval</var> =</em> <strong>arduinosetup</strong> <em>(<var>propertyname</var>, <var>propertyvalue</var>)</em><a href='#index-arduinosetup-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-arduinosetup"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduinosetup'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduinosetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-arduinosetup-1'></a></span></dt>
 <dd><p>Open the arduino config / programming tool to program the arduino hardware for usage with
  the Octave arduino functions.
 </p>
 <p>arduinosetup will create a temporary project  using the arduino IDE and allow 
  compiling and programming of the code to an arduino. 
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
  
-<p><var>propertyname</var>, <var>propertyvalue</var> - A sequence of property name/value pairs can be given
+<p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - A sequence of property name/value pairs can be given
  to set defaults while programming.
 </p>
 <p>Currently the following properties can be set:
- </p><dl compact="compact">
-<dt><span>libraries</span></dt>
+ </p><dl class="table">
+<dt>libraries</dt>
 <dd><p>The value should be the name of a library, or string array of libraries to program on the
  arduino board.
  </p></dd>
-<dt><span>arduinobinary</span></dt>
+<dt>arduinobinary</dt>
 <dd><p>The value should be the name/path of the arduino IDE binary for programming. If not specified,
  the function will use getpref preferences of arduino.arduino_binary, and if not found, the
  function will attempt to find the binary itself.
@@ -98,9 +98,9 @@ navigation:
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>retval</var> - return 1 if arduino IDE returned without an error
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">retval</var> - return 1 if arduino IDE returned without an error
 </p>
 
-<p><strong>See also:</strong> arduino, __arduino_binary__.
+<p><strong class="strong">See also:</strong> arduino, __arduino_binary__.
  </p></dd></dl>

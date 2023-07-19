@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/29_arduinogetPinsFromTerminals/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getPinsFromTerminals"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,19 +69,19 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-getPinsFromTerminals"><span class="category">: </span><span><em><var>pinnames</var> =</em> <strong>getPinsFromTerminals</strong> <em>(<var>ar</var>, <var>terminals</var>)</em><a href='#index-getPinsFromTerminals' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-getPinsFromTerminals"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinnames</var> =</code> <strong class="def-name">getPinsFromTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminals</var>)</code><a class="copiable-link" href='#index-getPinsFromTerminals'></a></span></dt>
 <dd><p>Get the pin names from the input terminal values.
 </p> 
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - the connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - the connected arduino object.
 </p>
-<p><var>terminals</var> - the numeric pin number, or array of pin numbers to get pin names.
+<p><var class="var">terminals</var> - the numeric pin number, or array of pin numbers to get pin names.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>pinnames</var> - the string names of each input pin. If terminals was a single value, the return
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">pinnames</var> - the string names of each input pin. If terminals was a single value, the return
  will be a single string, otherwise it will return a cell array of each pin name.
 </p>
 
-<p><strong>See also:</strong> arduino, getTerminalsFromPins.
+<p><strong class="strong">See also:</strong> arduino, getTerminalsFromPins.
  </p></dd></dl>

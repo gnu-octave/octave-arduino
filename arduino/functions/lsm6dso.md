@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/7_lsm6dso/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - lsm6dso"
 category: "Sensors"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,58 +69,58 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-lsm6dso"><span class="category">: </span><span><em></em> <strong>lsm6dso</strong><a href='#index-lsm6dso' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-lsm6dso"><span class="category-def">: </span><span><strong class="def-name">lsm6dso</strong><a class="copiable-link" href='#index-lsm6dso'></a></span></dt>
 <dd><p>LSM6DSO 6 degrees sensor
  </p></dd></dl>
 
-<span id="Methods"></span><h4 class="subheading">Methods</h4>
-<dl class="def">
-<dt id="index-lsm6dso_0028arObj_0029"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>lsm6dso(<var>arObj</var>)</strong><a href='#index-lsm6dso_0028arObj_0029' class='copiable-anchor'></a></span></dt>
-<dt id="index-lsm6dso_0028arObj_002c"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>lsm6dso(<var>arObj</var>,</strong> <em><var>propertyname, propertyvalue</var> ....)</em><a href='#index-lsm6dso_0028arObj_002c' class='copiable-anchor'></a></span></dt>
+<h4 class="subheading" id="Methods">Methods</h4>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-lsm6dso_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-lsm6dso_0028arObj_0029'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-lsm6dso_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-lsm6dso_0028arObj_002c'></a></span></dt>
 <dd><p>Constructor to create LSM6DSO sensor
- </p><span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>arObj</var> - the arduino parent object
+ </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">arObj</var> - the arduino parent object
 </p>
-<p><var>propertyname, propertyvalue</var> - optional property name, value pairs.
+<p><var class="var">propertyname, propertyvalue</var> - optional property name, value pairs.
  Current known properties are:
  Current properties are:
- </p><dl compact="compact">
-<dt><span>I2CAddress</span></dt>
+ </p><dl class="table">
+<dt>I2CAddress</dt>
 <dd><p>I2C address of the sensor (default 0x40)
  </p></dd>
-<dt><span>Bus</span></dt>
+<dt>Bus</dt>
 <dd><p>I2C bus  - 0 or 1 (default 0)
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>obj</var> - created object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">obj</var> - created object
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  sensor = lsm6dso(a)
  </code>
  </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-readTemperature_0028obj_0029"><span class="category">: </span><span><em>[<var>C</var>, <var>timestamp</var>] =</em> <strong>readTemperature(<var>obj</var>)</strong><a href='#index-readTemperature_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029'></a></span></dt>
 <dd><p>Read the temperature
 </p>
-<span id="Inputs-1"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-1"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>C</var> - read temperature in deg C.
+<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<p><var class="var">C</var> - read temperature in deg C.
 </p>
-<p><var>timestamp</var> - timestamp when read
+<p><var class="var">timestamp</var> - timestamp when read
 </p>
-<span id="Example-1"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example-1">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  s = lsm6dso(a)
  # get temp
@@ -128,95 +128,95 @@ navigation:
  </code>
  </pre></div>
 
-<p><strong>See also:</strong> lsm6dso.
+<p><strong class="strong">See also:</strong> lsm6dso.
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-readAcceleration_0028obj_0029"><span class="category">: </span><span><em>[<var>readVal</var>, <var>timestamp</var>] =</em> <strong>readAcceleration(<var>obj</var>)</strong><a href='#index-readAcceleration_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readAcceleration_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAcceleration_0028obj_0029'></a></span></dt>
 <dd><p>Read the acceleration rate
 </p>
-<span id="Inputs-2"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-2"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>readVal</var> - the 3 acceleration values
+<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<p><var class="var">readVal</var> - the 3 acceleration values
 </p>
-<p><var>timestamp</var> - timestamp when read
+<p><var class="var">timestamp</var> - timestamp when read
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-readAngularVelocity_0028obj_0029"><span class="category">: </span><span><em>[<var>readVal</var>, <var>timestamp</var>] =</em> <strong>readAngularVelocity(<var>obj</var>)</strong><a href='#index-readAngularVelocity_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAngularVelocity_0028obj_0029'></a></span></dt>
 <dd><p>Read the angular velocity
 </p>
-<span id="Inputs-3"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-3"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>readVal</var> - the 3 angular velocity values
+<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<p><var class="var">readVal</var> - the 3 angular velocity values
 </p>
-<p><var>timestamp</var> - timestamp when read
+<p><var class="var">timestamp</var> - timestamp when read
  </p></dd></dl>
  
-<dl class="def">
-<dt id="index-read_0028obj_0029"><span class="category">: </span><span><em>[<var>readings</var>, <var>overrun</var>] =</em> <strong>read(<var>obj</var>)</strong><a href='#index-read_0028obj_0029' class='copiable-anchor'></a></span></dt>
-<dt id="index-read_0028obj_0029-1"><span class="category">: </span><span><em>[<var>accel</var>, <var>gyro</var>, <var>mag</var>, <var>timestamp</var>, <var>overrun</var>] =</em> <strong>read(<var>obj</var>)</strong><a href='#index-read_0028obj_0029-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-read_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-1'></a></span></dt>
 <dd><p>Read the sensor data
 </p>
-<span id="Inputs-4"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-4">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-4"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>accel</var> - acceleration reading from sensor.
+<h4 class="subsubheading" id="Outputs-4">Outputs</h4>
+<p><var class="var">accel</var> - acceleration reading from sensor.
 </p>
-<p><var>gyro</var> - angular acceleration reading from sensor.
+<p><var class="var">gyro</var> - angular acceleration reading from sensor.
 </p>
-<p><var>timestamp</var> - timestamp when read
+<p><var class="var">timestamp</var> - timestamp when read
 </p>
-<p><var>overrun</var> - overrun flag.
+<p><var class="var">overrun</var> - overrun flag.
 </p>
-<p><var>readings</var> - table structure with fields for Timestamp, Acceleration, AngularVelocity.
+<p><var class="var">readings</var> - table structure with fields for Timestamp, Acceleration, AngularVelocity.
  </p></dd></dl>
  
-<dl class="def">
-<dt id="index-info_0028obj_0029"><span class="category">: </span><span><em><var>inf</var> =</em> <strong>info(<var>obj</var>)</strong><a href='#index-info_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-info_0028obj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029'></a></span></dt>
 <dd><p>Read the sensor info
 </p>
-<span id="Inputs-5"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-5">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-5"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>inf</var> - structure containing the sensor information.
+<h4 class="subsubheading" id="Outputs-5">Outputs</h4>
+<p><var class="var">inf</var> - structure containing the sensor information.
 </p>
 <p>Structure fields are:
- </p><dl compact="compact">
-<dt><span>SensorId</span></dt>
+ </p><dl class="table">
+<dt>SensorId</dt>
 <dd><p>sensor id value
  </p></dd>
-<dt><span>Type</span></dt>
+<dt>Type</dt>
 <dd><p>sensor type &rsquo;lsm6dso&rsquo;
  </p></dd>
 </dl>
 
 </dd></dl>
 
-<dl class="def">
-<dt id="index-flush_0028obj_0029"><span class="category">: </span><span><em></em> <strong>flush(<var>obj</var>)</strong><a href='#index-flush_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-flush_0028obj_0029"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029'></a></span></dt>
 <dd><p>Flush sensor data
 </p>
-<span id="Inputs-6"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-6">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-6"></span><h4 class="subsubheading">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-6">Outputs</h4>
 <p>None
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-release_0028obj_0029"><span class="category">: </span><span><em></em> <strong>release(<var>obj</var>)</strong><a href='#index-release_0028obj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-release_0028obj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029'></a></span></dt>
 <dd><p>Release the resources of the sensor
 </p>
-<span id="Inputs-7"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>obj</var> - the sensor object
+<h4 class="subsubheading" id="Inputs-7">Inputs</h4>
+<p><var class="var">obj</var> - the sensor object
 </p>
-<span id="Outputs-7"></span><h4 class="subsubheading">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-7">Outputs</h4>
 <p>None
  </p></dd></dl>

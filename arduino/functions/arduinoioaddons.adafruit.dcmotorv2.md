@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/34_arduinoioaddonsadafruitdcmotorv2/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.adafruit.dcmotorv2"
 category: "Arduino Addons"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,49 +69,49 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category">: </span><span><em></em> <strong>arduinoioaddons.adafruit.dcmotorv2</strong><a href='#index-arduinoioaddons_002eadafruit_002edcmotorv2' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.dcmotorv2</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002edcmotorv2'></a></span></dt>
 <dd><p>DC Motor class for dc motor control on the adafruit motor shield
 </p>
 
-<p><strong>See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
+<p><strong class="strong">See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
  </p></dd></dl>
 
-<span id="Properties"></span><h4 class="subsubheading">Properties</h4>
-<p><var>Speed</var> - The speed value set for the motor
+<h4 class="subsubheading" id="Properties">Properties</h4>
+<p><var class="var">Speed</var> - The speed value set for the motor
 </p>
-<p><var>Parent</var> - The parent shield for object (read only)
+<p><var class="var">Parent</var> - The parent shield for object (read only)
 </p>
-<p><var>MotorNumber</var> - The motor number (read only) values 1-4
+<p><var class="var">MotorNumber</var> - The motor number (read only) values 1-4
 </p>
-<p><var>IsRunning</var> - boolean for if the motor is started (read only)
+<p><var class="var">IsRunning</var> - boolean for if the motor is started (read only)
 </p>
-<span id="Methods"></span><h4 class="subheading">Methods</h4>
-<dl class="def">
-<dt id="index-dcmotorv2_0028mObj_002c"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>dcmotorv2(<var>mObj</var>,</strong> <em><var>mnum</var>)</em><a href='#index-dcmotorv2_0028mObj_002c' class='copiable-anchor'></a></span></dt>
-<dt id="index-dcmotorv2_0028mObj_002c-1"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>dcmotorv2(<var>mObj</var>,</strong> <em><var>mnum</var>, <var>propertyname, propertyvalue</var> ....)</em><a href='#index-dcmotorv2_0028mObj_002c-1' class='copiable-anchor'></a></span></dt>
+<h4 class="subheading" id="Methods">Methods</h4>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-dcmotorv2_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotorv2_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c-1'></a></span></dt>
 <dd><p>Constructor to create dcmotor object
- </p><span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>mObj</var> - the motor shield object
+ </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">mObj</var> - the motor shield object
 </p>
-<p><var>mnum</var> - The motor number (1 - 4)
+<p><var class="var">mnum</var> - The motor number (1 - 4)
 </p>
-<p><var>propertyname, propertyvalue</var> - Optional property name/value 
+<p><var class="var">propertyname, propertyvalue</var> - Optional property name/value 
  pairs to pass to motor object.
 </p>
 <p>Current known properties are:
- </p><dl compact="compact">
-<dt><span>Speed</span></dt>
+ </p><dl class="table">
+<dt>Speed</dt>
 <dd><p>Initial speed (default 0). Should be a value between -1 and 1.
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>s</var> - a dcmotorv2 object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">s</var> - a dcmotorv2 object
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  ms = addon(a, &quot;adafruit/motorshieldv2&quot;)
  mtr = dcmotor(ms, 1)
@@ -119,30 +119,30 @@ navigation:
  </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-start_0028dcObj_0029"><span class="category">: </span><span><em></em> <strong>start(<var>dcObj</var>)</strong><a href='#index-start_0028dcObj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-start_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-start_0028dcObj_0029'></a></span></dt>
 <dd><p>Start the motor moving in previously set speed/direction
 </p>
-<span id="Inputs-1"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dcObj</var> - the dcmotor object
+<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<p><var class="var">dcObj</var> - the dcmotor object
 </p>
-<span id="Outputs-1"></span><h4 class="subsubheading">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
 <p>None
 </p>
 
-<p><strong>See also:</strong> adafruit.motorshieldv2.
+<p><strong class="strong">See also:</strong> adafruit.motorshieldv2.
  </p></dd></dl>
 
-<dl class="def">
-<dt id="index-stop_0028dcObj_0029"><span class="category">: </span><span><em></em> <strong>stop(<var>dcObj</var>)</strong><a href='#index-stop_0028dcObj_0029' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-stop_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-stop_0028dcObj_0029'></a></span></dt>
 <dd><p>Stop the motor moving
 </p>
-<span id="Inputs-2"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dcObj</var> - the dcmotor object
+<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<p><var class="var">dcObj</var> - the dcmotor object
 </p>
-<span id="Outputs-2"></span><h4 class="subsubheading">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
 <p>None
 </p>
 
-<p><strong>See also:</strong> adafruit.motorshieldv2.
+<p><strong class="strong">See also:</strong> adafruit.motorshieldv2.
  </p></dd></dl>

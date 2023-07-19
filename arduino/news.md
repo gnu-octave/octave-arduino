@@ -3,7 +3,7 @@ layout: "default"
 permalink: "/news/"
 title: "Arduino Toolkit - News"
 pkg_name: "arduino"
-version: "0.10.0"
+version: "0.11.0"
 description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 navigation:
 - id: "overview"
@@ -19,6 +19,15 @@ navigation:
   url: "/manual"
 ---
 <pre>
+Summary of important user-visible changes for arduino 0.11.0:
+-------------------------------------------------------------------
+
+  ** New board configurations:
+    - Arduino Uno WIFI r4
+    - Arduino Uno Minima r4
+
+  ** Minor doc updates
+
 Summary of important user-visible changes for arduino 0.10.0:
 -------------------------------------------------------------------
 

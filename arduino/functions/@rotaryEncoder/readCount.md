@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/24_rotaryEncoderreadCount/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/readCount"
 category: "Arduino Rotary Encoder Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,28 +69,28 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-readCount"><span class="category">: </span><span><em>[<var>count</var>, <var>time</var>] =</em> <strong>readCount</strong> <em>(<var>obj</var>)</em><a href='#index-readCount' class='copiable-anchor'></a></span></dt>
-<dt id="index-readCount-1"><span class="category">: </span><span><em>[<var>count</var>, <var>time</var>] =</em> <strong>readCount</strong> <em>(<var>obj</var>, <var>name</var>, <var>value</var>)</em><a href='#index-readCount-1' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readCount"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-readCount'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readCount-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">name</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-readCount-1'></a></span></dt>
 <dd><p>read count value from the rotary encoder.
 </p>
 <p>subsubheading Inputs
- <var>obj</var> - rotary encoder object created with rotaryEncoder call.
+ <var class="var">obj</var> - rotary encoder object created with rotaryEncoder call.
 </p>
-<p><var>name</var>, <var>value</var> - optional name,value pairs
+<p><var class="var">name</var>, <var class="var">value</var> - optional name,value pairs
 </p>
 <p>Valid option name pairs currently are:
- </p><dl compact="compact">
-<dt><span>reset</span></dt>
+ </p><dl class="table">
+<dt>reset</dt>
 <dd><p>Reset the count after reading (if true)
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>count</var> - returned count read from the encoder.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">count</var> - returned count read from the encoder.
 </p>
-<p><var>time</var> - seconds since arduino started
+<p><var class="var">time</var> - seconds since arduino started
 </p>
 
-<p><strong>See also:</strong> rotaryEncoder, resetCount.
+<p><strong class="strong">See also:</strong> rotaryEncoder, resetCount.
  </p></dd></dl>

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/26_arduinowritePWMDutyCycle/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/writePWMDutyCycle"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,26 +69,26 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-writePWMDutyCyle"><span class="category">: </span><span><em></em> <strong>writePWMDutyCyle</strong> <em>(<var>ar</var>, <var>pin</var>, <var>value</var>)</em><a href='#index-writePWMDutyCyle' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-writePWMDutyCyle"><span class="category-def">: </span><span><strong class="def-name">writePWMDutyCyle</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-writePWMDutyCyle'></a></span></dt>
 <dd><p>Set pin to output a square wave with a specified duty cycle.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>pin</var> - pin to write to.
+<p><var class="var">pin</var> - pin to write to.
 </p>
-<p><var>value</var> - duty cycle value where 0 = off, 0.5 = 50% on, 1 = always on.
+<p><var class="var">value</var> - duty cycle value where 0 = off, 0.5 = 50% on, 1 = always on.
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino();
  writePWMDutyCycle(a,'D5',0.5);
  </code>
  </pre></div>
 
 
-<p><strong>See also:</strong> arduino, writePWMVoltage.
+<p><strong class="strong">See also:</strong> arduino, writePWMVoltage.
 </p>
 </dd></dl>

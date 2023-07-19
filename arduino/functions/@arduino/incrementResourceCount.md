@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/31_arduinoincrementResourceCount/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/incrementResourceCount"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,19 +69,19 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-incrementResourceCount"><span class="category">: </span><span><em><var>count</var> =</em> <strong>incrementResourceCount</strong> <em>(<var>ar</var>, <var>resource</var>)</em><a href='#index-incrementResourceCount' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-incrementResourceCount"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">incrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href='#index-incrementResourceCount'></a></span></dt>
 <dd><p>Increment the count value of a named resource by 1 and return the
  new count
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>resource</var> - name of resource to increment count.
+<p><var class="var">resource</var> - name of resource to increment count.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>count</var> = count of uses registered to resource.
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">count</var> = count of uses registered to resource.
 </p>
 
-<p><strong>See also:</strong> getResourceCount. decrementResourceCount.
+<p><strong class="strong">See also:</strong> getResourceCount. decrementResourceCount.
  </p></dd></dl>

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/15_arduinouptime/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/uptime"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,19 +69,19 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-uptime"><span class="category">: </span><span><em><var>sec</var> =</em> <strong>uptime</strong> <em>(<var>ar</var>)</em><a href='#index-uptime' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-uptime"><span class="category-def">: </span><span><code class="def-type"><var class="var">sec</var> =</code> <strong class="def-name">uptime</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-uptime'></a></span></dt>
 <dd><p>Get the number of seconds the arduino board has been running concurrently.
 </p>
 
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - the arduino object of the connection to an arduino board.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - the arduino object of the connection to an arduino board.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>sec</var> - the number seconds the board has been running. Note that the count will wrap around after
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">sec</var> - the number seconds the board has been running. Note that the count will wrap around after
  approximately 50 days.
 </p>
 
-<p><strong>See also:</strong> arduino.
+<p><strong class="strong">See also:</strong> arduino.
 </p>
 </dd></dl>

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/20_arduinovalidatePin/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/validatePin"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,30 +69,30 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-validatePin"><span class="category">: </span><span><em></em> <strong>validatePin</strong> <em>(<var>ar</var>, <var>pin</var>, <var>type</var>)</em><a href='#index-validatePin' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-validatePin"><span class="category-def">: </span><span><strong class="def-name">validatePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-validatePin'></a></span></dt>
 <dd><p>Validate that the mode is allowed for specified pin
 </p>
 <p>If the mode is not valid, and error will be thrown.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object
 </p>
-<p><var>pin</var> -  name of pin to query mode validity of
+<p><var class="var">pin</var> -  name of pin to query mode validity of
 </p>
-<p><var>mode</var> - mode to query
+<p><var class="var">mode</var> - mode to query
 </p> 
 <p>Known modes are:
- </p><ul>
-<li> &rsquo;I2C&rsquo;
- </li><li> &rsquo;SPI&rsquo;
- </li><li> &rsquo;PWM&rsquo;
- </li><li> &rsquo;Servo&rsquo;
- </li><li> &rsquo;analog&rsquo;
- </li><li> &rsquo;digital&rsquo;
+ </p><ul class="itemize mark-bullet">
+<li>&rsquo;I2C&rsquo;
+ </li><li>&rsquo;SPI&rsquo;
+ </li><li>&rsquo;PWM&rsquo;
+ </li><li>&rsquo;Servo&rsquo;
+ </li><li>&rsquo;analog&rsquo;
+ </li><li>&rsquo;digital&rsquo;
 
 </li></ul>
 
 
-<p><strong>See also:</strong> arduino, configurePin.
+<p><strong class="strong">See also:</strong> arduino, configurePin.
  </p></dd></dl>

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/20_arduinosendCommand/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/sendCommand"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,32 +69,32 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-sendCommand"><span class="category">: </span><span><em><var>outdata, outsize</var> =</em> <strong>sendCommand</strong> <em>(<var>ar</var>, <var>libname</var>, <var>commandid</var>)</em><a href='#index-sendCommand' class='copiable-anchor'></a></span></dt>
-<dt id="index-sendCommand-1"><span class="category">: </span><span><em><var>outdata, outsize</var> =</em> <strong>sendCommand</strong> <em>(<var>ar</var>, <var>libname</var>, <var>commandid</var>, <var>data</var>)</em><a href='#index-sendCommand-1' class='copiable-anchor'></a></span></dt>
-<dt id="index-sendCommand-2"><span class="category">: </span><span><em><var>outdata, outsize</var> =</em> <strong>sendCommand</strong> <em>(<var>ar</var>, <var>libname</var>, <var>commandid</var>, <var>data</var>, <var>timeout</var>)</em><a href='#index-sendCommand-2' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-sendCommand"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>)</code><a class="copiable-link" href='#index-sendCommand'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>)</code><a class="copiable-link" href='#index-sendCommand-1'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>, <var class="var">timeout</var>)</code><a class="copiable-link" href='#index-sendCommand-2'></a></span></dt>
 <dd><p>Send a command with option data to the connected arduino, waiting up to a specified number of seconds
  for a response.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object.
 </p>
-<p><var>libname</var> - library sending the command. The name should match a programmed 
+<p><var class="var">libname</var> - library sending the command. The name should match a programmed 
  library of the arduino, or an error will be displayed.
 </p>
-<p><var>commandid</var> - integer value for the command being sent to the arduino.
+<p><var class="var">commandid</var> - integer value for the command being sent to the arduino.
 </p>
-<p><var>data</var> - optional data sent with the command.
+<p><var class="var">data</var> - optional data sent with the command.
 </p>
-<p><var>timeout</var> - optional timeout to wait for data
+<p><var class="var">timeout</var> - optional timeout to wait for data
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>outdata</var> - data returned back from the arduino in response to command
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">outdata</var> - data returned back from the arduino in response to command
 </p>
-<p><var>outsize</var> - size of data received
+<p><var class="var">outsize</var> - size of data received
 </p>
 <p>If the arduino fails to respond with a valid reply, sendCommand will error.
 </p>
 
-<p><strong>See also:</strong> arduino.
+<p><strong class="strong">See also:</strong> arduino.
  </p></dd></dl>

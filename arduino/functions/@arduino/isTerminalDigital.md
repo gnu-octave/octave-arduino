@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/26_arduinoisTerminalDigital/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/isTerminalDigital"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,15 +69,15 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-isTerminalDigital_0028obj_002c"><span class="category">: </span><span><em><var>ret</var> =</em> <strong>isTerminalDigital(<var>obj</var>,</strong> <em><var>terminal</var>)</em><a href='#index-isTerminalDigital_0028obj_002c' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-isTerminalDigital_0028obj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalDigital(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">terminal</var>)</code><a class="copiable-link" href='#index-isTerminalDigital_0028obj_002c'></a></span></dt>
 <dd><p>Return true if pin is capable of digital functions
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - the connected arduino object
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - the connected arduino object
 </p>
-<p><var>terminal</var> is a terminal number to check
+<p><var class="var">terminal</var> is a terminal number to check
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>ret</var> return 1 if terminal is a digital pin, 0 otherwise
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">ret</var> return 1 if terminal is a digital pin, 0 otherwise
  </p></dd></dl>

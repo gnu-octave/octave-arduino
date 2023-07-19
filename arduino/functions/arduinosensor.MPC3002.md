@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/21_arduinosensorMPC3002/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosensor.MPC3002"
 category: "Arduino Sensors"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,62 +69,62 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-arduinosensor_002eMPC3002"><span class="category">: </span><span><em></em> <strong>arduinosensor.MPC3002</strong><a href='#index-arduinosensor_002eMPC3002' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-arduinosensor_002eMPC3002"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.MPC3002</strong><a class="copiable-link" href='#index-arduinosensor_002eMPC3002'></a></span></dt>
 <dd><p>MCP3002 ADC sensor
  </p></dd></dl>
 
-<span id="Methods"></span><h4 class="subheading">Methods</h4>
-<dl class="def">
-<dt id="index-MPC3002_0028arObj_002c"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>MPC3002(<var>arObj</var>,</strong> <em><var>selectPin</var>)</em><a href='#index-MPC3002_0028arObj_002c' class='copiable-anchor'></a></span></dt>
-<dt id="index-MPC3002_0028arObj_002c-1"><span class="category">: </span><span><em><var>obj</var> =</em> <strong>MPC3002(<var>arObj</var>,</strong> <em><var>selectPin</var>, <var>propertyname, propertyvalue</var> ....)</em><a href='#index-MPC3002_0028arObj_002c-1' class='copiable-anchor'></a></span></dt>
+<h4 class="subheading" id="Methods">Methods</h4>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-MPC3002_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-MPC3002_0028arObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c-1'></a></span></dt>
 <dd><p>Constructor to create MPC3002 sensor
- </p><span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>arObj</var> - the arduino parent object
+ </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">arObj</var> - the arduino parent object
 </p>
-<p><var>selectPin</var> - the SPI cs select pin
+<p><var class="var">selectPin</var> - the SPI cs select pin
 </p>
-<p><var>propertyname, propertyvalue</var> - optional property name, value pairs.
+<p><var class="var">propertyname, propertyvalue</var> - optional property name, value pairs.
 </p>
 <p>Current properties are:
- </p><dl compact="compact">
-<dt><span>referenceVoltage</span></dt>
+ </p><dl class="table">
+<dt>referenceVoltage</dt>
 <dd><p>Reference voltage for scaling the ADC inputs (default 5.0)
  </p></dd>
 </dl>
 
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>obj</var> - created MCP3002 object
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">obj</var> - created MCP3002 object
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  sensor = arduinosensor.MPC3002(a, &quot;d10&quot;)
  </code>
  </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-readVoltage_0028dsObj_002c"><span class="category">: </span><span><em><var>voltage</var> =</em> <strong>readVoltage(<var>dsObj</var>,</strong> <em><var>chan</var>)</em><a href='#index-readVoltage_0028dsObj_002c' class='copiable-anchor'></a></span></dt>
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readVoltage_0028dsObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">chan</var>)</code><a class="copiable-link" href='#index-readVoltage_0028dsObj_002c'></a></span></dt>
 <dd><p>Read the voltage from a channel
 </p>
-<span id="Inputs-1"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>dsObj</var> - the MPC3002 object
+<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<p><var class="var">dsObj</var> - the MPC3002 object
 </p>
-<p><var>chan</var> - the channel to read (0 or 1)
+<p><var class="var">chan</var> - the channel to read (0 or 1)
 </p>
-<span id="Outputs-1"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>voltage</var> - read voltage.
+<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<p><var class="var">voltage</var> - read voltage.
 </p>
-<span id="Example-1"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example-1">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  a = arduino()
  s = arduinosensor.MPC3002(a, &quot;d10&quot;)
  volts = readVoltage(s, 0)
  </code>
  </pre></div>
 
-<p><strong>See also:</strong> arduinosensor.MPC3002.
+<p><strong class="strong">See also:</strong> arduinosensor.MPC3002.
  </p></dd></dl>

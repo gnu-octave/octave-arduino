@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/22_arduinoreadAnalogPin/"
 pkg_name: "arduino"
-pkg_version: "0.10.0"
+pkg_version: "0.11.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/readAnalogPin"
 category: "Arduino Functions"
@@ -53,9 +53,9 @@ navigation:
 - id: "19_ArduinoIOpackage"
   name: "&nbsp;&nbsp;Arduino I/O package"
   url: "/functions/#19_ArduinoIOpackage"
-- id: "28_MatlabCompatabilityClasses"
-  name: "&nbsp;&nbsp;Matlab Compatability Classes"
-  url: "/functions/#28_MatlabCompatabilityClasses"
+- id: "28_MatlabCompatibilityClasses"
+  name: "&nbsp;&nbsp;Matlab Compatibility Classes"
+  url: "/functions/#28_MatlabCompatibilityClasses"
 - id: "7_Sensors"
   name: "&nbsp;&nbsp;Sensors"
   url: "/functions/#7_Sensors"
@@ -69,21 +69,21 @@ navigation:
   name: "Manual"
   url: "/manual"
 ---
-<dl class="def">
-<dt id="index-readAnalogPin"><span class="category">: </span><span><em><var>value</var> =</em> <strong>readAnalogPin</strong> <em>(<var>ar</var>, <var>pin</var>)</em><a href='#index-readAnalogPin' class='copiable-anchor'></a></span></dt>
-<dd><p>Read analog voltage of  <var>pin</var>.
+<dl class="first-deftypefn">
+<dt class="deftypefn" id="index-readAnalogPin"><span class="category-def">: </span><span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readAnalogPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-readAnalogPin'></a></span></dt>
+<dd><p>Read analog voltage of  <var class="var">pin</var>.
 </p>
-<span id="Inputs"></span><h4 class="subsubheading">Inputs</h4>
-<p><var>ar</var> - connected arduino object.
+<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<p><var class="var">ar</var> - connected arduino object.
 </p>
-<p><var>pin</var> - string name of the pin to read.
+<p><var class="var">pin</var> - string name of the pin to read.
 </p>
-<span id="Outputs"></span><h4 class="subsubheading">Outputs</h4>
-<p><var>value</var> - analog value of the pin 
+<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<p><var class="var">value</var> - analog value of the pin 
 </p>
-<span id="Example"></span><h4 class="subsubheading">Example</h4>
+<h4 class="subsubheading" id="Example">Example</h4>
 <div class="example">
-<pre class="example"> <code>
+<pre class="example-preformatted"> <code class="code">
  ar = arduino ();
  readAnalogPin(ar, &quot;A4&quot;);
  ans = 
@@ -91,5 +91,5 @@ navigation:
  </code>
  </pre></div>
 
-<p><strong>See also:</strong> arduino, readVoltage.
+<p><strong class="strong">See also:</strong> arduino, readVoltage.
  </p></dd></dl>
