@@ -31,7 +31,7 @@
 #define STATE_EOM  5
 
 #if defined(OCTAVE_USE_WIFI_COMMS)
-# ifdef ARDUINO_ARCH_ESP32
+# if defined(ARDUINO_ARCH_ESP32) || defined(ARDUINO_ARCH_RENESAS)
   #include <WiFi.h>
 # else
   #include <WiFiNINA.h>
