@@ -219,6 +219,10 @@ Arduino UNO WiFi rev2
 @boxnote{The Arduino servo library code may require modifications to
  eliminate conflicts between servos and the tone library}
 @item
+Arduino UNO WiFi r4
+@item
+Arduino UNO Minima r4
+@item
 Raspberry Pi Pico
 @item
 EPS32 Dev

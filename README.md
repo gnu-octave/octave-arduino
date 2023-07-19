@@ -96,7 +96,11 @@ Currently the toolkit recognizes these boards:
 
 * sparkfunsamd21
 
+* uno minima r4
+
 * uno wifi rev2
+
+* uno wifi r4
 
 * uno
 
