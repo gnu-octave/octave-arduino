@@ -141,7 +141,7 @@ Arduino I/O package
   arduinoio.LibFiles
   arduinoio.LibraryBase
   arduinoio.getBoardConfig
-Matlab Compatability Classes
+Matlab Compatibility Classes
   matlabshared.addon.LibraryBase
 Sensors
   bme280
