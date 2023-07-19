@@ -100,6 +100,8 @@
 #elif defined(ARDUINO_ESP32_DEV)
   #define BOARD_ID 111
   #define BOARD_VOLTAGE 33
+#elif defined(ARDUINO_UNOR4_WIFI)
+  #define BOARD_ID  112
 #else
   #error "Unknown board type"
 #endif
@@ -164,7 +166,7 @@ reset ()
   wdt_enable (WDTO_1S);
   while(1) {}
 }
-#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM) || defined (ARDUINO_ARCH_RP2040)
+#elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM) || defined (ARDUINO_ARCH_RP2040) || defined(ARDUINO_ARCH_RENESAS)
 void
 reset ()
 {

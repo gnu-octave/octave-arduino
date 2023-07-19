@@ -67,6 +67,8 @@ function retval = boardTypeString (id)
       retval = "nano_rp2040_connect";
     case 111
       retval = "esp32_dev";
+    case 112
+      retval = "uno_wifi_r4";
     otherwise
       retval = "unknown";
   endswitch

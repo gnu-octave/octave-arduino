@@ -40,7 +40,11 @@ static uint8_t i2c_address = 0;
 #  if defined(ARDUINO_ARDUINO_NANO33BLE)
 #    define WIRE_INTERFACES_COUNT 2
 #  else
-#    define WIRE_INTERFACES_COUNT 1
+#    if defined(WIRE_HOWMANY)
+#      define WIRE_INTERFACES_COUNT WIRE_HOWMANY
+#    else
+#      define WIRE_INTERFACES_COUNT 1
+#    endif
 #  endif
 #endif
 
