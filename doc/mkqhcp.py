@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 ## mkqhcp.py
-## Version 1.0.1
+## Version 1.0.2
 
 ## Copyright 2022-2023 John Donoghue
 ##
@@ -55,7 +55,9 @@ def process(name):
   h3_match = re.compile('.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
   h4_match = re.compile('.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
   tag_match1 = re.compile('.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
-  tag_match2 = re.compile('.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
+  #tag_match2 = re.compile('.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match2 = re.compile('.*<div class="[sub]*section[^"]*" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match3 = re.compile('.*<div class="chapter-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
   index_match = re.compile('.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
 
   tag = "top"
@@ -78,6 +80,8 @@ def process(name):
           e = tag_match1.match(line)
           if not e:
               e = tag_match2.match(line)
+          if not e:
+              e = tag_match3.match(line)
           if e:
               tag = e.group("tag")
 
