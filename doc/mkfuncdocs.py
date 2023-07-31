@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-## Copyright 2018-2022 John Donoghue
+## Copyright 2018-2023 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.5
+## mkfuncdocs v1.0.6
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -139,7 +139,8 @@ def read_cc_file(filename, skip=0):
 
           if len(line) > 0 and line[-1] == '\n':
             line = line[:-1]
-          if line.endswith('")'):
+          # endif a texinfo line
+          elif line.endswith('")'):
             line = line[:-2]
  
           if  line.startswith('{'):
