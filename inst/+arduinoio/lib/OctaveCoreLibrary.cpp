@@ -19,7 +19,7 @@
 #include "settings.h"
 #include "OctaveCoreLibrary.h"
 
-#ifdef ARDUINO_ARCH_ESP32
+#if defined(ARDUINO_ARCH_ESP32) && ! defined(ARDUINO_NANO_ESP32)
   // contains analogWrite
   #include <ESP32Servo.h>
 #endif
@@ -97,6 +97,9 @@
   #ifndef ARDUINO_ARCH_MBED
     #error "Expected mbed architechture"
   #endif
+#elif defined(ARDUINO_NANO_ESP32)
+  #define BOARD_ID 102
+  #define BOARD_VOLTAGE 33
 #elif defined(ARDUINO_ESP32_DEV)
   #define BOARD_ID 111
   #define BOARD_VOLTAGE 33
