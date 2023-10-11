@@ -25,7 +25,7 @@
   // NOTE: if cant fint servo.h, you probally dont have the Servo library installed
   // go to Sketch -> Include Library -> Manage Libraries, and select 'Servo'
   // For ESP boards, it bwill need to be ESP32Servo
-# if defined(ARDUINO_ARCH_ESP32) && ! defined(ARDUINO_NANO_ESP32)
+# if defined(ARDUINO_ARCH_ESP32)
   #include <ESP32Servo.h>
 # else
    #include <Servo.h>
