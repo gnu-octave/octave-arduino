@@ -25,6 +25,7 @@ function retval = config_micro (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = 'micro';
+  retval.baudrate = 9600;
   retval.mcu = '';
   retval.voltref = 0;
   retval.libs = {};

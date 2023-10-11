@@ -29,7 +29,7 @@ function retval = __initArduino__ (obj, port, board)
      if !isempty(regexp(port, "^[0-9]+.[0-9]+.[0-9]+.[0-9]+$"))
        obj.connected = tcp (port, 9500, 10);
      else
-       obj.connected = serial (port, 9600, 2);
+       obj.connected = serial (port, obj.BaudRate, 2);
      endif
      # need wait for aduino to potentially startup
      pause(2);
@@ -91,6 +91,7 @@ function retval = __initArduino__ (obj, port, board)
      obj.config = arduinoio.getBoardConfig(boardtype);
      # update values that could change
      obj.config.port = port;
+     obj.config.baudrate = obj.BaudRate;
      obj.config.board = boardtype;
      obj.config.voltref = voltref;
      obj.config.flags = flags;

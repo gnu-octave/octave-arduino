@@ -26,6 +26,7 @@ function retval = config_esp32_dev (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = '';
+  retval.baudrate = 9600;
   retval.mcu = 'eps32';
   retval.voltref = 0;
   retval.libs = {};

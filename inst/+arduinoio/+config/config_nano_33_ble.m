@@ -5,6 +5,7 @@ function retval = config_nano_33_ble (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = 'nano_33_ble';
+  retval.baudrate = 9600;
   retval.mcu = 'nRF52840';
   retval.voltref = 0;
   retval.libs = {};

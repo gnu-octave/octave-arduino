@@ -24,6 +24,7 @@ function retval = config_nano_esp32 (initdata)
   # default board info - must be provided
   # will be filled in on connection
   retval.board = "nano_esp32";
+  retval.baudrate = 9600;
   retval.mcu = '';
   retval.voltref = 33;
   retval.libs = {};

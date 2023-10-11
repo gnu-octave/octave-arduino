@@ -178,7 +178,7 @@ function retval = make_conf (header_file)
   printf("  # default board info - must be provided\n");
   printf("  # will be filled in on connection.\n");
   printf("  retval.board = '';\n");
-  printf("  retval.board = '';\n");
+  printf("  retval.baudrate = 9600;\n");
   printf("  retval.mcu = '';\n");
   printf("  retval.voltref = 0;\n");
   printf("  retval.libs = {};\n");

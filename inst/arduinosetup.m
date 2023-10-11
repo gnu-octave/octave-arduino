@@ -60,6 +60,8 @@ function retval = arduinosetup (varargin)
   libs = {};
   arduinobinary = {};
   debug = false;
+  baudrate = [];
+  def_baudrate = 9600;
   for i = 1:2:nargin
     propname = tolower (varargin{i});
     propvalue = varargin{i+1};
@@ -74,6 +76,8 @@ function retval = arduinosetup (varargin)
       endif
     elseif strcmp (propname, "arduinobinary")
       arduinobinary = propvalue;
+    elseif strcmp (propname, "baudrate")
+      baudrate = int32(propvalue);
     elseif strcmp (propname, "debug")
       debug = propvalue;
     elseif
@@ -152,6 +156,13 @@ function retval = arduinosetup (varargin)
     fprintf (fd, "\n");
     fprintf (fd, "// override target voltage (x10) by uncommenting and providing a value\n");
     fprintf (fd, "//#define BOARD_VOLTAGE 50\n");
+    fprintf (fd, "\n");
+    fprintf (fd, "// override baudrate by providing a value\n");
+    if !isempty(baudrate)
+      fprintf (fd, "#define ARDUINO_BAUDRATE %d\n", baudrate);
+    else
+      fprintf (fd, "//#define ARDUINO_BAUDRATE %d\n", def_baudrate);
+    endif
 
     fprintf (fd, "\n");
     fprintf (fd, "// builtin library support\n");

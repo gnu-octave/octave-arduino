@@ -5,6 +5,7 @@ function retval = config_mkr1000 (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = '';
+  retval.baudrate = 9600;
   retval.mcu = 'cortex-m0plus';
   retval.voltref = 3.3;
   retval.libs = {};

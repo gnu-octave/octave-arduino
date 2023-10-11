@@ -5,6 +5,7 @@ function retval = config_nano_rp2040_connect (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = '';
+  retval.baudrate = 9600;
   retval.mcu = 'cortex-m0plus';
   retval.voltref = 0;
   retval.libs = {};

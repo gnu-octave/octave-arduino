@@ -25,6 +25,7 @@ function retval = config_nano (initdata)
   # default board info - must be provided
   # will be filled in on connection
   retval.board = "nano";
+  retval.baudrate = 9600;
   retval.mcu = '';
   retval.voltref = 50;
   retval.libs = {};

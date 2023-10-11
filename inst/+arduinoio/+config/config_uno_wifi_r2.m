@@ -24,6 +24,7 @@ function retval = config_uno_wifi_r2 (initdata)
   # default board info - must be provided
   # will be filled in on connection
   retval.board = "uno_wifi_r2";
+  retval.baudrate = 9600;
   retval.mcu = '';
   retval.voltref = 0;
   retval.libs = {};

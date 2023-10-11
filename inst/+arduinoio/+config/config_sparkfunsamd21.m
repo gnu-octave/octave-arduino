@@ -25,7 +25,7 @@ function retval = config_sparkfunsamd21 (initdata)
   # default board info - must be provided
   # will be filled in on connection.
   retval.board = '';
-  retval.board = '';
+  retval.baudrate = 9600;
   retval.mcu = 'samd21';
   retval.voltref = 3.3;
   retval.libs = {};

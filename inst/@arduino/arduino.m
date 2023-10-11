@@ -54,6 +54,8 @@ classdef arduino < handle
   ## reprogram the arduino
   ## @item port (read only)
   ## the communications port the board is connected to.
+  ## @item baudrate (read only)
+  ## the communications baudrate to the board.
   ## @item board  (read only)
   ## The name of the board type that the arduino connected to
   ## @item libraries (read only)
@@ -84,6 +86,7 @@ classdef arduino < handle
     AnalogReference = 5.0;
     Board = "";
     Port = "";
+    BaudRate = 9600;
   endproperties
 
   properties (SetAccess = private, Hidden = true)
@@ -101,6 +104,8 @@ classdef arduino < handle
         endif
 
         this.name = "arduino";
+        c = arduinoio.getBoardConfig(arduinos{1}.board);
+        this.BaudRate = c.baudrate;
         this = __initArduino__ (this, arduinos{1}.port, arduinos{1}.board);
       elseif (nargin == 1)
         arg0 = varargin{1};
@@ -129,6 +134,8 @@ classdef arduino < handle
           endif
           port = arduinos{1}.port;
           board = arduinos{1}.board;
+          c = arduinoio.getBoardConfig(arduinos{1}.board);
+          this.BaudRate = c.baudrate;
         elseif !ischar (port)
           error ("arduino: port must be a string");         
         endif
@@ -148,6 +155,7 @@ classdef arduino < handle
         requiredlibs = {};
         forcebuild = false;
         forcebuildon = false;
+
         for i = 3:2:nargin
           propname = tolower (varargin{i});
           propvalue = varargin{i+1};
@@ -172,6 +180,16 @@ classdef arduino < handle
               forcebuildon = propvalue;
             else
               error ("arduino: expect forcebuildon to be true or false");
+            endif
+          endif
+          if strcmp (propname,"baudrate")
+            if !isnumeric(propvalue)
+              error ("arduino: expect baudrate to be numeric");
+            else
+              this.BaudRate = int32(propvalue);
+              if this.BaudRate < 1200
+                 error ("arduino: Invalid baudrate");
+              endif
             endif
           endif
           # older option that probally should remove
@@ -217,7 +235,7 @@ classdef arduino < handle
           # free arduino resources, reprom and then reinit
           this = __freeArduino__(this);
 
-          if !arduinosetup ('libraries', requiredlibs);
+          if !arduinosetup ('libraries', requiredlibs, 'baudrate', this.BaudRate)
             error ("arduinosetup returned a failure, so did not reprogram")
           endif
 

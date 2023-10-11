@@ -3,6 +3,7 @@ function retval = config_uno_minima_r4 (initdata)
   retval = {};
 
   retval.board = 'uno_minima_r4';
+  retval.baudrate = 9600;
   retval.mcu = '';
   retval.voltref = 0;
   retval.libs = {};

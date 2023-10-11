@@ -46,6 +46,10 @@
   WiFiClient wifi_client;
 #endif
 
+#ifndef ARDUINO_BAUDRATE
+ # define ARDUINO_BAUDRATE 9600
+#endif
+
 // some standard(ish) error messages used throughout the addons
 const char ERRORMSG_INVALID_NUMBER_OF_ARGS[] PROGMEM = "Invalid number of args";
 const char ERRORMSG_UNIMPLEMENTED[] PROGMEM = "Unimplemented feature";
@@ -281,7 +285,7 @@ static IPAddress make_gateway_address(const char *str)
 void
 OctaveArduinoClass::init () 
 {
-  OCTAVE_COMMS_PORT.begin (9600);
+  OCTAVE_COMMS_PORT.begin (ARDUINO_BAUDRATE);
 #if defined(OCTAVE_USE_WIFI_COMMS)
 
 #ifdef ARDUINO_ARCH_ESP32
