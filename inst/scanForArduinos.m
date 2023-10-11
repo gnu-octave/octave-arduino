@@ -15,12 +15,14 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} scanForArduinos (@var{maxCount})
+## @deftypefn {} {@var{retval} =} scanForArduinos ()
+## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{maxCount})
 ## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{"debug"})
 ## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{maxCount}, @var{type})
-## Scan system for programmed arduino boards.
+## @deftypefnx {} {@var{retval} =} scanForArduinos (@var{propertyname}, @var{propertvalue} ...)
+## Scan system for programmed serial connected arduino boards.
 ##
-## scanForArduinos will scan the system for programmed arduino boards
+## scanForArduinos will scan the system for programmed arduino boards 
 ## and return at most @var{maxCount} of them as a cell array 
 ## in @var{retval}.
 ##
@@ -36,6 +38,18 @@
 ## scanForArduinos will display debug information as it scans
 ## all available ports for arduinos.
 ##
+## @var{propertyname}, @var{propertyvalue} - property name/value pairs to match search with.
+## @table @asis
+## @item 'BaudRate'
+## Numeric BaudRate to use when trying to scan for arduinos.
+## @item 'MaxCount'
+## Max number of arduinos to scan for.
+## @item 'BoardType'
+## Boardtype to match.
+## @item 'Debug'
+## Logical flag for debug mode.
+## @end table
+##
 ## @subsubheading Outputs
 ## @var{retval} structure cell array of matching detected arduino boards.
 ##
@@ -50,30 +64,67 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function arduinos = scanForArduinos (maxCount, typestr)
+function arduinos = scanForArduinos (varargin)
+
+  # maxCount, typestr
 
   arduinos = {};
-  ARDUINO_INIT_COMMAND = 1;
   debug_flag = false;
 
-  if nargin > 2
-    print_usage ();
-  elseif nargin == 1
-    typestr = "";
-  elseif nargin == 0
-    maxCount = 0;
-    typestr = "";
-  endif
+  maxCount = 0;
+  typestr = "";
+  baudrate = [];
 
-  if ischar (maxCount) && strcmpi(maxCount, "debug")
-    if nargin > 1
-      error ("scanForArduinos allows no additional arguments for 'debug'");
+  if nargin == 1
+    typestr = "";
+    if ischar(varargin{1})
+      if strcmp(varargin{1}, "debug")
+        debug_flag = 1; 
+      else
+        error ("scanForArduinos: invalid argument");
+      endif
+    elseif isnumeric(varargin{1})
+      maxCount = int32(varargin{1});
+    else
+      error ("scanForArduinos: invalid argument");
     endif
-    maxCount = 0;
-    debug_flag = true;
+  elseif nargin == 2 && isnumeric(varargin{1}) && ischar(varargin{2})
+    # maxCount and boardtype
+    maxCount = int32(varargin{1});
+    typestr = varargin{2};
+  elseif nargin >= 2
+    # properties
+    if mod (nargin, 2) != 0
+        error ("scanForArduins: expected property name, value pairs");
+    endif
+    if !iscellstr (varargin (1:2:nargin))
+      error ("scanForArduinos: expected property names to be strings");
+    endif
+ 
+    for i = 1:2:nargin
+      propname = tolower (varargin{i});
+      propvalue = varargin{i+1};
+
+      if strcmp (propname,"debug")
+        if propvalue
+          debug_flag = 1;
+        else
+          debug_flag = 0;
+        endif
+      endif
+      if strcmp (propname,"boardtype")
+        boardstr = propvalue;
+      endif
+      if strcmp (propname,"baudrate")
+        baudrate = propvalue;
+      endif
+      if strcmp (propname,"maxcount")
+        maxCount = propvalue;
+      endif
+    endfor
   endif
 
-  if ! isnumeric (maxCount)
+  if ! isnumeric (maxCount) || maxCount < 0
     error ("scanForArduinos expected maxCount to be a number");
   endif
   if ! ischar (typestr) && !isempty (typestr)
@@ -82,6 +133,20 @@ function arduinos = scanForArduinos (maxCount, typestr)
     typestr = tolower (typestr);
   else
     typestr = "";
+  endif
+
+  if isempty(baudrate)
+    if !isempty(typestr)
+      # get default baudrate for baud
+      c = arduinoio.getBoardConfig(typestr);
+      baudrate = c.baudrate;
+    else
+      baudrate = 9600;
+    endif
+  endif
+
+  if ! isnumeric (baudrate) || baudrate < 1200
+    error ("scanForArduinos expected baudrate to be a number >= 1200");
   endif
 
   # get list of serial ports to try
@@ -105,54 +170,27 @@ function arduinos = scanForArduinos (maxCount, typestr)
         if debug_flag
           printf("* trying comport %s\n", portname);	
         endif
-        s = serial (portname, 9600, 1);
-        pause(2);
-     
-        hdr = uint8 ([ hex2dec("A5") 0 ARDUINO_INIT_COMMAND 0]);
-        if debug_flag
-          printf(" >> "); printf("%02X ", hdr); printf("\n");
-        endif
-        len = srl_write (s, hdr);
-        [tmpdataOut, tmpdataSize] = srl_read (s, 4);
 
-        if debug_flag
-          printf(" << "); printf("%02X ", tmpdataOut); printf("\n");
-        endif
-        
-        if tmpdataSize == 4 && tmpdataOut(1) == hex2dec("A5") && tmpdataOut(2) == 0 && tmpdataOut(3) == ARDUINO_INIT_COMMAND && tmpdataOut(4) >= 5
-          expectlen =  tmpdataOut(4);
+        s = arduino(portname, "", "Debug", debug_flag, "BaudRate", 9600);
 
-          [dataout, datasize] = srl_read (s, expectlen);
-
+        if isempty (typestr) || strcmpi(s.board, typestr)
+          info = {};
+          info.port = portname;
+          info.board = s.board;
+          arduinos{end+1} = info;
+          
           if debug_flag
-            printf(" << "); printf("%02X ", dataout); printf("\n");
+            printf(" ** found board %s\n", info.board);
           endif
 
-	  if datasize == expectlen
-            # init returns the following info
-            sig = (uint32 (dataout(1))*256*256) + (uint32 (dataout(2))*256) + uint32 (dataout(3));
-            board = dataout(4);
-            voltref = double (dataout(5))/10.0;
-            if isempty (typestr) || strcmpi(arduinoio.boardTypeString (board), typestr)
-              info = {};
-              info.port = portname;
-              info.board = arduinoio.boardTypeString (board);
-              arduinos{end+1} = info;
-          
-              if debug_flag
-                printf(" ** found board %s\n", info.board);
-              endif
-
-              if numel (arduinos) == maxCount
-                break;
-              endif
-	    endif
-	  endif
+          if numel (arduinos) == maxCount
+            break;
+          endif
         endif
-
+	
       unwind_protect_cleanup
         if !isempty (s)
-          srl_close (s);
+          clear s
         endif
       end_unwind_protect
 
