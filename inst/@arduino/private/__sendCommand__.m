@@ -61,5 +61,5 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
      printf(">> "); printf("%d ", [hdr data]); printf("\n");
    endif
    
-   [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout); 
+   [dataOut, errcode] = __recvResponse__ (obj.connected, libid, cmd, timeout, obj.debug); 
 endfunction

@@ -16,19 +16,19 @@
 ## Private function
 ## @end deftypefn
 
-function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
+function [dataOut, errcode] = __recvResponse__ (dev, libid, cmd, timeout, debug)
    
    dataOut = [];
    errcode = 0;
    
-   set(obj.connected, "timeout", timeout*10);
+   set(dev, "timeout", timeout*10);
    
 # TODO: current serial doesnt have a way to know if any data is awaiting
 # so try read what we need first without waiting ?
 
    # read in initial part
-   [tmpdataOut, tmpdataSize] = fread (obj.connected, 4);
-   if (obj.debug)
+   [tmpdataOut, tmpdataSize] = fread (dev, 4);
+   if (debug)
      printf("<< "); printf("%d ", tmpdataOut); printf("\n");
    endif
    if tmpdataSize < 4
@@ -39,14 +39,14 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
      dataOut = "Malformed packet header";
    elseif (tmpdataOut(3) == 254)
      # got a wait for response value - length is expected to be 0
-     if (obj.debug)
+     if (debug)
        printf("* wait for response\n");
      endif
  
-     set(obj.connected, "timeout", -1);
+     set(dev, "timeout", -1);
 
-     [tmpdataOut, tmpdataSize] = fread (obj.connected, 4);
-     if (obj.debug)
+     [tmpdataOut, tmpdataSize] = fread (dev, 4);
+     if (debug)
        printf("<< "); printf("%d ", tmpdataOut); printf("\n");
      endif
      if tmpdataSize < 4
@@ -61,8 +61,8 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
    if(errcode == 0)
      expectlen =  tmpdataOut(4);
      if expectlen > 0
-       [dataOut, tmpdataSize] = fread (obj.connected, expectlen);
-       if (obj.debug)
+       [dataOut, tmpdataSize] = fread (dev, expectlen);
+       if (debug)
          printf("<< "); printf("%d ", dataOut); printf("\n");
        endif
      else
@@ -81,12 +81,12 @@ function [dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout)
 	 endif
      elseif tmpdataOut(3) == 253
          # valid but was a debug message
-	 if obj.debug
+	 if debug
            s = char(dataOut);
            printf("DEBUG: %s\n", s);
 	 endif
         
-	[dataOut, errcode] = __recvResponse__ (obj, libid, cmd, timeout); 
+	[dataOut, errcode] = __recvResponse__ (dev, libid, cmd, timeout, debug); 
      else
 	 errcode = 0;
 	 # all is good
