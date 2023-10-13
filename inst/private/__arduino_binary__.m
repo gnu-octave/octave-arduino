@@ -81,6 +81,18 @@ function arduino_binary = find_arduino_binary ()
         arduino_binary = trypath;
       endif
     endif
+    if isempty(arduino_binary)
+      trypath = fullfile (getenv ("LOCALAPPDATA"), "Programs", "Arduino IDE", "Arduino IDE.exe");
+      if exist (trypath, "file")
+        arduino_binary = trypath;
+      endif
+    endif
+    if isempty(arduino_binary)
+      trypath = fullfile (getenv ("PROGRAMFILES"), "Arduino IDE", "Arduino IDE.exe");
+      if exist (trypath, "file")
+        arduino_binary = trypath;
+      endif
+    endif
   endif
 
   % look for arduino prefs file
