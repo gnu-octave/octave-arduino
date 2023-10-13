@@ -136,12 +136,15 @@ function arduinos = scanForArduinos (varargin)
   endif
 
   if isempty(baudrate)
+    baudrate = 9600;
     if !isempty(typestr)
       # get default baudrate for baud
-      c = arduinoio.getBoardConfig(typestr);
-      baudrate = c.baudrate;
-    else
-      baudrate = 9600;
+      try
+        c = arduinoio.getBoardConfig(typestr);
+        baudrate = c.baudrate;
+      catch err
+        error ("scanForArduinos: unknown board type");
+      end_try_catch
     endif
   endif
 
@@ -201,5 +204,6 @@ endfunction
 %! assert(!isempty(arduinos{1}.board))
 
 %!test
-%! arduinos = scanForArduinos(1, "madeuparduinoname");
-%! assert(isempty(arduinos));
+%! a = scanForArduinos("BaudRate", 115200, "BoardType", "Uno"); 
+
+%!error <scanForArduinos: unknown board type> scanForArduinos(1, "madeuparduinoname");
