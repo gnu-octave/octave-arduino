@@ -21,7 +21,7 @@ function [dataOut, errcode] = __recvResponse__ (dev, libid, cmd, timeout, debug)
    dataOut = [];
    errcode = 0;
    
-   set(dev, "timeout", timeout*10);
+   set(dev, "timeout", timeout);
    
 # TODO: current serial doesnt have a way to know if any data is awaiting
 # so try read what we need first without waiting ?

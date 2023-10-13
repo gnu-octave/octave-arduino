@@ -150,27 +150,17 @@ function arduinos = scanForArduinos (varargin)
   endif
 
   # get list of serial ports to try
-  ports = instrhwinfo ('serial');
+  ports = serialportlist ();
 
   for i = 1:numel (ports)
     try
       s = {};
       unwind_protect
-        if isunix
-          portname = ports{i};
-          if portname(1) != "/"
-            portname = ["/dev/" ports{i}];
-          endif
-        elseif ispc
-          # use extended port name
-          portname = [ "\\\\.\\" ports{i}];
-        else
-          portname = ports{i};
-        endif
+        portname = ports{i};
+
         if debug_flag
           printf("* trying comport %s\n", portname);	
         endif
-
         s = arduino(portname, "", "Debug", debug_flag, "BaudRate", 9600);
 
         if isempty (typestr) || strcmpi(s.board, typestr)

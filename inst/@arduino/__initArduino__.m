@@ -29,13 +29,13 @@ function retval = __initArduino__ (obj, port, board)
      if !isempty(regexp(port, "^[0-9]+.[0-9]+.[0-9]+.[0-9]+$"))
        obj.connected = tcp (port, 9500, 10);
      else
-       obj.connected = serial (port, obj.BaudRate, 2);
+       obj.connected = serialport (port, 'BaudRate', obj.BaudRate, 'Timeout', .2);
      endif
      # need wait for aduino to potentially startup
      pause(2);
 
      # clear any data in buffers
-     set(obj.connected, "timeout", 1);
+     set(obj.connected, "timeout", 0.1);
      data = fread(obj.connected,100);
      while length(data) >= 100
        data = fread(obj.connected,100);

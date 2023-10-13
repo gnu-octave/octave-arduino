@@ -25,7 +25,7 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
    endif
  
    % send command and get back reponse
-   if !isa(obj.connected, "octave_serial") && !isa(obj.connected, "octave_tcp")
+   if !isa(obj.connected, "octave_serialport") && !isa(obj.connected, "octave_tcp") 
      error ("@arduino.__sendCommand__: not connected to a arduino");
    endif
    
@@ -53,7 +53,7 @@ function [dataOut, errcode] = __sendCommand__ (obj, libid, cmd, data, timeout)
 
    hdr = uint8([ hex2dec("A5") libid cmd numel(data)]);
 
-   set(obj.connected, "timeout", timeout*10);
+   set(obj.connected, "timeout", timeout);
 
    len = fwrite(obj.connected, [hdr data]);
 
