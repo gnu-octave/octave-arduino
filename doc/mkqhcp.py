@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 ## mkqhcp.py
-## Version 1.0.2
+## Version 1.0.3
 
 ## Copyright 2022-2023 John Donoghue
 ##
@@ -41,7 +41,7 @@ def process(name):
     f.write ('</QHelpCollectionProject>\n')
 
   title = name
-  pat_match = re.compile(".*<title>(?P<title>[^<]+)</title>.*")
+  pat_match = re.compile(r".*<title>(?P<title>[^<]+)</title>.*")
   with open(name + ".html", 'rt') as fin:
     # find html
     for line in fin:
@@ -51,20 +51,20 @@ def process(name):
           title = e.group("title")
           break
 
-  h2_match = re.compile('.*<h2 class="chapter"[^>]*>(?P<title>[^<]+)</h2>.*')
-  h3_match = re.compile('.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
-  h4_match = re.compile('.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
-  tag_match1 = re.compile('.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
-  #tag_match2 = re.compile('.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
-  tag_match2 = re.compile('.*<div class="[sub]*section[^"]*" id="(?P<tag>[^"]+)"[^>]*>.*')
-  tag_match3 = re.compile('.*<div class="chapter-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
-  index_match = re.compile('.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
+  h2_match = re.compile(r'.*<h2 class="chapter"[^>]*>(?P<title>[^<]+)</h2>.*')
+  h3_match = re.compile(r'.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
+  h4_match = re.compile(r'.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
+  tag_match1 = re.compile(r'.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
+  #tag_match2 = re.compile(r'.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match2 = re.compile(r'.*<div class="[sub]*section[^"]*" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match3 = re.compile(r'.*<div class="chapter-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
+  index_match = re.compile(r'.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
 
   tag = "top"
   has_h2 = False 
   has_h3 = False 
 
-  #pat_match = re.compile('.*<span id="(?P<tag>[^"])"></span>(?P<title>[.]+)$')
+  #pat_match = re.compile(r'.*<span id="(?P<tag>[^"])"></span>(?P<title>[.]+)$')
   with open(name + ".html", 'rt') as fin:
     with open(name + ".qhp", 'wt') as f:
       f.write('<?xml version="1.0" encoding="UTF-8"?>\n')

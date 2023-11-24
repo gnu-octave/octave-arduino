@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.6
+## mkfuncdocs v1.0.7
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -79,7 +79,7 @@ def texify_line(line):
 def find_defun_line_in_file(filename, fnname):
   linecnt = 0
 
-  defun_line=re.compile("^DEFUN_DLD\s*\(\s*{}".format(fnname))
+  defun_line=re.compile(r"^DEFUN_DLD\s*\(\s*{}".format(fnname))
   with open(filename, 'rt') as f:
     for line in f:
       if re.match(defun_line, line):
