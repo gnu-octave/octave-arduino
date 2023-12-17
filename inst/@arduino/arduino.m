@@ -34,7 +34,18 @@ classdef arduino < handle
   ## for additional properties to pass to the creation of the 
   ## arduino object.
   ##
-  ## Currently properties are ignored.
+  ## Currently properties are ignored, with the exception of:
+  ## @table @asis
+  ## @item debug
+  ## true / false flag for whether setting debug (default false)
+  ## @item forcebuildon
+  ## true / false flag for whether to force show of the arduino IDE to
+  ## rebuild the installed code on the arduino (default false)
+  ## @item baudrate (read only)
+  ## the communications baudrate to the board. (default 9600)
+  ## @item libraries
+  ## The libraries to be enabled on the arduino board. (default uses whatever is already installed)
+  ## @end table
   ##
   ## if the arduino function is called without parameters, it will scan
   ## for the first available arduino it can find and connect to it.
@@ -48,7 +59,7 @@ classdef arduino < handle
   ## @item name
   ## name assigned to the arduino object
   ## @item debug
-  ## true / false flag for whether debug in turned on
+  ## true / false flag for whether debug is turned on
   ## @item forcebuildon
   ## true / false flag for whether to force show of the arduino IDE to
   ## reprogram the arduino
