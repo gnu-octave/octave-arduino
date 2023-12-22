@@ -1,4 +1,4 @@
-Summary of important user-visible changes for arduino 0.11.0+:
+Summary of important user-visible changes for arduino 0.12.0:
 -------------------------------------------------------------------
 
   ** Minor doc changes
@@ -9,6 +9,8 @@ Summary of important user-visible changes for arduino 0.11.0+:
   ** Support for different communication baudrates
 
   ** Added additional scanForArduinos functionality
+
+  ** expanded search for arduino binary
 
 Summary of important user-visible changes for arduino 0.11.0:
 -------------------------------------------------------------------

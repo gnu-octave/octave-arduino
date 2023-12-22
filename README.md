@@ -88,6 +88,8 @@ Currently the toolkit recognizes these boards:
 
 * nano rp2040 connect
 
+* nano esp32
+
 * promini
 
 * promicro
