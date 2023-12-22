@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/16_arduinoarduino/"
 pkg_name: "arduino"
-pkg_version: "0.11.0"
+pkg_version: "0.12.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/arduino"
 category: "Arduino Functions"
@@ -88,8 +88,23 @@ navigation:
  for additional properties to pass to the creation of the 
  arduino object.
 </p>
-<p>Currently properties are ignored.
-</p>
+<p>Currently properties are ignored, with the exception of:
+ </p><dl class="table">
+<dt>debug</dt>
+<dd><p>true / false flag for whether setting debug (default false)
+ </p></dd>
+<dt>forcebuildon</dt>
+<dd><p>true / false flag for whether to force show of the arduino IDE to
+ rebuild the installed code on the arduino (default false)
+ </p></dd>
+<dt>baudrate (read only)</dt>
+<dd><p>the communications baudrate to the board. (default 9600)
+ </p></dd>
+<dt>libraries</dt>
+<dd><p>The libraries to be enabled on the arduino board. (default uses whatever is already installed)
+ </p></dd>
+</dl>
+
 <p>if the arduino function is called without parameters, it will scan
  for the first available arduino it can find and connect to it.
 </p>
@@ -103,7 +118,7 @@ navigation:
 <dd><p>name assigned to the arduino object
  </p></dd>
 <dt>debug</dt>
-<dd><p>true / false flag for whether debug in turned on
+<dd><p>true / false flag for whether debug is turned on
  </p></dd>
 <dt>forcebuildon</dt>
 <dd><p>true / false flag for whether to force show of the arduino IDE to
@@ -111,6 +126,9 @@ navigation:
  </p></dd>
 <dt>port (read only)</dt>
 <dd><p>the communications port the board is connected to.
+ </p></dd>
+<dt>baudrate (read only)</dt>
+<dd><p>the communications baudrate to the board.
  </p></dd>
 <dt>board  (read only)</dt>
 <dd><p>The name of the board type that the arduino connected to

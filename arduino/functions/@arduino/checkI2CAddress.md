@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinocheckI2CAddress/"
 pkg_name: "arduino"
-pkg_version: "0.11.0"
+pkg_version: "0.12.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/checkI2CAddress"
 category: "Arduino Functions"

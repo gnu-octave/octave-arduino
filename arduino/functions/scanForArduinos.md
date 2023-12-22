@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/15_scanForArduinos/"
 pkg_name: "arduino"
-pkg_version: "0.11.0"
+pkg_version: "0.12.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - scanForArduinos"
 category: "General Functions"
@@ -70,12 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-scanForArduinos"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>)</code><a class="copiable-link" href='#index-scanForArduinos'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">&quot;debug&quot;</var>)</code><a class="copiable-link" href='#index-scanForArduinos-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-scanForArduinos-2'></a></span></dt>
-<dd><p>Scan system for programmed arduino boards.
+<dt class="deftypefn" id="index-scanForArduinos"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-scanForArduinos'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>)</code><a class="copiable-link" href='#index-scanForArduinos-1'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">&quot;debug&quot;</var>)</code><a class="copiable-link" href='#index-scanForArduinos-2'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-scanForArduinos-3'></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertvalue</var> ...)</code><a class="copiable-link" href='#index-scanForArduinos-4'></a></span></dt>
+<dd><p>Scan system for programmed serial connected arduino boards.
 </p>
-<p>scanForArduinos will scan the system for programmed arduino boards
+<p>scanForArduinos will scan the system for programmed arduino boards 
  and return at most <var class="var">maxCount</var> of them as a cell array 
  in <var class="var">retval</var>.
 </p>
@@ -91,6 +93,22 @@ navigation:
  scanForArduinos will display debug information as it scans
  all available ports for arduinos.
 </p>
+<p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - property name/value pairs to match search with.
+ </p><dl class="table">
+<dt>&rsquo;BaudRate&rsquo;</dt>
+<dd><p>Numeric BaudRate to use when trying to scan for arduinos.
+ </p></dd>
+<dt>&rsquo;MaxCount&rsquo;</dt>
+<dd><p>Max number of arduinos to scan for.
+ </p></dd>
+<dt>&rsquo;BoardType&rsquo;</dt>
+<dd><p>Boardtype to match.
+ </p></dd>
+<dt>&rsquo;Debug&rsquo;</dt>
+<dd><p>Logical flag for debug mode.
+ </p></dd>
+</dl>
+
 <h4 class="subsubheading" id="Outputs">Outputs</h4>
 <p><var class="var">retval</var> structure cell array of matching detected arduino boards.
 </p>

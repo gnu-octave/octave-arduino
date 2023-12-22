@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/24_rotaryEncoderreadCount/"
 pkg_name: "arduino"
-pkg_version: "0.11.0"
+pkg_version: "0.12.0"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/readCount"
 category: "Arduino Rotary Encoder Functions"
