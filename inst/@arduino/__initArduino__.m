@@ -31,7 +31,7 @@ function retval = __initArduino__ (obj, port, board)
      else
        obj.connected = serialport (port, 'BaudRate', obj.BaudRate, 'Timeout', .2);
      endif
-     # need wait for aduino to potentially startup
+     # need wait for arduino to potentially startup
      pause(2);
 
      # clear any data in buffers

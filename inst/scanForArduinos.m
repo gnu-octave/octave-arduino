@@ -183,7 +183,7 @@ function arduinos = scanForArduinos (varargin)
 	
       unwind_protect_cleanup
         if !isempty (s)
-          clear s
+          delete(s);
         endif
       end_unwind_protect
 
