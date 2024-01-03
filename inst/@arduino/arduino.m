@@ -117,7 +117,7 @@ classdef arduino < handle
         this.name = "arduino";
         c = arduinoio.getBoardConfig(arduinos{1}.board);
         this.BaudRate = c.baudrate;
-        this = __initArduino__ (this, arduinos{1}.port, arduinos{1}.board);
+        this = __initArduino__ (this, arduinos{1}.port, arduinos{1}.board, 0);
       elseif (nargin == 1)
         arg0 = varargin{1};
         if (isa (arg0, "arduino"))
@@ -130,7 +130,7 @@ classdef arduino < handle
           # port given
           this.name = "arduino";
           this.connected = false;
-          this = __initArduino__ (this, arg0, "");
+          this = __initArduino__ (this, arg0, "", 0);
         else
           error ("arduino: port must be a string");         
         endif
@@ -166,6 +166,7 @@ classdef arduino < handle
         requiredlibs = {};
         forcebuild = false;
         forcebuildon = false;
+        scan_only = false;
 
         for i = 3:2:nargin
           propname = tolower (varargin{i});
@@ -176,6 +177,10 @@ classdef arduino < handle
             if propvalue
               this.debug = 1;
             endif
+          endif
+          if strcmp (propname,"_scan_only")
+            # internal property
+            scan_only = propvalue;
           endif
           if strcmp (propname,"libraries")
             if ischar (propvalue)
@@ -213,14 +218,14 @@ classdef arduino < handle
           endif
         endfor
 
-        this = __initArduino__ (this, port, board);
+        this = __initArduino__ (this, port, board, scan_only);
 
         # check have requested libs
         reprogram = false;
 
         if forcebuildon
           reprogram = true;
-        else
+        elseif ! scan_only
           availablelibs = listArduinoLibraries ();
 
           for i = 1:numel (requiredlibs)
@@ -250,7 +255,7 @@ classdef arduino < handle
             error ("arduinosetup returned a failure, so did not reprogram")
           endif
 
-          this = __initArduino__ (this, port, board);
+          this = __initArduino__ (this, port, board, 0);
         endif
       endif
     endfunction

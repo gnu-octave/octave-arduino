@@ -12,11 +12,11 @@
 ## <https://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} __initArduino__ (@var{obj}, @var{port}, @var{board})
+## @deftypefn {} {@var{retval} =} __initArduino__ (@var{obj}, @var{port}, @var{board}, @var{scan_only})
 ## Private function
 ## @end deftypefn
 
-function retval = __initArduino__ (obj, port, board)
+function retval = __initArduino__ (obj, port, board, scan_only)
  
    % send command and get back reponse
    ARDUINO_INIT = 1;
@@ -107,17 +107,19 @@ function retval = __initArduino__ (obj, port, board)
      obj.config.libs = {};
 
      # query libs
-     for libid = 0:numlib-1
-       [dataout, status] = __sendCommand__(obj, 0, ARDUINO_GETLIB, [libid]);
-       if status != 0
-         error ("__initArduino__: failed get lib %d err=%d - %s", libid, status, char(dataout));
-       else
-	 lib = {};
-         lib.id = libid;
-	 lib.name = lower(char(dataout(2:end)));
-	 obj.config.libs{end+1} = lib;
-       endif 
-     endfor
+     if ! scan_only
+       for libid = 0:numlib-1
+         [dataout, status] = __sendCommand__(obj, 0, ARDUINO_GETLIB, [libid]);
+         if status != 0
+           error ("__initArduino__: failed get lib %d err=%d - %s", libid, status, char(dataout));
+         else
+	   lib = {};
+           lib.id = libid;
+	   lib.name = lower(char(dataout(2:end)));
+	   obj.config.libs{end+1} = lib;
+         endif 
+       endfor
+     endif
    else
      error ("__initArduino__: expected a valid port");
    endif

@@ -164,7 +164,7 @@ function arduinos = scanForArduinos (varargin)
         if debug_flag
           printf("* trying comport %s\n", portname);	
         endif
-        s = arduino(portname, "", "Debug", debug_flag, "BaudRate", 9600);
+        s = arduino(portname, "", "Debug", debug_flag, "BaudRate", baudrate, "_scan_only", 1);
 
         if isempty (typestr) || strcmpi(s.board, typestr)
           info = {};
