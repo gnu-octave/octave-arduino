@@ -72,7 +72,7 @@ HTML_TARBALL    := $(TARGET_DIR)/$(PACKAGE)-html.tar.gz
 
 ## Octave binaries
 MKOCTFILE ?= mkoctfile
-OCTAVE    ?= octave --no-gui
+OCTAVE    ?= octave
 
 ## Targets that are not filenames.
 ## https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
@@ -176,7 +176,7 @@ html_options = --eval 'options = get_html_options ("octave-forge");' \
 $(HTML_DIR): install
 	@echo "Generating HTML documentation. This may take a while ..."
 	$(RM) -r "$@"
-	$(OCTAVE) --no-window-system --silent \
+	$(OCTAVE)  --no-gui --no-window-system --silent \
 	  --eval "pkg load generate_html; " \
 	  --eval "pkg load $(PACKAGE);" \
 	  $(html_options) \
@@ -192,7 +192,7 @@ release: dist html
 
 install: $(RELEASE_TARBALL)
 	@echo "Installing package locally ..."
-	$(OCTAVE) --silent --eval 'pkg ("install", "-verbose", "$(RELEASE_TARBALL)")'
+	$(OCTAVE)  --no-gui --silent --eval 'pkg ("install", "-verbose", "$(RELEASE_TARBALL)")'
 
 clean: cleandocs
 	$(RM) -r $(RELEASE_DIR) $(RELEASE_TARBALL) $(HTML_TARBALL) $(HTML_DIR)
@@ -208,7 +208,7 @@ all:
 # Start an Octave session with the package directories on the path for
 # interactice test of development sources.
 run: all
-	$(OCTAVE) --silent --persist --path "$(TOPDIR)/inst/" \
+	$(OCTAVE)  --no-gui --silent --persist --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;'
 
 rungui: all
@@ -218,7 +218,7 @@ rungui: all
 # Test example blocks in the documentation.  Needs doctest package
 #  http://octave.sourceforge.net/doctest/index.html
 doctest: all
-	$(OCTAVE) --path "$(TOPDIR)/inst/" \
+	$(OCTAVE) --no-gui --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval 'pkg load doctest;' \
 	  --eval 'doctest ("$(TOPDIR)/inst/");'
@@ -226,6 +226,6 @@ doctest: all
 # Note "doctest" as prerequesite.  When testing the package, also check
 # the documentation.
 check: all
-	$(OCTAVE) --silent --path "$(TOPDIR)/inst/" \
+	$(OCTAVE) --no-gui --silent --path "$(TOPDIR)/inst/" \
 	  --eval 'if(!isempty("$(DEPENDS)")); pkg load $(DEPENDS); endif;' \
 	  --eval "__run_test_suite__ ({'$(TOPDIR)/inst'}, {})"
