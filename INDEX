@@ -10,7 +10,7 @@ Arduino Functions
   @arduino/configurePinResource
   @arduino/decrementResourceCount
   @arduino/delete
-  @arduino/display
+  @arduino/disp
   @arduino/getEndian
   @arduino/getI2CTerminals
   @arduino/getInterruptTerminals
@@ -47,7 +47,7 @@ Arduino Functions
 Arduino I2C Functions
   scanI2Cbus
   @i2cdev/delete
-  @i2cdev/display
+  @i2cdev/disp
   @i2cdev/read
   @i2cdev/readRegister
   @i2cdev/subsref
@@ -55,7 +55,7 @@ Arduino I2C Functions
   @i2cdev/writeRegister
   @i2cdev/i2cdev
   @device/delete
-  @device/display
+  @device/disp
   @device/read
   @device/readRegister
   @device/subsref
@@ -63,7 +63,7 @@ Arduino I2C Functions
   @device/writeRegister
 Arduino Rotary Encoder Functions
   @rotaryEncoder/delete
-  @rotaryEncoder/display
+  @rotaryEncoder/disp
   @rotaryEncoder/readCount
   @rotaryEncoder/readSpeed
   @rotaryEncoder/resetCount
@@ -71,14 +71,14 @@ Arduino Rotary Encoder Functions
   @rotaryEncoder/rotaryEncoder
 Arduino Servo Functions
   @servo/delete
-  @servo/display
+  @servo/disp
   @servo/readPosition
   @servo/subsref
   @servo/writePosition
   @servo/servo
 Arduino Shiftregister Functions
   @shiftRegister/delete
-  @shiftRegister/display
+  @shiftRegister/disp
   @shiftRegister/read
   @shiftRegister/reset
   @shiftRegister/write
@@ -86,17 +86,17 @@ Arduino Shiftregister Functions
   @shiftRegister/shiftRegister
 Arduino SPI Functions
   @spidev/delete
-  @spidev/display
+  @spidev/disp
   @spidev/subsref
   @spidev/writeRead
   @spidev/spidev
   @device/delete
-  @device/display
+  @device/disp
   @device/subsref
   @device/writeRead
 Arduino Serial Functions
   @device/delete
-  @device/display
+  @device/disp
   @device/flush
   @device/read
   @device/subsref
@@ -104,7 +104,7 @@ Arduino Serial Functions
   @device/device
 Arduino Device Functions
   @device/delete
-  @device/display
+  @device/disp
   @device/flush
   @device/read
   @device/readRegister
@@ -115,7 +115,7 @@ Arduino Device Functions
   @device/device
 Arduino Ultrasonic Functions
   @ultrasonic/delete
-  @ultrasonic/display
+  @ultrasonic/disp
   @ultrasonic/subsref
   @ultrasonic/readDistance
   @ultrasonic/readEchoTime
