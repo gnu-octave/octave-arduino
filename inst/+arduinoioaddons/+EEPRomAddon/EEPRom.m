@@ -164,8 +164,7 @@ classdef EEPRom < arduinoio.LibraryBase
       sendCommand(obj.Parent, obj.LibraryName, cmdID, datain);
     endfunction
 
-    function display (obj)
-      printf("%s = \n", inputname(1));
+    function disp (obj)
       printf("    %s with properties\n", class(obj));
       printf("        length = %d\n", obj.len);
     endfunction

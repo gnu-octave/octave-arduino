@@ -61,7 +61,7 @@ classdef LibraryBase < arduinoio.LibraryBase
   ## @seealso{arduino, listArduinoLibraries, addon}
   ## @end deftypefn
   ##
-  ## @deftypefn {} {} display ()
+  ## @deftypefn {} {} disp ()
   ## Display the addon in a verbose way.
   ## @end deftypefn
   

@@ -208,8 +208,7 @@ classdef stepper < arduinoio.AddonBase
       this.StepType = val;
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("               MotorNumber = %d\n", this.MotorNumber);
       printf("                       RPM = %d\n", this.RPM);

@@ -222,8 +222,7 @@ classdef SimpleStepper < arduinoio.LibraryBase
        sendCommand(obj.Parent, obj.LibraryName, cmdID, uint8([obj.Id dir]));
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("           Speed = %f\n", this.Speed);
       printf("          Status = %d\n", this.Status);

@@ -215,8 +215,7 @@ classdef motorshieldv2 < arduinoio.LibraryBase
 
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("        I2CAddress = %d (0x%X)\n", this.i2c.i2caddress, this.i2c.i2caddress);
       # show i2c pins as the pins

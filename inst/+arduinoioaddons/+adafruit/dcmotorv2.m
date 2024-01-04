@@ -158,8 +158,7 @@ classdef dcmotorv2 < arduinoio.AddonBase
       endif
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("        MotorNumber = %d\n", this.MotorNumber);
       printf("              Speed = %d\n", this.Speed);

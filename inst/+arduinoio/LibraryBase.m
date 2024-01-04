@@ -59,7 +59,7 @@ classdef LibraryBase < handle
   ## @seealso{arduino, listArduinoLibraries, addon}
   ## @end deftypefn
   ##
-  ## @deftypefn {} {} display ()
+  ## @deftypefn {} {} disp ()
   ## Display the addon in a verbose way.
   ## @end deftypefn
 
@@ -109,8 +109,7 @@ classdef LibraryBase < handle
 
   methods (Access=public)
     # display the base class  properties
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       if numel(this.Pins) == 0
         printf("        Pins = {}\n");

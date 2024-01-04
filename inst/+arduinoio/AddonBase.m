@@ -38,7 +38,7 @@ classdef AddonBase < handle
   ## @seealso{arduino, addon}
   ## @end deftypefn
   ##
-  ## @deftypefn {} {} display ()
+  ## @deftypefn {} {} disp ()
   ## Display the addon in a verbose way.
   ## @end deftypefn
 
@@ -50,8 +50,8 @@ classdef AddonBase < handle
 
   methods (Access=public)
     # display the base class  properties
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
+      printf("    addon %s\n", class(this));
     endfunction
   endmethods
 endclassdef

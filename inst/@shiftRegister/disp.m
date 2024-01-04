@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} display (@var{register})
+## @deftypefn {} {} disp (@var{register})
 ## Display the register object in a verbose way, 
 ##
 ## @subsubheading Inputs
@@ -20,9 +20,8 @@
 ## @seealso{shiftRegister}
 ## @end deftypefn
 
-function retval = display (register)
+function disp (register)
 
-  printf ("%s = \n", inputname (1));
   printf ("  arduino shift register object with fields of: \n");
   printf ("    model = ")
   disp(register.model);

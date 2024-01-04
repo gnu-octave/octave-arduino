@@ -260,8 +260,7 @@ classdef DS1307 < arduinoio.LibraryBase
       endif
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("        Address = 0x%X\n", this.address);
       # show i2c pins as the pins
