@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {} display (@var{dev})
+## @deftypefn {} {} disp (@var{dev})
 ## Display ultrasonic object.
 ##
 ## @subsubheading Inputs
@@ -20,8 +20,7 @@
 ## @seealso{ultrasonic}
 ## @end deftypefn
 
-function display (this)
-  printf ("%s = \n", inputname (1));
+function disp (this)
   printf ("  arduino ultrasonic object with fields of: \n\n");
   printf ("   triggerpin = %s\n", this.pins{1}.name);
   if numel(this.pins) > 1

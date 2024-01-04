@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {} display (@var{dev})
+## @deftypefn {} {} disp (@var{dev})
 ## Display device object.
 ##
 ## @subsubheading Inputs
@@ -20,8 +20,7 @@
 ## @seealso{device}
 ## @end deftypefn
 
-function display (this)
-  printf ("%s = \n", inputname (1));
+function disp (this)
   printf ("  device object with fields of: \n\n");
   printf ("       interface = %s\n", this.interface);
 

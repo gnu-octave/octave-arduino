@@ -11,7 +11,7 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {} display (@var{ar})
+## @deftypefn {} {} disp (@var{ar})
 ## Display the arduino object in a verbose way, showing the board and available pins.
 ##
 ## @subsubheading Inputs
@@ -22,9 +22,8 @@
 ## @seealso{arduino}
 ## @end deftypefn
 
-function display (ar)
+function disp (ar)
 
-  printf ("%s = \n", inputname (1));
   if isobject(ar.connected)
     printf ("  arduino object with fields of: \n");
 

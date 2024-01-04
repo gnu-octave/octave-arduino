@@ -11,26 +11,25 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {} display (@var{dev})
-## Display i2cdev object.
+## @deftypefn {} {} disp (@var{dev})
+## Display spidev object.
 ##
 ## @subsubheading Inputs
-## @var{dev} - i2cdev object
+## @var{dev} - spidev object to display
 ##
-## @seealso{i2cdev}
+## @seealso{spidev}
 ## @end deftypefn
 
-function display (p)
-  printf ("%s = \n", inputname (1));
-  printf ("  arduino i2cdev object with fields of: \n\n");
-  printf ("         address = %d (0x%02X)\n", p.address, p.address);
-  printf ("             bus = %d\n", p.bus);
-  printf ("        bitorder = %s\n", p.bitorder);
+function disp (this)
+  printf ("  arduino spidev object with fields of: \n\n");
+  printf ("   chipselectpin = %s\n", this.chipselectpin);
+  printf ("            mode = %d\n", this.mode);
+  printf ("        bitorder = %s\n", this.bitorder);
+  printf ("         bitrate = %d\n", this.bitrate);
   printf ("            pins = ");
-  for i=1:2
-    printf("%s(%s) ", p.pins{i}.name, p.pins{i}.func)
+  for i=1:numel(this.pins)
+    printf("%s(%s) ", this.pins{i}.name, this.pins{i}.func)
   endfor
   printf("\n");
-  % Mode, Bitrate, Bitorder
-  printf ("\n");
+  printf("\n");
 endfunction

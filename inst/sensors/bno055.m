@@ -576,8 +576,7 @@ classdef bno055 < handle
       # flush currenly does nothing
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("     OperatingMode: %s\n", this.OperatingMode);
       if isobject(this.i2c)

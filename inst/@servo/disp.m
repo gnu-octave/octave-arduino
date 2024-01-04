@@ -11,23 +11,18 @@
 ## GNU General Public License for more details.
 
 ## -*- texinfo -*- 
-## @deftypefn {} {@var{retval} =} display (@var{obj})
-## Display the rotary encoder object in a verbose way, 
+## @deftypefn {} {} disp (@var{dev})
+## Display servo object.
 ##
 ## @subsubheading Inputs
-## @var{obj} - the arduino rotary encoder object created with rotaryEncoder
+## @var{dev} - servo device to display
 ##
-## @seealso{rotaryEncoder}
+## @seealso{servo}
 ## @end deftypefn
 
-function retval = display (obj)
-
-  printf ("%s = \n", inputname (1));
-  printf ("  arduino rotary object with fields of: \n");
-  printf ("    pulsesperrevolution = ")
-  disp(obj.ppr);
-  for i=1:numel(obj.pins)
-    pin = obj.pins{i};
-    printf ("    %s = %s\n", pin.func, pin.name)
-  endfor
+function disp (this)
+  printf ("  arduino servo object with fields of: \n\n");
+  printf ("                pins = %s\n", this.pins{1}.name );
+  printf ("    minpulseduration = %f\n", this.minpulseduration);
+  printf ("    maxpulseduration = %f\n", this.maxpulseduration);
 endfunction

@@ -129,8 +129,7 @@ classdef GUVAS12SD < handle
       val = read(this)/this.SCALE_UAMPS;
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("        Pin = %s\n", this.Pin);
     endfunction

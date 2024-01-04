@@ -391,8 +391,7 @@ classdef mpu6050 < handle
       # flush currenly does nothing
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       if isobject(this.i2c)
         printf("        I2CAddress: %d ('0x%s')\n", this.i2c.i2caddress, num2hex(this.i2c.i2caddress));

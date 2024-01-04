@@ -237,8 +237,7 @@ classdef DS1307 < handle
       endif
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       if isobject(this.i2c)
         printf("        I2C Address = 0x%X\n", this.i2c.i2caddress);

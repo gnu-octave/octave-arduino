@@ -117,8 +117,7 @@ classdef MPC3002 < handle
       volts = double(adc) * this.reference_voltage / 1023.0;
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       printf("      reference voltage = %f\n", this.reference_voltage);
       if isobject(this.spi)

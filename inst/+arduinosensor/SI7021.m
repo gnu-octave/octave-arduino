@@ -192,8 +192,7 @@ classdef SI7021 < handle
       H = (125.0*humidity_Code/65536)-6;
     endfunction
 
-    function display(this)
-      printf("%s = \n", inputname(1));
+    function disp(this)
       printf("    %s with properties\n", class(this));
       if isobject(this.i2c)
         printf("        I2C Address = 0x%X\n", this.i2c.i2caddress);
