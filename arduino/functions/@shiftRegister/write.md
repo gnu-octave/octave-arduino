@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@shiftRegister/20_shiftRegisterwrite/"
 pkg_name: "arduino"
-pkg_version: "0.12.0"
+pkg_version: "0.12.1"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @shiftRegister/write"
 category: "Arduino Shiftregister Functions"

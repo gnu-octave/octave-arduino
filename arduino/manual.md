@@ -3,7 +3,7 @@ layout: "default"
 permalink: "/manual/"
 title: "Arduino Toolkit - Manual"
 pkg_name: "arduino"
-version: "0.12.0"
+version: "0.12.1"
 description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 navigation:
 - id: "overview"
@@ -141,7 +141,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
       <li><a id="toc-_0040arduino_002fconfigurePinResource" href="#g_t_0040arduino_002fconfigurePinResource">9.2.4 @arduino/configurePinResource</a></li>
       <li><a id="toc-_0040arduino_002fdecrementResourceCount" href="#g_t_0040arduino_002fdecrementResourceCount">9.2.5 @arduino/decrementResourceCount</a></li>
       <li><a id="toc-_0040arduino_002fdelete" href="#g_t_0040arduino_002fdelete">9.2.6 @arduino/delete</a></li>
-      <li><a id="toc-_0040arduino_002fdisplay" href="#g_t_0040arduino_002fdisplay">9.2.7 @arduino/display</a></li>
+      <li><a id="toc-_0040arduino_002fdisp" href="#g_t_0040arduino_002fdisp">9.2.7 @arduino/disp</a></li>
       <li><a id="toc-_0040arduino_002fgetEndian" href="#g_t_0040arduino_002fgetEndian">9.2.8 @arduino/getEndian</a></li>
       <li><a id="toc-_0040arduino_002fgetI2CTerminals" href="#g_t_0040arduino_002fgetI2CTerminals">9.2.9 @arduino/getI2CTerminals</a></li>
       <li><a id="toc-_0040arduino_002fgetInterruptTerminals" href="#g_t_0040arduino_002fgetInterruptTerminals">9.2.10 @arduino/getInterruptTerminals</a></li>
@@ -178,14 +178,14 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-I2C-Functions-1" href="#Arduino-I2C-Functions">9.3 Arduino I2C Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040device_002fdelete" href="#g_t_0040device_002fdelete">9.3.1 @device/delete</a></li>
-      <li><a id="toc-_0040device_002fdisplay" href="#g_t_0040device_002fdisplay">9.3.2 @device/display</a></li>
+      <li><a id="toc-_0040device_002fdisp" href="#g_t_0040device_002fdisp">9.3.2 @device/disp</a></li>
       <li><a id="toc-_0040device_002fread" href="#g_t_0040device_002fread">9.3.3 @device/read</a></li>
       <li><a id="toc-_0040device_002freadRegister" href="#g_t_0040device_002freadRegister">9.3.4 @device/readRegister</a></li>
       <li><a id="toc-_0040device_002fsubsref" href="#g_t_0040device_002fsubsref">9.3.5 @device/subsref</a></li>
       <li><a id="toc-_0040device_002fwrite" href="#g_t_0040device_002fwrite">9.3.6 @device/write</a></li>
       <li><a id="toc-_0040device_002fwriteRegister" href="#g_t_0040device_002fwriteRegister">9.3.7 @device/writeRegister</a></li>
       <li><a id="toc-_0040i2cdev_002fdelete" href="#g_t_0040i2cdev_002fdelete">9.3.8 @i2cdev/delete</a></li>
-      <li><a id="toc-_0040i2cdev_002fdisplay" href="#g_t_0040i2cdev_002fdisplay">9.3.9 @i2cdev/display</a></li>
+      <li><a id="toc-_0040i2cdev_002fdisp" href="#g_t_0040i2cdev_002fdisp">9.3.9 @i2cdev/disp</a></li>
       <li><a id="toc-_0040i2cdev_002fi2cdev" href="#g_t_0040i2cdev_002fi2cdev">9.3.10 @i2cdev/i2cdev</a></li>
       <li><a id="toc-_0040i2cdev_002fread" href="#g_t_0040i2cdev_002fread">9.3.11 @i2cdev/read</a></li>
       <li><a id="toc-_0040i2cdev_002freadRegister" href="#g_t_0040i2cdev_002freadRegister">9.3.12 @i2cdev/readRegister</a></li>
@@ -197,7 +197,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-Rotary-Encoder-Functions-1" href="#Arduino-Rotary-Encoder-Functions">9.4 Arduino Rotary Encoder Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040rotaryEncoder_002fdelete" href="#g_t_0040rotaryEncoder_002fdelete">9.4.1 @rotaryEncoder/delete</a></li>
-      <li><a id="toc-_0040rotaryEncoder_002fdisplay" href="#g_t_0040rotaryEncoder_002fdisplay">9.4.2 @rotaryEncoder/display</a></li>
+      <li><a id="toc-_0040rotaryEncoder_002fdisp" href="#g_t_0040rotaryEncoder_002fdisp">9.4.2 @rotaryEncoder/disp</a></li>
       <li><a id="toc-_0040rotaryEncoder_002freadCount" href="#g_t_0040rotaryEncoder_002freadCount">9.4.3 @rotaryEncoder/readCount</a></li>
       <li><a id="toc-_0040rotaryEncoder_002freadSpeed" href="#g_t_0040rotaryEncoder_002freadSpeed">9.4.4 @rotaryEncoder/readSpeed</a></li>
       <li><a id="toc-_0040rotaryEncoder_002fresetCount" href="#g_t_0040rotaryEncoder_002fresetCount">9.4.5 @rotaryEncoder/resetCount</a></li>
@@ -207,7 +207,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-Servo-Functions-1" href="#Arduino-Servo-Functions">9.5 Arduino Servo Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040servo_002fdelete" href="#g_t_0040servo_002fdelete">9.5.1 @servo/delete</a></li>
-      <li><a id="toc-_0040servo_002fdisplay" href="#g_t_0040servo_002fdisplay">9.5.2 @servo/display</a></li>
+      <li><a id="toc-_0040servo_002fdisp" href="#g_t_0040servo_002fdisp">9.5.2 @servo/disp</a></li>
       <li><a id="toc-_0040servo_002freadPosition" href="#g_t_0040servo_002freadPosition">9.5.3 @servo/readPosition</a></li>
       <li><a id="toc-_0040servo_002fservo" href="#g_t_0040servo_002fservo">9.5.4 @servo/servo</a></li>
       <li><a id="toc-_0040servo_002fsubsref" href="#g_t_0040servo_002fsubsref">9.5.5 @servo/subsref</a></li>
@@ -216,7 +216,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-Shiftregister-Functions-1" href="#Arduino-Shiftregister-Functions">9.6 Arduino Shiftregister Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040shiftRegister_002fdelete" href="#g_t_0040shiftRegister_002fdelete">9.6.1 @shiftRegister/delete</a></li>
-      <li><a id="toc-_0040shiftRegister_002fdisplay" href="#g_t_0040shiftRegister_002fdisplay">9.6.2 @shiftRegister/display</a></li>
+      <li><a id="toc-_0040shiftRegister_002fdisp" href="#g_t_0040shiftRegister_002fdisp">9.6.2 @shiftRegister/disp</a></li>
       <li><a id="toc-_0040shiftRegister_002fread" href="#g_t_0040shiftRegister_002fread">9.6.3 @shiftRegister/read</a></li>
       <li><a id="toc-_0040shiftRegister_002freset" href="#g_t_0040shiftRegister_002freset">9.6.4 @shiftRegister/reset</a></li>
       <li><a id="toc-_0040shiftRegister_002fshiftRegister" href="#g_t_0040shiftRegister_002fshiftRegister">9.6.5 @shiftRegister/shiftRegister</a></li>
@@ -226,11 +226,11 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-SPI-Functions-1" href="#Arduino-SPI-Functions">9.7 Arduino SPI Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040device_002fdelete-1" href="#g_t_0040device_002fdelete-1">9.7.1 @device/delete</a></li>
-      <li><a id="toc-_0040device_002fdisplay-1" href="#g_t_0040device_002fdisplay-1">9.7.2 @device/display</a></li>
+      <li><a id="toc-_0040device_002fdisp-1" href="#g_t_0040device_002fdisp-1">9.7.2 @device/disp</a></li>
       <li><a id="toc-_0040device_002fsubsref-1" href="#g_t_0040device_002fsubsref-1">9.7.3 @device/subsref</a></li>
       <li><a id="toc-_0040device_002fwriteRead" href="#g_t_0040device_002fwriteRead">9.7.4 @device/writeRead</a></li>
       <li><a id="toc-_0040spidev_002fdelete" href="#g_t_0040spidev_002fdelete">9.7.5 @spidev/delete</a></li>
-      <li><a id="toc-_0040spidev_002fdisplay" href="#g_t_0040spidev_002fdisplay">9.7.6 @spidev/display</a></li>
+      <li><a id="toc-_0040spidev_002fdisp" href="#g_t_0040spidev_002fdisp">9.7.6 @spidev/disp</a></li>
       <li><a id="toc-_0040spidev_002fspidev" href="#g_t_0040spidev_002fspidev">9.7.7 @spidev/spidev</a></li>
       <li><a id="toc-_0040spidev_002fsubsref" href="#g_t_0040spidev_002fsubsref">9.7.8 @spidev/subsref</a></li>
       <li><a id="toc-_0040spidev_002fwriteRead" href="#g_t_0040spidev_002fwriteRead">9.7.9 @spidev/writeRead</a></li>
@@ -239,7 +239,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040device_002fdelete-2" href="#g_t_0040device_002fdelete-2">9.8.1 @device/delete</a></li>
       <li><a id="toc-_0040device_002fdevice" href="#g_t_0040device_002fdevice">9.8.2 @device/device</a></li>
-      <li><a id="toc-_0040device_002fdisplay-2" href="#g_t_0040device_002fdisplay-2">9.8.3 @device/display</a></li>
+      <li><a id="toc-_0040device_002fdisp-2" href="#g_t_0040device_002fdisp-2">9.8.3 @device/disp</a></li>
       <li><a id="toc-_0040device_002fflush" href="#g_t_0040device_002fflush">9.8.4 @device/flush</a></li>
       <li><a id="toc-_0040device_002fread-1" href="#g_t_0040device_002fread-1">9.8.5 @device/read</a></li>
       <li><a id="toc-_0040device_002fsubsref-2" href="#g_t_0040device_002fsubsref-2">9.8.6 @device/subsref</a></li>
@@ -249,7 +249,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040device_002fdelete-3" href="#g_t_0040device_002fdelete-3">9.9.1 @device/delete</a></li>
       <li><a id="toc-_0040device_002fdevice-1" href="#g_t_0040device_002fdevice-1">9.9.2 @device/device</a></li>
-      <li><a id="toc-_0040device_002fdisplay-3" href="#g_t_0040device_002fdisplay-3">9.9.3 @device/display</a></li>
+      <li><a id="toc-_0040device_002fdisp-3" href="#g_t_0040device_002fdisp-3">9.9.3 @device/disp</a></li>
       <li><a id="toc-_0040device_002fflush-1" href="#g_t_0040device_002fflush-1">9.9.4 @device/flush</a></li>
       <li><a id="toc-_0040device_002fread-2" href="#g_t_0040device_002fread-2">9.9.5 @device/read</a></li>
       <li><a id="toc-_0040device_002freadRegister-1" href="#g_t_0040device_002freadRegister-1">9.9.6 @device/readRegister</a></li>
@@ -261,7 +261,7 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
     <li><a id="toc-Arduino-Ultrasonic-Functions-1" href="#Arduino-Ultrasonic-Functions">9.10 Arduino Ultrasonic Functions</a>
     <ul class="toc-numbered-mark">
       <li><a id="toc-_0040ultrasonic_002fdelete" href="#g_t_0040ultrasonic_002fdelete">9.10.1 @ultrasonic/delete</a></li>
-      <li><a id="toc-_0040ultrasonic_002fdisplay" href="#g_t_0040ultrasonic_002fdisplay">9.10.2 @ultrasonic/display</a></li>
+      <li><a id="toc-_0040ultrasonic_002fdisp" href="#g_t_0040ultrasonic_002fdisp">9.10.2 @ultrasonic/disp</a></li>
       <li><a id="toc-_0040ultrasonic_002freadDistance" href="#g_t_0040ultrasonic_002freadDistance">9.10.3 @ultrasonic/readDistance</a></li>
       <li><a id="toc-_0040ultrasonic_002freadEchoTime" href="#g_t_0040ultrasonic_002freadEchoTime">9.10.4 @ultrasonic/readEchoTime</a></li>
       <li><a id="toc-_0040ultrasonic_002fsubsref" href="#g_t_0040ultrasonic_002fsubsref">9.10.5 @ultrasonic/subsref</a></li>
@@ -368,7 +368,7 @@ octave-forge using the following command within <abbr class="acronym">GNU</abbr>
 <abbr class="acronym">GNU</abbr> Octave, the package can be installed using the following command within <abbr class="acronym">GNU</abbr> Octave:
 </p>
 <div class="example">
-<pre class="example-preformatted">pkg install arduino-0.12.0.tar.gz
+<pre class="example-preformatted">pkg install arduino-0.12.1.tar.gz
 </pre></div>
 </div>
 <div class="section-level-extent" id="Loading">
@@ -1567,7 +1567,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <li><a href="#g_t_0040arduino_002fconfigurePinResource" accesskey="4">@arduino/configurePinResource</a></li>
 <li><a href="#g_t_0040arduino_002fdecrementResourceCount" accesskey="5">@arduino/decrementResourceCount</a></li>
 <li><a href="#g_t_0040arduino_002fdelete" accesskey="6">@arduino/delete</a></li>
-<li><a href="#g_t_0040arduino_002fdisplay" accesskey="7">@arduino/display</a></li>
+<li><a href="#g_t_0040arduino_002fdisp" accesskey="7">@arduino/disp</a></li>
 <li><a href="#g_t_0040arduino_002fgetEndian" accesskey="8">@arduino/getEndian</a></li>
 <li><a href="#g_t_0040arduino_002fgetI2CTerminals" accesskey="9">@arduino/getI2CTerminals</a></li>
 <li><a href="#g_t_0040arduino_002fgetInterruptTerminals">@arduino/getInterruptTerminals</a></li>
@@ -1859,11 +1859,11 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <p><strong class="strong">See also:</strong> arduino.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040arduino_002fdisplay">
-<h4 class="subsection">9.2.7 @arduino/display</h4>
-<a class="index-entry-id" id="index-display"></a>
+<div class="subsection-level-extent" id="g_t_0040arduino_002fdisp">
+<h4 class="subsection">9.2.7 @arduino/disp</h4>
+<a class="index-entry-id" id="index-disp"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-11"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-display-11'></a></span></dt>
+<dt class="deftypefn" id="index-disp-11"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-disp-11'></a></span></dt>
 <dd><p>Display the arduino object in a verbose way, showing the board and available pins.
 </p>
 <h4 class="subsubheading" id="Inputs-10">Inputs</h4>
@@ -2563,14 +2563,14 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <a class="index-entry-id" id="index-Arduino-I2C-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040device_002fdelete" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdisplay" accesskey="2">@device/display</a></li>
+<li><a href="#g_t_0040device_002fdisp" accesskey="2">@device/disp</a></li>
 <li><a href="#g_t_0040device_002fread" accesskey="3">@device/read</a></li>
 <li><a href="#g_t_0040device_002freadRegister" accesskey="4">@device/readRegister</a></li>
 <li><a href="#g_t_0040device_002fsubsref" accesskey="5">@device/subsref</a></li>
 <li><a href="#g_t_0040device_002fwrite" accesskey="6">@device/write</a></li>
 <li><a href="#g_t_0040device_002fwriteRegister" accesskey="7">@device/writeRegister</a></li>
 <li><a href="#g_t_0040i2cdev_002fdelete" accesskey="8">@i2cdev/delete</a></li>
-<li><a href="#g_t_0040i2cdev_002fdisplay" accesskey="9">@i2cdev/display</a></li>
+<li><a href="#g_t_0040i2cdev_002fdisp" accesskey="9">@i2cdev/disp</a></li>
 <li><a href="#g_t_0040i2cdev_002fi2cdev">@i2cdev/i2cdev</a></li>
 <li><a href="#g_t_0040i2cdev_002fread">@i2cdev/read</a></li>
 <li><a href="#g_t_0040i2cdev_002freadRegister">@i2cdev/readRegister</a></li>
@@ -2592,11 +2592,11 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <p><strong class="strong">See also:</strong> device.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040device_002fdisplay">
-<h4 class="subsection">9.3.2 @device/display</h4>
-<a class="index-entry-id" id="index-display-1"></a>
+<div class="subsection-level-extent" id="g_t_0040device_002fdisp">
+<h4 class="subsection">9.3.2 @device/disp</h4>
+<a class="index-entry-id" id="index-disp-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-12"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-12'></a></span></dt>
+<dt class="deftypefn" id="index-disp-12"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-12'></a></span></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-44">Inputs</h4>
@@ -2720,11 +2720,11 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <p><strong class="strong">See also:</strong> i2cdev.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040i2cdev_002fdisplay">
-<h4 class="subsection">9.3.9 @i2cdev/display</h4>
-<a class="index-entry-id" id="index-display-2"></a>
+<div class="subsection-level-extent" id="g_t_0040i2cdev_002fdisp">
+<h4 class="subsection">9.3.9 @i2cdev/disp</h4>
+<a class="index-entry-id" id="index-disp-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-13"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-13'></a></span></dt>
+<dt class="deftypefn" id="index-disp-13"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-13'></a></span></dt>
 <dd><p>Display i2cdev object.
 </p>
 <h4 class="subsubheading" id="Inputs-50">Inputs</h4>
@@ -2928,7 +2928,7 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <a class="index-entry-id" id="index-Arduino-Rotary-Encoder-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040rotaryEncoder_002fdelete" accesskey="1">@rotaryEncoder/delete</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002fdisplay" accesskey="2">@rotaryEncoder/display</a></li>
+<li><a href="#g_t_0040rotaryEncoder_002fdisp" accesskey="2">@rotaryEncoder/disp</a></li>
 <li><a href="#g_t_0040rotaryEncoder_002freadCount" accesskey="3">@rotaryEncoder/readCount</a></li>
 <li><a href="#g_t_0040rotaryEncoder_002freadSpeed" accesskey="4">@rotaryEncoder/readSpeed</a></li>
 <li><a href="#g_t_0040rotaryEncoder_002fresetCount" accesskey="5">@rotaryEncoder/resetCount</a></li>
@@ -2948,11 +2948,11 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <p><strong class="strong">See also:</strong> rotartEncoder.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040rotaryEncoder_002fdisplay">
-<h4 class="subsection">9.4.2 @rotaryEncoder/display</h4>
-<a class="index-entry-id" id="index-display-3"></a>
+<div class="subsection-level-extent" id="g_t_0040rotaryEncoder_002fdisp">
+<h4 class="subsection">9.4.2 @rotaryEncoder/disp</h4>
+<a class="index-entry-id" id="index-disp-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-14"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-display-14'></a></span></dt>
+<dt class="deftypefn" id="index-disp-14"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-disp-14'></a></span></dt>
 <dd><p>Display the rotary encoder object in a verbose way,
 </p>
 <h4 class="subsubheading" id="Inputs-58">Inputs</h4>
@@ -3082,7 +3082,7 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <a class="index-entry-id" id="index-Arduino-Servo-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040servo_002fdelete" accesskey="1">@servo/delete</a></li>
-<li><a href="#g_t_0040servo_002fdisplay" accesskey="2">@servo/display</a></li>
+<li><a href="#g_t_0040servo_002fdisp" accesskey="2">@servo/disp</a></li>
 <li><a href="#g_t_0040servo_002freadPosition" accesskey="3">@servo/readPosition</a></li>
 <li><a href="#g_t_0040servo_002fservo" accesskey="4">@servo/servo</a></li>
 <li><a href="#g_t_0040servo_002fsubsref" accesskey="5">@servo/subsref</a></li>
@@ -3101,15 +3101,15 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <p><strong class="strong">See also:</strong> servo.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040servo_002fdisplay">
-<h4 class="subsection">9.5.2 @servo/display</h4>
-<a class="index-entry-id" id="index-display-4"></a>
+<div class="subsection-level-extent" id="g_t_0040servo_002fdisp">
+<h4 class="subsection">9.5.2 @servo/disp</h4>
+<a class="index-entry-id" id="index-disp-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-15"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-15'></a></span></dt>
+<dt class="deftypefn" id="index-disp-15"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-15'></a></span></dt>
 <dd><p>Display servo object.
 </p>
 <h4 class="subsubheading" id="Inputs-63">Inputs</h4>
-<p><var class="var">dev</var> - device to display
+<p><var class="var">dev</var> - servo device to display
 </p>
 <p><strong class="strong">See also:</strong> servo.
 </p></dd></dl>
@@ -3224,7 +3224,7 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <a class="index-entry-id" id="index-Arduino-Shiftregister-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040shiftRegister_002fdelete" accesskey="1">@shiftRegister/delete</a></li>
-<li><a href="#g_t_0040shiftRegister_002fdisplay" accesskey="2">@shiftRegister/display</a></li>
+<li><a href="#g_t_0040shiftRegister_002fdisp" accesskey="2">@shiftRegister/disp</a></li>
 <li><a href="#g_t_0040shiftRegister_002fread" accesskey="3">@shiftRegister/read</a></li>
 <li><a href="#g_t_0040shiftRegister_002freset" accesskey="4">@shiftRegister/reset</a></li>
 <li><a href="#g_t_0040shiftRegister_002fshiftRegister" accesskey="5">@shiftRegister/shiftRegister</a></li>
@@ -3244,11 +3244,11 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <p><strong class="strong">See also:</strong> shiftRegister.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040shiftRegister_002fdisplay">
-<h4 class="subsection">9.6.2 @shiftRegister/display</h4>
-<a class="index-entry-id" id="index-display-5"></a>
+<div class="subsection-level-extent" id="g_t_0040shiftRegister_002fdisp">
+<h4 class="subsection">9.6.2 @shiftRegister/disp</h4>
+<a class="index-entry-id" id="index-disp-5"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-16"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-display-16'></a></span></dt>
+<dt class="deftypefn" id="index-disp-16"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-disp-16'></a></span></dt>
 <dd><p>Display the register object in a verbose way,
 </p>
 <h4 class="subsubheading" id="Inputs-68">Inputs</h4>
@@ -3395,11 +3395,11 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <a class="index-entry-id" id="index-Arduino-SPI-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040device_002fdelete-1" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdisplay-1" accesskey="2">@device/display</a></li>
+<li><a href="#g_t_0040device_002fdisp-1" accesskey="2">@device/disp</a></li>
 <li><a href="#g_t_0040device_002fsubsref-1" accesskey="3">@device/subsref</a></li>
 <li><a href="#g_t_0040device_002fwriteRead" accesskey="4">@device/writeRead</a></li>
 <li><a href="#g_t_0040spidev_002fdelete" accesskey="5">@spidev/delete</a></li>
-<li><a href="#g_t_0040spidev_002fdisplay" accesskey="6">@spidev/display</a></li>
+<li><a href="#g_t_0040spidev_002fdisp" accesskey="6">@spidev/disp</a></li>
 <li><a href="#g_t_0040spidev_002fspidev" accesskey="7">@spidev/spidev</a></li>
 <li><a href="#g_t_0040spidev_002fsubsref" accesskey="8">@spidev/subsref</a></li>
 <li><a href="#g_t_0040spidev_002fwriteRead" accesskey="9">@spidev/writeRead</a></li>
@@ -3417,11 +3417,11 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <p><strong class="strong">See also:</strong> device.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040device_002fdisplay-1">
-<h4 class="subsection">9.7.2 @device/display</h4>
-<a class="index-entry-id" id="index-display-6"></a>
+<div class="subsection-level-extent" id="g_t_0040device_002fdisp-1">
+<h4 class="subsection">9.7.2 @device/disp</h4>
+<a class="index-entry-id" id="index-disp-6"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-17"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-17'></a></span></dt>
+<dt class="deftypefn" id="index-disp-17"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-17'></a></span></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-74">Inputs</h4>
@@ -3472,11 +3472,11 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <p><strong class="strong">See also:</strong> spidev.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040spidev_002fdisplay">
-<h4 class="subsection">9.7.6 @spidev/display</h4>
-<a class="index-entry-id" id="index-display-7"></a>
+<div class="subsection-level-extent" id="g_t_0040spidev_002fdisp">
+<h4 class="subsection">9.7.6 @spidev/disp</h4>
+<a class="index-entry-id" id="index-disp-7"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-18"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-18'></a></span></dt>
+<dt class="deftypefn" id="index-disp-18"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-18'></a></span></dt>
 <dd><p>Display spidev object.
 </p>
 <h4 class="subsubheading" id="Inputs-77">Inputs</h4>
@@ -3585,7 +3585,7 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <ul class="mini-toc">
 <li><a href="#g_t_0040device_002fdelete-2" accesskey="1">@device/delete</a></li>
 <li><a href="#g_t_0040device_002fdevice" accesskey="2">@device/device</a></li>
-<li><a href="#g_t_0040device_002fdisplay-2" accesskey="3">@device/display</a></li>
+<li><a href="#g_t_0040device_002fdisp-2" accesskey="3">@device/disp</a></li>
 <li><a href="#g_t_0040device_002fflush" accesskey="4">@device/flush</a></li>
 <li><a href="#g_t_0040device_002fread-1" accesskey="5">@device/read</a></li>
 <li><a href="#g_t_0040device_002fsubsref-2" accesskey="6">@device/subsref</a></li>
@@ -3750,11 +3750,11 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <p><strong class="strong">See also:</strong> arduino, i2cdev, spidev.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040device_002fdisplay-2">
-<h4 class="subsection">9.8.3 @device/display</h4>
-<a class="index-entry-id" id="index-display-8"></a>
+<div class="subsection-level-extent" id="g_t_0040device_002fdisp-2">
+<h4 class="subsection">9.8.3 @device/disp</h4>
+<a class="index-entry-id" id="index-disp-8"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-19"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-19'></a></span></dt>
+<dt class="deftypefn" id="index-disp-19"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-19'></a></span></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-82">Inputs</h4>
@@ -3850,7 +3850,7 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <ul class="mini-toc">
 <li><a href="#g_t_0040device_002fdelete-3" accesskey="1">@device/delete</a></li>
 <li><a href="#g_t_0040device_002fdevice-1" accesskey="2">@device/device</a></li>
-<li><a href="#g_t_0040device_002fdisplay-3" accesskey="3">@device/display</a></li>
+<li><a href="#g_t_0040device_002fdisp-3" accesskey="3">@device/disp</a></li>
 <li><a href="#g_t_0040device_002fflush-1" accesskey="4">@device/flush</a></li>
 <li><a href="#g_t_0040device_002fread-2" accesskey="5">@device/read</a></li>
 <li><a href="#g_t_0040device_002freadRegister-1" accesskey="6">@device/readRegister</a></li>
@@ -4018,11 +4018,11 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <p><strong class="strong">See also:</strong> arduino, i2cdev, spidev.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040device_002fdisplay-3">
-<h4 class="subsection">9.9.3 @device/display</h4>
-<a class="index-entry-id" id="index-display-9"></a>
+<div class="subsection-level-extent" id="g_t_0040device_002fdisp-3">
+<h4 class="subsection">9.9.3 @device/disp</h4>
+<a class="index-entry-id" id="index-disp-9"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-20"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-20'></a></span></dt>
+<dt class="deftypefn" id="index-disp-20"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-20'></a></span></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-88">Inputs</h4>
@@ -4184,7 +4184,7 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <a class="index-entry-id" id="index-Arduino-Ultrasonic-Functions"></a>
 <ul class="mini-toc">
 <li><a href="#g_t_0040ultrasonic_002fdelete" accesskey="1">@ultrasonic/delete</a></li>
-<li><a href="#g_t_0040ultrasonic_002fdisplay" accesskey="2">@ultrasonic/display</a></li>
+<li><a href="#g_t_0040ultrasonic_002fdisp" accesskey="2">@ultrasonic/disp</a></li>
 <li><a href="#g_t_0040ultrasonic_002freadDistance" accesskey="3">@ultrasonic/readDistance</a></li>
 <li><a href="#g_t_0040ultrasonic_002freadEchoTime" accesskey="4">@ultrasonic/readEchoTime</a></li>
 <li><a href="#g_t_0040ultrasonic_002fsubsref" accesskey="5">@ultrasonic/subsref</a></li>
@@ -4203,11 +4203,11 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <p><strong class="strong">See also:</strong> ultrasonic.
 </p></dd></dl>
 </div>
-<div class="subsection-level-extent" id="g_t_0040ultrasonic_002fdisplay">
-<h4 class="subsection">9.10.2 @ultrasonic/display</h4>
-<a class="index-entry-id" id="index-display-10"></a>
+<div class="subsection-level-extent" id="g_t_0040ultrasonic_002fdisp">
+<h4 class="subsection">9.10.2 @ultrasonic/disp</h4>
+<a class="index-entry-id" id="index-disp-10"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-21"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-display-21'></a></span></dt>
+<dt class="deftypefn" id="index-disp-21"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-21'></a></span></dt>
 <dd><p>Display ultrasonic object.
 </p>
 <h4 class="subsubheading" id="Inputs-96">Inputs</h4>
@@ -5441,7 +5441,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <p><strong class="strong">See also:</strong> arduino, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-22"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-display-22'></a></span></dt>
+<dt class="deftypefn" id="index-disp-22"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-22'></a></span></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 </div>
@@ -5515,7 +5515,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <p><strong class="strong">See also:</strong> arduino, listArduinoLibraries, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-23"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-display-23'></a></span></dt>
+<dt class="deftypefn" id="index-disp-23"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-23'></a></span></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 </div>
@@ -5596,7 +5596,7 @@ Next: <a href="#Sensors" accesskey="n" rel="next">Sensors</a>, Previous: <a href
 <p><strong class="strong">See also:</strong> arduino, listArduinoLibraries, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-display-24"><span class="category-def">: </span><span><strong class="def-name">display</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-display-24'></a></span></dt>
+<dt class="deftypefn" id="index-disp-24"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-24'></a></span></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 <hr>
@@ -7471,17 +7471,17 @@ Previous: <a href="#Copying" accesskey="p" rel="prev">GNU General Public License
 <tr><td></td><td class="printindex-index-entry"><a href="#index-delete-10">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-device">device</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-device-1">device</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-1">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-2">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-3">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-4">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-5">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-6">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-7">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-8">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-9">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-display-10">display</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-1">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-2">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-3">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-4">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-5">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-6">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-7">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-8">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-9">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-10">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307">DS1307</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307-1">DS1307</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>

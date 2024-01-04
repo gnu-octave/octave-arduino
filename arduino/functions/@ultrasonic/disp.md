@@ -1,12 +1,12 @@
 ---
 layout: "default"
-permalink: "/functions/@shiftRegister/21_shiftRegisterdelete/"
+permalink: "/functions/@ultrasonic/16_ultrasonicdisp/"
 pkg_name: "arduino"
 pkg_version: "0.12.1"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
-title: "Arduino Toolkit - @shiftRegister/delete"
-category: "Arduino Shiftregister Functions"
-func_name: "@shiftRegister/delete"
+title: "Arduino Toolkit - @ultrasonic/disp"
+category: "Arduino Ultrasonic Functions"
+func_name: "@ultrasonic/disp"
 navigation:
 - id: "overview"
   name: "Overview"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete'></a></span></dt>
-<dd><p>Free resources of a shiftRegister object.
+<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp'></a></span></dt>
+<dd><p>Display ultrasonic object.
 </p>
 <h4 class="subsubheading" id="Inputs">Inputs</h4>
-<p><var class="var">dev</var> - object to free
+<p><var class="var">dev</var> - ultrasonic object to display
 </p>
 
-<p><strong class="strong">See also:</strong> shiftRegister.
+<p><strong class="strong">See also:</strong> ultrasonic.
  </p></dd></dl>
