@@ -1,3 +1,10 @@
+Summary of important user-visible changes for arduino 0.12.1:
+-------------------------------------------------------------------
+
+  ** Bugfix for scanForArduinos to ensure release of serial port
+
+  ** Use disp not display for object display functionality
+
 Summary of important user-visible changes for arduino 0.12.0:
 -------------------------------------------------------------------
 

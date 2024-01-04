@@ -1,5 +1,5 @@
 \input texinfo @c -*-texinfo-*-
-@c Copyright (c) 2018-2022, John Donoghue <john.donoghue@ieee.org>
+@c Copyright (c) 2018-2024, John Donoghue <john.donoghue@ieee.org>
 @c Octave Arduino - a somewhat Matlab compatible Arduino toolkit for GNU octave.
 
 @c For manually generating the documentation use
@@ -11,7 +11,7 @@
 @afourpaper
 @paragraphindent 0
 @finalout
-@set COPYRIGHT_DATE 2018-2023
+@set COPYRIGHT_DATE 2018-2024
 @c @afourwide
 @c %*** End of the HEADER
 
@@ -63,7 +63,7 @@ Octave that you have.  The precise conditions can be found in the
 Octave arduino package and that also appears in @ref{Copying}.
 
 To download a copy of the @acronym{GNU} Octave arduino package, please visit
-@url{http://octave.sourceforge.net/arduino/}.
+@url{https://github.com/gnu-octave/octave-arduino/releases}.
 
 @end titlepage
 @c %*** End of TITLEPAGE

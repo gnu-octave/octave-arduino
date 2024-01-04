@@ -1,6 +1,6 @@
 Name: arduino
-Version: 0.12.0
-Date: 2023-12-22
+Version: 0.12.1
+Date: 2023-01-04
 Author: John Donoghue <john.donoghue@ieee.org>
 Maintainer: John Donoghue <john.donoghue@ieee.org>
 Title: Octave Arduino Toolkit
@@ -11,4 +11,5 @@ Categories: Arduino Toolkit
 Depends: octave (>= 4.0.0), instrument-control (>= 0.5.0)
 SystemRequirements: arduino-ide (>= 1.5)
 License: GPLv3+
-Url: https://octave.sourceforge.io/arduino/
+Url: https://gnu-octave.github.io/octave-arduino/
+Repository: https://github.com/gnu-octave/octave-arduino/
