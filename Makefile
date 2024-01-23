@@ -130,7 +130,8 @@ ifeq (${vcs},git)
 endif
 	$(MAKE) -C "$@" docs
 	# remove dev stuff
-	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" && $(RM) -f doc/mkfuncdocs.py doc/mkqhcp.py
+	cd "$@" && $(RM) -rf "devel/" && $(RM) -rf "deprecated/" 
+	# && $(RM) -f doc/mkfuncdocs.py doc/mkqhcp.py
 	cd "$@" && $(RM) Makefile
 	chmod -R a+rX,u+w,go-w "$@"
 
