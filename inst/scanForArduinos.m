@@ -1,4 +1,4 @@
-## Copyright (C) 2018-2019 John Donoghue <john.donoghue@ieee.org>
+## Copyright (C) 2018-2025 John Donoghue <john.donoghue@ieee.org>
 ## 
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -154,6 +154,30 @@ function arduinos = scanForArduinos (varargin)
 
   # get list of serial ports to try
   ports = serialportlist ();
+
+  if ismac()
+    filtered_ports = {};
+    for i = 1:numel(ports)
+      port_lower = lower(ports{i});
+      # Skip Bluetooth ports and other unlikely ports
+      if strfind(port_lower, "bluetooth") || ...
+         strfind(port_lower, "airpods") || ...
+         strfind(port_lower, "phone") || ...
+         strfind(port_lower, "console") || ...
+         strfind(port_lower, "debug") || ...
+         strfind(port_lower, "irda") || ...
+         strfind(port_lower, "virtual")
+
+        if debug_flag
+          printf("* skipping unlikely port: %s\n", ports{i});
+        endif
+      else
+        # add in reverse order since arduinos are typically at the end
+        filtered_ports = [ports{i}; filtered_ports];
+      endif
+    endfor
+    ports = filtered_ports;
+  endif
 
   for i = 1:numel (ports)
     try
