@@ -240,7 +240,7 @@ classdef lsm6dso < handle
     LSM6DSO_REG_FIFO_DATA_OUT_Y_L = 0x7B; # R 7B 01111011 output
     LSM6DSO_REG_FIFO_DATA_OUT_Y_H = 0x7C; # R 7C 01111100 output
     LSM6DSO_REG_FIFO_DATA_OUT_Z_L = 0x7D; # R 7D 01111101 output
-    LSM6DSO_REG_FIFO_DATA_OUT_X_H = 0x7E; # R 7E 01111110 output
+    LSM6DSO_REG_FIFO_DATA_OUT_Z_H = 0x7E; # R 7E 01111110 output
 
   endproperties
   
