@@ -23,8 +23,8 @@ function list = __arduino_serialportlist__(debug_flag=0)
         list{end+1} = ports{i};
       endif
     endfor
-  elif isunix()
-    list = port_sort(list, @unix_port_compare)
+  elseif isunix() && !ispc()
+    list = port_sort(ports, @unix_port_compare);
   else
     list = ports;
   endif
