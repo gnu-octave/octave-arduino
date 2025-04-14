@@ -151,7 +151,7 @@ classdef arduino < handle
           error ("arduino: port must be a string");         
         endif
         
-        if !ischar (port)
+        if !ischar (board)
           error ("arduino: board must be a string");         
         endif
 
