@@ -38,7 +38,7 @@ endfunction
 function arduino_binary = find_arduino_binary ()
   
   # use arduino_debug.exe in windoze ?
-  binary_name = "arduino";
+  binary_name = {"arduino", "arduino-ide"};
   arduino_binary = "";
   have_prefs = false;
 
@@ -52,11 +52,29 @@ function arduino_binary = find_arduino_binary ()
   endif
   
   if (isunix ())
-    binaries = strcat (binary_name, {"", ".exe"});
+    binaries = {}'
+    for idx=1:numel(binary_name)
+      binaries{end+1} = binary_name{idx};
+      binaries{end+1} = strcat (binary_name{idx}, ".exe");
+    endfor
   else
-    binaries = strcat (binary_name, {".exe"});
+    binaries = {}'
+    for idx=1:numel(binary_name)
+      binaries{end+1} = strcat (binary_name{idx}, ".exe");
+    endfor
   endif
 
+  # do we have a ARDUINO_HOME ?
+  if isempty (arduino_binary)
+    if isenv("ARDUINO_HOME")
+      n=0;
+      while (n < numel (binaries) && isempty (arduino_binary))
+        arduino_binary = file_in_path (getenv ("ARDUINO_HOME"), binaries{++n});
+      endwhile
+    endif
+  endif
+
+  # can we find in path
   n = 0;
   while (n < numel (binaries) && isempty (arduino_binary))
     arduino_binary = file_in_path (getenv ("PATH"), binaries{++n});
