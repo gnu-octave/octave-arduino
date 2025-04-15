@@ -18,6 +18,7 @@ GREP      ?= grep
 TAR       ?= tar
 TEXI2PDF  ?= texi2pdf -q
 MAKEINFO  ?= makeinfo
+MAKEINFO_HTML_OPTIONS := --no-headers --set-customization-variable 'COPIABLE_LINKS 0' --set-customization-variable 'COPIABLE_ANCHORS 0' --no-split 
 CUT ?= cut
 TR ?= tr
 
@@ -159,7 +160,7 @@ doc/$(PACKAGE).pdf: doc/$(PACKAGE).texi doc/functions.texi doc/version.texi
 	cd doc && $(RM) -f arduino.aux  arduino.cp  arduino.cps  arduino.fn  arduino.fns  arduino.log  arduino.toc
 
 doc/$(PACKAGE).html: doc/$(PACKAGE).texi doc/functions.texi doc/version.texi
-	cd doc && SOURCE_DATE_EPOCH=$(REPO_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css  --no-split --output=${PACKAGE}.html $(PACKAGE).texi
+	cd doc && SOURCE_DATE_EPOCH=$(REPO_TIMESTAMP) $(MAKEINFO) --html --css-ref=$(PACKAGE).css $(MAKEINFO_HTML_OPTIONS) --output=${PACKAGE}.html $(PACKAGE).texi
 
 doc/$(PACKAGE).qhc: doc/$(PACKAGE).html
 	# try also create qch file if can

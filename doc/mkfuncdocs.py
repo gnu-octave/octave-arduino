@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-## Copyright 2018-2023 John Donoghue
+## Copyright 2018-2024 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.7
+## mkfuncdocs v1.0.8
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -88,6 +88,36 @@ def find_defun_line_in_file(filename, fnname):
       linecnt = linecnt + 1
 
   return -1
+
+def find_function_line_in_file(filename, fnname):
+  linecnt = 0
+  func = False
+  defun_line=re.compile(r"^\s*function \s*")
+  with open(filename, 'rt') as f:
+    for line in f:
+      if func == True:
+          x = line.strip()
+          if x.startswith("## -*- texinfo -*-"):
+            return linecnt
+          else:
+            func = False
+
+      if re.match(defun_line, line):
+        if line.find("=") != -1:
+           x = line.split("=")
+           x = x[-1]
+        else:
+           x = line.replace("function ", "")
+
+        x = x.split("(")
+        x = x[0].strip()
+        if x == fnname:
+          func = True
+
+      linecnt = linecnt + 1
+
+  return -1
+
 
 def read_m_file(filename, skip=0):
   help = []
@@ -195,6 +225,29 @@ def read_index (filename, ignore):
 
   return index;
 
+def find_class_file(fname, paths):
+  
+  for f in paths:
+      # class constructor ?
+      name = f + "/@" + fname + "/" + fname + ".m"
+      if os.path.isfile(name):
+        return name, 0
+
+      # perhaps classname.func format ?
+      x = fname.split(".")
+      if len(x) > 0:
+          zname = x.pop()
+          cname = ".".join(x)
+          name = f + "/" + cname + ".m"
+          if os.path.isfile(name):
+            idx = find_function_line_in_file(name, zname)
+            if idx >= 0:
+              return name, idx
+          name = f + "/@" + cname + "/" + zname + ".m"
+          if os.path.isfile(name):
+            return name, 0
+  return None, -1
+
 def find_func_file(fname, paths, prefix, scanfiles=False):
   for f in paths:
       name = f + "/" + fname + ".m"
@@ -204,7 +257,6 @@ def find_func_file(fname, paths, prefix, scanfiles=False):
       name = f + "/@" + fname + "/" + fname + ".m"
       if os.path.isfile(name):
         return name, 0
-      name = f + "/" + fname + ".cc"
       name = f + "/" + fname + ".cc"
       if os.path.isfile(name):
         return name, 0
@@ -335,19 +387,26 @@ def process (args):
         ref = f.split("/")[-1]
         filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
       elif "." in f:
-        parts = f.split('.')
-        cnt  = 0
-        path = ""
-        for p in parts:
+        path = f
+        ref = f.split(".")[-1]
+        name = f.split(".")[-1]
+        filename, lineno = find_class_file(path, options["srcdir"])
+
+        if not filename:
+          parts = f.split('.')
+          cnt  = 0
+          path = ""
+          for p in parts:
             if cnt < len(parts)-1:
               path = path + "/+"
             else:
               path = path + "/"
             path = path + p
             cnt = cnt + 1
-        name = f;
-        ref = parts[-1]
-        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+          name = f;
+          ref = parts[-1]
+          filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+
       elif "/" in f:
         path = f
         name = f
@@ -360,7 +419,7 @@ def process (args):
         filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"], options['allowscan'])
 
       if not filename:
-        sys.stderr.write("Warning: Cant find source file for {}\n".format(path))
+        sys.stderr.write("Warning: Cant find source file for {}\n".format(f))
       else:
         h = read_help (filename, lineno)
 

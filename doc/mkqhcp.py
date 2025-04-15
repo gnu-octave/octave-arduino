@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 ## mkqhcp.py
-## Version 1.0.3
+## Version 1.0.4
 
 ## Copyright 2022-2023 John Donoghue
 ##
@@ -51,13 +51,21 @@ def process(name):
           title = e.group("title")
           break
 
+  # section
   h2_match = re.compile(r'.*<h2 class="chapter"[^>]*>(?P<title>[^<]+)</h2>.*')
+  # appendix
+  h2a_match = re.compile(r'.*<h2 class="appendix"[^>]*>(?P<title>[^<]+)</h2>.*')
+  # index
+  h2i_match = re.compile(r'.*<h2 class="unnumbered"[^>]*>(?P<title>[^<]+)</h2>.*')
+
   h3_match = re.compile(r'.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
   h4_match = re.compile(r'.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
   tag_match1 = re.compile(r'.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
   #tag_match2 = re.compile(r'.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match2 = re.compile(r'.*<div class="[sub]*section[^"]*" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match3 = re.compile(r'.*<div class="chapter-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match4 = re.compile(r'.*<div class="appendix-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
+  tag_match5 = re.compile(r'.*<div class="unnumbered-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
   index_match = re.compile(r'.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
 
   tag = "top"
@@ -82,10 +90,18 @@ def process(name):
               e = tag_match2.match(line)
           if not e:
               e = tag_match3.match(line)
+          if not e:
+              e = tag_match4.match(line)
+          if not e:
+              e = tag_match5.match(line)
           if e:
               tag = e.group("tag")
 
           e = h2_match.match(line)
+          if not e:
+              e = h2a_match.match(line)
+          if not e:
+              e = h2i_match.match(line)
           if e:
               if has_h3:
                   f.write('          </section>\n')

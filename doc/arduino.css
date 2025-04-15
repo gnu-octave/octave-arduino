@@ -8,12 +8,16 @@ pre.example {
   background-color: #fdf6e3;
   padding: 0.5em; }
 
-table.cartouche {
+a { color: #268bd2; /* blue */ }
+
+a:visited { color: #d33682; /* magenta */ }
+
+table.cartouche1 {
   border: 1px solid #948473;
   background-color: #FFE3C6;
   width: 100%;
 }
-table.cartouche td, table.cartouche th {
+table.cartouche1 td, table.cartouche1 th {
   border: 1px solid #948473;
   padding: 4px 4px;
 }
