@@ -14,7 +14,10 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## test program for octave - arduino - mcp3002 10 bit ADC (spi)
+% test program for octave - arduino - mcp3002 10 bit ADC (spi)
+
+sel_pin = "d10"
+
 # Assuming connections of
 # Arduino     MCP3002
 # D10      -  1 (CS)
@@ -32,7 +35,7 @@ unwind_protect
   # talk to the mpc3002 via spi - SS = D10 on uno
   # set msb mode
   #spi = spidev(ar, "d10")
-  spi = device(ar, "spichipselectpin", "d10")
+  spi = device(ar, "spichipselectpin", sel_pin)
 
   # command (bits) in MSB mode to device
   # [START SGL ODN MSBF X X X X] [ X X X X X X X X ] 
