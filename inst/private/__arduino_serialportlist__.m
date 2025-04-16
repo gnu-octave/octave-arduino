@@ -25,6 +25,8 @@ function list = __arduino_serialportlist__(debug_flag=0)
     endfor
   elseif isunix() && !ispc()
     list = port_sort(ports, @unix_port_compare);
+  elseif !isunix() && ispc()
+    list = port_sort(ports, @win32_port_compare);
   else
     list = ports;
   endif
@@ -67,10 +69,29 @@ function res = unix_port_compare(s1, s2)
   endif
 endfunction
 
+function res = win32_port_compare(s1, s2)
+  # we want to priortise comports - assuming
+  # that comports more likely to arduinos
+  # will be towards end of the list
+ 
+  s1_p = strncmp(s1, "COM", 3);
+  s2_p = strncmp(s2, "COM", 3);
+  if s1_p && s2_p
+    # sort numerically
+    s1_p = sscanf(s1, "COM%d");
+    s2_p = sscanf(s2, "COM%d");
+    # reverse order
+    res = s2_p - s1_p;
+  else
+    res = c_strcmp(s2, s1);
+  endif
+endfunction
+
 function slist = port_sort(ulist, sort_method=@c_strcmp)
   # crappy bubble sort for now
   sorted = false;
-  while sorted == false
+  max_try = length(ulist) * length(ulist);
+  while sorted == false && max_try > 0
     sorted = true;
     for idx=1:length(ulist)-1
       cmp = sort_method(ulist{idx}, ulist{idx+1});
@@ -82,6 +103,8 @@ function slist = port_sort(ulist, sort_method=@c_strcmp)
 	ulist{idx+1} = t;
 	sorted = false;
       endif
+      # fail safe in case we get given some function that means we can never sort 
+      max_try = max_try - 1;
     endfor
   endwhile
   slist = ulist;
