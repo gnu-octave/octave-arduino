@@ -1,3 +1,14 @@
+Summary of important user-visible changes for arduino 0.12.2:
+-------------------------------------------------------------------
+
+  ** Added priortization of ports when scanning for arduinos.
+
+  ** Updated search for arduino binary for ARDUINO_HOME env settings, and arduino-ide
+
+  ** Bugfix: lsm6dso duplicate property name
+
+  ** Minor doc updates
+
 Summary of important user-visible changes for arduino 0.12.1:
 -------------------------------------------------------------------
 
