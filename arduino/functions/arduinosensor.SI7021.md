@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/20_arduinosensorSI7021/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosensor.SI7021"
 category: "Arduino Sensors"
@@ -70,16 +70,16 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eSI7021"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.SI7021</strong><a class="copiable-link" href='#index-arduinosensor_002eSI7021'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eSI7021"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.SI7021</strong><a class="copiable-link" href="#index-arduinosensor_002eSI7021"></a></span></dt>
 <dd><p>SI7021 temperature and humidity sensor
  </p></dd></dl>
 
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-SI7021_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-SI7021_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-SI7021_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-SI7021_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-SI7021_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>)</strong><a class="copiable-link" href="#index-SI7021_0028arObj_0029"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-SI7021_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href="#index-SI7021_0028arObj_002c"></a></span></dt>
 <dd><p>Constructor to create SI7021 sensor
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">arObj</var> - the arduino parent object
 </p>
 <p><var class="var">propertyname, propertyvalue</var> - optional property name, value pairs.
@@ -91,10 +91,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">obj</var> - created SI7020 object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -104,16 +104,16 @@ navigation:
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-temperature_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">C</var> =</code> <strong class="def-name">temperature(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-temperature_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-temperature_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">C</var> =</code> <strong class="def-name">temperature(<var class="var">dsObj</var>)</strong><a class="copiable-link" href="#index-temperature_0028dsObj_0029"></a></span></dt>
 <dd><p>Read the temperature
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">dsObj</var> - the si7021 object
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p><var class="var">C</var> - read temperature in deg C.
 </p>
-<h4 class="subsubheading" id="Example-1">Example</h4>
+<h4 class="subsubheading" id="Example-1"><span>Example<a class="copiable-link" href="#Example-1"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -127,24 +127,24 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-humidity_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">humidity(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-humidity_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-humidity_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">humidity(<var class="var">dsObj</var>)</strong><a class="copiable-link" href="#index-humidity_0028dsObj_0029"></a></span></dt>
 <dd><p>Read the relative humidity
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p><var class="var">dsObj</var> - the si7021 object
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p><var class="var">relH</var> - relative humidity as a percentage (0 - 100.0)
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-info_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong><a class="copiable-link" href="#index-info_0028dsObj_0029"></a></span></dt>
 <dd><p>Read the sensor info
 </p>
-<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-3"><span>Inputs<a class="copiable-link" href="#Inputs-3"></a></span></h4>
 <p><var class="var">dsObj</var> - the si7021 object
 </p>
-<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-3"><span>Outputs<a class="copiable-link" href="#Outputs-3"></a></span></h4>
 <p><var class="var">inf</var> - structure containing the sensor information.
 </p>
 <p>Structure fields are:

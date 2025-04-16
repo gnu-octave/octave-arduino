@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/17_devicewriteRead/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/writeRead"
 category: "Arduino Device Functions"
@@ -70,16 +70,16 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readWrite"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-readWrite'></a></span></dt>
+<dt class="deftypefn" id="index-readWrite"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href="#index-readWrite"></a></span></dt>
 <dd><p>Write uint8 data to spi device and return 
  back clocked out response data of same size.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">spi</var> - connected spi device on arduino
 </p>
 <p><var class="var">dataIn</var> - uint8 sized data to send to spi device framed between SS frame.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">dataOut</var> - uint8 data clocked out during send to dataIn.
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/34_arduinogetSharedResourceProperty/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getSharedResourceProperty"
 category: "Arduino Functions"
@@ -70,17 +70,17 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getSharedResourceProperty"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">property</var>)</code><a class="copiable-link" href='#index-getSharedResourceProperty'></a></span></dt>
+<dt class="deftypefn" id="index-getSharedResourceProperty"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">property</var>)</code><a class="copiable-link" href="#index-getSharedResourceProperty"></a></span></dt>
 <dd><p>Get the value of a property from a given resource.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">resource</var> - name of resource to get property for.
 </p>
 <p><var class="var">property</var> - name of property from the resource.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">propvalue</var> - value of the property
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/33_arduinoioaddonsExampleAddonEcho/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.ExampleAddon.Echo"
 category: "Arduino Addons"
@@ -70,7 +70,7 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eExampleAddon_002eEcho"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.ExampleAddon.Echo</strong><a class="copiable-link" href='#index-arduinoioaddons_002eExampleAddon_002eEcho'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eExampleAddon_002eEcho"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.ExampleAddon.Echo</strong><a class="copiable-link" href="#index-arduinoioaddons_002eExampleAddon_002eEcho"></a></span></dt>
 <dd><p>Basic Example matlab/octave code to illustrate creating
  a user addon. 
 </p>
@@ -78,30 +78,30 @@ navigation:
 <p><strong class="strong">See also:</strong> addon.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p><var class="var">Parent</var> - the parent arduino object.
 </p>
 <p><var class="var">Pins</var> - the pins allocated the addon.
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-Echo_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">Echo(arObj)</strong><a class="copiable-link" href='#index-Echo_0028arObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-Echo_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">Echo(arObj)</strong><a class="copiable-link" href="#index-Echo_0028arObj_0029"></a></span></dt>
 <dd><p>Constructor to create Echo addon
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">arObj</var> - the arduino parent object
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">obj</var> - created Echo object
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-shout_0028text_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">response</var> =</code> <strong class="def-name">shout(<var class="var">text</var>)</strong><a class="copiable-link" href='#index-shout_0028text_0029'></a></span></dt>
+<dt class="deftypefn" id="index-shout_0028text_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">response</var> =</code> <strong class="def-name">shout(<var class="var">text</var>)</strong><a class="copiable-link" href="#index-shout_0028text_0029"></a></span></dt>
 <dd><p>Send text to arduino and receive back the echoed reply
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">text</var> - text to send to arduino
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p><var class="var">response</var> - response from the arduino, which should be the same as 
  the input text.
  </p></dd></dl>

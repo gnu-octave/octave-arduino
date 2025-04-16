@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/5_addon/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - addon"
 category: "Arduino Addons"
@@ -70,11 +70,11 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-addon"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>)</code><a class="copiable-link" href='#index-addon'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-addon-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>, varargs)</code><a class="copiable-link" href='#index-addon-1'></a></span></dt>
+<dt class="deftypefn" id="index-addon"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>)</code><a class="copiable-link" href="#index-addon"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-addon-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>, varargs)</code><a class="copiable-link" href="#index-addon-1"></a></span></dt>
 <dd><p>Create an addon object using the addon named class.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">addonname</var> - the name of the addon to create. The addon name can be a user 
@@ -84,7 +84,7 @@ navigation:
 <p><var class="var">varargs</var> - optional values that will be provided verbatim to the
  the addon class constructor.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - cell array of string library names. 
 </p>
 

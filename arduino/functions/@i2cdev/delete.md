@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/14_i2cdevdelete/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/delete"
 category: "Arduino I2C Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete'></a></span></dt>
+<dt class="deftypefn" id="index-delete"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href="#index-delete"></a></span></dt>
 <dd><p>Free resources of a i2cdev object.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - object to free
 </p>
 

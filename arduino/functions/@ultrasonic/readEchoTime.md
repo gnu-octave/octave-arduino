@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@ultrasonic/24_ultrasonicreadEchoTime/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @ultrasonic/readEchoTime"
 category: "Arduino Ultrasonic Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readEchoTime"><span class="category-def">: </span><span><code class="def-type"><var class="var">time</var> =</code> <strong class="def-name">readEchoTime</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-readEchoTime'></a></span></dt>
+<dt class="deftypefn" id="index-readEchoTime"><span class="category-def">: </span><span><code class="def-type"><var class="var">time</var> =</code> <strong class="def-name">readEchoTime</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href="#index-readEchoTime"></a></span></dt>
 <dd><p>Measure the time for waves to reflect back to the ultrasonic device
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected ultrasonic device opened using ultrasonic()
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">time</var> - time in seconds, or Inf if out of sensor range
 </p>
 

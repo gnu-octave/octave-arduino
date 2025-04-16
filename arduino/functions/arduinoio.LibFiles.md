@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/18_arduinoioLibFiles/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoio.LibFiles"
 category: "Arduino I/O package"
@@ -70,8 +70,8 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eLibFiles"><span class="category-def">: </span><span><code class="def-type"><var class="var">filelist</var> =</code> <strong class="def-name">arduinoio.LibFiles</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduinoio_002eLibFiles'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eLibFiles"><span class="category-def">: </span><span><code class="def-type"><var class="var">filelist</var> =</code> <strong class="def-name">arduinoio.LibFiles</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-arduinoio_002eLibFiles"></a></span></dt>
 <dd><p>Get the list of files used for the building arduino library
- </p><h4 class="subsubheading" id="Outputs">Outputs</h4>
+ </p><h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">filelist</var> - string cell array of files for the arduino project
  </p></dd></dl>

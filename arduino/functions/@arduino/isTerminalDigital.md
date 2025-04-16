@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/26_arduinoisTerminalDigital/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/isTerminalDigital"
 category: "Arduino Functions"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isTerminalDigital_0028obj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalDigital(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">terminal</var>)</code><a class="copiable-link" href='#index-isTerminalDigital_0028obj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-isTerminalDigital_0028obj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalDigital(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">terminal</var>)</code><a class="copiable-link" href="#index-isTerminalDigital_0028obj_002c"></a></span></dt>
 <dd><p>Return true if pin is capable of digital functions
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the connected arduino object
 </p>
 <p><var class="var">terminal</var> is a terminal number to check
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">ret</var> return 1 if terminal is a digital pin, 0 otherwise
  </p></dd></dl>

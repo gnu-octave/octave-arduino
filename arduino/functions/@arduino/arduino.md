@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/16_arduinoarduino/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/arduino"
 category: "Arduino Functions"
@@ -70,15 +70,15 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduino"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduino'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>)</code><a class="copiable-link" href='#index-arduino-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>)</code><a class="copiable-link" href='#index-arduino-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>[, [<var class="var">propname</var>, <var class="var">propvalue</var>]*)</code><a class="copiable-link" href='#index-arduino-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">iaddress</var>)</code><a class="copiable-link" href='#index-arduino-4'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">ipaddress</var>, <var class="var">board</var>)</code><a class="copiable-link" href='#index-arduino-5'></a></span></dt>
+<dt class="deftypefn" id="index-arduino"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-arduino"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>)</code><a class="copiable-link" href="#index-arduino-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>)</code><a class="copiable-link" href="#index-arduino-2"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>[, [<var class="var">propname</var>, <var class="var">propvalue</var>]*)</code><a class="copiable-link" href="#index-arduino-3"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">iaddress</var>)</code><a class="copiable-link" href="#index-arduino-4"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">ipaddress</var>, <var class="var">board</var>)</code><a class="copiable-link" href="#index-arduino-5"></a></span></dt>
 <dd><p>Create a arduino object with a connection to an arduino board.
 </p> 
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">port</var> - full path of serial port to connect to. For Linux,
  usually /dev/ttySXXX, for windows COMXX.
 </p>
@@ -108,10 +108,10 @@ navigation:
 <p>if the arduino function is called without parameters, it will scan
  for the first available arduino it can find and connect to it.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - a successfully connected arduino object.
 </p>
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The arduino object has the following public properties:
  </p><dl class="table">
 <dt>name</dt>

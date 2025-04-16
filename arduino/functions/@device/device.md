@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/14_devicedevice/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/device"
 category: "Arduino Device Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-device"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code><a class="copiable-link" href='#index-device'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code><a class="copiable-link" href='#index-device-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code><a class="copiable-link" href='#index-device-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-device-3'></a></span></dt>
+<dt class="deftypefn" id="index-device"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code><a class="copiable-link" href="#index-device"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code><a class="copiable-link" href="#index-device-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code><a class="copiable-link" href="#index-device-2"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href="#index-device-3"></a></span></dt>
 <dd><p>Create an i2c, spi or serial object to communicate on a connected arduino.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">propname</var>, <var class="var">propvalue</var> - property name/value pair for values to pass to devices.
@@ -139,10 +139,10 @@ navigation:
 </dl>
 
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">dev</var> - new created device object.
 </p> 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The object has the following public properties:
  </p><dl class="table">
 <dt>parent</dt>
@@ -155,7 +155,7 @@ navigation:
  
 <p>In addition, depending on type, the object will have these properties:
 </p>
-<h4 class="subsubheading" id="I2C-Properties">I2C Properties</h4>
+<h4 class="subsubheading" id="I2C-Properties"><span>I2C Properties<a class="copiable-link" href="#I2C-Properties"></a></span></h4>
 <p>The object has the following public properties:
  </p><dl class="table">
 <dt>bus</dt>
@@ -175,7 +175,7 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="SPI-Properties">SPI Properties</h4>
+<h4 class="subsubheading" id="SPI-Properties"><span>SPI Properties<a class="copiable-link" href="#SPI-Properties"></a></span></h4>
 <p>The object has the following public properties:
  </p><dl class="table">
 <dt>spimode</dt>
@@ -201,7 +201,7 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Serial-Properties">Serial Properties</h4>
+<h4 class="subsubheading" id="Serial-Properties"><span>Serial Properties<a class="copiable-link" href="#Serial-Properties"></a></span></h4>
 <p>The object has the following public properties:
  </p><dl class="table">
 <dt>id</dt>

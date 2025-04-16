@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/13_deviceflush/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/flush"
 category: "Arduino Device Functions"
@@ -70,18 +70,18 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-flush'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code><a class="copiable-link" href='#index-flush-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code><a class="copiable-link" href='#index-flush-2'></a></span></dt>
+<dt class="deftypefn" id="index-flush"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href="#index-flush"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code><a class="copiable-link" href="#index-flush-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code><a class="copiable-link" href="#index-flush-2"></a></span></dt>
 <dd><p>Flush the serial port buffers
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected serial device opened using device
 </p>
 <p>If an additional parameter is provided of &quot;input&quot; or &quot;output&quot;,
  then only the input or output buffer will be flushed
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p>None
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/26_arduinogetServoTerminals/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getServoTerminals"
 category: "Arduino Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getServoTerminals"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getServoTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getServoTerminals'></a></span></dt>
+<dt class="deftypefn" id="index-getServoTerminals"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getServoTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href="#index-getServoTerminals"></a></span></dt>
 <dd><p>Get a cell list of pin Ids available for servo use.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the arduino object.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">pinlist</var> - cell list of pin numbers available for servo use.
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@shiftRegister/19_shiftRegisterread/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @shiftRegister/read"
 category: "Arduino Shiftregister Functions"
@@ -70,18 +70,18 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-read'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-1'></a></span></dt>
+<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href="#index-read"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>, <var class="var">precision</var>)</code><a class="copiable-link" href="#index-read-1"></a></span></dt>
 <dd><p>read a value from the shift register.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">register</var> - shift register created from shiftRegister call.
 </p>
 <p><var class="var">precision</var> - optional precision of the data, where precision can be a 
  number in a multiple of 8 (ie: 8,16,32) or can be a named integer type:     8
  of &rsquo;uint8&rsquo;, &rsquo;uint16&rsquo;, &rsquo;uint32&rsquo;.  The default  precision is 8.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - returned data read from the register.
 </p>
 

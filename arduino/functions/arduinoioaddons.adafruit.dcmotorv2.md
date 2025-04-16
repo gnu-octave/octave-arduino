@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/34_arduinoioaddonsadafruitdcmotorv2/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.adafruit.dcmotorv2"
 category: "Arduino Addons"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.dcmotorv2</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002edcmotorv2'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.dcmotorv2</strong><a class="copiable-link" href="#index-arduinoioaddons_002eadafruit_002edcmotorv2"></a></span></dt>
 <dd><p>DC Motor class for dc motor control on the adafruit motor shield
 </p>
 
 <p><strong class="strong">See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p><var class="var">Speed</var> - The speed value set for the motor
 </p>
 <p><var class="var">Parent</var> - The parent shield for object (read only)
@@ -86,12 +86,12 @@ navigation:
 </p>
 <p><var class="var">IsRunning</var> - boolean for if the motor is started (read only)
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-dcmotorv2_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotorv2_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-dcmotorv2_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>)</code><a class="copiable-link" href="#index-dcmotorv2_0028mObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotorv2_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href="#index-dcmotorv2_0028mObj_002c-1"></a></span></dt>
 <dd><p>Constructor to create dcmotor object
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">mObj</var> - the motor shield object
 </p>
 <p><var class="var">mnum</var> - The motor number (1 - 4)
@@ -106,10 +106,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">s</var> - a dcmotorv2 object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -120,13 +120,13 @@ navigation:
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-start_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-start_0028dcObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-start_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dcObj</var>)</strong><a class="copiable-link" href="#index-start_0028dcObj_0029"></a></span></dt>
 <dd><p>Start the motor moving in previously set speed/direction
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">dcObj</var> - the dcmotor object
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p>None
 </p>
 
@@ -134,13 +134,13 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stop_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-stop_0028dcObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-stop_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dcObj</var>)</strong><a class="copiable-link" href="#index-stop_0028dcObj_0029"></a></span></dt>
 <dd><p>Stop the motor moving
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p><var class="var">dcObj</var> - the dcmotor object
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p>None
 </p>
 

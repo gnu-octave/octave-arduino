@@ -3,7 +3,7 @@ layout: "function_list"
 permalink: "/functions/"
 title: "Arduino Toolkit - Functions"
 pkg_name: "arduino"
-version: "0.12.1"
+version: "0.12.2"
 description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 categories:
 - id: "17_GeneralFunctions"

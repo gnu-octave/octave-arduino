@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@shiftRegister/28_shiftRegistershiftRegister/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @shiftRegister/shiftRegister"
 category: "Arduino Shiftregister Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-shiftRegister"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">shifttype</var>, <var class="var">dataPin</var>, <var class="var">clockPin</var> ...)</code><a class="copiable-link" href='#index-shiftRegister'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc164', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">resetPin</var>)</code><a class="copiable-link" href='#index-shiftRegister-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc165', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">loadPin</var>, <var class="var">clockEnablePin</var>)</code><a class="copiable-link" href='#index-shiftRegister-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister_0028ar_002c_002774hc595_0027_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister(<var class="var">ar</var>,'74hc595',</strong> <code class="def-code-arguments"><var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">latchPin</var> , <var class="var">resetPin</var>)</code><a class="copiable-link" href='#index-shiftRegister_0028ar_002c_002774hc595_0027_002c'></a></span></dt>
+<dt class="deftypefn" id="index-shiftRegister"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">shifttype</var>, <var class="var">dataPin</var>, <var class="var">clockPin</var> ...)</code><a class="copiable-link" href="#index-shiftRegister"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc164', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">resetPin</var>)</code><a class="copiable-link" href="#index-shiftRegister-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc165', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">loadPin</var>, <var class="var">clockEnablePin</var>)</code><a class="copiable-link" href="#index-shiftRegister-2"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister_0028ar_002c_002774hc595_0027_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister(<var class="var">ar</var>,'74hc595',</strong> <code class="def-code-arguments"><var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">latchPin</var> , <var class="var">resetPin</var>)</code><a class="copiable-link" href="#index-shiftRegister_0028ar_002c_002774hc595_0027_002c"></a></span></dt>
 <dd><p>Create shift register of a given type, controlled by the input pins.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p>Common function parameter definition:
 </p>
 <p><var class="var">ar</var> - connected arduino object.
@@ -112,10 +112,10 @@ navigation:
 </dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">register</var> - register object
 </p>
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The shiftRegister object has the following public properties:
  </p><dl class="table">
 <dt>parent</dt>

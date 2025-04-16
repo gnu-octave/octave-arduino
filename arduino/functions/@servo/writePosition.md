@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@servo/20_servowritePosition/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @servo/writePosition"
 category: "Arduino Servo Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writePosition"><span class="category-def">: </span><span><strong class="def-name">writePosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>, <var class="var">position</var>)</code><a class="copiable-link" href='#index-writePosition'></a></span></dt>
+<dt class="deftypefn" id="index-writePosition"><span class="category-def">: </span><span><strong class="def-name">writePosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>, <var class="var">position</var>)</code><a class="copiable-link" href="#index-writePosition"></a></span></dt>
 <dd><p>Write the position to a servo.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">servo</var> - servo object created from arduino.servo.
 </p>
 <p><var class="var">position</var> - value between 0 .. 1 for the current servo position,

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/30_matlabsharedaddonLibraryBase/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - matlabshared.addon.LibraryBase"
 category: "Matlab Compatibility Classes"
@@ -70,7 +70,7 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-matlabshared_002eaddon_002eLibraryBase"><span class="category-def">: </span><span><strong class="def-name">matlabshared.addon.LibraryBase</strong><a class="copiable-link" href='#index-matlabshared_002eaddon_002eLibraryBase'></a></span></dt>
+<dt class="deftypefn" id="index-matlabshared_002eaddon_002eLibraryBase"><span class="category-def">: </span><span><strong class="def-name">matlabshared.addon.LibraryBase</strong><a class="copiable-link" href="#index-matlabshared_002eaddon_002eLibraryBase"></a></span></dt>
 <dd><p>Compatability class used for arduino library plugins using
  matlabshared.addons.LibraryBase
 </p>
@@ -78,7 +78,7 @@ navigation:
 <p><strong class="strong">See also:</strong> arduinoio.LibraryBase, arduino, listArduinoLibraries, addon.
  </p></dd></dl>
 
-<h4 class="subheading" id="Properties">Properties</h4>
+<h4 class="subheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>Base properties are expected to be inherited and overwritten in 
  inherited classes and are constant in order to query through the 
  metaobject mechanism.
@@ -101,15 +101,15 @@ navigation:
 </p>
 <p><var class="var">Parent</var> - parent arduino object.
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-LibraryBase"><span class="category-def">: </span><span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-LibraryBase'></a></span></dt>
+<dt class="deftypefn" id="index-LibraryBase"><span class="category-def">: </span><span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-LibraryBase"></a></span></dt>
 <dd><p>Constructor of base class
 </p>
 <p>The constructor is usually not called but called indirectly
  from the addon function.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p>The return value <var class="var">lb</var> is an object of the
  matlabshare.addons.LibraryBase class.
 </p>
@@ -118,6 +118,6 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp'></a></span></dt>
+<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-disp"></a></span></dt>
 <dd><p>Display the addon in a verbose way.
  </p></dd></dl>

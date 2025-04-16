@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/14_devicedelete/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/delete"
 category: "Arduino Device Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete'></a></span></dt>
+<dt class="deftypefn" id="index-delete"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href="#index-delete"></a></span></dt>
 <dd><p>Free resources of a device object.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - object to free
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@ultrasonic/24_ultrasonicreadDistance/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @ultrasonic/readDistance"
 category: "Arduino Ultrasonic Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readDistance"><span class="category-def">: </span><span><code class="def-type"><var class="var">distance</var> =</code> <strong class="def-name">readDistance</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-readDistance'></a></span></dt>
+<dt class="deftypefn" id="index-readDistance"><span class="category-def">: </span><span><code class="def-type"><var class="var">distance</var> =</code> <strong class="def-name">readDistance</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href="#index-readDistance"></a></span></dt>
 <dd><p>Read the distance from a ultrasonic device
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected ultrasonic device opened using ultrasonic
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">distance</var> - distance value in meters from the ultrasonic device, or Inf if out of sensor range
 </p>
 

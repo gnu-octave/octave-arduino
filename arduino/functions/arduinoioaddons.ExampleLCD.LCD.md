@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/30_arduinoioaddonsExampleLCDLCD/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.ExampleLCD.LCD"
 category: "Arduino Addons"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eLCDAddon_002eLCD"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.LCDAddon.LCD</strong><a class="copiable-link" href='#index-arduinoioaddons_002eLCDAddon_002eLCD'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eLCDAddon_002eLCD"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.LCDAddon.LCD</strong><a class="copiable-link" href="#index-arduinoioaddons_002eLCDAddon_002eLCD"></a></span></dt>
 <dd><p>Basic Example octave addon for LCD
 </p>
 <p>Allows basic manipulation of an LCD as a illustration of using
  the addon functionality.
- </p><h4 class="subsubheading" id="Example">Example</h4>
+ </p><h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <p>Assuming the arduino has been programmed with the lcd addon:
  </p><div class="example">
 <pre class="example-preformatted"> a = arduino();
@@ -90,14 +90,14 @@ navigation:
 <p><strong class="strong">See also:</strong> addon.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p><var class="var">Pins</var> - the pins allocated the LCD display.
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-LCD_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">lcd</var> =</code> <strong class="def-name">LCD(arObj,</strong> <code class="def-code-arguments">rs, enable, d0, d1, d2, d3)</code><a class="copiable-link" href='#index-LCD_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-LCD_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">lcd</var> =</code> <strong class="def-name">LCD(arObj,</strong> <code class="def-code-arguments">rs, enable, d0, d1, d2, d3)</code><a class="copiable-link" href="#index-LCD_0028arObj_002c"></a></span></dt>
 <dd><p>Constructor to create LCD device
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">arObj</var> - the arduino parent object
 </p>
 <p><var class="var">rs</var> - the pin to use for the rs line.
@@ -112,53 +112,53 @@ navigation:
 </p>
 <p><var class="var">d3</var> - the pin to use for the d3 line.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">lcd</var> - created LCD object
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-freeLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">freeLCD()</strong><a class="copiable-link" href='#index-freeLCD_0028_0029'></a></span></dt>
+<dt class="deftypefn" id="index-freeLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">freeLCD()</strong><a class="copiable-link" href="#index-freeLCD_0028_0029"></a></span></dt>
 <dd><p>Free the LCD
 </p>
 <p>Should be called before discarding the LCD
- </p><h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p>None.
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p>None.
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-clearLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">clearLCD()</strong><a class="copiable-link" href='#index-clearLCD_0028_0029'></a></span></dt>
+<dt class="deftypefn" id="index-clearLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">clearLCD()</strong><a class="copiable-link" href="#index-clearLCD_0028_0029"></a></span></dt>
 <dd><p>Clear the LCD display and set the cursor position to the home position.
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p>None.
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p>None.
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-printLCD_0028text_0029"><span class="category-def">: </span><span><strong class="def-name">printLCD(<var class="var">text</var>)</strong><a class="copiable-link" href='#index-printLCD_0028text_0029'></a></span></dt>
+<dt class="deftypefn" id="index-printLCD_0028text_0029"><span class="category-def">: </span><span><strong class="def-name">printLCD(<var class="var">text</var>)</strong><a class="copiable-link" href="#index-printLCD_0028text_0029"></a></span></dt>
 <dd><p>Display text on LCD starting at the current cursor position.
 </p>
-<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-3"><span>Inputs<a class="copiable-link" href="#Inputs-3"></a></span></h4>
 <p><var class="var">text</var> - text to display on LCD
 </p>
-<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-3"><span>Outputs<a class="copiable-link" href="#Outputs-3"></a></span></h4>
 <p>None.
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-gotoLCD_0028col_002c"><span class="category-def">: </span><span><strong class="def-name">gotoLCD(<var class="var">col</var>,</strong> <code class="def-code-arguments"><var class="var">row</var>)</code><a class="copiable-link" href='#index-gotoLCD_0028col_002c'></a></span></dt>
+<dt class="deftypefn" id="index-gotoLCD_0028col_002c"><span class="category-def">: </span><span><strong class="def-name">gotoLCD(<var class="var">col</var>,</strong> <code class="def-code-arguments"><var class="var">row</var>)</code><a class="copiable-link" href="#index-gotoLCD_0028col_002c"></a></span></dt>
 <dd><p>Set the cursor position to row, col
 </p>
-<h4 class="subsubheading" id="Inputs-4">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-4"><span>Inputs<a class="copiable-link" href="#Inputs-4"></a></span></h4>
 <p><var class="var">col</var> - 0 indexed LCD column to position to.
 </p>
 <p><var class="var">row</var> - 0 indexed LCD row to position to.
 </p>
-<h4 class="subsubheading" id="Outputs-4">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-4"><span>Outputs<a class="copiable-link" href="#Outputs-4"></a></span></h4>
 <p>None.
  </p></dd></dl>

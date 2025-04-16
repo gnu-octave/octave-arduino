@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/17_arduinobistsetup/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduino_bistsetup"
 category: "Test Functions"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduino_005fbistsetup"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduino_005fbistsetup'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino_005fbistsetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-arduino_005fbistsetup-1'></a></span></dt>
+<dt class="deftypefn" id="index-arduino_005fbistsetup"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-arduino_005fbistsetup"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino_005fbistsetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href="#index-arduino_005fbistsetup-1"></a></span></dt>
 <dd><p>Install on an arduino the required core libraries to run the BIST tests
 </p>
 <p>As part of the setup, the arduino IDE will be opened to allow programming
  the arduino board.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
  
 <p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - A sequence of property name/value pairs can be given
  to set defaults while programming.
@@ -93,7 +93,7 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - return 1 if everything installed ok
 </p>
 

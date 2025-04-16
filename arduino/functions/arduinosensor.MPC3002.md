@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/21_arduinosensorMPC3002/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosensor.MPC3002"
 category: "Arduino Sensors"
@@ -70,16 +70,16 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eMPC3002"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.MPC3002</strong><a class="copiable-link" href='#index-arduinosensor_002eMPC3002'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eMPC3002"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.MPC3002</strong><a class="copiable-link" href="#index-arduinosensor_002eMPC3002"></a></span></dt>
 <dd><p>MCP3002 ADC sensor
  </p></dd></dl>
 
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-MPC3002_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-MPC3002_0028arObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-MPC3002_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>)</code><a class="copiable-link" href="#index-MPC3002_0028arObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-MPC3002_0028arObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href="#index-MPC3002_0028arObj_002c-1"></a></span></dt>
 <dd><p>Constructor to create MPC3002 sensor
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">arObj</var> - the arduino parent object
 </p>
 <p><var class="var">selectPin</var> - the SPI cs select pin
@@ -93,10 +93,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">obj</var> - created MCP3002 object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -106,18 +106,18 @@ navigation:
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readVoltage_0028dsObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">chan</var>)</code><a class="copiable-link" href='#index-readVoltage_0028dsObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-readVoltage_0028dsObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">chan</var>)</code><a class="copiable-link" href="#index-readVoltage_0028dsObj_002c"></a></span></dt>
 <dd><p>Read the voltage from a channel
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">dsObj</var> - the MPC3002 object
 </p>
 <p><var class="var">chan</var> - the channel to read (0 or 1)
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p><var class="var">voltage</var> - read voltage.
 </p>
-<h4 class="subsubheading" id="Example-1">Example</h4>
+<h4 class="subsubheading" id="Example-1"><span>Example<a class="copiable-link" href="#Example-1"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()

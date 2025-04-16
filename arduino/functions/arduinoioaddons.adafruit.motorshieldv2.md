@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/38_arduinoioaddonsadafruitmotorshieldv2/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.adafruit.motorshieldv2"
 category: "Arduino Addons"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002emotorshieldv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.motorshieldv2</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002emotorshieldv2'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002emotorshieldv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.motorshieldv2</strong><a class="copiable-link" href="#index-arduinoioaddons_002eadafruit_002emotorshieldv2"></a></span></dt>
 <dd><p>Adafruit motor shield addon
 </p>
 
 <p><strong class="strong">See also:</strong> addon.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p><var class="var">Parent</var> - the parent arduino object.
 </p>
 <p><var class="var">Pins</var> - the pins allocated the addon.
@@ -86,12 +86,12 @@ navigation:
 </p>
 <p><var class="var">PWMFrequency</var> - the set PWM frequency for this shield.
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-motorshieldv2_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-motorshieldv2_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-motorshieldv2_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-motorshieldv2_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-motorshieldv2_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>)</strong><a class="copiable-link" href="#index-motorshieldv2_0028arObj_0029"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-motorshieldv2_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href="#index-motorshieldv2_0028arObj_002c"></a></span></dt>
 <dd><p>Constructor to create motorshieldv2 addon object
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">arObj</var> - the arduino parent object
 </p>
 <p><var class="var">propertyname, propertyvalue</var> - optional property name, value pairs.
@@ -105,10 +105,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">obj</var> - created  motorshieldv2 object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -118,11 +118,11 @@ navigation:
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-servo_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href='#index-servo_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-servo_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-servo_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-servo_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href="#index-servo_0028mObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-servo_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href="#index-servo_0028mObj_002c-1"></a></span></dt>
 <dd><p>Create a servo object
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">mObj</var> - the motor shield object
 </p>
 <p><var class="var">mtrnum</var> - The servo motor number, where 1 is servo on 
@@ -133,10 +133,10 @@ navigation:
 </p>
 <p>Properties are the same as the base servo object.
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p><var class="var">s</var> - a servo object
 </p>
-<h4 class="subsubheading" id="Example-1">Example</h4>
+<h4 class="subsubheading" id="Example-1"><span>Example<a class="copiable-link" href="#Example-1"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -154,11 +154,11 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href="#index-stepper_0028mObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href="#index-stepper_0028mObj_002c-1"></a></span></dt>
 <dd><p>Create a stepper motor object
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p><var class="var">mObj</var> - the motor shield object
 </p>
 <p><var class="var">mtrnum</var> - The stepper motor number (1 or 2)
@@ -168,17 +168,17 @@ navigation:
 <p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - Optional property
  name/value pairs to pass to stepper object.
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p><var class="var">s</var> - a stepper object
 </p>
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-dcmotor_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href='#index-dcmotor_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotor_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-dcmotor_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-dcmotor_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href="#index-dcmotor_0028mObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotor_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href="#index-dcmotor_0028mObj_002c-1"></a></span></dt>
 <dd><p>Create a dcmotor motor object
 </p>
-<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-3"><span>Inputs<a class="copiable-link" href="#Inputs-3"></a></span></h4>
 <p><var class="var">mObj</var> - the motor shield object
 </p>
 <p><var class="var">mtrnum</var> - The motor number (1 - 4)
@@ -186,7 +186,7 @@ navigation:
 <p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - Optional property 
  name/value pairs to pass to motor object.
 </p>
-<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-3"><span>Outputs<a class="copiable-link" href="#Outputs-3"></a></span></h4>
 <p><var class="var">s</var> - a dcmotorv2 object
 </p>
 </dd></dl>

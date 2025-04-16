@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/20_arduinosendCommand/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/sendCommand"
 category: "Arduino Functions"
@@ -70,13 +70,13 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-sendCommand"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>)</code><a class="copiable-link" href='#index-sendCommand'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>)</code><a class="copiable-link" href='#index-sendCommand-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>, <var class="var">timeout</var>)</code><a class="copiable-link" href='#index-sendCommand-2'></a></span></dt>
+<dt class="deftypefn" id="index-sendCommand"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>)</code><a class="copiable-link" href="#index-sendCommand"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>)</code><a class="copiable-link" href="#index-sendCommand-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>, <var class="var">timeout</var>)</code><a class="copiable-link" href="#index-sendCommand-2"></a></span></dt>
 <dd><p>Send a command with option data to the connected arduino, waiting up to a specified number of seconds
  for a response.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object.
 </p>
 <p><var class="var">libname</var> - library sending the command. The name should match a programmed 
@@ -88,7 +88,7 @@ navigation:
 </p>
 <p><var class="var">timeout</var> - optional timeout to wait for data
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">outdata</var> - data returned back from the arduino in response to command
 </p>
 <p><var class="var">outsize</var> - size of data received

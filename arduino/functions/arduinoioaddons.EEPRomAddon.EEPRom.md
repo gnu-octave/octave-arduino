@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/34_arduinoioaddonsEEPRomAddonEEPRom/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.EEPRomAddon.EEPRom"
 category: "Arduino Addons"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eEEPRomAddon_002eEEPRom"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.EEPRomAddon.EEPRom</strong><a class="copiable-link" href='#index-arduinoioaddons_002eEEPRomAddon_002eEEPRom'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eEEPRomAddon_002eEEPRom"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.EEPRomAddon.EEPRom</strong><a class="copiable-link" href="#index-arduinoioaddons_002eEEPRomAddon_002eEEPRom"></a></span></dt>
 <dd><p>EEPROM addon for arduino
 </p>
 <p>Allows read and write of uint8 data to the onboard arduino EEPROM.
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <p>Assuming eeprom addon has been programmed into the Arduino:
  </p><div class="example">
 <pre class="example-preformatted"> a = arduino ();
@@ -88,26 +88,26 @@ navigation:
 <p><strong class="strong">See also:</strong> addon.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p><var class="var">length</var> - Size of the EEPROM.
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-EEPRom"><span class="category-def">: </span><span><code class="def-type"><var class="var">eeprom</var> =</code> <strong class="def-name">EEPRom</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-EEPRom'></a></span></dt>
+<dt class="deftypefn" id="index-EEPRom"><span class="category-def">: </span><span><code class="def-type"><var class="var">eeprom</var> =</code> <strong class="def-name">EEPRom</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-EEPRom"></a></span></dt>
 <dd><p>Constructor to create EEPROM device.
- </p><h4 class="subsubheading" id="Outputs">Outputs</h4>
+ </p><h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">eeprom</var> - created EEPROM device.
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-erase"><span class="category-def">: </span><span><strong class="def-name">erase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-erase'></a></span></dt>
+<dt class="deftypefn" id="index-erase"><span class="category-def">: </span><span><strong class="def-name">erase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-erase"></a></span></dt>
 <dd><p>Erase all values in EEPROM (Effectively setting the 0xFF)
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">uintdata</var>)</code><a class="copiable-link" href='#index-write'></a></span></dt>
+<dt class="deftypefn" id="index-write"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">uintdata</var>)</code><a class="copiable-link" href="#index-write"></a></span></dt>
 <dd><p>Write data to EEPROM at the provided address.
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">address</var> - start address to write data to, should be an
  integer between 0 and the size of the EEPROM.
 </p>
@@ -115,15 +115,15 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>)</code><a class="copiable-link" href='#index-read'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">count</var>)</code><a class="copiable-link" href='#index-read-1'></a></span></dt>
+<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>)</code><a class="copiable-link" href="#index-read"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">count</var>)</code><a class="copiable-link" href="#index-read-1"></a></span></dt>
 <dd><p>Read data from starting address of EEPROM.
- </p><h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">address</var> - start address to read data from, should be an
  integer between 0 and the size of the EEPROM.
 </p>
 <p><var class="var">count</var> - Number of uint8 values to read from the EEPROM (default is 1)
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p><var class="var">data</var> a value or array of uint8 data read from the EEPROM.
  </p></dd></dl>

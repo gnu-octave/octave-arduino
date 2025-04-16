@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/21_i2cdevwriteRegister/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/writeRegister"
 category: "Arduino I2C Functions"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeRegister"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-writeRegister'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-1"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-writeRegister-1'></a></span></dt>
+<dt class="deftypefn" id="index-writeRegister"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code><a class="copiable-link" href="#index-writeRegister"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-1"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href="#index-writeRegister-1"></a></span></dt>
 <dd><p>Write data to i2cdev object at a given registry position
  using optional precision for the data byte used for the data.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected i2c device opened using i2cdev
 </p>
 <p><var class="var">reg</var> - registry position to write to.

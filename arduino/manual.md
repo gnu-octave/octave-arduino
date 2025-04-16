@@ -3,7 +3,7 @@ layout: "default"
 permalink: "/manual/"
 title: "Arduino Toolkit - Manual"
 pkg_name: "arduino"
-version: "0.12.1"
+version: "0.12.2"
 description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 navigation:
 - id: "overview"
@@ -46,10 +46,6 @@ navigation:
   url: "/manual/#Function-Reference-1"
 ---
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
-Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and loading</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h1 class="top" id="Introduction">Introduction</h1>
 <p>The Arduino toolkit is a somewhat Matlab compatible arduino toolkit for GNU octave.
 </p>
@@ -320,10 +316,6 @@ Next: <a href="#Installing-and-loading" accesskey="n" rel="next">Installing and 
 </div>
 <hr>
 <div class="chapter-level-extent" id="Installing-and-loading">
-<div class="nav-panel">
-<p>
-Next: <a href="#Hardware-setup" accesskey="n" rel="next">Hardware setup</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Installing-and-loading-1">1 Installing and loading</h2>
 <a class="index-entry-id" id="index-Installing-and-loading"></a>
 <p>The Arduino toolkit must be installed and then loaded to be used.
@@ -344,11 +336,6 @@ to successfully install the Arduino toolkit
 </p></td></tr></table>
 <p>The toolkit must be then be loaded once per each <abbr class="acronym">GNU</abbr> Octave session in order to use its functionality.
 </p>
-<ul class="mini-toc">
-<li><a href="#Online-Direct-install" accesskey="1">Online Direct install</a></li>
-<li><a href="#Off_002dline-install" accesskey="2">Off-line install</a></li>
-<li><a href="#Loading" accesskey="3">Loading</a></li>
-</ul>
 <div class="section-level-extent" id="Online-Direct-install">
 <h3 class="section">1.1 Online Direct install</h3>
 <a class="index-entry-id" id="index-Online-install"></a>
@@ -368,7 +355,7 @@ octave-forge using the following command within <abbr class="acronym">GNU</abbr>
 <abbr class="acronym">GNU</abbr> Octave, the package can be installed using the following command within <abbr class="acronym">GNU</abbr> Octave:
 </p>
 <div class="example">
-<pre class="example-preformatted">pkg install arduino-0.12.1.tar.gz
+<pre class="example-preformatted">pkg install arduino-0.12.2.tar.gz
 </pre></div>
 </div>
 <div class="section-level-extent" id="Loading">
@@ -386,19 +373,11 @@ the toolkit must be loaded using the pkg load command:
 </div>
 </div>
 <div class="chapter-level-extent" id="Hardware-setup">
-<div class="nav-panel">
-<p>
-Next: <a href="#Connecting-to-an-arduino" accesskey="n" rel="next">Connecting to an arduino</a>, Previous: <a href="#Installing-and-loading" accesskey="p" rel="prev">Installing and loading</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Hardware-setup-1">2 Hardware setup</h2>
 <a class="index-entry-id" id="index-Hardware-setup"></a>
 <p>In order to use the arduino hardware with the toolkit, it must be programmed with
 special firmware.
 </p>
-<ul class="mini-toc">
-<li><a href="#Programming-the-Arduino" accesskey="1">Programming the Arduino</a></li>
-<li><a href="#Known-Arduino-Board-Types" accesskey="2">Known Arduino Board Types</a></li>
-</ul>
 <div class="section-level-extent" id="Programming-the-Arduino">
 <h3 class="section">2.1 Programming the Arduino</h3>
 <a class="index-entry-id" id="index-Programming-the-Arduino"></a>
@@ -472,19 +451,10 @@ the Arduino. Otherwise, use the &rsquo;arduino&rsquo; binary property.
 </div>
 </div>
 <div class="chapter-level-extent" id="Connecting-to-an-arduino">
-<div class="nav-panel">
-<p>
-Next: <a href="#Basic-Input-and-Output-Overview" accesskey="n" rel="next">Basic Input and Output Overview</a>, Previous: <a href="#Hardware-setup" accesskey="p" rel="prev">Hardware setup</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Connecting-to-an-arduino-1">3 Connecting to an arduino</h2>
 <a class="index-entry-id" id="index-Connecting-to-an-arduino"></a>
 <p>To control an arduino device, a connection must be made to it by creating an arduino object.
 </p>
-<ul class="mini-toc">
-<li><a href="#Connecting-to-a-single-arduino" accesskey="1">Connecting to a single arduino</a></li>
-<li><a href="#Connecting-to-a-specific-arduino" accesskey="2">Connecting to a specific arduino</a></li>
-<li><a href="#Querying-available-arduinos" accesskey="3">Querying available arduinos</a></li>
-</ul>
 <div class="section-level-extent" id="Connecting-to-a-single-arduino">
 <h3 class="section">3.1 Connecting to a single arduino</h3>
 <a class="index-entry-id" id="index-Connecting-to-a-single-arduino"></a>
@@ -526,10 +496,6 @@ specifying the name of the port it is connected to:
 </div>
 </div>
 <div class="chapter-level-extent" id="Basic-Input-and-Output-Overview">
-<div class="nav-panel">
-<p>
-Next: <a href="#Protocol-based-I_002fO-Overview" accesskey="n" rel="next">Protocol based I/O Overview</a>, Previous: <a href="#Connecting-to-an-arduino" accesskey="p" rel="prev">Connecting to an arduino</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Basic-Input-and-Output-Overview-1">4 Basic Input and Output Overview</h2>
 <a class="index-entry-id" id="index-Basic-Input-and-Output-Overview"></a>
 <p>Basic input and output can be performed on a connected arduino device using by calling the read and write functions
@@ -548,10 +514,6 @@ pins = ar.availablepins
 <p>Digital pins can be used to read and write digital data, but can not read analog voltages.
 Analog pins can perform digital I/O as well as reading voltages.
 </p>
-<ul class="mini-toc">
-<li><a href="#Performing-Digital-I_002fO" accesskey="1">Performing Digital I/O</a></li>
-<li><a href="#Performing-Analog-Input" accesskey="2">Performing Analog Input</a></li>
-</ul>
 <div class="section-level-extent" id="Performing-Digital-I_002fO">
 <h3 class="section">4.1 Performing Digital I/O</h3>
 <a class="index-entry-id" id="index-Performing-Digital-I_002fO"></a>
@@ -590,23 +552,10 @@ the number of bits used by the analog to digital converter.
 </div>
 </div>
 <div class="chapter-level-extent" id="Protocol-based-I_002fO-Overview">
-<div class="nav-panel">
-<p>
-Next: <a href="#Addons-Overview" accesskey="n" rel="next">Addons Overview</a>, Previous: <a href="#Basic-Input-and-Output-Overview" accesskey="p" rel="prev">Basic Input and Output Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Protocol-based-I_002fO-Overview-1">5 Protocol based I/O Overview</h2>
 <a class="index-entry-id" id="index-Protocol-based-I_002fO-Overview"></a>
 <p>The arduino toolkit supports more complex I/O for SPI, I2C, Servo control and more.
 </p>
-<ul class="mini-toc">
-<li><a href="#SPI-communication" accesskey="1">SPI communication</a></li>
-<li><a href="#I2C-communication" accesskey="2">I2C communication</a></li>
-<li><a href="#Servo-communication" accesskey="3">Servo communication</a></li>
-<li><a href="#Shift-Registers" accesskey="4">Shift Registers</a></li>
-<li><a href="#Rotary-Encoders" accesskey="5">Rotary Encoders</a></li>
-<li><a href="#Ultrasonic-Sensors" accesskey="6">Ultrasonic Sensors</a></li>
-<li><a href="#Serial-communication" accesskey="7">Serial communication</a></li>
-</ul>
 <div class="section-level-extent" id="SPI-communication">
 <h3 class="section">5.1 SPI communication</h3>
 <a class="index-entry-id" id="index-SPI-communication"></a>
@@ -721,20 +670,11 @@ data = read(ser, 100);
 </div>
 </div>
 <div class="chapter-level-extent" id="Addons-Overview">
-<div class="nav-panel">
-<p>
-Next: <a href="#Sensors-Overview" accesskey="n" rel="next">Sensors Overview</a>, Previous: <a href="#Protocol-based-I_002fO-Overview" accesskey="p" rel="prev">Protocol based I/O Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Addons-Overview-1">6 Addons Overview</h2>
 <a class="index-entry-id" id="index-Addons-Overview"></a>
 <p>This chapter provides an overview of the arduino package addon functionality for adding
 additional addons to arduino.
 </p>
-<ul class="mini-toc">
-<li><a href="#Addon-Introduction" accesskey="1">Addon Introduction</a></li>
-<li><a href="#Creating-an-addon" accesskey="2">Creating an addon</a></li>
-<li><a href="#Using-addons" accesskey="3">Using addons</a></li>
-</ul>
 <div class="section-level-extent" id="Addon-Introduction">
 <h3 class="section">6.1 Addon Introduction</h3>
 <a class="index-entry-id" id="index-Addon-Introduction"></a>
@@ -780,12 +720,6 @@ addons typically use a &quot;foldername/classname&quot; for this naming.
       MyAddon1.h
 </code>
 </pre></div>
-<ul class="mini-toc">
-<li><a href="#Addon-package-directory" accesskey="1">Addon package directory</a></li>
-<li><a href="#Addon-package-_002em-file" accesskey="2">Addon package .m file</a></li>
-<li><a href="#Addon-package-header-file" accesskey="3">Addon package header file</a></li>
-<li><a href="#Verify-octave-can-see-the-addon" accesskey="4">Verify octave can see the addon</a></li>
-</ul>
 <div class="subsection-level-extent" id="Addon-package-directory">
 <h4 class="subsection">6.2.1 Addon package directory</h4>
 <a class="index-entry-id" id="index-Addon-package-directory"></a>
@@ -989,10 +923,6 @@ structure and inheritance requirements have been met.
 <div class="section-level-extent" id="Using-addons">
 <h3 class="section">6.3 Using addons</h3>
 <a class="index-entry-id" id="index-Using-Addons"></a>
-<ul class="mini-toc">
-<li><a href="#Programming-the-arduino-with-the-addon" accesskey="1">Programming the arduino with the addon</a></li>
-<li><a href="#Creating-a-addon-object" accesskey="2">Creating a addon object</a></li>
-</ul>
 <div class="subsection-level-extent" id="Programming-the-arduino-with-the-addon">
 <h4 class="subsection">6.3.1 Programming the arduino with the addon</h4>
 <a class="index-entry-id" id="index-Programming-the-arduino-with-the-addon"></a>
@@ -1029,10 +959,6 @@ exist on the arduino.
 </div>
 </div>
 <div class="chapter-level-extent" id="Sensors-Overview">
-<div class="nav-panel">
-<p>
-Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Addons-Overview" accesskey="p" rel="prev">Addons Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Sensors-Overview-1">7 Sensors Overview</h2>
 <a class="index-entry-id" id="index-Sensors-Overview"></a>
 <p>There are two types of sensors available:
@@ -1040,17 +966,9 @@ Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a hr
 <li> Matlab compatible(ish) sensors for environment and IMU.
 </li><li> Additional lightweight wrappers for some chips in a arduinosensor namespace.
 </li></ol>
-<ul class="mini-toc">
-<li><a href="#Matlab-Compatible-Sensors" accesskey="1">Matlab Compatible Sensors</a></li>
-<li><a href="#Lightweight-Arduino-Sensors" accesskey="2">Lightweight Arduino Sensors</a></li>
-</ul>
 <div class="section-level-extent" id="Matlab-Compatible-Sensors">
 <h3 class="section">7.1 Matlab Compatible Sensors</h3>
 <a class="index-entry-id" id="index-Matlab-Compatible-Sensor"></a>
-<ul class="mini-toc">
-<li><a href="#Overview" accesskey="1">Overview</a></li>
-<li><a href="#Available-Sensors" accesskey="2">Available Sensors</a></li>
-</ul>
 <div class="subsection-level-extent" id="Overview">
 <h4 class="subsection">7.1.1 Overview</h4>
 <p>Matlab compatible functions are provided for a number of sensors, using a similar function naming as
@@ -1090,10 +1008,6 @@ provided by the Matlab arduino package.
 <div class="section-level-extent" id="Lightweight-Arduino-Sensors">
 <h3 class="section">7.2 Lightweight Arduino Sensors</h3>
 <a class="index-entry-id" id="index-Arduino-Sensor"></a>
-<ul class="mini-toc">
-<li><a href="#Overview-1" accesskey="1">Overview</a></li>
-<li><a href="#Available-Sensors-1" accesskey="2">Available Sensors</a></li>
-</ul>
 <div class="subsection-level-extent" id="Overview-1">
 <h4 class="subsection">7.2.1 Overview</h4>
 <p>Arduino sensors are a collection of lightweight wrappers around other underlying protocols for 
@@ -1141,17 +1055,8 @@ however it is limited to then using available addon and core codes rather than c
 </div>
 </div>
 <div class="chapter-level-extent" id="Examples">
-<div class="nav-panel">
-<p>
-Next: <a href="#Function-Reference" accesskey="n" rel="next">Function Reference</a>, Previous: <a href="#Sensors-Overview" accesskey="p" rel="prev">Sensors Overview</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Examples-1">8 Examples</h2>
 <a class="index-entry-id" id="index-Examples"></a>
-<ul class="mini-toc">
-<li><a href="#Blinking-an-LED" accesskey="1">Blinking an LED</a></li>
-<li><a href="#Using-I2C-to-communicate-with-an-EEPROM" accesskey="2">Using I2C to communicate with an EEPROM</a></li>
-<li><a href="#Using-SPI-to-communicate-with-a-mcp3002-10-bit-ADC" accesskey="3">Using SPI to communicate with a mcp3002 10 bit ADC</a></li>
-</ul>
 <div class="section-level-extent" id="Blinking-an-LED">
 <h3 class="section">8.1 Blinking an LED</h3>
 <a class="index-entry-id" id="index-Blinking-an-LED"></a>
@@ -1365,52 +1270,20 @@ the rest of the ADC data.
 </div>
 </div>
 <div class="chapter-level-extent" id="Function-Reference">
-<div class="nav-panel">
-<p>
-Next: <a href="#Copying" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="chapter" id="Function-Reference-1">9 Function Reference</h2>
 <a class="index-entry-id" id="index-Function-Reference"></a>
 <p>The functions currently available in the Arduino toolkit are described below;
 </p>
-<ul class="mini-toc">
-<li><a href="#General-Functions" accesskey="1">General Functions</a></li>
-<li><a href="#Arduino-Functions" accesskey="2">Arduino Functions</a></li>
-<li><a href="#Arduino-I2C-Functions" accesskey="3">Arduino I2C Functions</a></li>
-<li><a href="#Arduino-Rotary-Encoder-Functions" accesskey="4">Arduino Rotary Encoder Functions</a></li>
-<li><a href="#Arduino-Servo-Functions" accesskey="5">Arduino Servo Functions</a></li>
-<li><a href="#Arduino-Shiftregister-Functions" accesskey="6">Arduino Shiftregister Functions</a></li>
-<li><a href="#Arduino-SPI-Functions" accesskey="7">Arduino SPI Functions</a></li>
-<li><a href="#Arduino-Serial-Functions" accesskey="8">Arduino Serial Functions</a></li>
-<li><a href="#Arduino-Device-Functions" accesskey="9">Arduino Device Functions</a></li>
-<li><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></li>
-<li><a href="#Arduino-Addons">Arduino Addons</a></li>
-<li><a href="#Arduino-Sensors">Arduino Sensors</a></li>
-<li><a href="#Arduino-I_002fO-package">Arduino I/O package</a></li>
-<li><a href="#Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></li>
-<li><a href="#Sensors">Sensors</a></li>
-<li><a href="#Test-Functions">Test Functions</a></li>
-</ul>
 <hr>
 <div class="section-level-extent" id="General-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Functions" accesskey="n" rel="next">Arduino Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="General-Functions-1">9.1 General Functions</h3>
 <a class="index-entry-id" id="index-General-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#arduinosetup" accesskey="1">arduinosetup</a></li>
-<li><a href="#isarduino" accesskey="2">isarduino</a></li>
-<li><a href="#listArduinoLibraries" accesskey="3">listArduinoLibraries</a></li>
-<li><a href="#scanForArduinos" accesskey="4">scanForArduinos</a></li>
-</ul>
 <div class="subsection-level-extent" id="arduinosetup">
 <h4 class="subsection">9.1.1 arduinosetup</h4>
 <a class="index-entry-id" id="index-arduinosetup"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduinosetup-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduinosetup-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-arduinosetup-2'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosetup-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">()</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduinosetup-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code></dt>
 <dd><p>Open the arduino config / programming tool to program the arduino hardware for usage with
  the Octave arduino functions.
 </p>
@@ -1445,7 +1318,7 @@ Next: <a href="#Arduino-Functions" accesskey="n" rel="next">Arduino Functions</a
 <h4 class="subsection">9.1.2 isarduino</h4>
 <a class="index-entry-id" id="index-isarduino"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isarduino-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">isarduino</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-isarduino-1'></a></span></dt>
+<dt class="deftypefn" id="index-isarduino-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">isarduino</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code></dt>
 <dd><p>Check if input value is an arduino object
 </p>
 <p>Function is essentially just a call of
@@ -1466,8 +1339,8 @@ Next: <a href="#Arduino-Functions" accesskey="n" rel="next">Arduino Functions</a
 <h4 class="subsection">9.1.3 listArduinoLibraries</h4>
 <a class="index-entry-id" id="index-listArduinoLibraries"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-listArduinoLibraries-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">listArduinoLibraries</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-listArduinoLibraries-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-listArduinoLibraries-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">listArduinoLibraries</strong> <code class="def-code-arguments">(<var class="var">libtypes</var>)</code><a class="copiable-link" href='#index-listArduinoLibraries-2'></a></span></dt>
+<dt class="deftypefn" id="index-listArduinoLibraries-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">listArduinoLibraries</strong> <code class="def-code-arguments">()</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-listArduinoLibraries-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">listArduinoLibraries</strong> <code class="def-code-arguments">(<var class="var">libtypes</var>)</code></dt>
 <dd><p>Retrieve list of all known arduino library modules that are available.
 </p>
 <h4 class="subsubheading" id="Inputs-2">Inputs</h4>
@@ -1498,11 +1371,11 @@ Next: <a href="#Arduino-Functions" accesskey="n" rel="next">Arduino Functions</a
 <h4 class="subsection">9.1.4 scanForArduinos</h4>
 <a class="index-entry-id" id="index-scanForArduinos"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-scanForArduinos-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-scanForArduinos-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>)</code><a class="copiable-link" href='#index-scanForArduinos-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">&quot;debug&quot;</var>)</code><a class="copiable-link" href='#index-scanForArduinos-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-scanForArduinos-4'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertvalue</var> ...)</code><a class="copiable-link" href='#index-scanForArduinos-5'></a></span></dt>
+<dt class="deftypefn" id="index-scanForArduinos-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">()</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-3"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">&quot;debug&quot;</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-4"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">maxCount</var>, <var class="var">type</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanForArduinos-5"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanForArduinos</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertvalue</var> ...)</code></dt>
 <dd><p>Scan system for programmed serial connected arduino boards.
 </p>
 <p>scanForArduinos will scan the system for programmed arduino boards
@@ -1554,63 +1427,18 @@ Next: <a href="#Arduino-Functions" accesskey="n" rel="next">Arduino Functions</a
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Functions</a>, Previous: <a href="#General-Functions" accesskey="p" rel="prev">General Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Functions-1">9.2 Arduino Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040arduino_002farduino" accesskey="1">@arduino/arduino</a></li>
-<li><a href="#g_t_0040arduino_002fcheckI2CAddress" accesskey="2">@arduino/checkI2CAddress</a></li>
-<li><a href="#g_t_0040arduino_002fconfigurePin" accesskey="3">@arduino/configurePin</a></li>
-<li><a href="#g_t_0040arduino_002fconfigurePinResource" accesskey="4">@arduino/configurePinResource</a></li>
-<li><a href="#g_t_0040arduino_002fdecrementResourceCount" accesskey="5">@arduino/decrementResourceCount</a></li>
-<li><a href="#g_t_0040arduino_002fdelete" accesskey="6">@arduino/delete</a></li>
-<li><a href="#g_t_0040arduino_002fdisp" accesskey="7">@arduino/disp</a></li>
-<li><a href="#g_t_0040arduino_002fgetEndian" accesskey="8">@arduino/getEndian</a></li>
-<li><a href="#g_t_0040arduino_002fgetI2CTerminals" accesskey="9">@arduino/getI2CTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetInterruptTerminals">@arduino/getInterruptTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetLEDTerminals">@arduino/getLEDTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetMCU">@arduino/getMCU</a></li>
-<li><a href="#g_t_0040arduino_002fgetPWMTerminals">@arduino/getPWMTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetPinAlias">@arduino/getPinAlias</a></li>
-<li><a href="#g_t_0040arduino_002fgetPinInfo">@arduino/getPinInfo</a></li>
-<li><a href="#g_t_0040arduino_002fgetPinsFromTerminals">@arduino/getPinsFromTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetResourceCount">@arduino/getResourceCount</a></li>
-<li><a href="#g_t_0040arduino_002fgetResourceOwner">@arduino/getResourceOwner</a></li>
-<li><a href="#g_t_0040arduino_002fgetSPITerminals">@arduino/getSPITerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetServoTerminals">@arduino/getServoTerminals</a></li>
-<li><a href="#g_t_0040arduino_002fgetSharedResourceProperty">@arduino/getSharedResourceProperty</a></li>
-<li><a href="#g_t_0040arduino_002fgetTerminalMode">@arduino/getTerminalMode</a></li>
-<li><a href="#g_t_0040arduino_002fgetTerminalsFromPins">@arduino/getTerminalsFromPins</a></li>
-<li><a href="#g_t_0040arduino_002fincrementResourceCount">@arduino/incrementResourceCount</a></li>
-<li><a href="#g_t_0040arduino_002fisTerminalAnalog">@arduino/isTerminalAnalog</a></li>
-<li><a href="#g_t_0040arduino_002fisTerminalDigital">@arduino/isTerminalDigital</a></li>
-<li><a href="#g_t_0040arduino_002fplayTone">@arduino/playTone</a></li>
-<li><a href="#g_t_0040arduino_002freadAnalogPin">@arduino/readAnalogPin</a></li>
-<li><a href="#g_t_0040arduino_002freadDigitalPin">@arduino/readDigitalPin</a></li>
-<li><a href="#g_t_0040arduino_002freadVoltage">@arduino/readVoltage</a></li>
-<li><a href="#g_t_0040arduino_002freset">@arduino/reset</a></li>
-<li><a href="#g_t_0040arduino_002fsendCommand">@arduino/sendCommand</a></li>
-<li><a href="#g_t_0040arduino_002fsetSharedResourceProperty">@arduino/setSharedResourceProperty</a></li>
-<li><a href="#g_t_0040arduino_002fuptime">@arduino/uptime</a></li>
-<li><a href="#g_t_0040arduino_002fvalidatePin">@arduino/validatePin</a></li>
-<li><a href="#g_t_0040arduino_002fversion">@arduino/version</a></li>
-<li><a href="#g_t_0040arduino_002fwriteDigitalPin">@arduino/writeDigitalPin</a></li>
-<li><a href="#g_t_0040arduino_002fwritePWMDutyCycle">@arduino/writePWMDutyCycle</a></li>
-<li><a href="#g_t_0040arduino_002fwritePWMVoltage">@arduino/writePWMVoltage</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040arduino_002farduino">
 <h4 class="subsection">9.2.1 @arduino/arduino</h4>
 <a class="index-entry-id" id="index-arduino"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduino-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduino-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>)</code><a class="copiable-link" href='#index-arduino-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>)</code><a class="copiable-link" href='#index-arduino-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>[, [<var class="var">propname</var>, <var class="var">propvalue</var>]*)</code><a class="copiable-link" href='#index-arduino-4'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">iaddress</var>)</code><a class="copiable-link" href='#index-arduino-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-6"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">ipaddress</var>, <var class="var">board</var>)</code><a class="copiable-link" href='#index-arduino-6'></a></span></dt>
+<dt class="deftypefn" id="index-arduino-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">()</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-3"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-4"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">port</var>, <var class="var">board</var>[, [<var class="var">propname</var>, <var class="var">propvalue</var>]*)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-5"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">iaddress</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino-6"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino</strong> <code class="def-code-arguments">(<var class="var">ipaddress</var>, <var class="var">board</var>)</code></dt>
 <dd><p>Create a arduino object with a connection to an arduino board.
 </p>
 <h4 class="subsubheading" id="Inputs-4">Inputs</h4>
@@ -1684,8 +1512,8 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.2 @arduino/checkI2CAddress</h4>
 <a class="index-entry-id" id="index-checkI2CAddress"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-checkI2CAddress-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code><a class="copiable-link" href='#index-checkI2CAddress-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-checkI2CAddress-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">bus</var>)</code><a class="copiable-link" href='#index-checkI2CAddress-2'></a></span></dt>
+<dt class="deftypefn" id="index-checkI2CAddress-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-checkI2CAddress-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">bus</var>)</code></dt>
 <dd><p>Check that an address of given address responds on the I2C bus
 </p>
 <h4 class="subsubheading" id="Inputs-5">Inputs</h4>
@@ -1718,8 +1546,8 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.3 @arduino/configurePin</h4>
 <a class="index-entry-id" id="index-configurePin"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-configurePin-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-configurePin-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePin-2"><span class="category-def">: </span><span><strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">mode</var>)</code><a class="copiable-link" href='#index-configurePin-2'></a></span></dt>
+<dt class="deftypefn" id="index-configurePin-1"><span class="category-def">: </span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePin-2"><span class="category-def">: </span><strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">mode</var>)</code></dt>
 <dd><p>Set/Get pin mode for a specified pin on arduino connection.
 </p>
 <p>configurePin (<var class="var">ar</var>, <var class="var">pin</var>) will get the current mode of the specified pin.
@@ -1771,9 +1599,9 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.4 @arduino/configurePinResource</h4>
 <a class="index-entry-id" id="index-configurePinResource"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-configurePinResource-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-configurePinResource-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-2"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>)</code><a class="copiable-link" href='#index-configurePinResource-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-3"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>, <var class="var">force</var>)</code><a class="copiable-link" href='#index-configurePinResource-3'></a></span></dt>
+<dt class="deftypefn" id="index-configurePinResource-1"><span class="category-def">: </span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-2"><span class="category-def">: </span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-3"><span class="category-def">: </span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>, <var class="var">force</var>)</code></dt>
 <dd><p>Set/Get pin mode for a specified pin on arduino connection.
 </p>
 <p>configurePinResource (<var class="var">ar</var>, <var class="var">pin</var>) will get the current mode of the specified pin.
@@ -1831,7 +1659,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.5 @arduino/decrementResourceCount</h4>
 <a class="index-entry-id" id="index-decrementResourceCount"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-decrementResourceCount-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">decrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href='#index-decrementResourceCount-1'></a></span></dt>
+<dt class="deftypefn" id="index-decrementResourceCount-1"><span class="category-def">: </span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">decrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code></dt>
 <dd><p>Decrement the count of a named resource by 1 and return the
  new count.
 </p>
@@ -1850,7 +1678,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.6 @arduino/delete</h4>
 <a class="index-entry-id" id="index-delete"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-11"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-11'></a></span></dt>
+<dt class="deftypefn" id="index-delete-11"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of an arduino object.
 </p>
 <h4 class="subsubheading" id="Inputs-9">Inputs</h4>
@@ -1863,7 +1691,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.7 @arduino/disp</h4>
 <a class="index-entry-id" id="index-disp"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-11"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-disp-11'></a></span></dt>
+<dt class="deftypefn" id="index-disp-11"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Display the arduino object in a verbose way, showing the board and available pins.
 </p>
 <h4 class="subsubheading" id="Inputs-10">Inputs</h4>
@@ -1878,7 +1706,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.8 @arduino/getEndian</h4>
 <a class="index-entry-id" id="index-getEndian"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getEndian-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">mcu</var> =</code> <strong class="def-name">getEndian</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getEndian-1'></a></span></dt>
+<dt class="deftypefn" id="index-getEndian-1"><span class="category-def">: </span><code class="def-type"><var class="var">mcu</var> =</code> <strong class="def-name">getEndian</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get the endian used by the connected arduino.
 </p>
 <h4 class="subsubheading" id="Inputs-11">Inputs</h4>
@@ -1897,8 +1725,8 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.9 @arduino/getI2CTerminals</h4>
 <a class="index-entry-id" id="index-getI2CTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getI2CTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getI2CTerminals-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-getI2CTerminals-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">bus</var>)</code><a class="copiable-link" href='#index-getI2CTerminals-2'></a></span></dt>
+<dt class="deftypefn" id="index-getI2CTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-getI2CTerminals-2"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getI2CTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">bus</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available are used for I2C mode.
 </p>
 <h4 class="subsubheading" id="Inputs-12">Inputs</h4>
@@ -1916,7 +1744,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.10 @arduino/getInterruptTerminals</h4>
 <a class="index-entry-id" id="index-getInterruptTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getInterruptTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getInterruptTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getInterruptTerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getInterruptTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getInterruptTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available have interrupt functionality
 </p>
 <h4 class="subsubheading" id="Inputs-13">Inputs</h4>
@@ -1932,7 +1760,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.11 @arduino/getLEDTerminals</h4>
 <a class="index-entry-id" id="index-getLEDTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getLEDTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getLEDTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getLEDTerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getLEDTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getLEDTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available are connected natively to LEDs.
 </p>
 <h4 class="subsubheading" id="Inputs-14">Inputs</h4>
@@ -1948,7 +1776,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.12 @arduino/getMCU</h4>
 <a class="index-entry-id" id="index-getMCU"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getMCU-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">mcu</var> =</code> <strong class="def-name">getMCU</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getMCU-1'></a></span></dt>
+<dt class="deftypefn" id="index-getMCU-1"><span class="category-def">: </span><code class="def-type"><var class="var">mcu</var> =</code> <strong class="def-name">getMCU</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get the MCU used by the connected arduino.
 </p>
 <h4 class="subsubheading" id="Inputs-15">Inputs</h4>
@@ -1964,7 +1792,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.13 @arduino/getPWMTerminals</h4>
 <a class="index-entry-id" id="index-getPWMTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getPWMTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getPWMTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getPWMTerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getPWMTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getPWMTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available for PWM use.
 </p>
 <h4 class="subsubheading" id="Inputs-16">Inputs</h4>
@@ -1980,7 +1808,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.14 @arduino/getPinAlias</h4>
 <a class="index-entry-id" id="index-getPinAlias"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getPinAlias-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">ouy</var> =</code> <strong class="def-name">getPinAlias</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-getPinAlias-1'></a></span></dt>
+<dt class="deftypefn" id="index-getPinAlias-1"><span class="category-def">: </span><code class="def-type"><var class="var">ouy</var> =</code> <strong class="def-name">getPinAlias</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
 <dd><p>Get the pin actual pin name from a pin alias.
 </p>
 <p>For example, the arduino Leonardo, pin &quot;D4&quot; is also &quot;A6&quot;.
@@ -2000,8 +1828,8 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.15 @arduino/getPinInfo</h4>
 <a class="index-entry-id" id="index-getPinInfo"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getPinInfo-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pininfo</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-getPinInfo-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-getPinInfo-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">pininfoarray</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pinarray</var>)</code><a class="copiable-link" href='#index-getPinInfo-2'></a></span></dt>
+<dt class="deftypefn" id="index-getPinInfo-1"><span class="category-def">: </span><code class="def-type"><var class="var">pininfo</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-getPinInfo-2"><span class="category-def">: </span><code class="def-type"><var class="var">pininfoarray</var> =</code> <strong class="def-name">getPinInfo</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pinarray</var>)</code></dt>
 <dd><p>Get the pin information from the input pins values.
 </p>
 <p>getPinInfo (<var class="var">ar</var>, <var class="var">pin</var>) will get information for a single pin.
@@ -2042,7 +1870,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.16 @arduino/getPinsFromTerminals</h4>
 <a class="index-entry-id" id="index-getPinsFromTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getPinsFromTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinnames</var> =</code> <strong class="def-name">getPinsFromTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminals</var>)</code><a class="copiable-link" href='#index-getPinsFromTerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getPinsFromTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinnames</var> =</code> <strong class="def-name">getPinsFromTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminals</var>)</code></dt>
 <dd><p>Get the pin names from the input terminal values.
 </p>
 <h4 class="subsubheading" id="Inputs-19">Inputs</h4>
@@ -2061,7 +1889,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.17 @arduino/getResourceCount</h4>
 <a class="index-entry-id" id="index-getResourceCount"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getResourceCount-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href='#index-getResourceCount-1'></a></span></dt>
+<dt class="deftypefn" id="index-getResourceCount-1"><span class="category-def">: </span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code></dt>
 <dd><p>Get the count of uses of  a given resource.
 </p>
 <h4 class="subsubheading" id="Inputs-20">Inputs</h4>
@@ -2079,7 +1907,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.18 @arduino/getResourceOwner</h4>
 <a class="index-entry-id" id="index-getResourceOwner"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getResourceOwner-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">owner</var> =</code> <strong class="def-name">getResourceOwner</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminal</var>)</code><a class="copiable-link" href='#index-getResourceOwner-1'></a></span></dt>
+<dt class="deftypefn" id="index-getResourceOwner-1"><span class="category-def">: </span><code class="def-type"><var class="var">owner</var> =</code> <strong class="def-name">getResourceOwner</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminal</var>)</code></dt>
 <dd><p>Get the owner of pin allocated previously by configurePinResource.
 </p>
 <h4 class="subsubheading" id="Inputs-21">Inputs</h4>
@@ -2097,7 +1925,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.19 @arduino/getSPITerminals</h4>
 <a class="index-entry-id" id="index-getSPITerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getSPITerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getSPITerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getSPITerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getSPITerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getSPITerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available for SPI mode.
 </p>
 <h4 class="subsubheading" id="Inputs-22">Inputs</h4>
@@ -2113,7 +1941,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.20 @arduino/getServoTerminals</h4>
 <a class="index-entry-id" id="index-getServoTerminals"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getServoTerminals-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getServoTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-getServoTerminals-1'></a></span></dt>
+<dt class="deftypefn" id="index-getServoTerminals-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinlist</var> =</code> <strong class="def-name">getServoTerminals</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get a cell list of pin Ids available for servo use.
 </p>
 <h4 class="subsubheading" id="Inputs-23">Inputs</h4>
@@ -2129,7 +1957,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.21 @arduino/getSharedResourceProperty</h4>
 <a class="index-entry-id" id="index-getSharedResourceProperty"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getSharedResourceProperty-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">property</var>)</code><a class="copiable-link" href='#index-getSharedResourceProperty-1'></a></span></dt>
+<dt class="deftypefn" id="index-getSharedResourceProperty-1"><span class="category-def">: </span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">getSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">property</var>)</code></dt>
 <dd><p>Get the value of a property from a given resource.
 </p>
 <h4 class="subsubheading" id="Inputs-24">Inputs</h4>
@@ -2149,7 +1977,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.22 @arduino/getTerminalMode</h4>
 <a class="index-entry-id" id="index-getTerminalMode"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getTerminalMode-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">mode</var> =</code> <strong class="def-name">getTerminalMode</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminal</var>)</code><a class="copiable-link" href='#index-getTerminalMode-1'></a></span></dt>
+<dt class="deftypefn" id="index-getTerminalMode-1"><span class="category-def">: </span><code class="def-type"><var class="var">mode</var> =</code> <strong class="def-name">getTerminalMode</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">terminal</var>)</code></dt>
 <dd><p>Get the mode of a pin allocated previously by configurePinResource.
 </p>
 <h4 class="subsubheading" id="Inputs-25">Inputs</h4>
@@ -2167,7 +1995,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.23 @arduino/getTerminalsFromPins</h4>
 <a class="index-entry-id" id="index-getTerminalsFromPins"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getTerminalsFromPins-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">pinnums</var> =</code> <strong class="def-name">getTerminalsFromPins</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pins</var>)</code><a class="copiable-link" href='#index-getTerminalsFromPins-1'></a></span></dt>
+<dt class="deftypefn" id="index-getTerminalsFromPins-1"><span class="category-def">: </span><code class="def-type"><var class="var">pinnums</var> =</code> <strong class="def-name">getTerminalsFromPins</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pins</var>)</code></dt>
 <dd><p>Get the terminal number for each pin.
 </p>
 <h4 class="subsubheading" id="Inputs-26">Inputs</h4>
@@ -2187,7 +2015,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.24 @arduino/incrementResourceCount</h4>
 <a class="index-entry-id" id="index-incrementResourceCount"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-incrementResourceCount-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">incrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href='#index-incrementResourceCount-1'></a></span></dt>
+<dt class="deftypefn" id="index-incrementResourceCount-1"><span class="category-def">: </span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">incrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code></dt>
 <dd><p>Increment the count value of a named resource by 1 and return the
  new count
 </p>
@@ -2206,7 +2034,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.25 @arduino/isTerminalAnalog</h4>
 <a class="index-entry-id" id="index-isTerminalAnalog"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isTerminalAnalog-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalAnalog</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">terminal</var>)</code><a class="copiable-link" href='#index-isTerminalAnalog-1'></a></span></dt>
+<dt class="deftypefn" id="index-isTerminalAnalog-1"><span class="category-def">: </span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalAnalog</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">terminal</var>)</code></dt>
 <dd><p>Return true if pin is capable of analog input
 </p>
 <h4 class="subsubheading" id="Inputs-28">Inputs</h4>
@@ -2223,7 +2051,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.26 @arduino/isTerminalDigital</h4>
 <a class="index-entry-id" id="index-isTerminalDigital"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isTerminalDigital_0028obj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalDigital(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">terminal</var>)</code><a class="copiable-link" href='#index-isTerminalDigital_0028obj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-isTerminalDigital_0028obj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">ret</var> =</code> <strong class="def-name">isTerminalDigital(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">terminal</var>)</code></dt>
 <dd><p>Return true if pin is capable of digital functions
 </p>
 <h4 class="subsubheading" id="Inputs-29">Inputs</h4>
@@ -2239,7 +2067,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.27 @arduino/playTone</h4>
 <a class="index-entry-id" id="index-playTone"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-playTone-1"><span class="category-def">: </span><span><strong class="def-name">playTone</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">freq</var>, <var class="var">duration</var>)</code><a class="copiable-link" href='#index-playTone-1'></a></span></dt>
+<dt class="deftypefn" id="index-playTone-1"><span class="category-def">: </span><strong class="def-name">playTone</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">freq</var>, <var class="var">duration</var>)</code></dt>
 <dd><p>Play a tone of a given frequency on a specified pin.
 </p>
 <h4 class="subsubheading" id="Inputs-30">Inputs</h4>
@@ -2261,7 +2089,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.28 @arduino/readAnalogPin</h4>
 <a class="index-entry-id" id="index-readAnalogPin"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAnalogPin-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readAnalogPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-readAnalogPin-1'></a></span></dt>
+<dt class="deftypefn" id="index-readAnalogPin-1"><span class="category-def">: </span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readAnalogPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
 <dd><p>Read analog voltage of  <var class="var">pin</var>.
 </p>
 <h4 class="subsubheading" id="Inputs-31">Inputs</h4>
@@ -2288,7 +2116,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.29 @arduino/readDigitalPin</h4>
 <a class="index-entry-id" id="index-readDigitalPin"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readDigitalPin-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readDigitalPin</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-readDigitalPin-1'></a></span></dt>
+<dt class="deftypefn" id="index-readDigitalPin-1"><span class="category-def">: </span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readDigitalPin</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">pin</var>)</code></dt>
 <dd><p>Read digital value from a digital I/O pin.
 </p>
 <h4 class="subsubheading" id="Inputs-32">Inputs</h4>
@@ -2313,7 +2141,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.30 @arduino/readVoltage</h4>
 <a class="index-entry-id" id="index-readVoltage"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readVoltage-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-readVoltage-1'></a></span></dt>
+<dt class="deftypefn" id="index-readVoltage-1"><span class="category-def">: </span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code></dt>
 <dd><p>Read analog voltage of a pin.
 </p>
 <h4 class="subsubheading" id="Inputs-33">Inputs</h4>
@@ -2340,7 +2168,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.31 @arduino/reset</h4>
 <a class="index-entry-id" id="index-reset"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-reset-2"><span class="category-def">: </span><span><strong class="def-name">reset</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-reset-2'></a></span></dt>
+<dt class="deftypefn" id="index-reset-2"><span class="category-def">: </span><strong class="def-name">reset</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Send reset command to arduino hardware to force a hardware reset.
 </p>
 <h4 class="subsubheading" id="Inputs-34">Inputs</h4>
@@ -2353,9 +2181,9 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.32 @arduino/sendCommand</h4>
 <a class="index-entry-id" id="index-sendCommand"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-sendCommand-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>)</code><a class="copiable-link" href='#index-sendCommand-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>)</code><a class="copiable-link" href='#index-sendCommand-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>, <var class="var">timeout</var>)</code><a class="copiable-link" href='#index-sendCommand-3'></a></span></dt>
+<dt class="deftypefn" id="index-sendCommand-1"><span class="category-def">: </span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-2"><span class="category-def">: </span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-sendCommand-3"><span class="category-def">: </span><code class="def-type"><var class="var">outdata, outsize</var> =</code> <strong class="def-name">sendCommand</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">libname</var>, <var class="var">commandid</var>, <var class="var">data</var>, <var class="var">timeout</var>)</code></dt>
 <dd><p>Send a command with option data to the connected arduino, waiting up to a specified number of seconds
  for a response.
 </p>
@@ -2385,8 +2213,8 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.33 @arduino/setSharedResourceProperty</h4>
 <a class="index-entry-id" id="index-setSharedResourceProperty"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-setSharedResourceProperty-1"><span class="category-def">: </span><span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-setSharedResourceProperty-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-setSharedResourceProperty-2"><span class="category-def">: </span><span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>, ___)</code><a class="copiable-link" href='#index-setSharedResourceProperty-2'></a></span></dt>
+<dt class="deftypefn" id="index-setSharedResourceProperty-1"><span class="category-def">: </span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-setSharedResourceProperty-2"><span class="category-def">: </span><strong class="def-name">setSharedResourceProperty</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>, <var class="var">propname</var>, <var class="var">propvalue</var>, ___)</code></dt>
 <dd><p>Set property values for a given resource.
 </p>
 <h4 class="subsubheading" id="Inputs-36">Inputs</h4>
@@ -2417,7 +2245,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.34 @arduino/uptime</h4>
 <a class="index-entry-id" id="index-uptime"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-uptime-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">sec</var> =</code> <strong class="def-name">uptime</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-uptime-1'></a></span></dt>
+<dt class="deftypefn" id="index-uptime-1"><span class="category-def">: </span><code class="def-type"><var class="var">sec</var> =</code> <strong class="def-name">uptime</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get the number of seconds the arduino board has been running concurrently.
 </p>
 <h4 class="subsubheading" id="Inputs-37">Inputs</h4>
@@ -2435,7 +2263,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.35 @arduino/validatePin</h4>
 <a class="index-entry-id" id="index-validatePin"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-validatePin-1"><span class="category-def">: </span><span><strong class="def-name">validatePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-validatePin-1'></a></span></dt>
+<dt class="deftypefn" id="index-validatePin-1"><span class="category-def">: </span><strong class="def-name">validatePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">type</var>)</code></dt>
 <dd><p>Validate that the mode is allowed for specified pin
 </p>
 <p>If the mode is not valid, and error will be thrown.
@@ -2463,7 +2291,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.36 @arduino/version</h4>
 <a class="index-entry-id" id="index-version"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-version-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">ver</var> =</code> <strong class="def-name">version</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-version-1'></a></span></dt>
+<dt class="deftypefn" id="index-version-1"><span class="category-def">: </span><code class="def-type"><var class="var">ver</var> =</code> <strong class="def-name">version</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
 <dd><p>Get version of library code installed on arduino board
 </p>
 <h4 class="subsubheading" id="Inputs-39">Inputs</h4>
@@ -2480,7 +2308,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.37 @arduino/writeDigitalPin</h4>
 <a class="index-entry-id" id="index-writeDigitalPin"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeDigitalPin-1"><span class="category-def">: </span><span><strong class="def-name">writeDigitalPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-writeDigitalPin-1'></a></span></dt>
+<dt class="deftypefn" id="index-writeDigitalPin-1"><span class="category-def">: </span><strong class="def-name">writeDigitalPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code></dt>
 <dd><p>Write digital value to a digital I/O pin.
 </p>
 <h4 class="subsubheading" id="Inputs-40">Inputs</h4>
@@ -2507,7 +2335,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.38 @arduino/writePWMDutyCycle</h4>
 <a class="index-entry-id" id="index-writePWMDutyCycle"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writePWMDutyCyle"><span class="category-def">: </span><span><strong class="def-name">writePWMDutyCyle</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-writePWMDutyCyle'></a></span></dt>
+<dt class="deftypefn" id="index-writePWMDutyCyle"><span class="category-def">: </span><strong class="def-name">writePWMDutyCyle</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code></dt>
 <dd><p>Set pin to output a square wave with a specified duty cycle.
 </p>
 <h4 class="subsubheading" id="Inputs-41">Inputs</h4>
@@ -2532,7 +2360,7 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 <h4 class="subsection">9.2.39 @arduino/writePWMVoltage</h4>
 <a class="index-entry-id" id="index-writePWMVoltage"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writePWMVoltage-1"><span class="category-def">: </span><span><strong class="def-name">writePWMVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">voltage</var>)</code><a class="copiable-link" href='#index-writePWMVoltage-1'></a></span></dt>
+<dt class="deftypefn" id="index-writePWMVoltage-1"><span class="category-def">: </span><strong class="def-name">writePWMVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">voltage</var>)</code></dt>
 <dd><p>Emulate an approximate voltage out of a pin using PWM.
 </p>
 <h4 class="subsubheading" id="Inputs-42">Inputs</h4>
@@ -2555,35 +2383,13 @@ Next: <a href="#Arduino-I2C-Functions" accesskey="n" rel="next">Arduino I2C Func
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-I2C-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Arduino Rotary Encoder Functions</a>, Previous: <a href="#Arduino-Functions" accesskey="p" rel="prev">Arduino Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-I2C-Functions-1">9.3 Arduino I2C Functions</h3>
 <a class="index-entry-id" id="index-Arduino-I2C-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040device_002fdelete" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdisp" accesskey="2">@device/disp</a></li>
-<li><a href="#g_t_0040device_002fread" accesskey="3">@device/read</a></li>
-<li><a href="#g_t_0040device_002freadRegister" accesskey="4">@device/readRegister</a></li>
-<li><a href="#g_t_0040device_002fsubsref" accesskey="5">@device/subsref</a></li>
-<li><a href="#g_t_0040device_002fwrite" accesskey="6">@device/write</a></li>
-<li><a href="#g_t_0040device_002fwriteRegister" accesskey="7">@device/writeRegister</a></li>
-<li><a href="#g_t_0040i2cdev_002fdelete" accesskey="8">@i2cdev/delete</a></li>
-<li><a href="#g_t_0040i2cdev_002fdisp" accesskey="9">@i2cdev/disp</a></li>
-<li><a href="#g_t_0040i2cdev_002fi2cdev">@i2cdev/i2cdev</a></li>
-<li><a href="#g_t_0040i2cdev_002fread">@i2cdev/read</a></li>
-<li><a href="#g_t_0040i2cdev_002freadRegister">@i2cdev/readRegister</a></li>
-<li><a href="#g_t_0040i2cdev_002fsubsref">@i2cdev/subsref</a></li>
-<li><a href="#g_t_0040i2cdev_002fwrite">@i2cdev/write</a></li>
-<li><a href="#g_t_0040i2cdev_002fwriteRegister">@i2cdev/writeRegister</a></li>
-<li><a href="#scanI2Cbus">scanI2Cbus</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040device_002fdelete">
 <h4 class="subsection">9.3.1 @device/delete</h4>
 <a class="index-entry-id" id="index-delete-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-12"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-12'></a></span></dt>
+<dt class="deftypefn" id="index-delete-12"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a device object.
 </p>
 <h4 class="subsubheading" id="Inputs-43">Inputs</h4>
@@ -2596,7 +2402,7 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.2 @device/disp</h4>
 <a class="index-entry-id" id="index-disp-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-12"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-12'></a></span></dt>
+<dt class="deftypefn" id="index-disp-12"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-44">Inputs</h4>
@@ -2609,8 +2415,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.3 @device/read</h4>
 <a class="index-entry-id" id="index-read"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-read-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-6"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-6'></a></span></dt>
+<dt class="deftypefn" id="index-read-5"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-6"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a i2c or serial device object
  using optional precision for bytesize.
 </p>
@@ -2632,8 +2438,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.4 @device/readRegister</h4>
 <a class="index-entry-id" id="index-readRegister"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readRegister-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-readRegister-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-readRegister-4'></a></span></dt>
+<dt class="deftypefn" id="index-readRegister-3"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-4"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a register of an i2cdev object
  using optional precision for bytesize.
 </p>
@@ -2657,7 +2463,7 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.5 @device/subsref</h4>
 <a class="index-entry-id" id="index-subsref"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-10"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-10'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-10"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for device
 </p>
 <p><strong class="strong">See also:</strong> device.
@@ -2667,8 +2473,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.6 @device/write</h4>
 <a class="index-entry-id" id="index-write"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write-5"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-write-6"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-6'></a></span></dt>
+<dt class="deftypefn" id="index-write-5"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-6"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to a I2C or serial device object
  using optional precision for the data byte used for the data.
 </p>
@@ -2688,8 +2494,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.7 @device/writeRegister</h4>
 <a class="index-entry-id" id="index-writeRegister"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeRegister-3"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-writeRegister-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-4"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-writeRegister-4'></a></span></dt>
+<dt class="deftypefn" id="index-writeRegister-3"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-4"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to i2c device object at a given registry position
  using optional precision for the data byte used for the data.
 </p>
@@ -2711,7 +2517,7 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.8 @i2cdev/delete</h4>
 <a class="index-entry-id" id="index-delete-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-13"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-13'></a></span></dt>
+<dt class="deftypefn" id="index-delete-13"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a i2cdev object.
 </p>
 <h4 class="subsubheading" id="Inputs-49">Inputs</h4>
@@ -2724,7 +2530,7 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.9 @i2cdev/disp</h4>
 <a class="index-entry-id" id="index-disp-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-13"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-13'></a></span></dt>
+<dt class="deftypefn" id="index-disp-13"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display i2cdev object.
 </p>
 <h4 class="subsubheading" id="Inputs-50">Inputs</h4>
@@ -2737,8 +2543,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.10 @i2cdev/i2cdev</h4>
 <a class="index-entry-id" id="index-i2cdev"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-i2cdev-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">i2cdev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code><a class="copiable-link" href='#index-i2cdev-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-i2cdev-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">i2cdev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-i2cdev-2'></a></span></dt>
+<dt class="deftypefn" id="index-i2cdev-1"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">i2cdev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-i2cdev-2"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">i2cdev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
 <dd>
 <p><code class="code">i2cdev</code> is depreciated and will be removed in a future version.
  Use <code class="code">device</code> instead.
@@ -2785,8 +2591,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.11 @i2cdev/read</h4>
 <a class="index-entry-id" id="index-read-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-7"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-read-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-8"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-8'></a></span></dt>
+<dt class="deftypefn" id="index-read-7"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-8"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a i2cdev object
  using optional precision for bytesize.
 </p>
@@ -2808,8 +2614,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.12 @i2cdev/readRegister</h4>
 <a class="index-entry-id" id="index-readRegister-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readRegister-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-readRegister-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-6"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-readRegister-6'></a></span></dt>
+<dt class="deftypefn" id="index-readRegister-5"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-6"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a register of an i2cdev object
  using optional precision for bytesize.
 </p>
@@ -2833,7 +2639,7 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.13 @i2cdev/subsref</h4>
 <a class="index-entry-id" id="index-subsref-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-11"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-11'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-11"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for i2cdev
 </p>
 <p><strong class="strong">See also:</strong> i2cdev.
@@ -2843,8 +2649,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.14 @i2cdev/write</h4>
 <a class="index-entry-id" id="index-write-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write-7"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-write-8"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-8'></a></span></dt>
+<dt class="deftypefn" id="index-write-7"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-8"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to a i2cdev object
  using optional precision for the data byte used for the data.
 </p>
@@ -2864,8 +2670,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.15 @i2cdev/writeRegister</h4>
 <a class="index-entry-id" id="index-writeRegister-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeRegister-5"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-writeRegister-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-6"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-writeRegister-6'></a></span></dt>
+<dt class="deftypefn" id="index-writeRegister-5"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-6"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to i2cdev object at a given registry position
  using optional precision for the data byte used for the data.
 </p>
@@ -2887,8 +2693,8 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 <h4 class="subsection">9.3.16 scanI2Cbus</h4>
 <a class="index-entry-id" id="index-scanI2Cbus"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-scanI2Cbus-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanI2Cbus</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-scanI2Cbus-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-scanI2Cbus-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanI2Cbus</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">bus</var>)</code><a class="copiable-link" href='#index-scanI2Cbus-2'></a></span></dt>
+<dt class="deftypefn" id="index-scanI2Cbus-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanI2Cbus</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-scanI2Cbus-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">scanI2Cbus</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">bus</var>)</code></dt>
 <dd><p>Scan arduino for devices on the I2C bus.
 </p>
 <h4 class="subsubheading" id="Inputs-56">Inputs</h4>
@@ -2920,26 +2726,13 @@ Next: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="n" rel="next">Ardui
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Rotary-Encoder-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo Functions</a>, Previous: <a href="#Arduino-I2C-Functions" accesskey="p" rel="prev">Arduino I2C Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Rotary-Encoder-Functions-1">9.4 Arduino Rotary Encoder Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Rotary-Encoder-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040rotaryEncoder_002fdelete" accesskey="1">@rotaryEncoder/delete</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002fdisp" accesskey="2">@rotaryEncoder/disp</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002freadCount" accesskey="3">@rotaryEncoder/readCount</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002freadSpeed" accesskey="4">@rotaryEncoder/readSpeed</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002fresetCount" accesskey="5">@rotaryEncoder/resetCount</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002frotaryEncoder" accesskey="6">@rotaryEncoder/rotaryEncoder</a></li>
-<li><a href="#g_t_0040rotaryEncoder_002fsubsref" accesskey="7">@rotaryEncoder/subsref</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040rotaryEncoder_002fdelete">
 <h4 class="subsection">9.4.1 @rotaryEncoder/delete</h4>
 <a class="index-entry-id" id="index-delete-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-14"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-14'></a></span></dt>
+<dt class="deftypefn" id="index-delete-14"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a encoder object.
 </p>
 <h4 class="subsubheading" id="Inputs-57">Inputs</h4>
@@ -2952,7 +2745,7 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.2 @rotaryEncoder/disp</h4>
 <a class="index-entry-id" id="index-disp-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-14"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-disp-14'></a></span></dt>
+<dt class="deftypefn" id="index-disp-14"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code></dt>
 <dd><p>Display the rotary encoder object in a verbose way,
 </p>
 <h4 class="subsubheading" id="Inputs-58">Inputs</h4>
@@ -2965,8 +2758,8 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.3 @rotaryEncoder/readCount</h4>
 <a class="index-entry-id" id="index-readCount"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readCount-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-readCount-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-readCount-2"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">name</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-readCount-2'></a></span></dt>
+<dt class="deftypefn" id="index-readCount-1"><span class="category-def">: </span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readCount-2"><span class="category-def">: </span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">name</var>, <var class="var">value</var>)</code></dt>
 <dd><p>read count value from the rotary encoder.
 </p>
 <p>subsubheading Inputs
@@ -2992,7 +2785,7 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.4 @rotaryEncoder/readSpeed</h4>
 <a class="index-entry-id" id="index-readSpeed"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readSpeed-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">speed</var> =</code> <strong class="def-name">readSpeed</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-readSpeed-1'></a></span></dt>
+<dt class="deftypefn" id="index-readSpeed-1"><span class="category-def">: </span><code class="def-type"><var class="var">speed</var> =</code> <strong class="def-name">readSpeed</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code></dt>
 <dd><p>read rotational speed from the rotary encoder.
 </p>
 <h4 class="subsubheading" id="Inputs-59">Inputs</h4>
@@ -3008,8 +2801,8 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.5 @rotaryEncoder/resetCount</h4>
 <a class="index-entry-id" id="index-resetCount"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-_0028obj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028obj_002c"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">cnt</var>)</code><a class="copiable-link" href='#index-_0028obj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-_0028obj_0029"><span class="category-def">: </span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028obj_002c"><span class="category-def">: </span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">cnt</var>)</code></dt>
 <dd><p>reset the rotary encoder count values
 </p>
 <h4 class="subsubheading" id="Inputs-60">Inputs</h4>
@@ -3024,8 +2817,8 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.6 @rotaryEncoder/rotaryEncoder</h4>
 <a class="index-entry-id" id="index-rotaryEncoder"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-rotaryEncoder-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>)</code><a class="copiable-link" href='#index-rotaryEncoder-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-rotaryEncoder-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>, <var class="var">ppr</var>)</code><a class="copiable-link" href='#index-rotaryEncoder-2'></a></span></dt>
+<dt class="deftypefn" id="index-rotaryEncoder-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-rotaryEncoder-2"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>, <var class="var">ppr</var>)</code></dt>
 <dd><p>Create a rotaryEncoder object controlled by the input pins.
 </p>
 <h4 class="subsubheading" id="Inputs-61">Inputs</h4>
@@ -3065,7 +2858,7 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 <h4 class="subsection">9.4.7 @rotaryEncoder/subsref</h4>
 <a class="index-entry-id" id="index-subsref-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-12"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-12'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-12"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for rotaryEncoder
 </p>
 <p><strong class="strong">See also:</strong> rotaryEncoder.
@@ -3074,25 +2867,13 @@ Next: <a href="#Arduino-Servo-Functions" accesskey="n" rel="next">Arduino Servo 
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Servo-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduino Shiftregister Functions</a>, Previous: <a href="#Arduino-Rotary-Encoder-Functions" accesskey="p" rel="prev">Arduino Rotary Encoder Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Servo-Functions-1">9.5 Arduino Servo Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Servo-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040servo_002fdelete" accesskey="1">@servo/delete</a></li>
-<li><a href="#g_t_0040servo_002fdisp" accesskey="2">@servo/disp</a></li>
-<li><a href="#g_t_0040servo_002freadPosition" accesskey="3">@servo/readPosition</a></li>
-<li><a href="#g_t_0040servo_002fservo" accesskey="4">@servo/servo</a></li>
-<li><a href="#g_t_0040servo_002fsubsref" accesskey="5">@servo/subsref</a></li>
-<li><a href="#g_t_0040servo_002fwritePosition" accesskey="6">@servo/writePosition</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040servo_002fdelete">
 <h4 class="subsection">9.5.1 @servo/delete</h4>
 <a class="index-entry-id" id="index-delete-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-15"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-15'></a></span></dt>
+<dt class="deftypefn" id="index-delete-15"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a servo object.
 </p>
 <h4 class="subsubheading" id="Inputs-62">Inputs</h4>
@@ -3105,7 +2886,7 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <h4 class="subsection">9.5.2 @servo/disp</h4>
 <a class="index-entry-id" id="index-disp-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-15"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-15'></a></span></dt>
+<dt class="deftypefn" id="index-disp-15"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display servo object.
 </p>
 <h4 class="subsubheading" id="Inputs-63">Inputs</h4>
@@ -3118,7 +2899,7 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <h4 class="subsection">9.5.3 @servo/readPosition</h4>
 <a class="index-entry-id" id="index-readPosition"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readPosition-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">position</var> =</code> <strong class="def-name">readPosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>)</code><a class="copiable-link" href='#index-readPosition-1'></a></span></dt>
+<dt class="deftypefn" id="index-readPosition-1"><span class="category-def">: </span><code class="def-type"><var class="var">position</var> =</code> <strong class="def-name">readPosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>)</code></dt>
 <dd><p>Read the position of a servo
 </p>
 <h4 class="subsubheading" id="Inputs-64">Inputs</h4>
@@ -3135,8 +2916,8 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <h4 class="subsection">9.5.4 @servo/servo</h4>
 <a class="index-entry-id" id="index-servo"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-servo-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">servo</strong> <code class="def-code-arguments">(<var class="var">arduinoobj</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-servo-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-servo-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">servo</strong> <code class="def-code-arguments">(<var class="var">arduinoobj</var>, <var class="var">pin</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-servo-2'></a></span></dt>
+<dt class="deftypefn" id="index-servo-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">servo</strong> <code class="def-code-arguments">(<var class="var">arduinoobj</var>, <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-servo-2"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">servo</strong> <code class="def-code-arguments">(<var class="var">arduinoobj</var>, <var class="var">pin</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code></dt>
 <dd><p>Create a servo object using a specified pin on a arduino board.
 </p>
 <h4 class="subsubheading" id="Inputs-65">Inputs</h4>
@@ -3191,7 +2972,7 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <h4 class="subsection">9.5.5 @servo/subsref</h4>
 <a class="index-entry-id" id="index-subsref-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-13"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-13'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-13"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for servo
 </p>
 <p><strong class="strong">See also:</strong> servo.
@@ -3201,7 +2982,7 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 <h4 class="subsection">9.5.6 @servo/writePosition</h4>
 <a class="index-entry-id" id="index-writePosition"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writePosition-1"><span class="category-def">: </span><span><strong class="def-name">writePosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>, <var class="var">position</var>)</code><a class="copiable-link" href='#index-writePosition-1'></a></span></dt>
+<dt class="deftypefn" id="index-writePosition-1"><span class="category-def">: </span><strong class="def-name">writePosition</strong> <code class="def-code-arguments">(<var class="var">servo</var>, <var class="var">position</var>)</code></dt>
 <dd><p>Write the position to a servo.
 </p>
 <h4 class="subsubheading" id="Inputs-66">Inputs</h4>
@@ -3216,26 +2997,13 @@ Next: <a href="#Arduino-Shiftregister-Functions" accesskey="n" rel="next">Arduin
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Shiftregister-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Functions</a>, Previous: <a href="#Arduino-Servo-Functions" accesskey="p" rel="prev">Arduino Servo Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Shiftregister-Functions-1">9.6 Arduino Shiftregister Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Shiftregister-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040shiftRegister_002fdelete" accesskey="1">@shiftRegister/delete</a></li>
-<li><a href="#g_t_0040shiftRegister_002fdisp" accesskey="2">@shiftRegister/disp</a></li>
-<li><a href="#g_t_0040shiftRegister_002fread" accesskey="3">@shiftRegister/read</a></li>
-<li><a href="#g_t_0040shiftRegister_002freset" accesskey="4">@shiftRegister/reset</a></li>
-<li><a href="#g_t_0040shiftRegister_002fshiftRegister" accesskey="5">@shiftRegister/shiftRegister</a></li>
-<li><a href="#g_t_0040shiftRegister_002fsubsref" accesskey="6">@shiftRegister/subsref</a></li>
-<li><a href="#g_t_0040shiftRegister_002fwrite" accesskey="7">@shiftRegister/write</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040shiftRegister_002fdelete">
 <h4 class="subsection">9.6.1 @shiftRegister/delete</h4>
 <a class="index-entry-id" id="index-delete-5"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-16"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-16'></a></span></dt>
+<dt class="deftypefn" id="index-delete-16"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a shiftRegister object.
 </p>
 <h4 class="subsubheading" id="Inputs-67">Inputs</h4>
@@ -3248,7 +3016,7 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.2 @shiftRegister/disp</h4>
 <a class="index-entry-id" id="index-disp-5"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-16"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-disp-16'></a></span></dt>
+<dt class="deftypefn" id="index-disp-16"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code></dt>
 <dd><p>Display the register object in a verbose way,
 </p>
 <h4 class="subsubheading" id="Inputs-68">Inputs</h4>
@@ -3261,8 +3029,8 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.3 @shiftRegister/read</h4>
 <a class="index-entry-id" id="index-read-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-9"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-read-9'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-10"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-10'></a></span></dt>
+<dt class="deftypefn" id="index-read-9"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-10"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">register</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>read a value from the shift register.
 </p>
 <h4 class="subsubheading" id="Inputs-69">Inputs</h4>
@@ -3282,7 +3050,7 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.4 @shiftRegister/reset</h4>
 <a class="index-entry-id" id="index-reset-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-_0028register_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">register</var>)</strong><a class="copiable-link" href='#index-_0028register_0029'></a></span></dt>
+<dt class="deftypefn" id="index-_0028register_0029"><span class="category-def">: </span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">register</var>)</strong></dt>
 <dd><p>clear the shift register value.
 </p>
 <h4 class="subsubheading" id="Inputs-70">Inputs</h4>
@@ -3295,10 +3063,10 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.5 @shiftRegister/shiftRegister</h4>
 <a class="index-entry-id" id="index-shiftRegister"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-shiftRegister-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">shifttype</var>, <var class="var">dataPin</var>, <var class="var">clockPin</var> ...)</code><a class="copiable-link" href='#index-shiftRegister-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc164', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">resetPin</var>)</code><a class="copiable-link" href='#index-shiftRegister-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc165', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">loadPin</var>, <var class="var">clockEnablePin</var>)</code><a class="copiable-link" href='#index-shiftRegister-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister_0028ar_002c_002774hc595_0027_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister(<var class="var">ar</var>,'74hc595',</strong> <code class="def-code-arguments"><var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">latchPin</var> , <var class="var">resetPin</var>)</code><a class="copiable-link" href='#index-shiftRegister_0028ar_002c_002774hc595_0027_002c'></a></span></dt>
+<dt class="deftypefn" id="index-shiftRegister-1"><span class="category-def">: </span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">shifttype</var>, <var class="var">dataPin</var>, <var class="var">clockPin</var> ...)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-2"><span class="category-def">: </span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc164', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">resetPin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister-3"><span class="category-def">: </span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister</strong> <code class="def-code-arguments">(<var class="var">ar</var>,'74hc165', <var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">loadPin</var>, <var class="var">clockEnablePin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-shiftRegister_0028ar_002c_002774hc595_0027_002c"><span class="category-def">: </span><code class="def-type"><var class="var">register</var> =</code> <strong class="def-name">shiftRegister(<var class="var">ar</var>,'74hc595',</strong> <code class="def-code-arguments"><var class="var">dataPin</var>, <var class="var">clockPin</var>, <var class="var">latchPin</var> , <var class="var">resetPin</var>)</code></dt>
 <dd><p>Create shift register of a given type, controlled by the input pins.
 </p>
 <h4 class="subsubheading" id="Inputs-71">Inputs</h4>
@@ -3358,7 +3126,7 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.6 @shiftRegister/subsref</h4>
 <a class="index-entry-id" id="index-subsref-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-14"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-14'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-14"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for shiftRegister
 </p>
 <p><strong class="strong">See also:</strong> shiftRegister.
@@ -3368,8 +3136,8 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 <h4 class="subsection">9.6.7 @shiftRegister/write</h4>
 <a class="index-entry-id" id="index-write-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-_0028register_002c"><span class="category-def">: </span><span><code class="def-type">write</code> <strong class="def-name">(<var class="var">register</var>,</strong> <code class="def-code-arguments"><var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-_0028register_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028register_002c-1"><span class="category-def">: </span><span><code class="def-type">write</code> <strong class="def-name">(<var class="var">register</var>,</strong> <code class="def-code-arguments"><var class="var">dataIn</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-_0028register_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-_0028register_002c"><span class="category-def">: </span><code class="def-type">write</code> <strong class="def-name">(<var class="var">register</var>,</strong> <code class="def-code-arguments"><var class="var">dataIn</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028register_002c-1"><span class="category-def">: </span><code class="def-type">write</code> <strong class="def-name">(<var class="var">register</var>,</strong> <code class="def-code-arguments"><var class="var">dataIn</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write a value to the shift register.
 </p>
 <h4 class="subsubheading" id="Inputs-72">Inputs</h4>
@@ -3387,28 +3155,13 @@ Next: <a href="#Arduino-SPI-Functions" accesskey="n" rel="next">Arduino SPI Func
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-SPI-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Serial Functions</a>, Previous: <a href="#Arduino-Shiftregister-Functions" accesskey="p" rel="prev">Arduino Shiftregister Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-SPI-Functions-1">9.7 Arduino SPI Functions</h3>
 <a class="index-entry-id" id="index-Arduino-SPI-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040device_002fdelete-1" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdisp-1" accesskey="2">@device/disp</a></li>
-<li><a href="#g_t_0040device_002fsubsref-1" accesskey="3">@device/subsref</a></li>
-<li><a href="#g_t_0040device_002fwriteRead" accesskey="4">@device/writeRead</a></li>
-<li><a href="#g_t_0040spidev_002fdelete" accesskey="5">@spidev/delete</a></li>
-<li><a href="#g_t_0040spidev_002fdisp" accesskey="6">@spidev/disp</a></li>
-<li><a href="#g_t_0040spidev_002fspidev" accesskey="7">@spidev/spidev</a></li>
-<li><a href="#g_t_0040spidev_002fsubsref" accesskey="8">@spidev/subsref</a></li>
-<li><a href="#g_t_0040spidev_002fwriteRead" accesskey="9">@spidev/writeRead</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040device_002fdelete-1">
 <h4 class="subsection">9.7.1 @device/delete</h4>
 <a class="index-entry-id" id="index-delete-6"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-17"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-17'></a></span></dt>
+<dt class="deftypefn" id="index-delete-17"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a device object.
 </p>
 <h4 class="subsubheading" id="Inputs-73">Inputs</h4>
@@ -3421,7 +3174,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.2 @device/disp</h4>
 <a class="index-entry-id" id="index-disp-6"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-17"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-17'></a></span></dt>
+<dt class="deftypefn" id="index-disp-17"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-74">Inputs</h4>
@@ -3434,7 +3187,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.3 @device/subsref</h4>
 <a class="index-entry-id" id="index-subsref-5"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-15"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-15'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-15"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for device
 </p>
 <p><strong class="strong">See also:</strong> device.
@@ -3444,7 +3197,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.4 @device/writeRead</h4>
 <a class="index-entry-id" id="index-writeRead"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readWrite"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-readWrite'></a></span></dt>
+<dt class="deftypefn" id="index-readWrite"><span class="category-def">: </span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code></dt>
 <dd><p>Write uint8 data to spi device and return
  back clocked out response data of same size.
 </p>
@@ -3463,7 +3216,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.5 @spidev/delete</h4>
 <a class="index-entry-id" id="index-delete-7"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-18"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-18'></a></span></dt>
+<dt class="deftypefn" id="index-delete-18"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a spidev object.
 </p>
 <h4 class="subsubheading" id="Inputs-76">Inputs</h4>
@@ -3476,7 +3229,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.6 @spidev/disp</h4>
 <a class="index-entry-id" id="index-disp-7"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-18"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-18'></a></span></dt>
+<dt class="deftypefn" id="index-disp-18"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display spidev object.
 </p>
 <h4 class="subsubheading" id="Inputs-77">Inputs</h4>
@@ -3489,8 +3242,8 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.7 @spidev/spidev</h4>
 <a class="index-entry-id" id="index-spidev"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-spidev-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>)</code><a class="copiable-link" href='#index-spidev-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-spidev-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-spidev-2'></a></span></dt>
+<dt class="deftypefn" id="index-spidev-1"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-spidev-2"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
 <dd>
 <p><code class="code">spidev</code> is depreciated and will be removed in a future version.
  Use <code class="code">device</code> instead.
@@ -3548,7 +3301,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.8 @spidev/subsref</h4>
 <a class="index-entry-id" id="index-subsref-6"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-16"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-16'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-16"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for spidev
 </p>
 <p><strong class="strong">See also:</strong> spidev.
@@ -3558,7 +3311,7 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 <h4 class="subsection">9.7.9 @spidev/writeRead</h4>
 <a class="index-entry-id" id="index-writeRead-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readWrite-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-readWrite-1'></a></span></dt>
+<dt class="deftypefn" id="index-readWrite-1"><span class="category-def">: </span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code></dt>
 <dd><p>Write uint8 data to spi device and return
  back clocked out response data of same size.
 </p>
@@ -3576,26 +3329,13 @@ Next: <a href="#Arduino-Serial-Functions" accesskey="n" rel="next">Arduino Seria
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Serial-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Device Functions</a>, Previous: <a href="#Arduino-SPI-Functions" accesskey="p" rel="prev">Arduino SPI Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Serial-Functions-1">9.8 Arduino Serial Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Serial-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040device_002fdelete-2" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdevice" accesskey="2">@device/device</a></li>
-<li><a href="#g_t_0040device_002fdisp-2" accesskey="3">@device/disp</a></li>
-<li><a href="#g_t_0040device_002fflush" accesskey="4">@device/flush</a></li>
-<li><a href="#g_t_0040device_002fread-1" accesskey="5">@device/read</a></li>
-<li><a href="#g_t_0040device_002fsubsref-2" accesskey="6">@device/subsref</a></li>
-<li><a href="#g_t_0040device_002fwrite-1" accesskey="7">@device/write</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040device_002fdelete-2">
 <h4 class="subsection">9.8.1 @device/delete</h4>
 <a class="index-entry-id" id="index-delete-8"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-19"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-19'></a></span></dt>
+<dt class="deftypefn" id="index-delete-19"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a device object.
 </p>
 <h4 class="subsubheading" id="Inputs-80">Inputs</h4>
@@ -3608,10 +3348,10 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.2 @device/device</h4>
 <a class="index-entry-id" id="index-device"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-device-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code><a class="copiable-link" href='#index-device-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code><a class="copiable-link" href='#index-device-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code><a class="copiable-link" href='#index-device-4'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-device-5'></a></span></dt>
+<dt class="deftypefn" id="index-device-2"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-3"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-4"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-5"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
 <dd><p>Create an i2c, spi or serial object to communicate on a connected arduino.
 </p>
 <h4 class="subsubheading" id="Inputs-81">Inputs</h4>
@@ -3754,7 +3494,7 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.3 @device/disp</h4>
 <a class="index-entry-id" id="index-disp-8"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-19"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-19'></a></span></dt>
+<dt class="deftypefn" id="index-disp-19"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-82">Inputs</h4>
@@ -3767,9 +3507,9 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.4 @device/flush</h4>
 <a class="index-entry-id" id="index-flush"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-flush-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code><a class="copiable-link" href='#index-flush-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code><a class="copiable-link" href='#index-flush-4'></a></span></dt>
+<dt class="deftypefn" id="index-flush-2"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-3"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-4"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code></dt>
 <dd><p>Flush the serial port buffers
 </p>
 <h4 class="subsubheading" id="Inputs-83">Inputs</h4>
@@ -3788,8 +3528,8 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.5 @device/read</h4>
 <a class="index-entry-id" id="index-read-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-11"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-read-11'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-12"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-12'></a></span></dt>
+<dt class="deftypefn" id="index-read-11"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-12"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a i2c or serial device object
  using optional precision for bytesize.
 </p>
@@ -3811,7 +3551,7 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.6 @device/subsref</h4>
 <a class="index-entry-id" id="index-subsref-7"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-17"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-17'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-17"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for device
 </p>
 <p><strong class="strong">See also:</strong> device.
@@ -3821,8 +3561,8 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 <h4 class="subsection">9.8.7 @device/write</h4>
 <a class="index-entry-id" id="index-write-3"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write-9"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write-9'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-write-10"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-10'></a></span></dt>
+<dt class="deftypefn" id="index-write-9"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-10"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to a I2C or serial device object
  using optional precision for the data byte used for the data.
 </p>
@@ -3841,29 +3581,13 @@ Next: <a href="#Arduino-Device-Functions" accesskey="n" rel="next">Arduino Devic
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Device-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino Ultrasonic Functions</a>, Previous: <a href="#Arduino-Serial-Functions" accesskey="p" rel="prev">Arduino Serial Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Device-Functions-1">9.9 Arduino Device Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Device-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040device_002fdelete-3" accesskey="1">@device/delete</a></li>
-<li><a href="#g_t_0040device_002fdevice-1" accesskey="2">@device/device</a></li>
-<li><a href="#g_t_0040device_002fdisp-3" accesskey="3">@device/disp</a></li>
-<li><a href="#g_t_0040device_002fflush-1" accesskey="4">@device/flush</a></li>
-<li><a href="#g_t_0040device_002fread-2" accesskey="5">@device/read</a></li>
-<li><a href="#g_t_0040device_002freadRegister-1" accesskey="6">@device/readRegister</a></li>
-<li><a href="#g_t_0040device_002fsubsref-3" accesskey="7">@device/subsref</a></li>
-<li><a href="#g_t_0040device_002fwrite-2" accesskey="8">@device/write</a></li>
-<li><a href="#g_t_0040device_002fwriteRead-1" accesskey="9">@device/writeRead</a></li>
-<li><a href="#g_t_0040device_002fwriteRegister-1">@device/writeRegister</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040device_002fdelete-3">
 <h4 class="subsection">9.9.1 @device/delete</h4>
 <a class="index-entry-id" id="index-delete-9"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-20"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-20'></a></span></dt>
+<dt class="deftypefn" id="index-delete-20"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a device object.
 </p>
 <h4 class="subsubheading" id="Inputs-86">Inputs</h4>
@@ -3876,10 +3600,10 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.2 @device/device</h4>
 <a class="index-entry-id" id="index-device-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-device-6"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code><a class="copiable-link" href='#index-device-6'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-7"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code><a class="copiable-link" href='#index-device-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-8"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code><a class="copiable-link" href='#index-device-8'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-device-9"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-device-9'></a></span></dt>
+<dt class="deftypefn" id="index-device-6"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'I2CAddress', <var class="var">address</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-7"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'SPIChipSelectPin', <var class="var">pin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-8"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(<var class="var">ar</var>, 'Serial', <var class="var">serialid</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-device-9"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">device</strong> <code class="def-code-arguments">(..., <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
 <dd><p>Create an i2c, spi or serial object to communicate on a connected arduino.
 </p>
 <h4 class="subsubheading" id="Inputs-87">Inputs</h4>
@@ -4022,7 +3746,7 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.3 @device/disp</h4>
 <a class="index-entry-id" id="index-disp-9"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-20"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-20'></a></span></dt>
+<dt class="deftypefn" id="index-disp-20"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display device object.
 </p>
 <h4 class="subsubheading" id="Inputs-88">Inputs</h4>
@@ -4035,9 +3759,9 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.4 @device/flush</h4>
 <a class="index-entry-id" id="index-flush-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-flush-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-6"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code><a class="copiable-link" href='#index-flush-6'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-7"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code><a class="copiable-link" href='#index-flush-7'></a></span></dt>
+<dt class="deftypefn" id="index-flush-5"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-6"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;input&quot;)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-flush-7"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">flush</strong> <code class="def-code-arguments">(<var class="var">dev</var>, &quot;output&quot;)</code></dt>
 <dd><p>Flush the serial port buffers
 </p>
 <h4 class="subsubheading" id="Inputs-89">Inputs</h4>
@@ -4056,8 +3780,8 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.5 @device/read</h4>
 <a class="index-entry-id" id="index-read-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-13"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-read-13'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-14"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-14'></a></span></dt>
+<dt class="deftypefn" id="index-read-13"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-14"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a i2c or serial device object
  using optional precision for bytesize.
 </p>
@@ -4079,8 +3803,8 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.6 @device/readRegister</h4>
 <a class="index-entry-id" id="index-readRegister-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readRegister-7"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-readRegister-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-8"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-readRegister-8'></a></span></dt>
+<dt class="deftypefn" id="index-readRegister-7"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readRegister-8"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">readRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Read a specified number of bytes from a register of an i2cdev object
  using optional precision for bytesize.
 </p>
@@ -4104,7 +3828,7 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.7 @device/subsref</h4>
 <a class="index-entry-id" id="index-subsref-8"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-18"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-18'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-18"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for device
 </p>
 <p><strong class="strong">See also:</strong> device.
@@ -4114,8 +3838,8 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.8 @device/write</h4>
 <a class="index-entry-id" id="index-write-4"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write-11"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write-11'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-write-12"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-12'></a></span></dt>
+<dt class="deftypefn" id="index-write-11"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-12"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to a I2C or serial device object
  using optional precision for the data byte used for the data.
 </p>
@@ -4135,7 +3859,7 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.9 @device/writeRead</h4>
 <a class="index-entry-id" id="index-writeRead-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readWrite-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code><a class="copiable-link" href='#index-readWrite-2'></a></span></dt>
+<dt class="deftypefn" id="index-readWrite-2"><span class="category-def">: </span><code class="def-type"><var class="var">dataOut</var> =</code> <strong class="def-name">readWrite</strong> <code class="def-code-arguments">(<var class="var">spi</var>, <var class="var">dataIn</var>)</code></dt>
 <dd><p>Write uint8 data to spi device and return
  back clocked out response data of same size.
 </p>
@@ -4154,8 +3878,8 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 <h4 class="subsection">9.9.10 @device/writeRegister</h4>
 <a class="index-entry-id" id="index-writeRegister-2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeRegister-7"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-writeRegister-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-8"><span class="category-def">: </span><span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-writeRegister-8'></a></span></dt>
+<dt class="deftypefn" id="index-writeRegister-7"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">reg</var>, <var class="var">datain</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-writeRegister-8"><span class="category-def">: </span><strong class="def-name">writeRegister</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code></dt>
 <dd><p>Write data to i2c device object at a given registry position
  using optional precision for the data byte used for the data.
 </p>
@@ -4176,25 +3900,13 @@ Next: <a href="#Arduino-Ultrasonic-Functions" accesskey="n" rel="next">Arduino U
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Ultrasonic-Functions">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Previous: <a href="#Arduino-Device-Functions" accesskey="p" rel="prev">Arduino Device Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Ultrasonic-Functions-1">9.10 Arduino Ultrasonic Functions</h3>
 <a class="index-entry-id" id="index-Arduino-Ultrasonic-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#g_t_0040ultrasonic_002fdelete" accesskey="1">@ultrasonic/delete</a></li>
-<li><a href="#g_t_0040ultrasonic_002fdisp" accesskey="2">@ultrasonic/disp</a></li>
-<li><a href="#g_t_0040ultrasonic_002freadDistance" accesskey="3">@ultrasonic/readDistance</a></li>
-<li><a href="#g_t_0040ultrasonic_002freadEchoTime" accesskey="4">@ultrasonic/readEchoTime</a></li>
-<li><a href="#g_t_0040ultrasonic_002fsubsref" accesskey="5">@ultrasonic/subsref</a></li>
-<li><a href="#g_t_0040ultrasonic_002fultrasonic" accesskey="6">@ultrasonic/ultrasonic</a></li>
-</ul>
 <div class="subsection-level-extent" id="g_t_0040ultrasonic_002fdelete">
 <h4 class="subsection">9.10.1 @ultrasonic/delete</h4>
 <a class="index-entry-id" id="index-delete-10"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-delete-21"><span class="category-def">: </span><span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-delete-21'></a></span></dt>
+<dt class="deftypefn" id="index-delete-21"><span class="category-def">: </span><strong class="def-name">delete</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Free resources of a ultrasonic object.
 </p>
 <h4 class="subsubheading" id="Inputs-95">Inputs</h4>
@@ -4207,7 +3919,7 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <h4 class="subsection">9.10.2 @ultrasonic/disp</h4>
 <a class="index-entry-id" id="index-disp-10"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-21"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-disp-21'></a></span></dt>
+<dt class="deftypefn" id="index-disp-21"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Display ultrasonic object.
 </p>
 <h4 class="subsubheading" id="Inputs-96">Inputs</h4>
@@ -4220,7 +3932,7 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <h4 class="subsection">9.10.3 @ultrasonic/readDistance</h4>
 <a class="index-entry-id" id="index-readDistance"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readDistance-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">distance</var> =</code> <strong class="def-name">readDistance</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-readDistance-1'></a></span></dt>
+<dt class="deftypefn" id="index-readDistance-1"><span class="category-def">: </span><code class="def-type"><var class="var">distance</var> =</code> <strong class="def-name">readDistance</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Read the distance from a ultrasonic device
 </p>
 <h4 class="subsubheading" id="Inputs-97">Inputs</h4>
@@ -4236,7 +3948,7 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <h4 class="subsection">9.10.4 @ultrasonic/readEchoTime</h4>
 <a class="index-entry-id" id="index-readEchoTime"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readEchoTime-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">time</var> =</code> <strong class="def-name">readEchoTime</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code><a class="copiable-link" href='#index-readEchoTime-1'></a></span></dt>
+<dt class="deftypefn" id="index-readEchoTime-1"><span class="category-def">: </span><code class="def-type"><var class="var">time</var> =</code> <strong class="def-name">readEchoTime</strong> <code class="def-code-arguments">(<var class="var">dev</var>)</code></dt>
 <dd><p>Measure the time for waves to reflect back to the ultrasonic device
 </p>
 <h4 class="subsubheading" id="Inputs-98">Inputs</h4>
@@ -4252,7 +3964,7 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <h4 class="subsection">9.10.5 @ultrasonic/subsref</h4>
 <a class="index-entry-id" id="index-subsref-9"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref-19"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref-19'></a></span></dt>
+<dt class="deftypefn" id="index-subsref-19"><span class="category-def">: </span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code></dt>
 <dd><p>subref for ultrasonic
 </p>
 <p><strong class="strong">See also:</strong> ultrasonic.
@@ -4262,9 +3974,9 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 <h4 class="subsection">9.10.6 @ultrasonic/ultrasonic</h4>
 <a class="index-entry-id" id="index-ultrasonic"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-ultrasonic-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>)</code><a class="copiable-link" href='#index-ultrasonic-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>)</code><a class="copiable-link" href='#index-ultrasonic-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-ultrasonic-3'></a></span></dt>
+<dt class="deftypefn" id="index-ultrasonic-1"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-2"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-3"><span class="category-def">: </span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code></dt>
 <dd><p>Create an ultrasonic object to communicate to a connected ultrasonic device
 </p>
 <h4 class="subsubheading" id="Inputs-99">Inputs</h4>
@@ -4310,29 +4022,14 @@ Next: <a href="#Arduino-Addons" accesskey="n" rel="next">Arduino Addons</a>, Pre
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Addons">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, Previous: <a href="#Arduino-Ultrasonic-Functions" accesskey="p" rel="prev">Arduino Ultrasonic Functions</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Addons-1">9.11 Arduino Addons</h3>
 <a class="index-entry-id" id="index-Arduino-Addons"></a>
-<ul class="mini-toc">
-<li><a href="#addon" accesskey="1">addon</a></li>
-<li><a href="#arduinoioaddons_002eEEPRomAddon_002eEEPRom" accesskey="2">arduinoioaddons.EEPRomAddon.EEPRom</a></li>
-<li><a href="#arduinoioaddons_002eExampleAddon_002eEcho" accesskey="3">arduinoioaddons.ExampleAddon.Echo</a></li>
-<li><a href="#arduinoioaddons_002eExampleLCD_002eLCD" accesskey="4">arduinoioaddons.ExampleLCD.LCD</a></li>
-<li><a href="#arduinoioaddons_002eRTCAddon_002eDS1307" accesskey="5">arduinoioaddons.RTCAddon.DS1307</a></li>
-<li><a href="#arduinoioaddons_002eSimpleStepper_002eSimpleStepper" accesskey="6">arduinoioaddons.SimpleStepper.SimpleStepper</a></li>
-<li><a href="#arduinoioaddons_002eadafruit_002edcmotorv2" accesskey="7">arduinoioaddons.adafruit.dcmotorv2</a></li>
-<li><a href="#arduinoioaddons_002eadafruit_002emotorshieldv2" accesskey="8">arduinoioaddons.adafruit.motorshieldv2</a></li>
-<li><a href="#arduinoioaddons_002eadafruit_002estepper" accesskey="9">arduinoioaddons.adafruit.stepper</a></li>
-</ul>
 <div class="subsection-level-extent" id="addon">
 <h4 class="subsection">9.11.1 addon</h4>
 <a class="index-entry-id" id="index-addon"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-addon-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>)</code><a class="copiable-link" href='#index-addon-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-addon-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>, varargs)</code><a class="copiable-link" href='#index-addon-2'></a></span></dt>
+<dt class="deftypefn" id="index-addon-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-addon-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">addon</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">addonname</var>, varargs)</code></dt>
 <dd><p>Create an addon object using the addon named class.
 </p>
 <h4 class="subsubheading" id="Inputs-100">Inputs</h4>
@@ -4355,7 +4052,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.2 arduinoioaddons.EEPRomAddon.EEPRom</h4>
 <a class="index-entry-id" id="index-EEPRom"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eEEPRomAddon_002eEEPRom"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.EEPRomAddon.EEPRom</strong><a class="copiable-link" href='#index-arduinoioaddons_002eEEPRomAddon_002eEEPRom'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eEEPRomAddon_002eEEPRom"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.EEPRomAddon.EEPRom</strong></dt>
 <dd><p>EEPROM addon for arduino
 </p>
 <p>Allows read and write of uint8 data to the onboard arduino EEPROM.
@@ -4375,17 +4072,17 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-EEPRom-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">eeprom</var> =</code> <strong class="def-name">EEPRom</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-EEPRom-1'></a></span></dt>
+<dt class="deftypefn" id="index-EEPRom-1"><span class="category-def">: </span><code class="def-type"><var class="var">eeprom</var> =</code> <strong class="def-name">EEPRom</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Constructor to create EEPROM device.
 </p><h4 class="subsubheading" id="Outputs-60">Outputs</h4>
 <p><var class="var">eeprom</var> - created EEPROM device.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-erase"><span class="category-def">: </span><span><strong class="def-name">erase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-erase'></a></span></dt>
+<dt class="deftypefn" id="index-erase"><span class="category-def">: </span><strong class="def-name">erase</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Erase all values in EEPROM (Effectively setting the 0xFF)
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write-13"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">uintdata</var>)</code><a class="copiable-link" href='#index-write-13'></a></span></dt>
+<dt class="deftypefn" id="index-write-13"><span class="category-def">: </span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">uintdata</var>)</code></dt>
 <dd><p>Write data to EEPROM at the provided address.
 </p><h4 class="subsubheading" id="Inputs-101">Inputs</h4>
 <p><var class="var">address</var> - start address to write data to, should be an
@@ -4394,8 +4091,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><var class="var">uintdata</var> a value or array of uint8 data to write to EEPROM.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read-15"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>)</code><a class="copiable-link" href='#index-read-15'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-16"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">count</var>)</code><a class="copiable-link" href='#index-read-16'></a></span></dt>
+<dt class="deftypefn" id="index-read-15"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-16"><span class="category-def">: </span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">address</var>, <var class="var">count</var>)</code></dt>
 <dd><p>Read data from starting address of EEPROM.
 </p><h4 class="subsubheading" id="Inputs-102">Inputs</h4>
 <p><var class="var">address</var> - start address to read data from, should be an
@@ -4411,7 +4108,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.3 arduinoioaddons.ExampleAddon.Echo</h4>
 <a class="index-entry-id" id="index-Echo"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eExampleAddon_002eEcho"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.ExampleAddon.Echo</strong><a class="copiable-link" href='#index-arduinoioaddons_002eExampleAddon_002eEcho'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eExampleAddon_002eEcho"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.ExampleAddon.Echo</strong></dt>
 <dd><p>Basic Example matlab/octave code to illustrate creating
  a user addon.
 </p>
@@ -4424,7 +4121,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods-1">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-Echo_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">Echo(arObj)</strong><a class="copiable-link" href='#index-Echo_0028arObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-Echo_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">Echo(arObj)</strong></dt>
 <dd><p>Constructor to create Echo addon
 </p><h4 class="subsubheading" id="Inputs-103">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -4433,7 +4130,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><var class="var">obj</var> - created Echo object
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-shout_0028text_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">response</var> =</code> <strong class="def-name">shout(<var class="var">text</var>)</strong><a class="copiable-link" href='#index-shout_0028text_0029'></a></span></dt>
+<dt class="deftypefn" id="index-shout_0028text_0029"><span class="category-def">: </span><code class="def-type"><var class="var">response</var> =</code> <strong class="def-name">shout(<var class="var">text</var>)</strong></dt>
 <dd><p>Send text to arduino and receive back the echoed reply
 </p>
 <h4 class="subsubheading" id="Inputs-104">Inputs</h4>
@@ -4448,7 +4145,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.4 arduinoioaddons.ExampleLCD.LCD</h4>
 <a class="index-entry-id" id="index-LCD"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eLCDAddon_002eLCD"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.LCDAddon.LCD</strong><a class="copiable-link" href='#index-arduinoioaddons_002eLCDAddon_002eLCD'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eLCDAddon_002eLCD"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.LCDAddon.LCD</strong></dt>
 <dd><p>Basic Example octave addon for LCD
 </p>
 <p>Allows basic manipulation of an LCD as a illustration of using
@@ -4471,7 +4168,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods-2">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-LCD_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">lcd</var> =</code> <strong class="def-name">LCD(arObj,</strong> <code class="def-code-arguments">rs, enable, d0, d1, d2, d3)</code><a class="copiable-link" href='#index-LCD_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-LCD_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">lcd</var> =</code> <strong class="def-name">LCD(arObj,</strong> <code class="def-code-arguments">rs, enable, d0, d1, d2, d3)</code></dt>
 <dd><p>Constructor to create LCD device
 </p><h4 class="subsubheading" id="Inputs-105">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -4492,7 +4189,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><var class="var">lcd</var> - created LCD object
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-freeLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">freeLCD()</strong><a class="copiable-link" href='#index-freeLCD_0028_0029'></a></span></dt>
+<dt class="deftypefn" id="index-freeLCD_0028_0029"><span class="category-def">: </span><strong class="def-name">freeLCD()</strong></dt>
 <dd><p>Free the LCD
 </p>
 <p>Should be called before discarding the LCD
@@ -4503,7 +4200,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p>None.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-clearLCD_0028_0029"><span class="category-def">: </span><span><strong class="def-name">clearLCD()</strong><a class="copiable-link" href='#index-clearLCD_0028_0029'></a></span></dt>
+<dt class="deftypefn" id="index-clearLCD_0028_0029"><span class="category-def">: </span><strong class="def-name">clearLCD()</strong></dt>
 <dd><p>Clear the LCD display and set the cursor position to the home position.
 </p>
 <h4 class="subsubheading" id="Inputs-107">Inputs</h4>
@@ -4513,7 +4210,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p>None.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-printLCD_0028text_0029"><span class="category-def">: </span><span><strong class="def-name">printLCD(<var class="var">text</var>)</strong><a class="copiable-link" href='#index-printLCD_0028text_0029'></a></span></dt>
+<dt class="deftypefn" id="index-printLCD_0028text_0029"><span class="category-def">: </span><strong class="def-name">printLCD(<var class="var">text</var>)</strong></dt>
 <dd><p>Display text on LCD starting at the current cursor position.
 </p>
 <h4 class="subsubheading" id="Inputs-108">Inputs</h4>
@@ -4523,7 +4220,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p>None.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-gotoLCD_0028col_002c"><span class="category-def">: </span><span><strong class="def-name">gotoLCD(<var class="var">col</var>,</strong> <code class="def-code-arguments"><var class="var">row</var>)</code><a class="copiable-link" href='#index-gotoLCD_0028col_002c'></a></span></dt>
+<dt class="deftypefn" id="index-gotoLCD_0028col_002c"><span class="category-def">: </span><strong class="def-name">gotoLCD(<var class="var">col</var>,</strong> <code class="def-code-arguments"><var class="var">row</var>)</code></dt>
 <dd><p>Set the cursor position to row, col
 </p>
 <h4 class="subsubheading" id="Inputs-109">Inputs</h4>
@@ -4539,7 +4236,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.5 arduinoioaddons.RTCAddon.DS1307</h4>
 <a class="index-entry-id" id="index-DS1307"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eRTCAddon_002eDS1307"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.RTCAddon.DS1307</strong><a class="copiable-link" href='#index-arduinoioaddons_002eRTCAddon_002eDS1307'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eRTCAddon_002eDS1307"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.RTCAddon.DS1307</strong></dt>
 <dd><p>DS1307 addon
 </p>
 <p><strong class="strong">See also:</strong> addon.
@@ -4551,8 +4248,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods-3">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-DS1307_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-DS1307_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-DS1307_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-DS1307_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-DS1307_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-DS1307_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create DS1307 addon
 </p><h4 class="subsubheading" id="Inputs-110">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -4576,8 +4273,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-clock_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">date</var> =</code> <strong class="def-name">clock(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-clock_0028dsObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-clock_0028dsObj_002c"><span class="category-def">: </span><span><strong class="def-name">clock(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">date</var>)</code><a class="copiable-link" href='#index-clock_0028dsObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-clock_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">date</var> =</code> <strong class="def-name">clock(<var class="var">dsObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-clock_0028dsObj_002c"><span class="category-def">: </span><strong class="def-name">clock(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">date</var>)</code></dt>
 <dd><p>Get/set the DS1307 clock
 </p>
 <h4 class="subsubheading" id="Inputs-111">Inputs</h4>
@@ -4600,8 +4297,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> datevec.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-control_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">ctrl</var> =</code> <strong class="def-name">control(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-control_0028dsObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-control_0028dsObj_002c"><span class="category-def">: </span><span><strong class="def-name">control(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">ctrl</var>)</code><a class="copiable-link" href='#index-control_0028dsObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-control_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">ctrl</var> =</code> <strong class="def-name">control(<var class="var">dsObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-control_0028dsObj_002c"><span class="category-def">: </span><strong class="def-name">control(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">ctrl</var>)</code></dt>
 <dd><p>Get/set the DS1307 clock
 </p>
 <h4 class="subsubheading" id="Inputs-112">Inputs</h4>
@@ -4627,7 +4324,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isstarted_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">YN</var> =</code> <strong class="def-name">isstarted(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-isstarted_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-isstarted_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">YN</var> =</code> <strong class="def-name">isstarted(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Get whether the RTC clock is currently counting time
 </p>
 <h4 class="subsubheading" id="Inputs-113">Inputs</h4>
@@ -4639,7 +4336,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> start, stop.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-start_0028dsObj_0029"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-start_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-start_0028dsObj_0029"><span class="category-def">: </span><strong class="def-name">start(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Start the RTC counting
 </p>
 <h4 class="subsubheading" id="Inputs-114">Inputs</h4>
@@ -4651,7 +4348,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> datevec.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stop_0028dsObj_0029"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-stop_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-stop_0028dsObj_0029"><span class="category-def">: </span><strong class="def-name">stop(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Stop the RTC counting
 </p>
 <h4 class="subsubheading" id="Inputs-115">Inputs</h4>
@@ -4667,7 +4364,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.6 arduinoioaddons.SimpleStepper.SimpleStepper</h4>
 <a class="index-entry-id" id="index-SimpleStepper"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eSimpleStepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.SimpleStepper</strong><a class="copiable-link" href='#index-arduinoioaddons_002eSimpleStepper'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eSimpleStepper"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.SimpleStepper</strong></dt>
 <dd><p>Stepper class for stepper control using ULN2003 and compatible drivers
 </p></dd></dl>
 <h4 class="subsubheading" id="Properties-13">Properties</h4>
@@ -4691,8 +4388,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </dl>
 <h4 class="subheading" id="Methods-4">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-SimpleStepper_0028aObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>)</code><a class="copiable-link" href='#index-SimpleStepper_0028aObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-SimpleStepper_0028aObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>, <var class="var">pin5</var>)</code><a class="copiable-link" href='#index-SimpleStepper_0028aObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-SimpleStepper_0028aObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-SimpleStepper_0028aObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>, <var class="var">pin5</var>)</code></dt>
 <dd><p>Constructor to create a stepper object
 </p><h4 class="subsubheading" id="Inputs-116">Inputs</h4>
 <p><var class="var">aObj</var> - The arduino
@@ -4723,7 +4420,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href='#index-move_0028sObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code></dt>
 <dd><p>Move the motor the specified number of steps using the configured Speed.
 </p>
 <h4 class="subsubheading" id="Inputs-117">Inputs</h4>
@@ -4737,7 +4434,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> rotate.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-rotate_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">rotate(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">dir</var>)</code><a class="copiable-link" href='#index-rotate_0028sObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-rotate_0028sObj_002c"><span class="category-def">: </span><strong class="def-name">rotate(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">dir</var>)</code></dt>
 <dd><p>Start steppermotor moving in the specified direction using the configured Speed.
 </p>
 <h4 class="subsubheading" id="Inputs-118">Inputs</h4>
@@ -4751,7 +4448,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> move.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href='#index-release_0028sObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><strong class="def-name">release(<var class="var">sObj</var>)</strong></dt>
 <dd><p>Release this stepper motor
 </p>
 <h4 class="subsubheading" id="Inputs-119">Inputs</h4>
@@ -4766,7 +4463,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.7 arduinoioaddons.adafruit.dcmotorv2</h4>
 <a class="index-entry-id" id="index-dcmotorv2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.dcmotorv2</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002edcmotorv2'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002edcmotorv2"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.adafruit.dcmotorv2</strong></dt>
 <dd><p>DC Motor class for dc motor control on the adafruit motor shield
 </p>
 <p><strong class="strong">See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
@@ -4782,8 +4479,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods-5">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-dcmotorv2_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotorv2_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-dcmotorv2_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-dcmotorv2_0028mObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotorv2_0028mObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">dcmotorv2(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create dcmotor object
 </p><h4 class="subsubheading" id="Inputs-120">Inputs</h4>
 <p><var class="var">mObj</var> - the motor shield object
@@ -4812,7 +4509,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-start_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-start_0028dcObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-start_0028dcObj_0029"><span class="category-def">: </span><strong class="def-name">start(<var class="var">dcObj</var>)</strong></dt>
 <dd><p>Start the motor moving in previously set speed/direction
 </p>
 <h4 class="subsubheading" id="Inputs-121">Inputs</h4>
@@ -4824,7 +4521,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> adafruit.motorshieldv2.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stop_0028dcObj_0029"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dcObj</var>)</strong><a class="copiable-link" href='#index-stop_0028dcObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-stop_0028dcObj_0029"><span class="category-def">: </span><strong class="def-name">stop(<var class="var">dcObj</var>)</strong></dt>
 <dd><p>Stop the motor moving
 </p>
 <h4 class="subsubheading" id="Inputs-122">Inputs</h4>
@@ -4840,7 +4537,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.8 arduinoioaddons.adafruit.motorshieldv2</h4>
 <a class="index-entry-id" id="index-motorshieldv2"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002emotorshieldv2"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.motorshieldv2</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002emotorshieldv2'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002emotorshieldv2"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.adafruit.motorshieldv2</strong></dt>
 <dd><p>Adafruit motor shield addon
 </p>
 <p><strong class="strong">See also:</strong> addon.
@@ -4856,8 +4553,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 <h4 class="subheading" id="Methods-6">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-motorshieldv2_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-motorshieldv2_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-motorshieldv2_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-motorshieldv2_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-motorshieldv2_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-motorshieldv2_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">motorshieldv2(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create motorshieldv2 addon object
 </p><h4 class="subsubheading" id="Inputs-123">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -4884,8 +4581,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-servo_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href='#index-servo_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-servo_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-servo_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-servo_0028mObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-servo_0028mObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">servo(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code></dt>
 <dd><p>Create a servo object
 </p>
 <h4 class="subsubheading" id="Inputs-124">Inputs</h4>
@@ -4917,8 +4614,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> servo.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code></dt>
 <dd><p>Create a stepper motor object
 </p>
 <h4 class="subsubheading" id="Inputs-125">Inputs</h4>
@@ -4936,8 +4633,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </p>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-dcmotor_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code><a class="copiable-link" href='#index-dcmotor_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotor_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code><a class="copiable-link" href='#index-dcmotor_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-dcmotor_0028mObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-dcmotor_0028mObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">s</var> =</code> <strong class="def-name">dcmotor(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mtrnum</var>, <var class="var">propertyname</var>, <var class="var">propertyvalue</var> ...)</code></dt>
 <dd><p>Create a dcmotor motor object
 </p>
 <h4 class="subsubheading" id="Inputs-126">Inputs</h4>
@@ -4957,7 +4654,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <h4 class="subsection">9.11.9 arduinoioaddons.adafruit.stepper</h4>
 <a class="index-entry-id" id="index-stepper"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002estepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.stepper</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002estepper'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002estepper"><span class="category-def">: </span><strong class="def-name">arduinoioaddons.adafruit.stepper</strong></dt>
 <dd><p>Stepper class for stepper control on the adafruit motor shield
 </p>
 <p><strong class="strong">See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
@@ -4983,8 +4680,8 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </dl>
 <h4 class="subheading" id="Methods-7">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stepper_0028mObj_002c-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c-3'></a></span></dt>
+<dt class="deftypefn" id="index-stepper_0028mObj_002c-2"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-3"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create dcmotor object
 </p><h4 class="subsubheading" id="Inputs-127">Inputs</h4>
 <p><var class="var">mObj</var> - the motor shield object
@@ -5019,7 +4716,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-move_0028sObj_002c-1"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href='#index-move_0028sObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-move_0028sObj_002c-1"><span class="category-def">: </span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code></dt>
 <dd><p>Move the motor moving in the specified steps using the configured RPM.
 </p>
 <h4 class="subsubheading" id="Inputs-128">Inputs</h4>
@@ -5031,7 +4728,7 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 <p><strong class="strong">See also:</strong> adafruit.motorshieldv2.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028sObj_0029-1"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href='#index-release_0028sObj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028sObj_0029-1"><span class="category-def">: </span><strong class="def-name">release(<var class="var">sObj</var>)</strong></dt>
 <dd><p>Release this motor
 </p>
 <h4 class="subsubheading" id="Inputs-129">Inputs</h4>
@@ -5046,29 +4743,19 @@ Next: <a href="#Arduino-Sensors" accesskey="n" rel="next">Arduino Sensors</a>, P
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-Sensors">
-<div class="nav-panel">
-<p>
-Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O package</a>, Previous: <a href="#Arduino-Addons" accesskey="p" rel="prev">Arduino Addons</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-Sensors-1">9.12 Arduino Sensors</h3>
 <a class="index-entry-id" id="index-Arduino-Sensors"></a>
-<ul class="mini-toc">
-<li><a href="#arduinosensor_002eDS1307" accesskey="1">arduinosensor.DS1307</a></li>
-<li><a href="#arduinosensor_002eGUVAS12SD" accesskey="2">arduinosensor.GUVAS12SD</a></li>
-<li><a href="#arduinosensor_002eMPC3002" accesskey="3">arduinosensor.MPC3002</a></li>
-<li><a href="#arduinosensor_002eSI7021" accesskey="4">arduinosensor.SI7021</a></li>
-</ul>
 <div class="subsection-level-extent" id="arduinosensor_002eDS1307">
 <h4 class="subsection">9.12.1 arduinosensor.DS1307</h4>
 <a class="index-entry-id" id="index-DS1307-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eDS1307"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.DS1307</strong><a class="copiable-link" href='#index-arduinosensor_002eDS1307'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eDS1307"><span class="category-def">: </span><strong class="def-name">arduinosensor.DS1307</strong></dt>
 <dd><p>DS1307 realtime clock sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-8">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-DS1307_0028arObj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-DS1307_0028arObj_0029-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-DS1307_0028arObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-DS1307_0028arObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-DS1307_0028arObj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-DS1307_0028arObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">DS1307(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create DS1307 sensor
 </p><h4 class="subsubheading" id="Inputs-130">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5093,8 +4780,8 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-clock_0028dsObj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">date</var> =</code> <strong class="def-name">clock(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-clock_0028dsObj_0029-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-clock_0028dsObj_002c-1"><span class="category-def">: </span><span><strong class="def-name">clock(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">date</var>)</code><a class="copiable-link" href='#index-clock_0028dsObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-clock_0028dsObj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">date</var> =</code> <strong class="def-name">clock(<var class="var">dsObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-clock_0028dsObj_002c-1"><span class="category-def">: </span><strong class="def-name">clock(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">date</var>)</code></dt>
 <dd><p>Get/set the DS1307 clock
 </p>
 <h4 class="subsubheading" id="Inputs-131">Inputs</h4>
@@ -5117,8 +4804,8 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><strong class="strong">See also:</strong> datevec.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-control_0028dsObj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">ctrl</var> =</code> <strong class="def-name">control(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-control_0028dsObj_0029-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-control_0028dsObj_002c-1"><span class="category-def">: </span><span><strong class="def-name">control(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">ctrl</var>)</code><a class="copiable-link" href='#index-control_0028dsObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-control_0028dsObj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">ctrl</var> =</code> <strong class="def-name">control(<var class="var">dsObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-control_0028dsObj_002c-1"><span class="category-def">: </span><strong class="def-name">control(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">ctrl</var>)</code></dt>
 <dd><p>Get/set the DS1307 clock
 </p>
 <h4 class="subsubheading" id="Inputs-132">Inputs</h4>
@@ -5144,7 +4831,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isstarted_0028dsObj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">YN</var> =</code> <strong class="def-name">isstarted(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-isstarted_0028dsObj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-isstarted_0028dsObj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">YN</var> =</code> <strong class="def-name">isstarted(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Get whether the RTC clock is currently counting time
 </p>
 <h4 class="subsubheading" id="Inputs-133">Inputs</h4>
@@ -5156,7 +4843,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><strong class="strong">See also:</strong> start, stop.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-start_0028dsObj_0029-1"><span class="category-def">: </span><span><strong class="def-name">start(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-start_0028dsObj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-start_0028dsObj_0029-1"><span class="category-def">: </span><strong class="def-name">start(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Start the RTC counting
 </p>
 <h4 class="subsubheading" id="Inputs-134">Inputs</h4>
@@ -5168,7 +4855,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><strong class="strong">See also:</strong> datevec.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stop_0028dsObj_0029-1"><span class="category-def">: </span><span><strong class="def-name">stop(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-stop_0028dsObj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-stop_0028dsObj_0029-1"><span class="category-def">: </span><strong class="def-name">stop(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Stop the RTC counting
 </p>
 <h4 class="subsubheading" id="Inputs-135">Inputs</h4>
@@ -5184,12 +4871,12 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <h4 class="subsection">9.12.2 arduinosensor.GUVAS12SD</h4>
 <a class="index-entry-id" id="index-GUVAS12SD"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eGUVAS12SD"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.GUVAS12SD</strong><a class="copiable-link" href='#index-arduinosensor_002eGUVAS12SD'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eGUVAS12SD"><span class="category-def">: </span><strong class="def-name">arduinosensor.GUVAS12SD</strong></dt>
 <dd><p>A thin wrapper for the GUVAS12SD analog UV-B sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-9">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-GUVAS12SD_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">GUVAS12SD(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin</var>)</code><a class="copiable-link" href='#index-GUVAS12SD_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-GUVAS12SD_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">GUVAS12SD(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin</var>)</code></dt>
 <dd><p>Constructor to create GUVAS12SD sensor
 </p><h4 class="subsubheading" id="Inputs-136">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5209,7 +4896,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">V</var> =</code> <strong class="def-name">read(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-read_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">V</var> =</code> <strong class="def-name">read(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the voltage of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-137">Inputs</h4>
@@ -5231,7 +4918,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><strong class="strong">See also:</strong> arduinosensor.GUVAS12SD.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readIndex_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">Idx</var> =</code> <strong class="def-name">readIndex(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-readIndex_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readIndex_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">Idx</var> =</code> <strong class="def-name">readIndex(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the UV index
 </p>
 <h4 class="subsubheading" id="Inputs-138">Inputs</h4>
@@ -5241,7 +4928,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><var class="var">Idx</var> - the sensor reading as a UV index reading
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readuA_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">uA</var> =</code> <strong class="def-name">readuA(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-readuA_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readuA_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">uA</var> =</code> <strong class="def-name">readuA(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the uA of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-139">Inputs</h4>
@@ -5255,13 +4942,13 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <h4 class="subsection">9.12.3 arduinosensor.MPC3002</h4>
 <a class="index-entry-id" id="index-MPC3002"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eMPC3002"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.MPC3002</strong><a class="copiable-link" href='#index-arduinosensor_002eMPC3002'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eMPC3002"><span class="category-def">: </span><strong class="def-name">arduinosensor.MPC3002</strong></dt>
 <dd><p>MCP3002 ADC sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-10">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-MPC3002_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-MPC3002_0028arObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-MPC3002_0028arObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-MPC3002_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>)</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-MPC3002_0028arObj_002c-1"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">MPC3002(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">selectPin</var>, <var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create MPC3002 sensor
 </p><h4 class="subsubheading" id="Inputs-140">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5288,7 +4975,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readVoltage_0028dsObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">chan</var>)</code><a class="copiable-link" href='#index-readVoltage_0028dsObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-readVoltage_0028dsObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">voltage</var> =</code> <strong class="def-name">readVoltage(<var class="var">dsObj</var>,</strong> <code class="def-code-arguments"><var class="var">chan</var>)</code></dt>
 <dd><p>Read the voltage from a channel
 </p>
 <h4 class="subsubheading" id="Inputs-141">Inputs</h4>
@@ -5314,13 +5001,13 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <h4 class="subsection">9.12.4 arduinosensor.SI7021</h4>
 <a class="index-entry-id" id="index-SI7021"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosensor_002eSI7021"><span class="category-def">: </span><span><strong class="def-name">arduinosensor.SI7021</strong><a class="copiable-link" href='#index-arduinosensor_002eSI7021'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosensor_002eSI7021"><span class="category-def">: </span><strong class="def-name">arduinosensor.SI7021</strong></dt>
 <dd><p>SI7021 temperature and humidity sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-11">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-SI7021_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-SI7021_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-SI7021_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-SI7021_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-SI7021_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-SI7021_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SI7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create SI7021 sensor
 </p><h4 class="subsubheading" id="Inputs-142">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5345,7 +5032,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-temperature_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">C</var> =</code> <strong class="def-name">temperature(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-temperature_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-temperature_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">C</var> =</code> <strong class="def-name">temperature(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-143">Inputs</h4>
@@ -5366,7 +5053,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><strong class="strong">See also:</strong> arduinosensor.SI7021.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-humidity_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">humidity(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-humidity_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-humidity_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">humidity(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the relative humidity
 </p>
 <h4 class="subsubheading" id="Inputs-144">Inputs</h4>
@@ -5376,7 +5063,7 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 <p><var class="var">relH</var> - relative humidity as a percentage (0 - 100.0)
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028dsObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-info_0028dsObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028dsObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-145">Inputs</h4>
@@ -5402,24 +5089,13 @@ Next: <a href="#Arduino-I_002fO-package" accesskey="n" rel="next">Arduino I/O pa
 </div>
 </div>
 <div class="section-level-extent" id="Arduino-I_002fO-package">
-<div class="nav-panel">
-<p>
-Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Compatibility Classes</a>, Previous: <a href="#Arduino-Sensors" accesskey="p" rel="prev">Arduino Sensors</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Arduino-I_002fO-package-1">9.13 Arduino I/O package</h3>
 <a class="index-entry-id" id="index-Arduino-I_002fO-package"></a>
-<ul class="mini-toc">
-<li><a href="#arduinoio_002eAddonBase" accesskey="1">arduinoio.AddonBase</a></li>
-<li><a href="#arduinoio_002eFilePath" accesskey="2">arduinoio.FilePath</a></li>
-<li><a href="#arduinoio_002eLibFiles" accesskey="3">arduinoio.LibFiles</a></li>
-<li><a href="#arduinoio_002eLibraryBase" accesskey="4">arduinoio.LibraryBase</a></li>
-<li><a href="#arduinoio_002egetBoardConfig" accesskey="5">arduinoio.getBoardConfig</a></li>
-</ul>
 <div class="subsection-level-extent" id="arduinoio_002eAddonBase">
 <h4 class="subsection">9.13.1 arduinoio.AddonBase</h4>
 <a class="index-entry-id" id="index-AddonBase"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eAddonBase"><span class="category-def">: </span><span><strong class="def-name">arduinoio.AddonBase</strong><a class="copiable-link" href='#index-arduinoio_002eAddonBase'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eAddonBase"><span class="category-def">: </span><strong class="def-name">arduinoio.AddonBase</strong></dt>
 <dd><p>Base class used for arduino library sensors
 </p>
 <p><strong class="strong">See also:</strong> arduinoio.LibraryBase.
@@ -5432,7 +5108,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 </p>
 <h4 class="subheading" id="Methods-12">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-AddonBase-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">ab</var> =</code> <strong class="def-name">AddonBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-AddonBase-1'></a></span></dt>
+<dt class="deftypefn" id="index-AddonBase-1"><span class="category-def">: </span><code class="def-type"><var class="var">ab</var> =</code> <strong class="def-name">AddonBase</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Constructor of base class
 </p>
 <h4 class="subsubheading" id="Outputs-105">Outputs</h4>
@@ -5441,7 +5117,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <p><strong class="strong">See also:</strong> arduino, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-22"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-22'></a></span></dt>
+<dt class="deftypefn" id="index-disp-22"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 </div>
@@ -5449,7 +5125,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <h4 class="subsection">9.13.2 arduinoio.FilePath</h4>
 <a class="index-entry-id" id="index-FilePath"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eFilePath"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.FilePath</strong> <code class="def-code-arguments">(<var class="var">fullpathname</var>)</code><a class="copiable-link" href='#index-arduinoio_002eFilePath'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eFilePath"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.FilePath</strong> <code class="def-code-arguments">(<var class="var">fullpathname</var>)</code></dt>
 <dd><p>Get the directory component of a pathname.
 </p>
 <h4 class="subsubheading" id="Inputs-146">Inputs</h4>
@@ -5463,7 +5139,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <h4 class="subsection">9.13.3 arduinoio.LibFiles</h4>
 <a class="index-entry-id" id="index-LibFiles"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eLibFiles"><span class="category-def">: </span><span><code class="def-type"><var class="var">filelist</var> =</code> <strong class="def-name">arduinoio.LibFiles</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduinoio_002eLibFiles'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eLibFiles"><span class="category-def">: </span><code class="def-type"><var class="var">filelist</var> =</code> <strong class="def-name">arduinoio.LibFiles</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Get the list of files used for the building arduino library
 </p><h4 class="subsubheading" id="Outputs-107">Outputs</h4>
 <p><var class="var">filelist</var> - string cell array of files for the arduino project
@@ -5473,7 +5149,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <h4 class="subsection">9.13.4 arduinoio.LibraryBase</h4>
 <a class="index-entry-id" id="index-LibraryBase"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eLibraryBase"><span class="category-def">: </span><span><strong class="def-name">arduinoio.LibraryBase</strong><a class="copiable-link" href='#index-arduinoio_002eLibraryBase'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eLibraryBase"><span class="category-def">: </span><strong class="def-name">arduinoio.LibraryBase</strong></dt>
 <dd><p>Base class used for arduino library plugins
 </p>
 <p><strong class="strong">See also:</strong> arduino, listArduinoLibraries, addon.
@@ -5503,7 +5179,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 </p>
 <h4 class="subheading" id="Methods-13">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-LibraryBase-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-LibraryBase-2'></a></span></dt>
+<dt class="deftypefn" id="index-LibraryBase-2"><span class="category-def">: </span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Constructor of base class
 </p>
 <p>The constructor is usually not called but called indirectly
@@ -5515,7 +5191,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <p><strong class="strong">See also:</strong> arduino, listArduinoLibraries, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-23"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-23'></a></span></dt>
+<dt class="deftypefn" id="index-disp-23"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 </div>
@@ -5523,7 +5199,7 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 <h4 class="subsection">9.13.5 arduinoio.getBoardConfig</h4>
 <a class="index-entry-id" id="index-getBoardConfig"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002egetBoardConfig"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.getBoardConfig</strong> <code class="def-code-arguments">(<var class="var">boardname</var>)</code><a class="copiable-link" href='#index-arduinoio_002egetBoardConfig'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002egetBoardConfig"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.getBoardConfig</strong> <code class="def-code-arguments">(<var class="var">boardname</var>)</code></dt>
 <dd><p>Return the configuration for a known arduino board type
 </p>
 <p>Function is used to get the expected pin/board configuration for a named board type
@@ -5539,20 +5215,13 @@ Next: <a href="#Matlab-Compatibility-Classes" accesskey="n" rel="next">Matlab Co
 </div>
 </div>
 <div class="section-level-extent" id="Matlab-Compatibility-Classes">
-<div class="nav-panel">
-<p>
-Next: <a href="#Sensors" accesskey="n" rel="next">Sensors</a>, Previous: <a href="#Arduino-I_002fO-package" accesskey="p" rel="prev">Arduino I/O package</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Matlab-Compatibility-Classes-1">9.14 Matlab Compatibility Classes</h3>
 <a class="index-entry-id" id="index-Matlab-Compatibility-Classes"></a>
-<ul class="mini-toc">
-<li><a href="#matlabshared_002eaddon_002eLibraryBase" accesskey="1">matlabshared.addon.LibraryBase</a></li>
-</ul>
 <div class="subsection-level-extent" id="matlabshared_002eaddon_002eLibraryBase">
 <h4 class="subsection">9.14.1 matlabshared.addon.LibraryBase</h4>
 <a class="index-entry-id" id="index-LibraryBase-1"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-matlabshared_002eaddon_002eLibraryBase"><span class="category-def">: </span><span><strong class="def-name">matlabshared.addon.LibraryBase</strong><a class="copiable-link" href='#index-matlabshared_002eaddon_002eLibraryBase'></a></span></dt>
+<dt class="deftypefn" id="index-matlabshared_002eaddon_002eLibraryBase"><span class="category-def">: </span><strong class="def-name">matlabshared.addon.LibraryBase</strong></dt>
 <dd><p>Compatability class used for arduino library plugins using
  matlabshared.addons.LibraryBase
 </p>
@@ -5583,7 +5252,7 @@ Next: <a href="#Sensors" accesskey="n" rel="next">Sensors</a>, Previous: <a href
 </p>
 <h4 class="subheading" id="Methods-14">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-LibraryBase-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-LibraryBase-3'></a></span></dt>
+<dt class="deftypefn" id="index-LibraryBase-3"><span class="category-def">: </span><code class="def-type"><var class="var">lb</var> =</code> <strong class="def-name">LibraryBase</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Constructor of base class
 </p>
 <p>The constructor is usually not called but called indirectly
@@ -5596,39 +5265,26 @@ Next: <a href="#Sensors" accesskey="n" rel="next">Sensors</a>, Previous: <a href
 <p><strong class="strong">See also:</strong> arduino, listArduinoLibraries, addon.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp-24"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp-24'></a></span></dt>
+<dt class="deftypefn" id="index-disp-24"><span class="category-def">: </span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code></dt>
 <dd><p>Display the addon in a verbose way.
 </p></dd></dl>
 <hr>
 </div>
 </div>
 <div class="section-level-extent" id="Sensors">
-<div class="nav-panel">
-<p>
-Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Previous: <a href="#Matlab-Compatibility-Classes" accesskey="p" rel="prev">Matlab Compatibility Classes</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Sensors-1">9.15 Sensors</h3>
 <a class="index-entry-id" id="index-Sensors"></a>
-<ul class="mini-toc">
-<li><a href="#bme280" accesskey="1">bme280</a></li>
-<li><a href="#bno055" accesskey="2">bno055</a></li>
-<li><a href="#lis3dh" accesskey="3">lis3dh</a></li>
-<li><a href="#lps22hb" accesskey="4">lps22hb</a></li>
-<li><a href="#lsm6dso" accesskey="5">lsm6dso</a></li>
-<li><a href="#mpu6050" accesskey="6">mpu6050</a></li>
-<li><a href="#si7021" accesskey="7">si7021</a></li>
-</ul>
 <div class="subsection-level-extent" id="bme280">
 <h4 class="subsection">9.15.1 bme280</h4>
 <a class="index-entry-id" id="index-bme280"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-bme280-1"><span class="category-def">: </span><span><strong class="def-name">bme280</strong><a class="copiable-link" href='#index-bme280-1'></a></span></dt>
+<dt class="deftypefn" id="index-bme280-1"><span class="category-def">: </span><strong class="def-name">bme280</strong></dt>
 <dd><p>BME280 pressure, temperature and humidity sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-15">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-bme280_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bme280(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-bme280_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-bme280_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bme280(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-bme280_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-bme280_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bme280(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-bme280_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bme280(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create BME280 sensor
 </p><h4 class="subsubheading" id="Inputs-148">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5656,7 +5312,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-149">Inputs</h4>
@@ -5679,7 +5335,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> bme280.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readHumidity_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">relH</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readHumidity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readHumidity_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readHumidity_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">relH</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readHumidity(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the relative humidity
 </p>
 <h4 class="subsubheading" id="Inputs-150">Inputs</h4>
@@ -5691,7 +5347,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readPressure_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">P</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readPressure(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readPressure_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readPressure_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">P</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readPressure(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the pressure
 </p>
 <h4 class="subsubheading" id="Inputs-151">Inputs</h4>
@@ -5703,8 +5359,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">P</var>, <var class="var">H</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">P</var>, <var class="var">H</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-152">Inputs</h4>
@@ -5724,7 +5380,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Pressure, Temperature and Humidity.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-153">Inputs</h4>
@@ -5750,7 +5406,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-154">Inputs</h4>
@@ -5760,7 +5416,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-155">Inputs</h4>
@@ -5774,13 +5430,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.2 bno055</h4>
 <a class="index-entry-id" id="index-bno055"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-bno055-1"><span class="category-def">: </span><span><strong class="def-name">bno055</strong><a class="copiable-link" href='#index-bno055-1'></a></span></dt>
+<dt class="deftypefn" id="index-bno055-1"><span class="category-def">: </span><strong class="def-name">bno055</strong></dt>
 <dd><p>BNO055 9 axis orientation sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-16">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-bno055_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bno055(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-bno055_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-bno055_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bno055(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-bno055_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-bno055_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bno055(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-bno055_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">bno055(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create BME280 sensor
 </p><h4 class="subsubheading" id="Inputs-156">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -5811,7 +5467,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-157">Inputs</h4>
@@ -5834,7 +5490,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> bno055.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAcceleration_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAcceleration_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readAcceleration_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the acceleration rate
 </p>
 <h4 class="subsubheading" id="Inputs-158">Inputs</h4>
@@ -5846,7 +5502,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAngularVelocity_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the angular velocity
 </p>
 <h4 class="subsubheading" id="Inputs-159">Inputs</h4>
@@ -5858,7 +5514,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readMagneticField_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readMagneticField(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readMagneticField_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readMagneticField_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readMagneticField(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the magnetic field components
 </p>
 <h4 class="subsubheading" id="Inputs-160">Inputs</h4>
@@ -5870,7 +5526,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readOrientation_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readOrientation(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readOrientation_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readOrientation_0028obj_0029"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readOrientation(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the oriientation components
 </p>
 <h4 class="subsubheading" id="Inputs-161">Inputs</h4>
@@ -5882,9 +5538,9 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-2"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-2'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-3"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-3'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-4"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">orientation</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-4'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-2"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-3"><span class="category-def">: </span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-4"><span class="category-def">: </span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">orientation</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-162">Inputs</h4>
@@ -5906,7 +5562,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Acceleration, AngularVelocity, MagneticField, Orientation.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readCalibrationStatus_0028obj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">readCalibrationStatus(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readCalibrationStatus_0028obj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-readCalibrationStatus_0028obj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">readCalibrationStatus(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor calibration status
 </p>
 <h4 class="subsubheading" id="Inputs-163">Inputs</h4>
@@ -5934,7 +5590,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </p>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-164">Inputs</h4>
@@ -5957,7 +5613,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-1"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-1"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-165">Inputs</h4>
@@ -5967,7 +5623,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-1"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-1"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-166">Inputs</h4>
@@ -5981,13 +5637,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.3 lis3dh</h4>
 <a class="index-entry-id" id="index-lis3dh"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lis3dh-1"><span class="category-def">: </span><span><strong class="def-name">lis3dh</strong><a class="copiable-link" href='#index-lis3dh-1'></a></span></dt>
+<dt class="deftypefn" id="index-lis3dh-1"><span class="category-def">: </span><strong class="def-name">lis3dh</strong></dt>
 <dd><p>LIS3DH 3 degrees sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-17">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lis3dh_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lis3dh(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-lis3dh_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-lis3dh_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lis3dh(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-lis3dh_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-lis3dh_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lis3dh(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-lis3dh_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lis3dh(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create LIS3DH sensor
 </p><h4 class="subsubheading" id="Inputs-167">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -6015,7 +5671,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAcceleration_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the acceleration rate
 </p>
 <h4 class="subsubheading" id="Inputs-168">Inputs</h4>
@@ -6027,8 +5683,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-5"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-5'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-6"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-6'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-5"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-6"><span class="category-def">: </span><code class="def-type">[<var class="var">accel</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-169">Inputs</h4>
@@ -6044,7 +5700,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Acceleration.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029-2"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-170">Inputs</h4>
@@ -6067,7 +5723,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-2"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-2"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-171">Inputs</h4>
@@ -6077,7 +5733,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-2"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-2"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-172">Inputs</h4>
@@ -6091,13 +5747,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.4 lps22hb</h4>
 <a class="index-entry-id" id="index-lps22hb"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lps22hb-1"><span class="category-def">: </span><span><strong class="def-name">lps22hb</strong><a class="copiable-link" href='#index-lps22hb-1'></a></span></dt>
+<dt class="deftypefn" id="index-lps22hb-1"><span class="category-def">: </span><strong class="def-name">lps22hb</strong></dt>
 <dd><p>LPS22HB absolute pressure and temperature sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-18">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lps22hb_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lps22hb(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-lps22hb_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-lps22hb_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lps22hb(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-lps22hb_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-lps22hb_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lps22hb(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-lps22hb_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lps22hb(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create LPS22HB sensor
 </p><h4 class="subsubheading" id="Inputs-173">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -6125,7 +5781,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029-2"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029-2"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-174">Inputs</h4>
@@ -6148,7 +5804,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> lps22hb.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readPressure_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">P</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readPressure(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readPressure_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-readPressure_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">P</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readPressure(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the pressure
 </p>
 <h4 class="subsubheading" id="Inputs-175">Inputs</h4>
@@ -6160,8 +5816,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-7"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-7'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-8"><span class="category-def">: </span><span><code class="def-type">[<var class="var">P</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-8'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-7"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-8"><span class="category-def">: </span><code class="def-type">[<var class="var">P</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-176">Inputs</h4>
@@ -6179,7 +5835,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Pressure, Temperature and Humidity.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029-3"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029-3'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029-3"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-177">Inputs</h4>
@@ -6205,7 +5861,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-3"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-3'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-3"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-178">Inputs</h4>
@@ -6215,7 +5871,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-3"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-3'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-3"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-179">Inputs</h4>
@@ -6229,13 +5885,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.5 lsm6dso</h4>
 <a class="index-entry-id" id="index-lsm6dso"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lsm6dso-1"><span class="category-def">: </span><span><strong class="def-name">lsm6dso</strong><a class="copiable-link" href='#index-lsm6dso-1'></a></span></dt>
+<dt class="deftypefn" id="index-lsm6dso-1"><span class="category-def">: </span><strong class="def-name">lsm6dso</strong></dt>
 <dd><p>LSM6DSO 6 degrees sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-19">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-lsm6dso_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-lsm6dso_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-lsm6dso_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-lsm6dso_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-lsm6dso_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-lsm6dso_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">lsm6dso(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create LSM6DSO sensor
 </p><h4 class="subsubheading" id="Inputs-180">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -6263,7 +5919,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029-3"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029-3'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029-3"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-181">Inputs</h4>
@@ -6286,7 +5942,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> lsm6dso.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-2"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAcceleration_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-2"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the acceleration rate
 </p>
 <h4 class="subsubheading" id="Inputs-182">Inputs</h4>
@@ -6298,7 +5954,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAngularVelocity_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the angular velocity
 </p>
 <h4 class="subsubheading" id="Inputs-183">Inputs</h4>
@@ -6310,8 +5966,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-9"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-9'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-10"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-10'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-9"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-10"><span class="category-def">: </span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-184">Inputs</h4>
@@ -6329,7 +5985,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Acceleration, AngularVelocity.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029-4"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029-4'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029-4"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-185">Inputs</h4>
@@ -6349,7 +6005,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-4"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-4'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-4"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-186">Inputs</h4>
@@ -6359,7 +6015,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-4"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-4'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-4"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-187">Inputs</h4>
@@ -6373,13 +6029,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.6 mpu6050</h4>
 <a class="index-entry-id" id="index-mpu6050"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-mpu6050-1"><span class="category-def">: </span><span><strong class="def-name">mpu6050</strong><a class="copiable-link" href='#index-mpu6050-1'></a></span></dt>
+<dt class="deftypefn" id="index-mpu6050-1"><span class="category-def">: </span><strong class="def-name">mpu6050</strong></dt>
 <dd><p>MPU-6050 6 degrees sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-20">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-mpu6050_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">mpu6050(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-mpu6050_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-mpu6050_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">mpu6050(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-mpu6050_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-mpu6050_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">mpu6050(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-mpu6050_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">mpu6050(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create MPU-6050 sensor
 </p><h4 class="subsubheading" id="Inputs-188">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -6407,7 +6063,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029-4"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029-4'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029-4"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-189">Inputs</h4>
@@ -6430,7 +6086,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> mpu6050.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-3"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAcceleration_0028obj_0029-3'></a></span></dt>
+<dt class="deftypefn" id="index-readAcceleration_0028obj_0029-3"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAcceleration(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the acceleration rate
 </p>
 <h4 class="subsubheading" id="Inputs-190">Inputs</h4>
@@ -6442,7 +6098,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029-2"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readAngularVelocity_0028obj_0029-2'></a></span></dt>
+<dt class="deftypefn" id="index-readAngularVelocity_0028obj_0029-2"><span class="category-def">: </span><code class="def-type">[<var class="var">readVal</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readAngularVelocity(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the angular velocity
 </p>
 <h4 class="subsubheading" id="Inputs-191">Inputs</h4>
@@ -6454,8 +6110,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-11"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-11'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-12"><span class="category-def">: </span><span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-12'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-11"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-12"><span class="category-def">: </span><code class="def-type">[<var class="var">accel</var>, <var class="var">gyro</var>, <var class="var">mag</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-192">Inputs</h4>
@@ -6473,7 +6129,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Acceleration, AngularVelocity.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028obj_0029-5"><span class="category-def">: </span><span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-info_0028obj_0029-5'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028obj_0029-5"><span class="category-def">: </span><code class="def-type"><var class="var">inf</var> =</code> <strong class="def-name">info(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-193">Inputs</h4>
@@ -6493,7 +6149,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-5"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-5'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-5"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-194">Inputs</h4>
@@ -6503,7 +6159,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-5"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-5'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-5"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-195">Inputs</h4>
@@ -6517,13 +6173,13 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <h4 class="subsection">9.15.7 si7021</h4>
 <a class="index-entry-id" id="index-si7021"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-si7021-1"><span class="category-def">: </span><span><strong class="def-name">si7021</strong><a class="copiable-link" href='#index-si7021-1'></a></span></dt>
+<dt class="deftypefn" id="index-si7021-1"><span class="category-def">: </span><strong class="def-name">si7021</strong></dt>
 <dd><p>SI7021 temperature and humidity sensor
 </p></dd></dl>
 <h4 class="subheading" id="Methods-21">Methods</h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-si7021_0028arObj_0029"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">si7021(<var class="var">arObj</var>)</strong><a class="copiable-link" href='#index-si7021_0028arObj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-si7021_0028arObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">si7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-si7021_0028arObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-si7021_0028arObj_0029"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">si7021(<var class="var">arObj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-si7021_0028arObj_002c"><span class="category-def">: </span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">si7021(<var class="var">arObj</var>,</strong> <code class="def-code-arguments"><var class="var">propertyname, propertyvalue</var> ....)</code></dt>
 <dd><p>Constructor to create si7021 sensor
 </p><h4 class="subsubheading" id="Inputs-196">Inputs</h4>
 <p><var class="var">arObj</var> - the arduino parent object
@@ -6551,7 +6207,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </pre></div>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readTemperature_0028obj_0029-5"><span class="category-def">: </span><span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readTemperature_0028obj_0029-5'></a></span></dt>
+<dt class="deftypefn" id="index-readTemperature_0028obj_0029-5"><span class="category-def">: </span><code class="def-type">[<var class="var">C</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readTemperature(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the temperature
 </p>
 <h4 class="subsubheading" id="Inputs-197">Inputs</h4>
@@ -6574,7 +6230,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><strong class="strong">See also:</strong> si7021.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readHumidity_0028obj_0029-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">relH</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readHumidity(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-readHumidity_0028obj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-readHumidity_0028obj_0029-1"><span class="category-def">: </span><code class="def-type">[<var class="var">relH</var>, <var class="var">timestamp</var>] =</code> <strong class="def-name">readHumidity(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the relative humidity
 </p>
 <h4 class="subsubheading" id="Inputs-198">Inputs</h4>
@@ -6586,8 +6242,8 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">timestamp</var> - timestamp when read
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read_0028obj_0029-13"><span class="category-def">: </span><span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-13'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-14"><span class="category-def">: </span><span><code class="def-type">[<var class="var">H</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-read_0028obj_0029-14'></a></span></dt>
+<dt class="deftypefn" id="index-read_0028obj_0029-13"><span class="category-def">: </span><code class="def-type">[<var class="var">readings</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read_0028obj_0029-14"><span class="category-def">: </span><code class="def-type">[<var class="var">H</var>, <var class="var">C</var>, <var class="var">timestamp</var>, <var class="var">overrun</var>] =</code> <strong class="def-name">read(<var class="var">obj</var>)</strong></dt>
 <dd><p>Read the sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-199">Inputs</h4>
@@ -6605,7 +6261,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p><var class="var">readings</var> - table structure with fields for Timestamp, Temperature and Humidity.
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-info_0028dsObj_0029-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong><a class="copiable-link" href='#index-info_0028dsObj_0029-1'></a></span></dt>
+<dt class="deftypefn" id="index-info_0028dsObj_0029-1"><span class="category-def">: </span><code class="def-type"><var class="var">relH</var> =</code> <strong class="def-name">info(<var class="var">dsObj</var>)</strong></dt>
 <dd><p>Read the sensor info
 </p>
 <h4 class="subsubheading" id="Inputs-200">Inputs</h4>
@@ -6628,7 +6284,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </dl>
 </dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-flush_0028obj_0029-6"><span class="category-def">: </span><span><strong class="def-name">flush(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-flush_0028obj_0029-6'></a></span></dt>
+<dt class="deftypefn" id="index-flush_0028obj_0029-6"><span class="category-def">: </span><strong class="def-name">flush(<var class="var">obj</var>)</strong></dt>
 <dd><p>Flush sensor data
 </p>
 <h4 class="subsubheading" id="Inputs-201">Inputs</h4>
@@ -6638,7 +6294,7 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 <p>None
 </p></dd></dl>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028obj_0029-6"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-release_0028obj_0029-6'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028obj_0029-6"><span class="category-def">: </span><strong class="def-name">release(<var class="var">obj</var>)</strong></dt>
 <dd><p>Release the resources of the sensor
 </p>
 <h4 class="subsubheading" id="Inputs-202">Inputs</h4>
@@ -6651,21 +6307,14 @@ Next: <a href="#Test-Functions" accesskey="n" rel="next">Test Functions</a>, Pre
 </div>
 </div>
 <div class="section-level-extent" id="Test-Functions">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Sensors" accesskey="p" rel="prev">Sensors</a>, Up: <a href="#Function-Reference" accesskey="u" rel="up">Function Reference</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h3 class="section" id="Test-Functions-1">9.16 Test Functions</h3>
 <a class="index-entry-id" id="index-Test-Functions"></a>
-<ul class="mini-toc">
-<li><a href="#arduino_005fbistsetup" accesskey="1">arduino_bistsetup</a></li>
-</ul>
 <div class="subsection-level-extent" id="arduino_005fbistsetup">
 <h4 class="subsection">9.16.1 arduino_bistsetup</h4>
 <a class="index-entry-id" id="index-arduino_005fbistsetup"></a>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduino_005fbistsetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduino_005fbistsetup-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino_005fbistsetup-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-arduino_005fbistsetup-2'></a></span></dt>
+<dt class="deftypefn" id="index-arduino_005fbistsetup-1"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">()</code></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduino_005fbistsetup-2"><span class="category-def">: </span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduino_bistsetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code></dt>
 <dd><p>Install on an arduino the required core libraries to run the BIST tests
 </p>
 <p>As part of the setup, the arduino IDE will be opened to allow programming
@@ -6695,10 +6344,6 @@ Previous: <a href="#Sensors" accesskey="p" rel="prev">Sensors</a>, Up: <a href="
 </div>
 </div>
 <div class="appendix-level-extent" id="Copying">
-<div class="nav-panel">
-<p>
-Next: <a href="#Index" accesskey="n" rel="next">Index</a>, Previous: <a href="#Function-Reference" accesskey="p" rel="prev">Function Reference</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="appendix" id="GNU-General-Public-License">Appendix A GNU General Public License</h2>
 <a class="index-entry-id" id="index-warranty"></a>
 <a class="index-entry-id" id="index-copyright"></a>
@@ -7358,10 +7003,6 @@ first, please read <a class="url" href="http://www.gnu.org/philosophy/why-not-lg
 <hr>
 </div>
 <div class="unnumbered-level-extent" id="Index">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Copying" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index" title="Index" rel="index">Index</a>]</p>
-</div>
 <h2 class="unnumbered" id="Index-1">Index</h2>
  
 <div class="printindex cp-printindex">
@@ -7409,248 +7050,248 @@ Previous: <a href="#Copying" accesskey="p" rel="prev">GNU General Public License
  &nbsp; 
 </td></tr></table>
 <table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-addon">addon</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-Introduction">Addon Introduction</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-_002em-file">Addon package .m file</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-directory">Addon package directory</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-header-file">Addon package header file</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-AddonBase">AddonBase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Addons-Overview">Addons Overview</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-arduino">arduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Addons">Arduino Addons</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Device-Functions">Arduino Device Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Functions">Arduino Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-I_002fO-package">Arduino I/O package</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-I2C-Functions">Arduino I2C Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Sensor">Arduino Sensor</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Sensors">Arduino Sensors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Serial-Functions">Arduino Serial Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Servo-Functions">Arduino Servo Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-SPI-Functions">Arduino SPI Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-arduinosetup">arduinosetup</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-arduino_005fbistsetup">arduino_bistsetup</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Test-Functions">Test Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Available-Sensors">Available Sensors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Available-Sensors-1">Available Sensors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-B">B</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Basic-Input-and-Output-Overview">Basic Input and Output Overview</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Blinking-an-LED">Blinking an LED</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-bme280">bme280</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-bno055">bno055</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-C">C</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-checkI2CAddress">checkI2CAddress</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-configurePin">configurePin</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-configurePinResource">configurePinResource</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-a-single-arduino">Connecting to a single arduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-a-specific-arduino">Connecting to a specific arduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-an-arduino">Connecting to an arduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-copyright">copyright</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Copying">Copying</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Creating-a-addon-object">Creating a addon object</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Creating-an-addon">Creating an addon</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-dcmotorv2">dcmotorv2</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-decrementResourceCount">decrementResourceCount</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-1">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-2">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-3">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-4">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-5">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-6">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-7">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-8">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-9">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-10">delete</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-device">device</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-device-1">device</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-1">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-2">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-3">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-4">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-5">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-6">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-7">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-8">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-9">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-10">disp</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307">DS1307</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307-1">DS1307</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-E">E</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Echo">Echo</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-EEPRom">EEPRom</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Examples">Examples</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-F">F</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-FilePath">FilePath</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-flush">flush</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-flush-1">flush</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Function-Reference">Function Reference</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Function-Reference">Function Reference</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-G">G</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-General-Functions">General Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getBoardConfig">getBoardConfig</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getEndian">getEndian</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getI2CTerminals">getI2CTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getInterruptTerminals">getInterruptTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getLEDTerminals">getLEDTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getMCU">getMCU</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinAlias">getPinAlias</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinInfo">getPinInfo</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinsFromTerminals">getPinsFromTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getPWMTerminals">getPWMTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getResourceCount">getResourceCount</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getResourceOwner">getResourceOwner</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getServoTerminals">getServoTerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getSharedResourceProperty">getSharedResourceProperty</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getSPITerminals">getSPITerminals</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getTerminalMode">getTerminalMode</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-getTerminalsFromPins">getTerminalsFromPins</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GUVAS12SD">GUVAS12SD</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-H">H</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Hardware-setup">Hardware setup</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-I2C-communication">I2C communication</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-i2cdev">i2cdev</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-incrementResourceCount">incrementResourceCount</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Installing-and-loading">Installing and loading</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-isarduino">isarduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-isTerminalAnalog">isTerminalAnalog</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-isTerminalDigital">isTerminalDigital</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-K">K</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Known-Arduino-Board-Types">Known Arduino Board Types</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-L">L</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-LCD">LCD</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-LibFiles">LibFiles</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-LibraryBase">LibraryBase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-LibraryBase-1">LibraryBase</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lis3dh">lis3dh</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-listArduinoLibraries">listArduinoLibraries</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Loading">Loading</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lps22hb">lps22hb</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-lsm6dso">lsm6dso</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-M">M</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Matlab-Compatibility-Classes">Matlab Compatibility Classes</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Matlab-Compatible-Sensor">Matlab Compatible Sensor</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-motorshieldv2">motorshieldv2</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-MPC3002">MPC3002</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-mpu6050">mpu6050</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-O">O</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Off_002dline-install">Off-line install</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Online-install">Online install</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Performing-Analog-Input">Performing Analog Input</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Performing-Digital-I_002fO">Performing Digital I/O</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-playTone">playTone</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Programming-the-Arduino">Programming the Arduino</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Programming-the-arduino-with-the-addon">Programming the arduino with the addon</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-Q">Q</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Querying-available-arduinos">Querying available arduinos</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-R">R</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-read">read</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-read-1">read</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-read-2">read</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-read-3">read</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-read-4">read</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readAnalogPin">readAnalogPin</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readCount">readCount</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readDigitalPin">readDigitalPin</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readDistance">readDistance</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readEchoTime">readEchoTime</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readPosition">readPosition</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister">readRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister-1">readRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister-2">readRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readSpeed">readSpeed</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-readVoltage">readVoltage</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-reset">reset</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-reset-1">reset</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-resetCount">resetCount</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Rotary-Encoder">Rotary Encoder</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-rotaryEncoder">rotaryEncoder</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-S">S</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-scanForArduinos">scanForArduinos</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-scanI2Cbus">scanI2Cbus</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-sendCommand">sendCommand</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Sensors">Sensors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Sensors-Overview">Sensors Overview</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Serial-communication">Serial communication</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-servo">servo</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Servo-communication">Servo communication</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-setSharedResourceProperty">setSharedResourceProperty</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Shift-Registers">Shift Registers</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-shiftRegister">shiftRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-SI7021">SI7021</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-si7021">si7021</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-SimpleStepper">SimpleStepper</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-SPI-communication">SPI communication</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-spidev">spidev</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-stepper">stepper</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-1">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-2">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-3">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-4">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-5">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-6">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-7">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-8">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-9">subsref</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Test-Functions">Test Functions</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Test-Functions">Test Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-U">U</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-ultrasonic">ultrasonic</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Ultrasonic-Sensors">Ultrasonic Sensors</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-uptime">uptime</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-Addons">Using Addons</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-I2C-to-communicate-with-an-EEPROM">Using I2C to communicate with an EEPROM</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-SPI-to-communicate-with-a-mcp3002-10-bit-ADC">Using SPI to communicate with a mcp3002 10 bit ADC</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-V">V</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-validatePin">validatePin</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Verify-octave-can-see-the-addon">Verify octave can see the addon</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-version">version</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
-<tr><th id="Index_cp_letter-W">W</th><td></td><td></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-warranty">warranty</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Copying">Copying</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-write">write</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-write-1">write</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-write-2">write</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-write-3">write</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-write-4">write</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeDigitalPin">writeDigitalPin</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writePosition">writePosition</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writePWMDutyCycle">writePWMDutyCycle</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writePWMVoltage">writePWMVoltage</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead">writeRead</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead-1">writeRead</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead-2">writeRead</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister">writeRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister-1">writeRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister-2">writeRegister</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
-<tr><td colspan="4"> <hr></td></tr>
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-A">A</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-addon">addon</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-Introduction">Addon Introduction</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-_002em-file">Addon package .m file</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-directory">Addon package directory</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Addon-package-header-file">Addon package header file</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-AddonBase">AddonBase</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Addons-Overview">Addons Overview</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-arduino">arduino</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Addons">Arduino Addons</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Device-Functions">Arduino Device Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Functions">Arduino Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-I_002fO-package">Arduino I/O package</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-I2C-Functions">Arduino I2C Functions</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Sensor">Arduino Sensor</a></td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Sensors">Arduino Sensors</a></td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Serial-Functions">Arduino Serial Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Servo-Functions">Arduino Servo Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-SPI-Functions">Arduino SPI Functions</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-arduino_005fbistsetup">arduino_bistsetup</a></td><td class="printindex-index-section"><a href="#Test-Functions">Test Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-arduinosetup">arduinosetup</a></td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Available-Sensors">Available Sensors</a></td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Available-Sensors-1">Available Sensors</a></td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-B">B</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Blinking-an-LED">Blinking an LED</a></td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-bme280">bme280</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-bno055">bno055</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-C">C</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-checkI2CAddress">checkI2CAddress</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-configurePin">configurePin</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-configurePinResource">configurePinResource</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-a-single-arduino">Connecting to a single arduino</a></td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-a-specific-arduino">Connecting to a specific arduino</a></td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Connecting-to-an-arduino">Connecting to an arduino</a></td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-copyright">copyright</a></td><td class="printindex-index-section"><a href="#Copying">Copying</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Creating-a-addon-object">Creating a addon object</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Creating-an-addon">Creating an addon</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-D">D</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-dcmotorv2">dcmotorv2</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-decrementResourceCount">decrementResourceCount</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-1">delete</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-2">delete</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-3">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-4">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-5">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-6">delete</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-7">delete</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-8">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-9">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-delete-10">delete</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-device">device</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-device-1">device</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-1">disp</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-2">disp</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-3">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-4">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-5">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-6">disp</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-7">disp</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-8">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-9">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-disp-10">disp</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307">DS1307</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-DS1307-1">DS1307</a></td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-E">E</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Echo">Echo</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-EEPRom">EEPRom</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Examples">Examples</a></td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-F">F</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-FilePath">FilePath</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-flush">flush</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-flush-1">flush</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Function-Reference">Function Reference</a></td><td class="printindex-index-section"><a href="#Function-Reference">Function Reference</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-G">G</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-General-Functions">General Functions</a></td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getBoardConfig">getBoardConfig</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getEndian">getEndian</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getI2CTerminals">getI2CTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getInterruptTerminals">getInterruptTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getLEDTerminals">getLEDTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getMCU">getMCU</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinAlias">getPinAlias</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinInfo">getPinInfo</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getPinsFromTerminals">getPinsFromTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getPWMTerminals">getPWMTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getResourceCount">getResourceCount</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getResourceOwner">getResourceOwner</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getServoTerminals">getServoTerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getSharedResourceProperty">getSharedResourceProperty</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getSPITerminals">getSPITerminals</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getTerminalMode">getTerminalMode</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-getTerminalsFromPins">getTerminalsFromPins</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GUVAS12SD">GUVAS12SD</a></td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-H">H</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Hardware-setup">Hardware setup</a></td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-I">I</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-I2C-communication">I2C communication</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-i2cdev">i2cdev</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-incrementResourceCount">incrementResourceCount</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Installing-and-loading">Installing and loading</a></td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-isarduino">isarduino</a></td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-isTerminalAnalog">isTerminalAnalog</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-isTerminalDigital">isTerminalDigital</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-K">K</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Known-Arduino-Board-Types">Known Arduino Board Types</a></td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-L">L</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-LCD">LCD</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-LibFiles">LibFiles</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-LibraryBase">LibraryBase</a></td><td class="printindex-index-section"><a href="#Arduino-I_002fO-package">Arduino I/O package</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-LibraryBase-1">LibraryBase</a></td><td class="printindex-index-section"><a href="#Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lis3dh">lis3dh</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-listArduinoLibraries">listArduinoLibraries</a></td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Loading">Loading</a></td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lps22hb">lps22hb</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-lsm6dso">lsm6dso</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-M">M</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></td><td class="printindex-index-section"><a href="#Matlab-Compatibility-Classes">Matlab Compatibility Classes</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Matlab-Compatible-Sensor">Matlab Compatible Sensor</a></td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-motorshieldv2">motorshieldv2</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-MPC3002">MPC3002</a></td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mpu6050">mpu6050</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-O">O</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Off_002dline-install">Off-line install</a></td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Online-install">Online install</a></td><td class="printindex-index-section"><a href="#Installing-and-loading">Installing and loading</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-P">P</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Performing-Analog-Input">Performing Analog Input</a></td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Performing-Digital-I_002fO">Performing Digital I/O</a></td><td class="printindex-index-section"><a href="#Basic-Input-and-Output-Overview">Basic Input and Output Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-playTone">playTone</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Programming-the-Arduino">Programming the Arduino</a></td><td class="printindex-index-section"><a href="#Hardware-setup">Hardware setup</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Programming-the-arduino-with-the-addon">Programming the arduino with the addon</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-Q">Q</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Querying-available-arduinos">Querying available arduinos</a></td><td class="printindex-index-section"><a href="#Connecting-to-an-arduino">Connecting to an arduino</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-R">R</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-read">read</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-read-1">read</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-read-2">read</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-read-3">read</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-read-4">read</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readAnalogPin">readAnalogPin</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readCount">readCount</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readDigitalPin">readDigitalPin</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readDistance">readDistance</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readEchoTime">readEchoTime</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readPosition">readPosition</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister">readRegister</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister-1">readRegister</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readRegister-2">readRegister</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readSpeed">readSpeed</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-readVoltage">readVoltage</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-reset">reset</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-reset-1">reset</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-resetCount">resetCount</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Rotary-Encoder">Rotary Encoder</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-rotaryEncoder">rotaryEncoder</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-S">S</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-scanForArduinos">scanForArduinos</a></td><td class="printindex-index-section"><a href="#General-Functions">General Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-scanI2Cbus">scanI2Cbus</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-sendCommand">sendCommand</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Sensors">Sensors</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Sensors-Overview">Sensors Overview</a></td><td class="printindex-index-section"><a href="#Sensors-Overview">Sensors Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Serial-communication">Serial communication</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-servo">servo</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Servo-communication">Servo communication</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-setSharedResourceProperty">setSharedResourceProperty</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Shift-Registers">Shift Registers</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-shiftRegister">shiftRegister</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-SI7021">SI7021</a></td><td class="printindex-index-section"><a href="#Arduino-Sensors">Arduino Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-si7021">si7021</a></td><td class="printindex-index-section"><a href="#Sensors">Sensors</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-SimpleStepper">SimpleStepper</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-SPI-communication">SPI communication</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-spidev">spidev</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-stepper">stepper</a></td><td class="printindex-index-section"><a href="#Arduino-Addons">Arduino Addons</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-1">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-2">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Rotary-Encoder-Functions">Arduino Rotary Encoder Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-3">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-4">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-5">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-6">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-7">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-8">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-subsref-9">subsref</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-T">T</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Test-Functions">Test Functions</a></td><td class="printindex-index-section"><a href="#Test-Functions">Test Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-U">U</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-ultrasonic">ultrasonic</a></td><td class="printindex-index-section"><a href="#Arduino-Ultrasonic-Functions">Arduino Ultrasonic Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Ultrasonic-Sensors">Ultrasonic Sensors</a></td><td class="printindex-index-section"><a href="#Protocol-based-I_002fO-Overview">Protocol based I/O Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-uptime">uptime</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-Addons">Using Addons</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-I2C-to-communicate-with-an-EEPROM">Using I2C to communicate with an EEPROM</a></td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Using-SPI-to-communicate-with-a-mcp3002-10-bit-ADC">Using SPI to communicate with a mcp3002 10 bit ADC</a></td><td class="printindex-index-section"><a href="#Examples">Examples</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-V">V</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-validatePin">validatePin</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Verify-octave-can-see-the-addon">Verify octave can see the addon</a></td><td class="printindex-index-section"><a href="#Addons-Overview">Addons Overview</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-version">version</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
+<tr><th id="Index_cp_letter-W">W</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-warranty">warranty</a></td><td class="printindex-index-section"><a href="#Copying">Copying</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-write">write</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-write-1">write</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-write-2">write</a></td><td class="printindex-index-section"><a href="#Arduino-Shiftregister-Functions">Arduino Shiftregister Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-write-3">write</a></td><td class="printindex-index-section"><a href="#Arduino-Serial-Functions">Arduino Serial Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-write-4">write</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeDigitalPin">writeDigitalPin</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writePosition">writePosition</a></td><td class="printindex-index-section"><a href="#Arduino-Servo-Functions">Arduino Servo Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writePWMDutyCycle">writePWMDutyCycle</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writePWMVoltage">writePWMVoltage</a></td><td class="printindex-index-section"><a href="#Arduino-Functions">Arduino Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead">writeRead</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead-1">writeRead</a></td><td class="printindex-index-section"><a href="#Arduino-SPI-Functions">Arduino SPI Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRead-2">writeRead</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister">writeRegister</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister-1">writeRegister</a></td><td class="printindex-index-section"><a href="#Arduino-I2C-Functions">Arduino I2C Functions</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-writeRegister-2">writeRegister</a></td><td class="printindex-index-section"><a href="#Arduino-Device-Functions">Arduino Device Functions</a></td></tr>
+<tr><td colspan="3"><hr></td></tr>
 </table>
 <table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index_cp_letter-A"><b>A</b></a>
  &nbsp; 

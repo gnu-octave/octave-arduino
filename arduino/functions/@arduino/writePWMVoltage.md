@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinowritePWMVoltage/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/writePWMVoltage"
 category: "Arduino Functions"
@@ -70,17 +70,17 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writePWMVoltage"><span class="category-def">: </span><span><strong class="def-name">writePWMVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">voltage</var>)</code><a class="copiable-link" href='#index-writePWMVoltage'></a></span></dt>
+<dt class="deftypefn" id="index-writePWMVoltage"><span class="category-def">: </span><span><strong class="def-name">writePWMVoltage</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">voltage</var>)</code><a class="copiable-link" href="#index-writePWMVoltage"></a></span></dt>
 <dd><p>Emulate an approximate voltage out of a pin using PWM.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">pin</var> - pin to write to.
 </p>
 <p><var class="var">voltage</var> - voltage to emulate with PWM, between 0 - 5.0
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino();

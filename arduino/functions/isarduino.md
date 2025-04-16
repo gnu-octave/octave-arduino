@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/9_isarduino/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - isarduino"
 category: "General Functions"
@@ -70,7 +70,7 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-isarduino"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">isarduino</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-isarduino'></a></span></dt>
+<dt class="deftypefn" id="index-isarduino"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">isarduino</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href="#index-isarduino"></a></span></dt>
 <dd><p>Check if input value is an arduino object
 </p>
 <p>Function is essentially just a call of
@@ -78,10 +78,10 @@ navigation:
  retval = isa(obj, &quot;arduino&quot;);
  </code>
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">obj</var> - The object to check
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> is true, if obj is an arduino object, false otherwise.
 </p>
 

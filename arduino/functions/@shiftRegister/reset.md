@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@shiftRegister/20_shiftRegisterreset/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @shiftRegister/reset"
 category: "Arduino Shiftregister Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-_0028register_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">register</var>)</strong><a class="copiable-link" href='#index-_0028register_0029'></a></span></dt>
+<dt class="deftypefn" id="index-_0028register_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">register</var>)</strong><a class="copiable-link" href="#index-_0028register_0029"></a></span></dt>
 <dd><p>clear the shift register value.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">register</var> - shift register created from shiftRegister call.
 </p>
 

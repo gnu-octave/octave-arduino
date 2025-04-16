@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/19_rotaryEncoderdisp/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/disp"
 category: "Arduino Rotary Encoder Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-disp'></a></span></dt>
+<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href="#index-disp"></a></span></dt>
 <dd><p>Display the rotary encoder object in a verbose way, 
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">obj</var> - the arduino rotary encoder object created with rotaryEncoder
 </p>
 

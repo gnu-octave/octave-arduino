@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/43_arduinoioaddonsSimpleStepperSimpleStepper/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.SimpleStepper.SimpleStepper"
 category: "Arduino Addons"
@@ -70,11 +70,11 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eSimpleStepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.SimpleStepper</strong><a class="copiable-link" href='#index-arduinoioaddons_002eSimpleStepper'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eSimpleStepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.SimpleStepper</strong><a class="copiable-link" href="#index-arduinoioaddons_002eSimpleStepper"></a></span></dt>
 <dd><p>Stepper class for stepper control using ULN2003 and compatible drivers
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <dl class="table">
 <dt><var class="var">Id</var></dt>
 <dd><p>Id of the stepper (Read only)
@@ -94,12 +94,12 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-SimpleStepper_0028aObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>)</code><a class="copiable-link" href='#index-SimpleStepper_0028aObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-SimpleStepper_0028aObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>, <var class="var">pin5</var>)</code><a class="copiable-link" href='#index-SimpleStepper_0028aObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-SimpleStepper_0028aObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>)</code><a class="copiable-link" href="#index-SimpleStepper_0028aObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-SimpleStepper_0028aObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">SimpleStepper(<var class="var">aObj</var>,</strong> <code class="def-code-arguments"><var class="var">pin1</var>, <var class="var">pin2</var>, <var class="var">pin3</var>, <var class="var">pin4</var>, <var class="var">pin5</var>)</code><a class="copiable-link" href="#index-SimpleStepper_0028aObj_002c-1"></a></span></dt>
 <dd><p>Constructor to create a stepper object
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">aObj</var> - The arduino
 </p>
 <p><var class="var">pin1</var> - The first pin of the controller
@@ -112,10 +112,10 @@ navigation:
 </p>
 <p><var class="var">pin5</var> - The fifth pin of the controller
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">s</var> - a simplestepper object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -131,15 +131,15 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href='#index-move_0028sObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href="#index-move_0028sObj_002c"></a></span></dt>
 <dd><p>Move the motor the specified number of steps using the configured Speed.
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">sObj</var> - the stepper object
 </p>
 <p><var class="var">steps</var> - the number of steps to move. steps less than 0 will be moving left.
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p>None
 </p>
 
@@ -147,15 +147,15 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-rotate_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">rotate(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">dir</var>)</code><a class="copiable-link" href='#index-rotate_0028sObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-rotate_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">rotate(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">dir</var>)</code><a class="copiable-link" href="#index-rotate_0028sObj_002c"></a></span></dt>
 <dd><p>Start steppermotor moving in the specified direction using the configured Speed.
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p><var class="var">sObj</var> - the stepper object
 </p>
 <p><var class="var">dir</var> - Direction to move. -1 = left, 0 = stop, 1 = right.
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p>None
 </p>
 
@@ -163,13 +163,13 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href='#index-release_0028sObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href="#index-release_0028sObj_0029"></a></span></dt>
 <dd><p>Release this stepper motor
 </p>
-<h4 class="subsubheading" id="Inputs-3">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-3"><span>Inputs<a class="copiable-link" href="#Inputs-3"></a></span></h4>
 <p><var class="var">sObj</var> - the stepper object
 </p>
-<h4 class="subsubheading" id="Outputs-3">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-3"><span>Outputs<a class="copiable-link" href="#Outputs-3"></a></span></h4>
 <p>None
 </p>
 </dd></dl>

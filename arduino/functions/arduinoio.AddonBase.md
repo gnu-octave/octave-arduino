@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/19_arduinoioAddonBase/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoio.AddonBase"
 category: "Arduino I/O package"
@@ -70,25 +70,25 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eAddonBase"><span class="category-def">: </span><span><strong class="def-name">arduinoio.AddonBase</strong><a class="copiable-link" href='#index-arduinoio_002eAddonBase'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eAddonBase"><span class="category-def">: </span><span><strong class="def-name">arduinoio.AddonBase</strong><a class="copiable-link" href="#index-arduinoio_002eAddonBase"></a></span></dt>
 <dd><p>Base class used for arduino library sensors
 </p>
 
 <p><strong class="strong">See also:</strong> arduinoio.LibraryBase.
  </p></dd></dl>
 
-<h4 class="subheading" id="Properties">Properties</h4>
+<h4 class="subheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>Base properties are expected to be inherited and overwritten in inherited classes.
  and are constant in order to query through the metaobject mechanism.
 </p>
 <p><var class="var">Parent</var> - parent librarybase object
 </p>
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-AddonBase"><span class="category-def">: </span><span><code class="def-type"><var class="var">ab</var> =</code> <strong class="def-name">AddonBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-AddonBase'></a></span></dt>
+<dt class="deftypefn" id="index-AddonBase"><span class="category-def">: </span><span><code class="def-type"><var class="var">ab</var> =</code> <strong class="def-name">AddonBase</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-AddonBase"></a></span></dt>
 <dd><p>Constructor of base class
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p>The return value <var class="var">ab</var> is an object of the arduinio.AddonBase class.
 </p>
 
@@ -96,6 +96,6 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-disp'></a></span></dt>
+<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-disp"></a></span></dt>
 <dd><p>Display the addon in a verbose way.
  </p></dd></dl>

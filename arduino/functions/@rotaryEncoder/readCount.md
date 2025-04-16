@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/24_rotaryEncoderreadCount/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/readCount"
 category: "Arduino Rotary Encoder Functions"
@@ -70,8 +70,8 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readCount"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href='#index-readCount'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-readCount-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">name</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-readCount-1'></a></span></dt>
+<dt class="deftypefn" id="index-readCount"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>)</code><a class="copiable-link" href="#index-readCount"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-readCount-1"><span class="category-def">: </span><span><code class="def-type">[<var class="var">count</var>, <var class="var">time</var>] =</code> <strong class="def-name">readCount</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">name</var>, <var class="var">value</var>)</code><a class="copiable-link" href="#index-readCount-1"></a></span></dt>
 <dd><p>read count value from the rotary encoder.
 </p>
 <p>subsubheading Inputs
@@ -86,7 +86,7 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">count</var> - returned count read from the encoder.
 </p>
 <p><var class="var">time</var> - seconds since arduino started

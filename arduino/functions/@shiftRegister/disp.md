@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@shiftRegister/19_shiftRegisterdisp/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @shiftRegister/disp"
 category: "Arduino Shiftregister Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href='#index-disp'></a></span></dt>
+<dt class="deftypefn" id="index-disp"><span class="category-def">: </span><span><strong class="def-name">disp</strong> <code class="def-code-arguments">(<var class="var">register</var>)</code><a class="copiable-link" href="#index-disp"></a></span></dt>
 <dd><p>Display the register object in a verbose way, 
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">register</var> - the arduino register object created with shiftRegister.
 </p>
 

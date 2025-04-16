@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/12_arduinosetup/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinosetup"
 category: "General Functions"
@@ -70,15 +70,15 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinosetup"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href='#index-arduinosetup'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-arduinosetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href='#index-arduinosetup-1'></a></span></dt>
+<dt class="deftypefn" id="index-arduinosetup"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">()</code><a class="copiable-link" href="#index-arduinosetup"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-arduinosetup-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinosetup</strong> <code class="def-code-arguments">(<var class="var">propertyname</var>, <var class="var">propertyvalue</var>)</code><a class="copiable-link" href="#index-arduinosetup-1"></a></span></dt>
 <dd><p>Open the arduino config / programming tool to program the arduino hardware for usage with
  the Octave arduino functions.
 </p>
 <p>arduinosetup will create a temporary project  using the arduino IDE and allow 
  compiling and programming of the code to an arduino. 
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
  
 <p><var class="var">propertyname</var>, <var class="var">propertyvalue</var> - A sequence of property name/value pairs can be given
  to set defaults while programming.
@@ -98,7 +98,7 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - return 1 if arduino IDE returned without an error
 </p>
 

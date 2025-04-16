@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinocheckI2CAddress/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/checkI2CAddress"
 category: "Arduino Functions"
@@ -70,11 +70,11 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-checkI2CAddress"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code><a class="copiable-link" href='#index-checkI2CAddress'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-checkI2CAddress-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">bus</var>)</code><a class="copiable-link" href='#index-checkI2CAddress-1'></a></span></dt>
+<dt class="deftypefn" id="index-checkI2CAddress"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>)</code><a class="copiable-link" href="#index-checkI2CAddress"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-checkI2CAddress-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">checkI2CAddress</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">address</var>, <var class="var">bus</var>)</code><a class="copiable-link" href="#index-checkI2CAddress-1"></a></span></dt>
 <dd><p>Check that an address of given address responds on the I2C bus
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - arduino object connected to a arduino board.
 </p>
 <p><var class="var">address</var> - I2C address number to check
@@ -82,10 +82,10 @@ navigation:
 <p><var class="var">bus</var> - bus number to check for I2C device, when multiple buses are available.
  If the bus is not specified, it will default to 0.
 </p> 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> - boolean value of true if address responds on the I2C bus
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  # create arduino connection.

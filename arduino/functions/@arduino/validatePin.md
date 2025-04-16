@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/20_arduinovalidatePin/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/validatePin"
 category: "Arduino Functions"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-validatePin"><span class="category-def">: </span><span><strong class="def-name">validatePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">type</var>)</code><a class="copiable-link" href='#index-validatePin'></a></span></dt>
+<dt class="deftypefn" id="index-validatePin"><span class="category-def">: </span><span><strong class="def-name">validatePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">type</var>)</code><a class="copiable-link" href="#index-validatePin"></a></span></dt>
 <dd><p>Validate that the mode is allowed for specified pin
 </p>
 <p>If the mode is not valid, and error will be thrown.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">pin</var> -  name of pin to query mode validity of

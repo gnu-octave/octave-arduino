@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/20_arduinogetPinAlias/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/getPinAlias"
 category: "Arduino Functions"
@@ -70,17 +70,17 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-getPinAlias"><span class="category-def">: </span><span><code class="def-type"><var class="var">ouy</var> =</code> <strong class="def-name">getPinAlias</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-getPinAlias'></a></span></dt>
+<dt class="deftypefn" id="index-getPinAlias"><span class="category-def">: </span><span><code class="def-type"><var class="var">ouy</var> =</code> <strong class="def-name">getPinAlias</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href="#index-getPinAlias"></a></span></dt>
 <dd><p>Get the pin actual pin name from a pin alias.
 </p>
 <p>For example, the arduino Leonardo, pin &quot;D4&quot; is also &quot;A6&quot;.
 </p> 
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the connected arduino object.
 </p>
 <p><var class="var">pin</var> - a pin name.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">out</var> - alias pin name, or same as <var class="var">pin</var> if the pin doesnt have any alias names.
 </p>
 

@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/31_arduinodecrementResourceCount/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/decrementResourceCount"
 category: "Arduino Functions"
@@ -70,16 +70,16 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-decrementResourceCount"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">decrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href='#index-decrementResourceCount'></a></span></dt>
+<dt class="deftypefn" id="index-decrementResourceCount"><span class="category-def">: </span><span><code class="def-type"><var class="var">count</var> =</code> <strong class="def-name">decrementResourceCount</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">resource</var>)</code><a class="copiable-link" href="#index-decrementResourceCount"></a></span></dt>
 <dd><p>Decrement the count of a named resource by 1 and return the
  new count.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">resource</var> - name of resource to decrement count.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">count</var> = count of uses registered to resource.
 </p>
 

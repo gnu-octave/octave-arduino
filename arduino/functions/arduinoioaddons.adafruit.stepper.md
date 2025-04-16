@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/32_arduinoioaddonsadafruitstepper/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoioaddons.adafruit.stepper"
 category: "Arduino Addons"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002estepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.stepper</strong><a class="copiable-link" href='#index-arduinoioaddons_002eadafruit_002estepper'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoioaddons_002eadafruit_002estepper"><span class="category-def">: </span><span><strong class="def-name">arduinoioaddons.adafruit.stepper</strong><a class="copiable-link" href="#index-arduinoioaddons_002eadafruit_002estepper"></a></span></dt>
 <dd><p>Stepper class for stepper control on the adafruit motor shield
 </p>
 
 <p><strong class="strong">See also:</strong> arduinoioaddons.adafruit.motorshieldv2.
  </p></dd></dl>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <dl class="table">
 <dt><var class="var">RPM</var></dt>
 <dd><p>The rpm value set for the stepper motor
@@ -97,12 +97,12 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subheading" id="Methods">Methods</h4>
+<h4 class="subheading" id="Methods"><span>Methods<a class="copiable-link" href="#Methods"></a></span></h4>
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href='#index-stepper_0028mObj_002c-1'></a></span></dt>
+<dt class="deftypefn" id="index-stepper_0028mObj_002c"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>)</code><a class="copiable-link" href="#index-stepper_0028mObj_002c"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-stepper_0028mObj_002c-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">stepper(<var class="var">mObj</var>,</strong> <code class="def-code-arguments"><var class="var">mnum</var>, <var class="var">stepsperrev</var>, <var class="var">propertyname, propertyvalue</var> ....)</code><a class="copiable-link" href="#index-stepper_0028mObj_002c-1"></a></span></dt>
 <dd><p>Constructor to create dcmotor object
- </p><h4 class="subsubheading" id="Inputs">Inputs</h4>
+ </p><h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">mObj</var> - the motor shield object
 </p>
 <p><var class="var">mnum</var> - The motor number (1 or 2)
@@ -123,10 +123,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">s</var> - a stepper object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino()
@@ -137,13 +137,13 @@ navigation:
 </dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href='#index-move_0028sObj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-move_0028sObj_002c"><span class="category-def">: </span><span><strong class="def-name">move(<var class="var">sObj</var>,</strong> <code class="def-code-arguments"><var class="var">steps</var>)</code><a class="copiable-link" href="#index-move_0028sObj_002c"></a></span></dt>
 <dd><p>Move the motor moving in the specified steps using the configured RPM.
 </p>
-<h4 class="subsubheading" id="Inputs-1">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-1"><span>Inputs<a class="copiable-link" href="#Inputs-1"></a></span></h4>
 <p><var class="var">sObj</var> - the stepper object
 </p>
-<h4 class="subsubheading" id="Outputs-1">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-1"><span>Outputs<a class="copiable-link" href="#Outputs-1"></a></span></h4>
 <p>None
 </p>
 
@@ -151,13 +151,13 @@ navigation:
  </p></dd></dl>
 
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href='#index-release_0028sObj_0029'></a></span></dt>
+<dt class="deftypefn" id="index-release_0028sObj_0029"><span class="category-def">: </span><span><strong class="def-name">release(<var class="var">sObj</var>)</strong><a class="copiable-link" href="#index-release_0028sObj_0029"></a></span></dt>
 <dd><p>Release this motor
 </p>
-<h4 class="subsubheading" id="Inputs-2">Inputs</h4>
+<h4 class="subsubheading" id="Inputs-2"><span>Inputs<a class="copiable-link" href="#Inputs-2"></a></span></h4>
 <p><var class="var">sObj</var> - the stepper object
 </p>
-<h4 class="subsubheading" id="Outputs-2">Outputs</h4>
+<h4 class="subsubheading" id="Outputs-2"><span>Outputs<a class="copiable-link" href="#Outputs-2"></a></span></h4>
 <p>None
 </p>
 

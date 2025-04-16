@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/21_arduinoconfigurePin/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/configurePin"
 category: "Arduino Functions"
@@ -70,8 +70,8 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-configurePin"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-configurePin'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePin-1"><span class="category-def">: </span><span><strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">mode</var>)</code><a class="copiable-link" href='#index-configurePin-1'></a></span></dt>
+<dt class="deftypefn" id="index-configurePin"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href="#index-configurePin"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePin-1"><span class="category-def">: </span><span><strong class="def-name">configurePin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">mode</var>)</code><a class="copiable-link" href="#index-configurePin-1"></a></span></dt>
 <dd><p>Set/Get pin mode for a specified pin on arduino connection.
 </p>
 <p>configurePin (<var class="var">ar</var>, <var class="var">pin</var>) will get the current mode of the specified pin.
@@ -79,14 +79,14 @@ navigation:
 <p>configurePin (<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">mode</var>) will attempt set the pin to the specified
  mode if the mode is unset.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the arduino object of the connection to an arduino board.
 </p>
 <p><var class="var">pin</var> - string name of the pin to set/get the mode of.
 </p>
 <p><var class="var">mode</var> - string mode to set the pin to.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">mode</var> - string current mode of the pin.
 </p>
 <p>Valid modes can be:

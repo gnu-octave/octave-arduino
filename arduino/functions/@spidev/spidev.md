@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@spidev/14_spidevspidev/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @spidev/spidev"
 category: "Arduino SPI Functions"
@@ -70,15 +70,15 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-spidev"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>)</code><a class="copiable-link" href='#index-spidev'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-spidev-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-spidev-1'></a></span></dt>
+<dt class="deftypefn" id="index-spidev"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>)</code><a class="copiable-link" href="#index-spidev"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-spidev-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">spidev</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">cspin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href="#index-spidev-1"></a></span></dt>
 <dd>
 <p><code class="code">spidev</code> is depreciated and will be removed in a future version.
  Use <code class="code">device</code> instead.
 </p>
 <p>Create an spidev object to communicate to the SPI port on a connected arduino.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">cspin</var> - chip select pin for attached spi device.
@@ -98,10 +98,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">dev</var> - created spidev object
 </p>
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The spidev object has the following public properties:
  </p><dl class="table">
 <dt>parent</dt>

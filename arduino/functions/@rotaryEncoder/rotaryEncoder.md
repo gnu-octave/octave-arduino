@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/28_rotaryEncoderrotaryEncoder/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/rotaryEncoder"
 category: "Arduino Rotary Encoder Functions"
@@ -70,11 +70,11 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-rotaryEncoder"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>)</code><a class="copiable-link" href='#index-rotaryEncoder'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-rotaryEncoder-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>, <var class="var">ppr</var>)</code><a class="copiable-link" href='#index-rotaryEncoder-1'></a></span></dt>
+<dt class="deftypefn" id="index-rotaryEncoder"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>)</code><a class="copiable-link" href="#index-rotaryEncoder"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-rotaryEncoder-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">obj</var> =</code> <strong class="def-name">rotaryEncoder</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">chanApin</var>, <var class="var">chanBpin</var>, <var class="var">ppr</var>)</code><a class="copiable-link" href="#index-rotaryEncoder-1"></a></span></dt>
 <dd><p>Create a rotaryEncoder object controlled by the input pins.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object.
 </p>
 <p><var class="var">chanApin</var> - pin used for channel A
@@ -83,16 +83,16 @@ navigation:
 </p>
 <p><var class="var">ppr</var> - count of encoder pulsed required for a full revolution of the encoder.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">obj</var> - created rotary encoder object
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> a = arduino ();
  enc = rotaryEncoder(a, &quot;d2&quot;, &quot;d3&quot;, 180);
  </pre></div>
 
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The rotaryEncoder object has the following public properties:
  </p><dl class="table">
 <dt>parent</dt>

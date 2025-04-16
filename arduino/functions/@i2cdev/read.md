@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/12_i2cdevread/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/read"
 category: "Arduino I2C Functions"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href='#index-read'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-read-1'></a></span></dt>
+<dt class="deftypefn" id="index-read"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>)</code><a class="copiable-link" href="#index-read"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-read-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">data</var> =</code> <strong class="def-name">read</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">numbytes</var>, <var class="var">precision</var>)</code><a class="copiable-link" href="#index-read-1"></a></span></dt>
 <dd><p>Read a specified number of bytes from a i2cdev object
  using optional precision for bytesize.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected i2c device opened using i2cdev
 </p>
 <p><var class="var">numbytes</var> - number of bytes to read.
@@ -83,7 +83,7 @@ navigation:
 <p><var class="var">precision</var> - Optional precision for the output data read data.
  Currently known precision values are uint8 (default), int8, uint16, int16
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">data</var> - data read from i2cdevice
 </p>
 

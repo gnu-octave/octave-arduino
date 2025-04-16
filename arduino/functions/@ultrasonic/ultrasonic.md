@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@ultrasonic/22_ultrasonicultrasonic/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @ultrasonic/ultrasonic"
 category: "Arduino Ultrasonic Functions"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-ultrasonic"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>)</code><a class="copiable-link" href='#index-ultrasonic'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>)</code><a class="copiable-link" href='#index-ultrasonic-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href='#index-ultrasonic-2'></a></span></dt>
+<dt class="deftypefn" id="index-ultrasonic"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>)</code><a class="copiable-link" href="#index-ultrasonic"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-1"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>)</code><a class="copiable-link" href="#index-ultrasonic-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-ultrasonic-2"><span class="category-def">: </span><span><code class="def-type"><var class="var">dev</var> =</code> <strong class="def-name">ultrasonic</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">triggerpin</var>, <var class="var">echopin</var>, <var class="var">propname</var>, <var class="var">propvalue</var>)</code><a class="copiable-link" href="#index-ultrasonic-2"></a></span></dt>
 <dd><p>Create an ultrasonic object to communicate to a connected ultrasonic device
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object
 </p>
 <p><var class="var">triggerpin</var> - trigger pin for attached device.
@@ -91,10 +91,10 @@ navigation:
  </p></dd>
 </dl>
 
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">dev</var> - created ultrasonic object
 </p>
-<h4 class="subsubheading" id="Properties">Properties</h4>
+<h4 class="subsubheading" id="Properties"><span>Properties<a class="copiable-link" href="#Properties"></a></span></h4>
 <p>The ultrasonic object has the following public properties:
  </p><dl class="table">
 <dt>parent</dt>

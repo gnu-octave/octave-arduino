@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/15_arduinouptime/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/uptime"
 category: "Arduino Functions"
@@ -70,14 +70,14 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-uptime"><span class="category-def">: </span><span><code class="def-type"><var class="var">sec</var> =</code> <strong class="def-name">uptime</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href='#index-uptime'></a></span></dt>
+<dt class="deftypefn" id="index-uptime"><span class="category-def">: </span><span><code class="def-type"><var class="var">sec</var> =</code> <strong class="def-name">uptime</strong> <code class="def-code-arguments">(<var class="var">ar</var>)</code><a class="copiable-link" href="#index-uptime"></a></span></dt>
 <dd><p>Get the number of seconds the arduino board has been running concurrently.
 </p>
 
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the arduino object of the connection to an arduino board.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">sec</var> - the number seconds the board has been running. Note that the count will wrap around after
  approximately 50 days.
 </p>

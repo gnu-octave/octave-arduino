@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@rotaryEncoder/25_rotaryEncoderresetCount/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @rotaryEncoder/resetCount"
 category: "Arduino Rotary Encoder Functions"
@@ -70,11 +70,11 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>)</strong><a class="copiable-link" href='#index-_0028obj_0029'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028obj_002c"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">cnt</var>)</code><a class="copiable-link" href='#index-_0028obj_002c'></a></span></dt>
+<dt class="deftypefn" id="index-_0028obj_0029"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>)</strong><a class="copiable-link" href="#index-_0028obj_0029"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-_0028obj_002c"><span class="category-def">: </span><span><code class="def-type">reset</code> <strong class="def-name">(<var class="var">obj</var>,</strong> <code class="def-code-arguments"><var class="var">cnt</var>)</code><a class="copiable-link" href="#index-_0028obj_002c"></a></span></dt>
 <dd><p>reset the rotary encoder count values
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">obj</var> - the rotaryEncoder object
 </p>
 <p><var class="var">cnt</var> - optional count value to reset to

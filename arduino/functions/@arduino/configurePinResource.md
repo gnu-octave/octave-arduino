@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/29_arduinoconfigurePinResource/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/configurePinResource"
 category: "Arduino Functions"
@@ -70,9 +70,9 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-configurePinResource"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-configurePinResource'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-1"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>)</code><a class="copiable-link" href='#index-configurePinResource-1'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-2"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>, <var class="var">force</var>)</code><a class="copiable-link" href='#index-configurePinResource-2'></a></span></dt>
+<dt class="deftypefn" id="index-configurePinResource"><span class="category-def">: </span><span><code class="def-type"><var class="var">currmode</var> =</code> <strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>)</code><a class="copiable-link" href="#index-configurePinResource"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-1"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>)</code><a class="copiable-link" href="#index-configurePinResource-1"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-configurePinResource-2"><span class="category-def">: </span><span><strong class="def-name">configurePinResource</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">owner</var>, <var class="var">mode</var>, <var class="var">force</var>)</code><a class="copiable-link" href="#index-configurePinResource-2"></a></span></dt>
 <dd><p>Set/Get pin mode for a specified pin on arduino connection.
 </p>
 <p>configurePinResource (<var class="var">ar</var>, <var class="var">pin</var>) will get the current mode of the specified pin.
@@ -83,7 +83,7 @@ navigation:
 <p>If the pin is already owned by another owner, the configure will fail unless the force option is used.
  If the mode is already set, configure will fail unless force is used.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - the arduino object of the connection to an arduino board.
 </p>
 <p><var class="var">pin</var> - string name of the pin to set/get the mode of.
@@ -94,7 +94,7 @@ navigation:
 </p>
 <p><var class="var">force</var> - boolean to force mode change. If not set, it will be false.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">currmode</var> - current string mode of the pin.
 </p>
 <p>Valid modes can be:

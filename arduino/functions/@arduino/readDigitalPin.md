@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/23_arduinoreadDigitalPin/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/readDigitalPin"
 category: "Arduino Functions"
@@ -70,18 +70,18 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-readDigitalPin"><span class="category-def">: </span><span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readDigitalPin</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">pin</var>)</code><a class="copiable-link" href='#index-readDigitalPin'></a></span></dt>
+<dt class="deftypefn" id="index-readDigitalPin"><span class="category-def">: </span><span><code class="def-type"><var class="var">value</var> =</code> <strong class="def-name">readDigitalPin</strong> <code class="def-code-arguments">(<var class="var">obj</var>, <var class="var">pin</var>)</code><a class="copiable-link" href="#index-readDigitalPin"></a></span></dt>
 <dd><p>Read digital value from a digital I/O pin.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object.
 </p>
 <p><var class="var">pin</var> - string name of the pin to read.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">value</var> - the logical value (0, 1, true false) of the current pin state.
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino ();

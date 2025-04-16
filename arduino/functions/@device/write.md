@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@device/13_devicewrite/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @device/write"
 category: "Arduino Device Functions"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-write"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href='#index-write'></a></span></dt>
-<dt class="deftypefnx def-cmd-deftypefn" id="index-write-1"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href='#index-write-1'></a></span></dt>
+<dt class="deftypefn" id="index-write"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>)</code><a class="copiable-link" href="#index-write"></a></span></dt>
+<dt class="deftypefnx def-cmd-deftypefn" id="index-write-1"><span class="category-def">: </span><span><strong class="def-name">write</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">datain</var>, <var class="var">precision</var>)</code><a class="copiable-link" href="#index-write-1"></a></span></dt>
 <dd><p>Write data to a I2C or serial device object
  using optional precision for the data byte used for the data.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">dev</var> - connected i2c or serial device opened using device
 </p>
 <p><var class="var">datain</var> - data to write to device. Datasize should not exceed the constraints 

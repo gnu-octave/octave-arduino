@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/24_arduinoiogetBoardConfig/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoio.getBoardConfig"
 category: "Arduino I/O package"
@@ -70,15 +70,15 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002egetBoardConfig"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.getBoardConfig</strong> <code class="def-code-arguments">(<var class="var">boardname</var>)</code><a class="copiable-link" href='#index-arduinoio_002egetBoardConfig'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002egetBoardConfig"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.getBoardConfig</strong> <code class="def-code-arguments">(<var class="var">boardname</var>)</code><a class="copiable-link" href="#index-arduinoio_002egetBoardConfig"></a></span></dt>
 <dd><p>Return the configuration for a known arduino board type
 </p>
 <p>Function is used to get the expected pin/board configuration for a named board type
  which is used to verify and identify the functionality of the board.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">boardname</var> - name of board to get configuration of ie: &quot;uno&quot;
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> configuration struct.
  </p></dd></dl>

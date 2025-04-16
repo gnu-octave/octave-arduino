@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/18_arduinoioFilePath/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - arduinoio.FilePath"
 category: "Arduino I/O package"
@@ -70,12 +70,12 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-arduinoio_002eFilePath"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.FilePath</strong> <code class="def-code-arguments">(<var class="var">fullpathname</var>)</code><a class="copiable-link" href='#index-arduinoio_002eFilePath'></a></span></dt>
+<dt class="deftypefn" id="index-arduinoio_002eFilePath"><span class="category-def">: </span><span><code class="def-type"><var class="var">retval</var> =</code> <strong class="def-name">arduinoio.FilePath</strong> <code class="def-code-arguments">(<var class="var">fullpathname</var>)</code><a class="copiable-link" href="#index-arduinoio_002eFilePath"></a></span></dt>
 <dd><p>Get the directory component of a pathname.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">fullpathname</var> filepath to get directory component of.
 </p>
-<h4 class="subsubheading" id="Outputs">Outputs</h4>
+<h4 class="subsubheading" id="Outputs"><span>Outputs<a class="copiable-link" href="#Outputs"></a></span></h4>
 <p><var class="var">retval</var> the directory part of the filename. 
  </p></dd></dl>

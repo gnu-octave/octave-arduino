@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@arduino/24_arduinowriteDigitalPin/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @arduino/writeDigitalPin"
 category: "Arduino Functions"
@@ -70,10 +70,10 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-writeDigitalPin"><span class="category-def">: </span><span><strong class="def-name">writeDigitalPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href='#index-writeDigitalPin'></a></span></dt>
+<dt class="deftypefn" id="index-writeDigitalPin"><span class="category-def">: </span><span><strong class="def-name">writeDigitalPin</strong> <code class="def-code-arguments">(<var class="var">ar</var>, <var class="var">pin</var>, <var class="var">value</var>)</code><a class="copiable-link" href="#index-writeDigitalPin"></a></span></dt>
 <dd><p>Write digital value to a digital I/O pin.
 </p>
-<h4 class="subsubheading" id="Inputs">Inputs</h4>
+<h4 class="subsubheading" id="Inputs"><span>Inputs<a class="copiable-link" href="#Inputs"></a></span></h4>
 <p><var class="var">ar</var> - connected arduino object.
 </p>
 <p><var class="var">pin</var> - string name of the pin to write to.
@@ -82,7 +82,7 @@ navigation:
 </p>
 <p>If pin was unconfigured before using, pin is set into digital mode.
 </p>
-<h4 class="subsubheading" id="Example">Example</h4>
+<h4 class="subsubheading" id="Example"><span>Example<a class="copiable-link" href="#Example"></a></span></h4>
 <div class="example">
 <pre class="example-preformatted"> <code class="code">
  a = arduino();

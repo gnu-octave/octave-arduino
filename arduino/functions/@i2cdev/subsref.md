@@ -2,7 +2,7 @@
 layout: "default"
 permalink: "/functions/@i2cdev/15_i2cdevsubsref/"
 pkg_name: "arduino"
-pkg_version: "0.12.1"
+pkg_version: "0.12.2"
 pkg_description: "Basic Octave implementation of the matlab arduino extension,  allowing communication to a programmed arduino board to control its  hardware."
 title: "Arduino Toolkit - @i2cdev/subsref"
 category: "Arduino I2C Functions"
@@ -70,7 +70,7 @@ navigation:
   url: "/manual"
 ---
 <dl class="first-deftypefn">
-<dt class="deftypefn" id="index-subsref"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href='#index-subsref'></a></span></dt>
+<dt class="deftypefn" id="index-subsref"><span class="category-def">: </span><span><code class="def-type"><var class="var">val</var> =</code> <strong class="def-name">subsref</strong> <code class="def-code-arguments">(<var class="var">dev</var>, <var class="var">sub</var>)</code><a class="copiable-link" href="#index-subsref"></a></span></dt>
 <dd><p>subref for i2cdev
 </p>
 
