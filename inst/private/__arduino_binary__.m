@@ -67,7 +67,7 @@ function arduino_binary = find_arduino_binary ()
   # do we have a ARDUINO_HOME ?
   if isempty (arduino_binary)
     arduino_home = getenv("ARDUINO_HOME")
-    if ! isempty ("ARDUINO_HOME")
+    if ! isempty (arduino_home)
       n=0;
       while (n < numel (binaries) && isempty (arduino_binary))
         arduino_binary = file_in_path (arduino_home, binaries{++n});
