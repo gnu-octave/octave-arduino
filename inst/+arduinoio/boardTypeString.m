@@ -74,6 +74,8 @@ function retval = boardTypeString (id)
     case 112
       retval = "uno_wifi_r4";
     case 113
+      retval = "nano_r4";
+    case 114
       retval = "uno_minima_r4";
     otherwise
       retval = "unknown";

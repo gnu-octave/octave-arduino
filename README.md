@@ -90,6 +90,8 @@ Currently the toolkit recognizes these boards:
 
 * nano esp32
 
+* nano r4
+
 * promini
 
 * promicro

@@ -108,8 +108,11 @@
   #define BOARD_VOLTAGE 33
 #elif defined(ARDUINO_UNOR4_WIFI)
   #define BOARD_ID  112
-#elif defined(ARDUINO_UNOR4_MINIMA)
+#elif defined(ARDUINO_NANO_R4)
   #define BOARD_ID  113
+  #define NUM_TOTAL_PINS 26
+#elif defined(ARDUINO_UNOR4_MINIMA)
+  #define BOARD_ID  114
 #else
   #error "Unknown board type"
 #endif
