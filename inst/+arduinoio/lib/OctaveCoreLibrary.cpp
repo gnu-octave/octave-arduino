@@ -86,6 +86,9 @@
 #elif defined(ARDUINO_ARDUINO_NANO33BLE)
   #define BOARD_ID 60
   #define NUM_TOTAL_PINS 34
+#elif defined(ARDUINO_MATTER)
+  #define BOARD_ID 65
+  #define NUM_TOTAL_PINS 22+3
 #elif defined(ARDUINO_RASPBERRY_PI_PICO)
   #define BOARD_ID 100
   #ifndef ARDUINO_ARCH_MBED
@@ -183,6 +186,12 @@ void
 reset ()
 {
   ESP.restart ();
+}
+#elif defined (ARDUINO_ARCH_SILABS)
+void
+reset ()
+{
+  NVIC_SystemReset ();
 }
 #else
   #error("Unimplemented architecture for reset")

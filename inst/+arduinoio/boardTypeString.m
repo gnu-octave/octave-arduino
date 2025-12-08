@@ -61,6 +61,8 @@ function retval = boardTypeString (id)
       retval = "mkr1000";
     case 60
       retval = "nano_33_ble";
+    case 65
+      retval = "nano_matter";
     case 100
       retval = "raspi_pico";
     case 101
