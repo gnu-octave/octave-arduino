@@ -38,6 +38,13 @@
 # endif
 #endif
 
+#if defined(ARDUINO_NANO_R4)
+# ifndef SERIAL_PORT_HARDWARE_OPEN
+#  define SERIAL_PORT_HARDWARE_OPEN Serial
+#  define SERIAL_PORT_HARDWARE_OPEN1 Serial1
+# endif
+#endif
+
 #ifndef SERIAL_PORT_HARDWARE_OPEN
   #error "This device does not support the serial octave serial interface"
 #endif

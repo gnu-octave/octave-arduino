@@ -13,3 +13,4 @@ SystemRequirements: arduino-ide (>= 1.5)
 License: GPLv3+
 Url: https://gnu-octave.github.io/octave-arduino/
 Repository: https://github.com/gnu-octave/octave-arduino/
+Tracker: https://github.com/gnu-octave/octave-arduino/issues
