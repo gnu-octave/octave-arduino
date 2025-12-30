@@ -340,7 +340,7 @@ classdef mpu6050 < handle
     endfunction
 
     function [readVal, timestamp] = readAcceleration (this)
-      data = this.readRegister(this.MPU6050_RA_ACCEL_XOUT_H, 6);
+      data = this.readRegister(this.MPU6050_REG_ACCEL_XOUT_H, 6);
       timestamp = time();
       x = typecast(uint16(data(1))*256 + uint16(data(2)), 'int16');
       y = typecast(uint16(data(3))*256 + uint16(data(4)), 'int16');
@@ -360,7 +360,7 @@ classdef mpu6050 < handle
     endfunction
 
     function varargout = read(this)
-      data = readData(this);
+      #data = readData(this);
 
       timestamp = time();
       accel = this.readAcceleration();
