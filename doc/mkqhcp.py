@@ -1,9 +1,9 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 ## mkqhcp.py
-## Version 1.0.4
+## Version 1.0.6
 
-## Copyright 2022-2023 John Donoghue
+## Copyright 2022-2025 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -60,17 +60,20 @@ def process(name):
 
   h3_match = re.compile(r'.*<h3 class="section"[^>]*>(?P<title>[^<]+)</h3>.*')
   h4_match = re.compile(r'.*<h4 class="subsection"[^>]*>(?P<title>[^<]+)</h4>.*')
+  h5_match = re.compile(r'.*<h4 class="subsubsection"[^>]*>(?P<title>[^<]+)</h4>.*')
   tag_match1 = re.compile(r'.*<span id="(?P<tag>[^"]+)"[^>]*></span>.*')
   #tag_match2 = re.compile(r'.*<div class="[sub]*section" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match2 = re.compile(r'.*<div class="[sub]*section[^"]*" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match3 = re.compile(r'.*<div class="chapter-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match4 = re.compile(r'.*<div class="appendix-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
   tag_match5 = re.compile(r'.*<div class="unnumbered-level-extent" id="(?P<tag>[^"]+)"[^>]*>.*')
-  index_match = re.compile(r'.*<h4 class="subsection"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
+  index_match = re.compile(r'.*<h4 class="[sub]+section"[^>]*>[\d\.\s]*(?P<name>[^<]+)</h4>.*')
+  index_match2 = re.compile(r'.*<h4 class="[sub]+section"[^>]*><span>[\d\.\s]*(?P<name>[^<]+)<.*')
 
   tag = "top"
   has_h2 = False 
   has_h3 = False 
+  has_h4 = False 
 
   #pat_match = re.compile(r'.*<span id="(?P<tag>[^"])"></span>(?P<title>[.]+)$')
   with open(name + ".html", 'rt') as fin:
@@ -103,6 +106,9 @@ def process(name):
           if not e:
               e = h2i_match.match(line)
           if e:
+              if has_h4:
+                  f.write('            </section>\n')
+                  has_h4 = False
               if has_h3:
                   f.write('          </section>\n')
                   has_h3 = False
@@ -113,6 +119,9 @@ def process(name):
 
           e = h3_match.match(line)
           if e:
+              if has_h4:
+                  f.write('            </section>\n')
+                  has_h4 = False
               if has_h3:
                   f.write('          </section>\n')
               has_h3 = True
@@ -121,9 +130,20 @@ def process(name):
 
           e = h4_match.match(line)
           if e:
-              f.write('            <section title="{}" ref="{}.html#{}"></section>\n'.format(e.group("title"), name, tag))
+              if has_h4:
+                  f.write('            </section>\n')
+              has_h4 = True
+
+              #f.write('              <section title="{}" ref="{}.html#{}"></section>\n'.format(e.group("title"), name, tag))
+              f.write('              <section title="{}" ref="{}.html#{}">\n'.format(e.group("title"), name, tag))
+
+          e = h5_match.match(line)
+          if e:
+              f.write('                <section title="{}" ref="{}.html#{}"></section>\n'.format(e.group("title"), name, tag))
 
 
+      if has_h4:
+        f.write('            </section>\n')
       if has_h3:
         f.write('          </section>\n')
       if has_h2:
@@ -139,10 +159,14 @@ def process(name):
           e = tag_match1.match(line)
           if not e:
               e = tag_match2.match(line)
+
           if e:
               tag = e.group("tag")
 
+
           e = index_match.match(line)
+          if not e:
+              e = index_match2.match(line)
           if e:
               f.write('      <keyword name="{}" ref="{}.html#{}"></keyword>\n'.format(e.group("name"), name, tag))
 

@@ -1,6 +1,6 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
-## Copyright 2018-2024 John Donoghue
+## Copyright 2018-2025 John Donoghue
 ##
 ## This program is free software: you can redistribute it and/or modify it
 ## under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
 ## along with this program.  If not, see
 ## <https://www.gnu.org/licenses/>.
 
-## mkfuncdocs v1.0.8
+## mkfuncdocs v1.0.9
 ## mkfuncdocs.py will attempt to extract the help texts from functions in src
 ## dirs, extracting only those that are in the specifed INDEX file and output them
 ## to stdout in texi format
@@ -27,6 +27,9 @@
 ## It attempts to find the help text for each function in a file within the src search
 ## folders that match in order: [ functionname.m functionname.cc functionname.cpp
 ## functionname_withoutprefix.cc functionname_withoutprefix.cpp ]
+##
+## The INDEX file can contain additional subgroups in the form of:
+## #! Subgroup Name
 ##
 ## Usage:
 ##   mkfundocs.py options INDEXfile
@@ -54,14 +57,53 @@ import glob
 import calendar;
 import time;
 
+class SubGroup:
+  name = ""
+  functions = []
+
+  def __init__ (self, name):
+    if name:
+        self.name = name
+    self.functions = []
+ 
 class Group:
   name = "Functions"
   functions = []
+  subgroups = []
 
   def __init__ (self, name=""):
     if name:
         self.name = name
     self.functions = []
+    self.subgroups = []
+
+  def add_function(self, f):
+    if len(self.subgroups) == 0:
+      self.functions.append(f);
+    else:
+      functions = self.subgroups[-1].functions
+      functions.append(f)
+      self.subgroups[-1].functions = functions
+
+  def add_subgroup(self, f):
+    self.subgroups.append(SubGroup(f))
+
+  def isempty(self):
+    if len(self.functions):
+      return False
+    for sg in self.subgroups:
+      if len(sg.functions):
+        return False
+    return True
+
+  def dump(self):
+    print(f"Group {self.name}")
+    for f in self.functions:
+      print(f" {f}")
+    for sg in self.subgroups:
+      print(f" *{sg.name}")
+      for f in sg.functions:
+        print(f"   {f}")
 
 class Index:
   name = ""
@@ -201,7 +243,10 @@ def read_index (filename, ignore):
   first = True
   category = Group()
   for l in lines:
-    if l.startswith("#"):
+    if l.startswith("#!"):
+        l = l[2:].strip()
+        category.add_subgroup(l)
+    elif l.startswith("#"):
       pass
     elif first:
       index.name = l;
@@ -212,15 +257,15 @@ def read_index (filename, ignore):
         funcs = l.split()
         for f in funcs:
           if f not in ignore:
-            category.functions.append(f);
+            category.add_function(l)
     else:
       # new category name
-      if len(category.functions) > 0:
+      if not category.isempty():
         index.groups.append(category)
       category = Group(l.strip())
 
   # left over category ?
-  if len(category.functions) > 0:
+  if not category.isempty():
     index.groups.append(category)
 
   return index;
@@ -309,12 +354,68 @@ def display_standalone_header():
 def display_standalone_footer():
   print("@bye")
 
-def display_func(name, ref, help):
+def display_func(name, ref, help, is_subgroup):
   print ("@c -----------------------------------------")
-  print ("@subsection {}".format(name))
+  if is_subgroup:
+    print ("@subsubsection {}".format(name))
+  else:
+    print ("@subsection {}".format(name))
   print ("@cindex {}".format(ref))
   for l in help:
     print ("{}".format(l))
+
+def process_function_help(g_name, f, options, is_subgroup=False):
+  if True:
+      print ("@c {} {}".format(g_name, f))
+      h = ""
+      filename = ""
+      path = ""
+      if "@" in f:
+        #print ("class func")
+        path = f
+        name = "@" + f
+        ref = f.split("/")[-1]
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+      elif "." in f:
+        path = f
+        ref = f.split(".")[-1]
+        name = f.split(".")[-1]
+        filename, lineno = find_class_file(path, options["srcdir"])
+
+        if not filename:
+          parts = f.split('.')
+          cnt  = 0
+          path = ""
+          for p in parts:
+            if cnt < len(parts)-1:
+              path = path + "/+"
+            else:
+              path = path + "/"
+            path = path + p
+            cnt = cnt + 1
+          name = f;
+          ref = parts[-1]
+          filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+
+      elif "/" in f:
+        path = f
+        name = f
+        ref = f.split("/")[-1]
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+      else:
+        path = f
+        name = f
+        ref = f
+        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"], options['allowscan'])
+
+      if not filename:
+        sys.stderr.write("Warning: Cant find source file for {}\n".format(f))
+      else:
+        h = read_help (filename, lineno)
+
+      if h:
+        display_func (name, ref, h, is_subgroup)
+
 
 def process (args):
   options = { 
@@ -376,55 +477,17 @@ def process (args):
     print ("@cindex {}".format(g_name))
 
     for f in sorted(g.functions):
-      print ("@c {} {}".format(g_name, f))
-      h = ""
-      filename = ""
-      path = ""
-      if "@" in f:
-        #print ("class func")
-        path = f
-        name = "@" + f
-        ref = f.split("/")[-1]
-        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
-      elif "." in f:
-        path = f
-        ref = f.split(".")[-1]
-        name = f.split(".")[-1]
-        filename, lineno = find_class_file(path, options["srcdir"])
+      process_function_help(g_name, f, options)
 
-        if not filename:
-          parts = f.split('.')
-          cnt  = 0
-          path = ""
-          for p in parts:
-            if cnt < len(parts)-1:
-              path = path + "/+"
-            else:
-              path = path + "/"
-            path = path + p
-            cnt = cnt + 1
-          name = f;
-          ref = parts[-1]
-          filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
+    for sg in g.subgroups:
+      sg_name = texify_line(sg.name)
+      print ("@c ---------------------------------------------------")
+      print ("@node {}".format(g_name + " - " + sg_name))
+      print ("@subsection {}".format(sg_name))
+      print ("@cindex {}".format(g_name + " - " + sg_name))
 
-      elif "/" in f:
-        path = f
-        name = f
-        ref = f.split("/")[-1]
-        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"])
-      else:
-        path = f
-        name = f
-        ref = f
-        filename, lineno = find_func_file(path, options["srcdir"], options["funcprefix"], options['allowscan'])
-
-      if not filename:
-        sys.stderr.write("Warning: Cant find source file for {}\n".format(f))
-      else:
-        h = read_help (filename, lineno)
-
-      if h:
-        display_func (name, ref, h)
+      for f in sorted(sg.functions):
+        process_function_help(g_name + sg_name, f, options, True)
 
   if options['standalone']:
       display_standalone_footer()
