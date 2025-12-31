@@ -21,6 +21,9 @@ layout: "default"
 	{%- if page.repository -%}
 	<tr><td>Repository:</td><td><a href="{{ page.repository }}">{{ page.repository }}</a></td></tr>
 	{%- endif -%}
+        {%- if page.issues -%}
+        <tr><td>Issues/Bugs:</td><td><a href="{{ page.issues }}">{{ page.issues }}</a></td></tr>
+        {%- endif -%}
        </table>
       </div>
      </div>

@@ -6,10 +6,20 @@ layout: "default"
 <p>The following functions are available:</p>
 {%- for cat in page.categories -%}
   <a id="{{cat.id}}"><h2>{{ cat.description }}</h2></a>
+  <!-- non subgroup functions -->
   <table class="function-list table table-striped table-bordered">
    {%- for fun in cat.functions -%}
    <tr><td><a href="{{site.url}}{{fun.url}}">{{fun.name}}</a></td><td>{{fun.description}}</td></tr>
    {%- endfor -%}
   </table>
+  <!-- grouped functions -->
+  {%- for grp in cat.groups -%}
+    <a id="{{grp.id}}"><h3>{{ grp.description }}</h3></a>
+    <table class="function-list table table-striped table-bordered">
+     {%- for fun in grp.functions -%}
+     <tr><td><a href="{{site.url}}{{fun.url}}">{{fun.name}}</a></td><td>{{fun.description}}</td></tr>
+     {%- endfor -%}
+    </table>
+  {%- endfor -%}
 {%- endfor -%}
 </div>

@@ -22,6 +22,7 @@ title: Octave Arduino Toolkit
 email: "John Donoghue <john.donoghue@ieee.org>"
 author: "John Donoghue <john.donoghue@ieee.org>"
 logo: "/assets/octave-arduino.png"
+pkg: arduino
 description: >- # this means to ignore newlines until "baseurl:"
   Arduino Toolkit for GNU Octave
 baseurl: "" # the subpath of your site, e.g. /blog
