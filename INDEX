@@ -5,44 +5,49 @@ General Functions
   listArduinoLibraries
   scanForArduinos
 Arduino Functions
-  @arduino/checkI2CAddress
+#! Read and Write Data
   @arduino/configurePin
-  @arduino/configurePinResource
-  @arduino/decrementResourceCount
-  @arduino/delete
-  @arduino/disp
-  @arduino/getEndian
-  @arduino/getI2CTerminals
-  @arduino/getInterruptTerminals
-  @arduino/getLEDTerminals
-  @arduino/getMCU
-  @arduino/getPWMTerminals
-  @arduino/getPinAlias
-  @arduino/getPinInfo
-  @arduino/getPinsFromTerminals
-  @arduino/getResourceCount
-  @arduino/getResourceOwner
-  @arduino/getSPITerminals
-  @arduino/getServoTerminals
-  @arduino/getSharedResourceProperty
-  @arduino/getTerminalMode
-  @arduino/getTerminalsFromPins
-  @arduino/incrementResourceCount
-  @arduino/isTerminalAnalog
-  @arduino/isTerminalDigital
   @arduino/playTone
   @arduino/readAnalogPin
   @arduino/readDigitalPin
   @arduino/readVoltage
-  @arduino/reset
-  @arduino/sendCommand
-  @arduino/setSharedResourceProperty
-  @arduino/uptime
   @arduino/validatePin
-  @arduino/version
   @arduino/writeDigitalPin
   @arduino/writePWMDutyCycle
   @arduino/writePWMVoltage
+#! Terminal Functions
+  @arduino/getI2CTerminals
+  @arduino/getInterruptTerminals
+  @arduino/getLEDTerminals
+  @arduino/getPWMTerminals
+  @arduino/getPinInfo
+  @arduino/getPinsFromTerminals
+  @arduino/getTerminalMode
+  @arduino/getTerminalsFromPins
+  @arduino/isTerminalAnalog
+  @arduino/isTerminalDigital
+  @arduino/getSPITerminals
+  @arduino/getServoTerminals
+#! General Functions
+  @arduino/reset
+  @arduino/uptime
+  @arduino/getEndian
+  @arduino/sendCommand
+  @arduino/getMCU
+  @arduino/getPinAlias
+  @arduino/version
+  @arduino/checkI2CAddress
+#! Resource Functions
+  @arduino/getResourceCount
+  @arduino/getResourceOwner
+  @arduino/configurePinResource
+  @arduino/decrementResourceCount
+  @arduino/getSharedResourceProperty
+  @arduino/incrementResourceCount
+  @arduino/setSharedResourceProperty
+#! Arduino creation
+  @arduino/delete
+  @arduino/disp
   @arduino/arduino
 Arduino I2C Functions
   scanI2Cbus
