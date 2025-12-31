@@ -1,7 +1,19 @@
+Summary of important user-visible changes for arduino 0.12.3:
+-------------------------------------------------------------------
+
+  ** New Board Configurations:
+    - Arduino Nano R4
+
+  ** Bug fixes to mpu6050
+
+  ** Minor Octave compatibility fixes
+
+  ** Minor doc updates
+
 Summary of important user-visible changes for arduino 0.12.2:
 -------------------------------------------------------------------
 
-  ** Added priortization of ports when scanning for arduinos.
+  ** Added prioritization of ports when scanning for arduinos.
 
   ** Updated search for arduino binary for ARDUINO_HOME env settings, and arduino-ide
 
