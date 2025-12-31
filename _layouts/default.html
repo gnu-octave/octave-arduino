@@ -132,9 +132,9 @@
                       {%- if nav.subitems -%}
                         {%- for it in nav.subitems -%}
                           {% if it.url %}
-                          <li class="list-group-item p-1"><a href="{{site.url}}{{it.url}}">{{it.name}}</a></li>
+                          <li class="list-group-item p-1 bg-navbar"><a href="{{site.url}}{{it.url}}">{{it.name}}</a></li>
                           {% else %}
-			  <li class="list-group-item p-1"><b>{{it.name}}</b></li>
+			  <li class="list-group-item p-1 bg-navbar"><b>{{it.name}}</b></li>
                           {%- endif -%}
                         {%- endfor -%}
                       {%- endif -%}
@@ -143,9 +143,9 @@
                     {%- endif -%}
                   {%- endfor -%}
                 {%- else -%}
-	          <li class="list-group-item py-1"><a href="{{site.url}}/index">Overview</a></li>
-	          <li class="list-group-item py-1"><a href="{{site.url}}/functions">Function Reference</a></li>
-                  <li class="list-group-item py-1"><a href="{{site.url}}/news">News</a></li>
+	          <li class="list-group-item py-1 bg-navbar"><a href="{{site.url}}/index">Overview</a></li>
+	          <li class="list-group-item py-1 bg-navbar"><a href="{{site.url}}/functions">Function Reference</a></li>
+                  <li class="list-group-item py-1 bg-navbar"><a href="{{site.url}}/news">News</a></li>
                 {%- endif -%}
               </ul>
 	      </div>
