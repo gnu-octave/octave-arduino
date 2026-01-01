@@ -1,10 +1,8 @@
-<center>Octave Arduino Toolkit</center>
-----------------------
-
----
+Octave Arduino Toolkit
+======================
 
 Introduction
-============
+------------
 
 This is a basic implementation of the Matlab toolkit extension.
 
@@ -13,18 +11,22 @@ it is not binary compatible with matlab. (ie: you must program the arduino with 
 octave arduino toolkit).
 
 Requirements
-============
+------------
 
-The arduino toolkit requires the [Arduino IDE](https://www.arduino.cc/en/software) for programming the arduino board, 
-and the [instrument-control toolkit](https://octave.sourceforge.io/instrument-control/index.html) to communicate to 
+The arduino toolkit requires:
+
+* Octave version 4.0 or higher 
+* The [Arduino IDE](https://www.arduino.cc/en/software) for programming the arduino board
+* The [instrument-control toolkit](https://gnu-octave.github.io/instrument-control//index) to communicate to 
 the board.
 
+
 Installing
-==========
+----------
 
 To install, run the octave package manager:
 
-1. To install from source forge:
+1. To install from source forge/package index:
 
     `pkg install -forge arduino`
 
@@ -34,8 +36,8 @@ To install, run the octave package manager:
 
     Where XXXXXXX is the version of the the downloaded tarball.
 
-Usage:
-======
+Usage
+-----
 
 1. Load the arduino package.
    
@@ -60,7 +62,7 @@ Usage:
    See the function list and examples directories.
 
 Expanding the known board types
-===============================
+-------------------------------
 
 Currently the toolkit recognizes these boards:
 
@@ -116,19 +118,19 @@ To add an additional board:
 
 2. The arduinoio.boardTypeString function must return the board name when provided the id.
 
-3. A config_<boardname>.m file must be present as arduinoio.config.config_<boardname>, which
+3. A `config_<boardname>.m` file must be present as `arduinoio.config.config_<boardname>.m`, which
    describes the pin functionality for the board.
 
 A Matlab script in available in arduino toolkit sources that to create 90% of the config file based
 on the arduino_pins header file from the arduino ide.
 
 Adding additional addon libraries
-=================================
+---------------------------------
 
 Addon libraries can be created using a similar interface as the Matlab toolkit, or use existing Matlab code with minor changes.
 
 Known limitations and bugs
-==========================
+--------------------------
 
 1. Octave does not document classdef files, so documentation for the arduino class and arduinoio.LibraryBase is
    not created in the function reference, however is in the reference manual.
