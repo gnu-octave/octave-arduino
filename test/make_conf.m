@@ -24,7 +24,7 @@ function retval = make_conf (header_file)
 
   pins = {};
   ispwm = {};
-  isalong = {};
+  isanalog = {};
   num_digital_pins = 0;
   num_analog_pins = 0;
 
@@ -128,20 +128,22 @@ function retval = make_conf (header_file)
   #num_digital_pins
   #num_analog_pins
 
-  # fill in any missing digitals
+  # fill in any missing analog
   for i=0:num_analog_pins-1
     name = sprintf("A%d", i);
     idx = find (cellfun(@(x) (strcmpi(x.name,name)), pins), 1);
     if isempty(idx)
-      t = sprintf("%s=%i; id=(%s);", isanalog.var, i, isanalog.test);
-      eval(t);
-      if id >= 0
-        p = {};
-        p.id = id;
-        p.name = sprintf("A%d", i);
-        p.modes = { 'digital', 'analog' };
-        pins{end+1} = p;
-        idx = numel(pins);
+      if !isempty(isanalog)
+        t = sprintf("%s=%i; id=(%s);", isanalog.var, i, isanalog.test);
+        eval(t);
+        if id >= 0
+          p = {};
+          p.id = id;
+          p.name = sprintf("A%d", i);
+          p.modes = { 'digital', 'analog' };
+          pins{end+1} = p;
+          idx = numel(pins);
+        endif
       endif
     endif
   endfor
