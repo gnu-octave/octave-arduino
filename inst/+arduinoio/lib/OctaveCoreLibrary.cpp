@@ -66,7 +66,7 @@
   #define BOARD_ID  22
 #elif defined(ARDUINO_AVR_MICRO)
   #define BOARD_ID  23
-#elif defined(ARDUINO_SAMD_ZERO)
+#elif defined(ARDUINO_SAMD_ZERO) && !defined(ARDUINO_SEEED_XIAO_M0)
   // sparkfun samed21 dev/mini
   #if USB_VID == 0x1B4F && USB_PID == 0x8D21
     #define BOARD_ID 41
@@ -89,6 +89,8 @@
 #elif defined(ARDUINO_MATTER)
   #define BOARD_ID 65
   #define NUM_TOTAL_PINS 22+3
+#elif defined(ARDUINO_SEEED_XIAO_M0)
+  #define BOARD_ID 80
 #elif defined(ARDUINO_RASPBERRY_PI_PICO)
   #define BOARD_ID 100
   #ifndef ARDUINO_ARCH_MBED
