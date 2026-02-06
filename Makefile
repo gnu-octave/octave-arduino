@@ -26,6 +26,8 @@ TR ?= tr
 ifeq ($(strip $(QHELPGENERATOR)),)
   ifneq ($(shell qhelpgenerator-qt5 -v 2>/dev/null),)
     QHELPGENERATOR = qhelpgenerator-qt5
+  else ifneq ($(shell /usr/lib64/qt6/libexec/qhelpgenerator -v 2>/dev/null),)
+    QHELPGENERATOR = /usr/lib64/qt6/libexec/qhelpgenerator
   #else ifneq ($(shell qhelpgenerator -qt5 -v 2>/dev/null),)
   #  v4 wont process collection files, but returns ok status on version
   #  QHELPGENERATOR = qhelpgenerator -qt5
