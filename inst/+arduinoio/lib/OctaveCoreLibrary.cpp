@@ -91,6 +91,8 @@
   #define NUM_TOTAL_PINS 22+3
 #elif defined(ARDUINO_SEEED_XIAO_M0)
   #define BOARD_ID 80
+#elif defined(ARDUINO_RASPBERRY_PI_PICO_2)
+  #define BOARD_ID 99
 #elif defined(ARDUINO_RASPBERRY_PI_PICO)
   #define BOARD_ID 100
   #ifndef ARDUINO_ARCH_MBED
@@ -177,6 +179,14 @@ void
 reset ()
 { 
   wdt_enable (WDTO_1S);
+  while(1) {}
+}
+#elif defined (ARDUINO_RASPBERRY_PI_PICO_2)
+#include <hardware/watchdog.h>
+void
+reset ()
+{
+  watchdog_enable(1000, true);
   while(1) {}
 }
 #elif defined (ARDUINO_ARCH_SAMD) || defined (ARDUINO_ARCH_NRF52840) || defined (ARDUINO_ARCH_SAM) || defined (ARDUINO_ARCH_RP2040) || defined(ARDUINO_ARCH_RENESAS)
