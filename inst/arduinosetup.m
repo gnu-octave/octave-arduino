@@ -80,7 +80,7 @@ function retval = arduinosetup (varargin)
       baudrate = int32(propvalue);
     elseif strcmp (propname, "debug")
       debug = propvalue;
-    elseif
+    else
       warning ("arduinosetup: unknown property '%s', ignoring it", propname);
     endif
   endfor
